@@ -70,11 +70,13 @@
 
 <Control f="nodata">
   <Site f="noscroll">
+    Control
     <New_Site_Name    f="notnull"/>
     <Year_of_Campaign f="notnull" b="decimal"/>
     <GPS_Diagnostics t="gpsdiag"/>
-    <Create_New_Site         t="button" l="Site"/>
-    <Choose_an_Existing_Site t="list"   e="Site"/>
+    <New_Square         t="button" l="Trench"/>
+    <New_Dairy        t="button" l="Dairy"/>
+    <Choose_an_Existing_Site t="list"   e="Trench"/>
   </Site>
   <Next_IDs>
     <autonum/>
@@ -146,12 +148,6 @@
     <Trench_Dimensions>
       <!--@SOURCE: vocabs/trench-dimensions.xml-->
     </Trench_Dimensions>
-    <Trench_Site_Name f="id readonly" i="Site/Site/Site_Site_Name">
-      Site Name
-      <str>
-        <pos>1</pos>
-      </str>
-    </Trench_Site_Name>
     <Grid_SW_Corner_Coordinates t="webview"/>
     <gps/>
     <X_Coordinate b="decimal"/>
@@ -277,7 +273,7 @@
   <desc>The physical result of any single action whether it leaves a positive or negative record within the stratigraphic sequence. (MoLAS 1994)</desc>
   <General>
     <cols>
-      <author>
+      <author/>
         <Area i="Trench/Trench/Area">
           <str>
             <pos>1</pos>
@@ -378,7 +374,7 @@
     </cols>
     <Locus_Type f="id">
       <desc>Describe the locus type by selecting an icon as defined below.
-  When you have selected a locus type you can proceed to open the "Fill in locus type details" page. Note this page will not open unless you have selected a locus type.</desc>
+        When you have selected a locus type you can proceed to open the "Fill in locus type details" page. Note this page will not open unless you have selected a locus type.</desc>
       <str>
         <pos>3</pos>
         <fmt>-$1</fmt>
@@ -471,9 +467,12 @@
         <opt>No Observation</opt>
         <opt>Indeterminate</opt>
         <opt>Animal/Plant hole</opt>
-        <opt>Stakehole</opt>
-        <opt>Posthole</opt>
-        <opt>Pit</opt>
+        <opt>
+          Pit
+          <opt>Stone-lined</opt>
+          <opt>Plastered</opt>
+          <opt>No Lining</opt>
+        </opt>
         <opt>Hearth/Fire pit</opt>
         <opt>Other
           <desc>Function not elsewhere described. Provide details in Annotation field.</desc>
@@ -579,32 +578,39 @@
     <Truncation/>
   </Cut>
   <Construction>
-    <Description/>
+    Architecture
+    <Architecture_Type>
+      <opts>
+        <opt>No Observation</opt>
+        <opt>Robber Trench</opt>
+        <opt>Foundation Trench</opt>
+        <opt>Wall</opt>
+        <opt>Pit</opt>
+        <opt>Burial</opt>
+        <opt>Hearth</opt>
+        <opt>Kiln</opt>
+        <opt>Installation</opt>
+        <opt>Other</opt>
+      </opts>
+    </Architecture_Type>
+    <Your_Description/>
+    <Your_Interpretation/>
     <Discussion/>
-    <Length       b="decimal"/>
-    <Width        b="decimal"/>
+    <Length       b="decimal">
+      Length (m)
+    </Length>
+    <Width        b="decimal">
+      Width (m)
+    </Width>
     <cols>
-      <col>
-        <NW_Top_Depth b="decimal"/>
-        <SW_Top_Depth b="decimal"/>
-        <Center_Top_Depth b="decimal"/>
-      </col>
-      <col>
-        <NE_Top_Depth b="decimal"/>
-        <SE_Top_Depth b="decimal"/>
-      </col>
+      <Top_Depth  b="decimal">
+        Top Depth (m)
+      </Top_Depth>
+      <Bottom_Depth b="decimal">
+        Bottom Depth (m)
+      </Bottom_Depth>
     </cols>
-    <cols>
-      <col>
-        <NW_Bottom_Depth b="decimal"/>
-        <SW_Bottom_Depth b="decimal"/>
-        <Center_Bottom_Depth b="decimal"/>
-      </col>
-      <col>
-        <NE_Bottom_Depth b="decimal"/>
-        <SE_Bottom_Depth b="decimal"/>
-      </col>
-    </cols>
+
     <Mid_X        b="decimal"/>
     <Mid_Y        b="decimal"/>
     <Sorting      b="decimal"/>
@@ -613,30 +619,24 @@
     <Section_Numbers/>
   </Construction>
   <Deposit>
+    Fill
     <Deposit_Your_Interpretation f="notnull">
       Your Interpretation
       <desc>Your interpretation of the likely function of the locus.</desc>
       <opts>
         <opt>No Observation</opt>
-        <opt>Hangtu</opt>
         <opt>Indeterminate
         <desc>You are unable to make an assessment of possible function.</desc></opt>
-        <opt>Packing
-        <desc>Packing in a post hole for post material fulfilling a constructional purpose other than deliberate levelling deposits.</desc></opt>
         <opt>Makeup/Levelling
         <desc>Material laid down to level or raise an area for constructional purposes or other activities.</desc></opt>
         <opt>Dump
         <desc>Material probably dumped as a result of other activity e.g. material removed from cuts or other constructional or destructional activity.</desc></opt>
-        <opt>Midden
-        <desc>Distinct area of organic rubbish accumulation</desc></opt>
         <opt>Burial
         <desc>A fill or other deposit associated with a skeleton and forming part of a burial feature.</desc></opt>
         <opt>Structural Debris/Collapse
         <desc>Material derived from collapse of a wall, roof or other structure</desc></opt>
-        <opt>Partly naturally derived
+        <opt>Naturally derived
         <desc>A deposit partly or wholly accumulating through natural sedimentary processes, such as water or wind deposition.</desc></opt>
-        <opt>Wholly naturally derived
-        <desc>All of the deposit accumulating through the deposition of natural sediments through geomorphological processes eg wind borne sediments water-laid natural sediments material flaking from cave and rock shelter walls.</desc></opt>
         <opt>Erosional products
         <desc>Material deriving from the erosion of earlier archaeological sediments.</desc></opt>
         <opt>Artifact Cluster
@@ -733,38 +733,21 @@
     </Soil_Colour>
     <Add_Munsel_Color t="button" lc="Soil_Munsel_Color"/>
     <Munsel_Colors t="dropdown"  ec="Soil_Munsel_Color"/>
-    <cols>
-      <Composition_Type f="notnull">
-        Deposit Structure
-        <desc>Describe the structure of the Locus sediment. The components making up the structure are added below as aggregates.</desc>
-        <opts>
-          <opt>No Observation</opt>
-          <opt>Homogenous
-          <desc>Uniform throughout.</desc></opt>
-          <opt>Heterogeneous
-          <desc>Deposit with different mixed components which need to be described.</desc></opt>
-          <opt>Laminated
-          <desc>Laminated Deposit consists of lots of fine lenses of the same material. Compact laminated Deposit consists of a number of fine lenses of different materials.</desc></opt>
-          <opt>Compact Laminated
-          <desc>Deposit consists of a number of fine lenses of different materials</desc></opt>
-        </opts>
-      </Composition_Type>
-      <Deposit_Bedding f="notnull">
-        Bedding
-        <desc>Describes the base of the deposit</desc>
-        <opts>
-          <opt>No Observation</opt>
-          <opt>Horizontal
-          <desc>Horizontal.</desc></opt>
-          <opt>Oblique steep
-          <desc>Steep slope.</desc></opt>
-          <opt>Oblique shallow
-          <desc>Shallow slope.</desc></opt>
-          <opt>Uneven
-          <desc>Mix of horizontal, oblique and undulating - make sure you describe this</desc></opt>
-        </opts>
-      </Deposit_Bedding>
-    </cols>
+    <Deposit_Bedding>
+      Bedding
+      <desc>Describes the base of the deposit</desc>
+      <opts>
+        <opt>No Observation</opt>
+        <opt>Horizontal
+        <desc>Horizontal.</desc></opt>
+        <opt>Oblique steep
+        <desc>Steep slope.</desc></opt>
+        <opt>Oblique shallow
+        <desc>Shallow slope.</desc></opt>
+        <opt>Uneven
+        <desc>Mix of horizontal, oblique and undulating - make sure you describe this</desc></opt>
+      </opts>
+    </Deposit_Bedding>
     <cols>
       <Sterile t="radio">
         <desc>Whether or not the deposit is sterile, ie contains no artefacts</desc>
@@ -924,8 +907,13 @@
     </cols>
   </Relationships>
   <FCNs f="noscroll">
-    <Add_FCN              t="button" lc="FCN"/>
-    <List_of_Related_FCNs t="list"   ec="FCN"/>
+    Pottery Basket
+    <Add_FCN              t="button" lc="FCN">
+      Add Pottery Basket
+    </Add_FCN>
+    <List_of_Related_FCNs t="list"   ec="FCN">
+      Existing Pottery Baskets
+    </List_of_Related_FCNs>
   </FCNs>
   <Add>
     <Photo t="camera">
@@ -1483,92 +1471,51 @@
 
 <FCN>
   <General>
-    <FCN_ID f="id notnull autonum">
-      <str>
-        <pos>1</pos>
-        <fmt>FCN$0</fmt>
-      </str>
-    </FCN_ID>
-    <FCN_Site_Name f="id readonly" i="Locus/General/Locus_Site_Name Trench/Trench/Trench_Site_Name">
-      Site Name
-      <str>
-        <pos>2</pos>
-        <fmt>-$0</fmt>
-      </str>
-    </FCN_Site_Name>
-    <FCN_Trench_ID f="id readonly" i="Locus/General/Locus_Trench_ID Trench/Trench/Trench_Trench_ID">
-      Trench ID
-      <str>
-        <pos>4</pos>
-        <fmt>-$0</fmt>
-      </str>
-    </FCN_Trench_ID>
-    <Locus_ID f="readonly" i="Locus/General/Locus_Locus_ID">
-      Locus ID
-      <desc>Every archaeological locus (negative element (cut), deposit, structure, skeleton, artefact cluster) is given a unique 3 or 4 letter locus code. Each trench is designated with a separate letter which starts the code, so it is immediately obvious to which trench a locus belongs. For example locus HAA belongs to Trench H, locus MQP to Trench M etc.
-      The loci are labelled consecutively in alphabetical order using the letters following the trench letter. For Trench H the first locus would be HAA, the second HAB, the third HAB and so on. In addition sets of letters can denote parts of trenches, buildings etc. E.g. HFs might denote loci from a specific building.
-      Burial locus codes begin with the letter Z, followed by the trench letter. Hence burial ZHA is the first burial locus from trench H.
-      Check with the trench supervisor who will assign the locus code from the central register.</desc>
-    </Locus_ID>
+    <cols>
+      <Area i="Locus/General/Area">
+        <str>
+          <pos>1</pos>
+          <fmt>$0</fmt>
+        </str>
+      </Area>
+      <FCN_Trench_ID f="id readonly" i="Locus/General/Locus_Trench_ID Trench/Trench/Trench_Trench_ID">
+        Square ID
+        <str>
+          <pos>2</pos>
+          <fmt>-$0</fmt>
+        </str>
+      </FCN_Trench_ID>
+      <Subsquare i="Locus/General/Subsquare">
+        <str>
+          <pos>4</pos>
+          <fmt>$3</fmt>
+        </str>
+      </Subsquare>
+    </cols>
+    <cols>
+      <Locus_ID f="readonly" i="Locus/General/Locus_Locus_ID">
+        Locus ID
+        <desc>Every archaeological locus (negative element (cut), deposit, structure, skeleton, artefact cluster) is given a unique 3 or 4 letter locus code. Each trench is designated with a separate letter which starts the code, so it is immediately obvious to which trench a locus belongs. For example locus HAA belongs to Trench H, locus MQP to Trench M etc.
+        The loci are labelled consecutively in alphabetical order using the letters following the trench letter. For Trench H the first locus would be HAA, the second HAB, the third HAB and so on. In addition sets of letters can denote parts of trenches, buildings etc. E.g. HFs might denote loci from a specific building.
+        Burial locus codes begin with the letter Z, followed by the trench letter. Hence burial ZHA is the first burial locus from trench H.
+        Check with the trench supervisor who will assign the locus code from the central register.</desc>
+        <str>
+          <pos>4</pos>
+          <fmt>$0</fmt>
+        </str>
+      </Locus_ID>
+      <FCN_ID f="id notnull autonum">
+        Pottery Basket ID
+        <str>
+          <pos>5</pos>
+          <fmt>$0</fmt>
+        </str>
+      </FCN_ID>
+      <timestamp>
+        Date Collected
+      </timestamp>
+    </cols>
     <gps/>
-    <Collection_Method>
-      <opts>
-        <opt>Dog Leash</opt>
-        <opt>Field</opt>
-        <opt>Luoyang Spade</opt>
-        <opt>Surface survey</opt>
-        <opt>Excavation</opt>
-        <opt>Profile Sample</opt>
-        <opt>Other</opt>
-      </opts>
-    </Collection_Method>
-    <FCN_Class f="id">
-      <str>
-        <pos>5</pos>
-        <fmt>-$0</fmt>
-      </str>
-      <opts>
-        <opt>Sediment</opt>
-        <opt>Charcoal</opt>
-        <opt>Lithic
-          <opt>Lithic</opt>
-          <opt>Lithic Small Find</opt>
-        </opt>
-        <opt>Fired Earth
-          <opt>Fired Earth</opt>
-          <opt>Ceramic</opt>
-          <opt>Ceramic Small Find</opt>
-        </opt>
-        <opt>Bone
-          <opt>Human Bone</opt>
-          <opt>Bone</opt>
-          <opt>Bone Small Find</opt>
-        </opt>
-        <opt>Plaster</opt>
-        <opt>Other</opt>
-      </opts>
-    </FCN_Class>
-    <FCN_Quantity b="decimal"/>
-    <FCN_Weight_g b="decimal">
-      FCN Weight (g)
-    </FCN_Weight_g>
-    <Volume_Liters_Group t="group"/>
-    <Volume_Liters t="input" f="noui">
-      Volume (Liters)
-      <!--This will be added to the UI dynamically-->
-    </Volume_Liters>
-    <Washed t="radio">
-      <!--@SOURCE: vocabs/boolean.xml-->
-    </Washed>
-    <Weighted t="radio">
-      <!--@SOURCE: vocabs/boolean.xml-->
-    </Weighted>
-    <Analyzed t="radio">
-      <!--@SOURCE: vocabs/boolean.xml-->
-    </Analyzed>
-    <FCN_Group_Comment/>
-    <Attach_File t="file"/>
-    <View_Attached_Files t="viewfiles"/>
     <Attach_Photograph t="camera"/>
   </General>
   <Vars f="hidden">
