@@ -1,0 +1,250 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ValidationSchema>
+  <ArchaeologicalElement name="Site"/>
+  <ArchaeologicalElement name="Trench">
+    <property name="Excavation Method">
+      <validator type="blankchecker">
+        <param type="field" value="vocab"/>
+      </validator>
+    </property>
+  </ArchaeologicalElement>
+  <ArchaeologicalElement name="Locus">
+    <property name="Locus Site Name">
+      <validator type="blankchecker">
+        <param type="field" value="measure"/>
+      </validator>
+    </property>
+    <property name="Locus Locus ID">
+      <validator type="blankchecker">
+        <param type="field" value="measure"/>
+      </validator>
+    </property>
+    <property name="Excavation Method">
+      <validator type="blankchecker">
+        <param type="field" value="vocab"/>
+      </validator>
+    </property>
+    <property name="Absolute Height Top m">
+      <validator type="blankchecker">
+        <param type="field" value="measure"/>
+      </validator>
+    </property>
+    <property name="Absolute Height Bottom m">
+      <validator type="blankchecker">
+        <param type="field" value="measure"/>
+      </validator>
+    </property>
+    <property name="Measure Length">
+      <validator type="blankchecker">
+        <param type="field" value="measure"/>
+      </validator>
+    </property>
+    <property name="Measure Width">
+      <validator type="blankchecker">
+        <param type="field" value="measure"/>
+      </validator>
+    </property>
+    <property name="Measure Depth">
+      <validator type="blankchecker">
+        <param type="field" value="measure"/>
+      </validator>
+    </property>
+    <property name="Locus Volume Liters">
+      <validator type="blankchecker">
+        <param type="field" value="measure"/>
+      </validator>
+    </property>
+    <property name="Cut Your Interpretation">
+      <validator type="blankchecker">
+        <param type="field" value="vocab"/>
+      </validator>
+    </property>
+    <property name="Shape in Plan">
+      <validator type="blankchecker">
+        <param type="field" value="vocab"/>
+      </validator>
+    </property>
+    <property name="Shape of Corners">
+      <validator type="blankchecker">
+        <param type="field" value="vocab"/>
+      </validator>
+    </property>
+    <property name="Break of Slope - Top">
+      <validator type="blankchecker">
+        <param type="field" value="vocab"/>
+      </validator>
+    </property>
+    <property name="Break of Slope - Base">
+      <validator type="blankchecker">
+        <param type="field" value="vocab"/>
+      </validator>
+    </property>
+    <property name="Sides of Cut">
+      <validator type="blankchecker">
+        <param type="field" value="vocab"/>
+      </validator>
+    </property>
+    <property name="Shape of Base">
+      <validator type="blankchecker">
+        <param type="field" value="vocab"/>
+      </validator>
+    </property>
+    <property name="Orientation">
+      <validator type="blankchecker">
+        <param type="field" value="vocab"/>
+      </validator>
+    </property>
+    <property name="Orientation Degree">
+      <validator type="querychecker">
+        <query><![CDATA[select coalesce(?,'') between 0 and 90, 'Orientation Degree must be between 0.0 and 90.0']]></query>
+        <param type="field" value="measure" />
+      </validator>
+    </property>
+    <property name="Inclination of axis">
+      <validator type="blankchecker">
+        <param type="field" value="vocab"/>
+      </validator>
+    </property>
+    <property name="Deposit Your Interpretation">
+      <validator type="blankchecker">
+        <param type="field" value="vocab"/>
+      </validator>
+    </property>
+    <property name="Texture">
+      <validator type="blankchecker">
+        <param type="field" value="vocab"/>
+      </validator>
+    </property>
+    <property name="Material">
+      <validator type="blankchecker">
+        <param type="field" value="vocab"/>
+      </validator>
+    </property>
+    <property name="Composition Type">
+      <validator type="blankchecker">
+        <param type="field" value="vocab"/>
+      </validator>
+    </property>
+    <property name="Deposit Bedding">
+      <validator type="blankchecker">
+        <param type="field" value="vocab"/>
+      </validator>
+    </property>
+    <property name="Deposit Inclusions">
+      <validator type="blankchecker">
+        <param type="field" value="measure"/>
+      </validator>
+    </property>
+    <property name="Skeleton Head">
+      <validator type="blankchecker">
+        <param type="field" value="measure"/>
+      </validator>
+    </property>
+    <property name="Skeleton Body">
+      <validator type="blankchecker">
+        <param type="field" value="measure"/>
+      </validator>
+    </property>
+    <property name="Skeleton Left Arm">
+      <validator type="blankchecker">
+        <param type="field" value="measure"/>
+      </validator>
+    </property>
+    <property name="Skeleton Right Arm">
+      <validator type="blankchecker">
+        <param type="field" value="measure"/>
+      </validator>
+    </property>
+    <property name="Skeleton Left Leg">
+      <validator type="blankchecker">
+        <param type="field" value="measure"/>
+      </validator>
+    </property>
+    <property name="Skeleton Right Leg">
+      <validator type="blankchecker">
+        <param type="field" value="measure"/>
+      </validator>
+    </property>
+    <property name="Skeleton Condition">
+      <validator type="blankchecker">
+        <param type="field" value="measure"/>
+      </validator>
+    </property>
+    <property name="Target A X">
+      <validator type="blankchecker">
+        <param type="field" value="measure"/>
+      </validator>
+    </property>
+    <property name="Target A Y">
+      <validator type="blankchecker">
+        <param type="field" value="measure"/>
+      </validator>
+    </property>
+    <property name="Target A Z">
+      <validator type="blankchecker">
+        <param type="field" value="measure"/>
+      </validator>
+    </property>
+    <property name="Your description">
+      <validator type="blankchecker">
+        <param type="field" value="measure"/>
+      </validator>
+    </property>
+    <property name="Locus Your Discussion">
+      <validator type="blankchecker">
+        <param type="field" value="measure"/>
+      </validator>
+    </property>
+  </ArchaeologicalElement>
+  <ArchaeologicalElement name="Stratum Feature">
+    <property name="Record Type">
+      <validator type="blankchecker">
+        <param type="field" value="vocab"/>
+      </validator>
+    </property>
+    <property name="Feature Prefix">
+      <validator type="blankchecker">
+        <param type="field" value="measure"/>
+      </validator>
+    </property>
+    <property name="Stratum Feature ID">
+      <validator type="blankchecker">
+        <param type="field" value="measure"/>
+      </validator>
+    </property>
+    <property name="Stratum Feature Description">
+      <validator type="blankchecker">
+        <param type="field" value="measure"/>
+      </validator>
+    </property>
+    <property name="Interpretation">
+      <validator type="blankchecker">
+        <param type="field" value="measure"/>
+      </validator>
+    </property>
+  </ArchaeologicalElement>
+  <ArchaeologicalElement name="FCN">
+    <property name="FCN ID">
+      <validator type="blankchecker">
+        <param type="field" value="measure"/>
+      </validator>
+    </property>
+  </ArchaeologicalElement>
+  <ArchaeologicalElement name="Legacy">
+    <property name="Legacy Year of Campaign">
+      <validator type="blankchecker">
+        <param type="field" value="measure"/>
+      </validator>
+    </property>
+    <property name="Legacy Trench ID">
+      <validator type="blankchecker">
+        <param type="field" value="measure"/>
+      </validator>
+    </property>
+    <property name="Legacy Locus ID">
+      <validator type="blankchecker">
+        <param type="field" value="measure"/>
+      </validator>
+    </property>
+  </ArchaeologicalElement>
+</ValidationSchema>

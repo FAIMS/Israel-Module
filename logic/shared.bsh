@@ -1,0 +1,92 @@
+/*********************************** SHARED ***********************************/
+String WEB_REL_NONE = "<i>None</i>";
+
+locusIdentifer = "";
+
+void populateSquare(String ref) {
+  String q = "";
+  q += " SELECT DISTINCT measure, measure";
+  q += " FROM            latestnondeletedaentvalue";
+  q += " JOIN            attributekey USING (attributeid)";
+  q += " WHERE           attributename = 'Square'";
+  q += " AND             measure IS NOT NULL";
+  q += " ORDER BY        measure;";
+
+  FetchCallback populate = new FetchCallback() {
+    onFetch(result) {
+      populateDropDown(ref, result);
+    }
+  };
+
+  fetchAll(q, populate);
+}
+
+void setFieldToIdentifier(String identiferType, String lotRef) {
+  String uuid = getUuid(identiferType);
+
+  if (isNull(uuid)) {
+    populateWebViewHtml(lotRef, "&nbsp;");
+    return;
+  }
+
+  String q = "";
+  q += "SELECT uuid, response ";
+  q += "FROM latestnondeletedarchentformattedidentifiers ";
+  q += "WHERE uuid = '%s' ";
+  q  = replaceFirst(q, "%s", uuid);
+
+  cb = new FetchCallback() {
+    onFetch(result) {
+      locusIdentifer  = result.get(1);
+
+      populateWebViewHtml(lotRef, locusIdentifer);
+    }
+  };
+
+  fetchOne(q, cb);
+}
+
+void populateLotLabel(String lotRef) {
+  identiferType = "Locus";
+  setFieldToIdentifier(identiferType, lotRef);
+}
+
+boolean isValidTrenchId() {
+  String ref = "Site/Site/Trench_ID";
+  String trenchId = getFieldValue(ref);
+  return trenchId.matches("T\\d+");
+}
+
+List getAttribNamesEndingWith(String ending) {
+  List attribNamesEndingWith = new ArrayList();
+  for (String ref : DATA_REFS) {
+    String attribName = getAttributeName(ref);
+    if (attribName.endsWith(ending))
+      attribNamesEndingWith.add(attribName);
+  }
+  return attribNamesEndingWith;
+}
+
+String getAttribNamesEndingWithAsString(String ending) {
+  List   attribNames       = getAttribNamesEndingWith(ending);
+  String attribNamesString = "";
+
+  attribNamesString += "(";
+  for (int i = 0; i < attribNames.size() - 1; i++) {
+    attribName = attribNames.get(i);
+    attribNamesString += "'" + attribName + "', ";
+  }
+  if (attribNames.size() > 0) {
+    int lastIndex = attribNames.size() - 1;
+    attribName = attribNames.get(lastIndex);
+    attribNamesString += "'" + attribName + "'";
+  }
+  attribNamesString += ")";
+
+  return attribNamesString;
+}
+
+ATTRIBS_TRENCH_ID        = getAttribNamesEndingWithAsString("Trench ID");
+ATTRIBS_LOCUS_ID         = getAttribNamesEndingWithAsString("Locus ID");
+ATTRIBS_SITE_NAME        = getAttribNamesEndingWithAsString("Site Name");
+ATTRIBS_YEAR_OF_CAMPAIGN = getAttribNamesEndingWithAsString("Year of Campaign");

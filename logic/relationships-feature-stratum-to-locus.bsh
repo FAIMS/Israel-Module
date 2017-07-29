@@ -1,0 +1,291 @@
+/******************************* RELATIONSHIPS ********************************/
+/* Stratum Feature to Locus relationships.                                  */
+/*                                                                            */
+/* Uses functions and globals from logic/relationships-shared.bsh             */
+/*                                                                            */
+/* Modifies onClickStratumFeatureCreateRelationshipstoThisStratumFeature      */
+/* using  @POSTPROC.                                                          */
+/******************************************************************************/
+//////////////// FUNCTIONS AFFECTING "CONTEXT GROUP" TAB GROUP /////////////////
+addOnEvent("Stratum_Feature",                                    "show",  "CGinitParentRelationshipGlobals()");
+addOnEvent("Stratum_Feature",                                    "show",  "CGpopulateExistingRelationships()");
+addOnEvent("Stratum_Feature/Stratum_Feature_Loci/Load_Related_Locus", "click", "loadRelatedEntity()");
+
+addOnEvent("Stratum_Feature/Stratum_Feature_Loci/Existing_Relationships_to_This_Stratum_Feature", "click", "CGSelectRelationship()");
+addOnEvent("Stratum_Feature/Stratum_Feature_Loci/Delete_Relationship",                    "click", "deleteRelationship()");
+
+void CGinitParentRelationshipGlobals() {
+  String refSelectedRelParent = "Stratum_Feature/Stratum_Feature_Loci/Selected_Relationship";
+
+  selectedChildUuid     = null;
+  selectedRelId         = null;
+  selectedRelIdentifier = null;
+
+  populateWebViewHtml(refSelectedRelParent, WEB_REL_NONE);
+}
+
+void CGpopulateExistingRelationships(){
+  String tabGroup    = "Stratum_Feature";
+  String currentUuid = getUuid(tabGroup);
+  String refExistingRelationships = "Stratum_Feature/Stratum_Feature_Loci/Existing_Relationships_to_This_Stratum_Feature";
+
+  String q = getCGChildQuery(currentUuid);
+
+  populateCursorList(refExistingRelationships, q, 25);
+  refreshTabgroupCSS(tabGroup);
+}
+
+void CGSelectRelationship() {
+  String refSelectedRelParent = "Stratum_Feature/Stratum_Feature_Loci/Selected_Relationship";
+
+  String val = getListItemValue();
+  if (isNull(val)) return;
+
+  String[] arguments = val.split(SEP); // `SEP` defined by autogen as \0
+  String   listName  = arguments[0];
+  if (!listName.equals("related")) return;
+
+  selectedRelId         = arguments[1];
+  selectedRelIdentifier = arguments[2];
+  selectedChildUuid     = arguments[3];
+
+  populateWebViewHtml(refSelectedRelParent, selectedRelIdentifier);
+}
+
+////////////////// FUNCTIONS AFFECTING RELATIONSHIP TAB GROUP //////////////////
+addOnEvent("Stratum_Feature_Relationship",                                      "show",  "CGinitRelationshipRelationshipGlobals()");
+addOnEvent("Stratum_Feature_Relationship/Relationships/Add_Relationship",       "click", "CGaddRelationship()");
+addOnEvent("Stratum_Feature_Relationship/Relationships/Delete_Relationship",    "click", "deleteRelationship()");
+addOnEvent("Stratum_Feature_Relationship/Relationships/Existing_Relationships", "click", "CGselectExistingRelationship()");
+addOnEvent("Stratum_Feature_Relationship/Relationships/Search",                 "click", "CGpopulateProposedRelationship()");
+addOnEvent("Stratum_Feature_Relationship/Relationships/Search",                 "click", "CGsearchRelationship()");
+addOnEvent("Stratum_Feature_Relationship/Relationships/Unrelated_Loci",     "click", "CGselectUnrelatedEntity()");
+
+void CGinitRelationshipRelationshipGlobals() {
+  String refSelectedRelRel = "Stratum_Feature_Relationship/Relationships/Selected_Relationship";
+
+  proposedChildUuid       = null;
+  selectedRelId           = null;
+  proposedChildIdentifier = null;
+  selectedRelIdentifier   = WEB_REL_BLANK;
+
+  populateWebViewHtml(refSelectedRelRel, selectedRelIdentifier);
+
+  CGpopulateParentIdentiferRelationships();
+  CGpopulateProposedRelationship();
+  CGclearSearch();
+}
+
+void CGpopulateProposedRelationship() {
+  String refProposedRel = "Stratum_Feature_Relationship/Relationships/Proposed_Relationship";
+
+  String identifierFrom;
+  String relationship;
+  String identifierTo;
+
+  identifierFrom = locusIdentifer; // Defined in logic/shared.bsh
+  relationship   = "{includes}";
+  identifierTo   = proposedChildIdentifier;
+
+  if (isNull(identifierFrom)) identifierFrom = WEB_REL_DESC_FILL;
+  if (isNull(relationship  )) relationship   = WEB_REL_DESC_FILL;
+  if (isNull(identifierTo  )) identifierTo   = WEB_REL_DESC_FILL;
+
+  String webviewHtml = WEB_REL_DESC_FMT;
+  webviewHtml = replaceFirst(webviewHtml, "%s", identifierFrom);
+  webviewHtml = replaceFirst(webviewHtml, "%s", relationship  );
+  webviewHtml = replaceFirst(webviewHtml, "%s", identifierTo  );
+
+  populateWebViewHtml(refProposedRel, webviewHtml);
+
+  String refSelectedRelParent = "Stratum_Feature/Stratum_Feature_Loci/Selected_Relationship";
+  populateWebViewHtml(refSelectedRelParent, WEB_REL_BLANK);
+}
+
+void CGsearchRelationship() {
+  String parentTabGroup = "Stratum_Feature";
+  String parentUuid     = getUuid(parentTabGroup);
+
+  String tabGroup     = "Stratum_Feature_Relationship";
+  String refUnrelated = "Stratum_Feature_Relationship/Relationships/Unrelated_Loci";
+  String refRelated   = "Stratum_Feature_Relationship/Relationships/Existing_Relationships";
+  String refTrenchId  = "Stratum_Feature_Relationship/Relationships/Trench_ID";
+  String refLocusId   = "Stratum_Feature_Relationship/Relationships/Locus_ID";
+  String refSiteName  = "Stratum_Feature_Relationship/Vars/Stratum_Feature_Relationship_Site_Name";
+  String refSiteYear  = "Stratum_Feature_Relationship/Vars/Stratum_Feature_Relationship_Year_of_Campaign";
+
+  String trenchId   = getFieldValue(refTrenchId);
+  String locusId    = getFieldValue(refLocusId);
+  String siteName   = getFieldValue(refSiteName);
+  String siteYear   = getFieldValue(refSiteYear);
+  String parentRole = "{includes}";
+  String unrelatedQ = "";
+  String relatedQ   = "";
+
+  if (isNull(trenchId)) {
+    msgHead  = "{trench_id_required_head}";
+    msgBody  = "{trench_id_required_body}";
+    showWarning(msgHead, msgBody);
+    return;
+  }
+
+  unrelatedQ += " SELECT 'unrelated' || char(0) || uuid || char(0) || response, response";
+  unrelatedQ += "   FROM latestNonDeletedArchEntFormattedIdentifiers";
+  unrelatedQ += "  WHERE uuid IN (";
+  unrelatedQ += "         SELECT uuid";
+  unrelatedQ += "           FROM latestnondeletedaentvalue JOIN attributekey USING (attributeid)";
+  unrelatedQ += "          WHERE attributename IN " + ATTRIBS_TRENCH_ID;
+  unrelatedQ += "            AND measure = '{Trench_ID}'";
+  unrelatedQ += "            AND uuid IN (";
+  unrelatedQ += "                 SELECT uuid";
+  unrelatedQ += "                   FROM latestnondeletedaentvalue JOIN attributekey USING (attributeid) ";
+  unrelatedQ += "                  WHERE attributename IN " + ATTRIBS_LOCUS_ID;
+  unrelatedQ += "                    AND (measure = '{Locus_ID}' OR '{Locus_ID}' = ''))";
+  unrelatedQ += "            AND uuid IN (";
+  unrelatedQ += "                 SELECT uuid";
+  unrelatedQ += "                   FROM latestnondeletedaentvalue JOIN attributekey USING (attributeid) ";
+  unrelatedQ += "                  WHERE attributename IN " + ATTRIBS_SITE_NAME;
+  unrelatedQ += "                    AND measure = '{Site_Name}')";
+  unrelatedQ += "            AND uuid IN (";
+  unrelatedQ += "                 SELECT uuid";
+  unrelatedQ += "                   FROM latestnondeletedaentvalue JOIN attributekey USING (attributeid) ";
+  unrelatedQ += "                  WHERE attributename IN " + ATTRIBS_YEAR_OF_CAMPAIGN;
+  unrelatedQ += "                    AND measure = '{Year_of_Campaign}')";
+  unrelatedQ += "            AND uuid NOT IN (";
+  unrelatedQ += "                 SELECT childuuid";
+  unrelatedQ += "                   FROM parentchild";
+  unrelatedQ += "                  WHERE parentuuid = '{parentUuid}'";
+  unrelatedQ += "                    AND parentparticipatesverb = '{parentRole}')";
+  unrelatedQ += "            AND uuid != '{parentUuid}')";
+  unrelatedQ += "    AND aenttypename IN ('Locus', 'Legacy')";
+  unrelatedQ += " ORDER BY response";
+  unrelatedQ += " LIMIT ? OFFSET ?";
+  unrelatedQ  = replaceFirst(unrelatedQ, "{Trench_ID}",        trenchId);
+  unrelatedQ  = replaceFirst(unrelatedQ, "{Locus_ID}",         locusId);
+  unrelatedQ  = replaceFirst(unrelatedQ, "{Locus_ID}",         locusId);
+  unrelatedQ  = replaceFirst(unrelatedQ, "{Site_Name}",        siteName);
+  unrelatedQ  = replaceFirst(unrelatedQ, "{Year_of_Campaign}", siteYear);
+  unrelatedQ  = replaceFirst(unrelatedQ, "{parentUuid}",       parentUuid);
+  unrelatedQ  = replaceFirst(unrelatedQ, "{parentUuid}",       parentUuid);
+  unrelatedQ  = replaceFirst(unrelatedQ, "{parentRole}",       parentRole);
+
+  relatedQ += getCGChildQuery(parentUuid);
+
+  populateCursorList(refUnrelated, unrelatedQ, 25);
+  populateCursorList(refRelated,   relatedQ,   25);
+
+  proposedChildUuid = null; proposedChildIdentifier = null;
+  CGpopulateProposedRelationship();
+}
+
+void CGclearSearch() {
+  String refUnrelated = "Stratum_Feature_Relationship/Relationships/Unrelated_Loci";
+  String refRelated   = "Stratum_Feature_Relationship/Relationships/Existing_Relationships";
+
+  String q = "SELECT '' WHERE 0 LIMIT ? OFFSET ?";
+  populateCursorList(refUnrelated, q, 25);
+  populateCursorList(refRelated,   q, 25);
+}
+
+void CGselectUnrelatedEntity() {
+  String val = getListItemValue();
+  if (isNull(val)) return;
+  String[] arguments = val.split(SEP); // `SEP` defined by autogen as \0
+  String   listName  = arguments[0];
+  if (!listName.equals("unrelated")) return;
+
+  proposedChildUuid       = arguments[1];
+  proposedChildIdentifier = arguments[2];
+
+  CGpopulateProposedRelationship();
+}
+
+void CGaddRelationship() {
+  String parentTabGroup = "Stratum_Feature";
+
+  String relName    = "Stratum Feature - Locus";
+  String parentUuid = getUuid(parentTabGroup);
+  String childUuid  = proposedChildUuid;
+  String parentRole = "{includes}";
+  String childRole  = "{is_included_in}";
+  String callback   = "CGaddRelationshipSucceeded()";
+
+  if (isNull(parentUuid)) {
+    String msgHead = "{logic_error_head}";
+    String msgBody = "{logic_error_body}";
+    showWarning(msgHead, msgBody);
+    return;
+  }
+  if (isNull(childUuid)) {
+    showToast("no_locus_selected");
+    return;
+  }
+
+  saveEntitiesToHierRel(
+      relName,
+      parentUuid, childUuid,
+      parentRole, childRole,
+      callback
+  );
+
+  proposedChildUuid       = null;
+  proposedChildIdentifier = null;
+}
+
+void CGaddRelationshipSucceeded() {
+  String refProposedRel = "Stratum_Feature_Relationship/Relationships/Proposed_Relationship";
+
+  populateWebViewHtml(refProposedRel, WEB_REL_BLANK);
+
+  CGsearchRelationship();
+}
+
+void CGselectExistingRelationship() {
+  String refSelectedRelRel = "Stratum_Feature_Relationship/Relationships/Selected_Relationship";
+
+  String val = getListItemValue();
+  if (isNull(val)) return;
+
+  String[] arguments = val.split(SEP); // `SEP` defined by autogen as \0
+  String   listName  = arguments[0];
+  if (!listName.equals("related")) return;
+
+  selectedRelId         = arguments[1];
+  selectedRelIdentifier = arguments[2];
+
+  populateWebViewHtml(refSelectedRelRel, selectedRelIdentifier);
+}
+
+void CGpopulateParentIdentiferRelationships() {
+  String lotRef = "Stratum_Feature_Relationship/Relationships/Parent_Identifier";
+  setFieldToIdentifier("Stratum_Feature", lotRef);
+}
+
+String getCGChildQuery(String parentUuid) {
+  // `locusIdentifer` is defined in logic/shared.bsh
+  String parentIdentifier = locusIdentifer;
+  String relntypename     = "Stratum Feature - Locus";
+
+  String relatedQ = "";
+  relatedQ += "SELECT 'related' || char(0) || relationshipid || char(0) || '"+parentIdentifier+" ' || parentparticipatesverb ||' '|| response || char(0) || childuuid, '"+parentIdentifier+"'||' '||parentparticipatesverb||' '||response";
+  relatedQ += "  FROM parentchild JOIN latestNonDeletedArchEntFormattedIdentifiers on (childuuid = uuid) ";
+  relatedQ += "  JOIN createdmodifiedatby USING (uuid) ";
+  relatedQ += " WHERE relationshipid IN (SELECT relationshipid  ";
+  relatedQ += "                            FROM latestnondeletedrelationship JOIN relntype USING (relntypeid)  ";
+  relatedQ += "                           WHERE relntypename = '"+relntypename+"') ";
+  relatedQ += "   and parentuuid = '"+parentUuid+"' ";
+  relatedQ += " ORDER BY parentchild.createdat desc ";
+  relatedQ += " LIMIT ? OFFSET ? ";
+  return relatedQ;
+}
+
+//Overrides autogenerated definition
+void onClickStratumFeatureCreateRelationshipstoThisStratumFeature () {
+  String tabgroup = "Stratum_Feature";
+  if (isNull(getUuid(tabgroup))){
+    showToast("{You_must_save_this_tabgroup_first}");
+    return;
+  }
+
+  newTab("Stratum_Feature_Relationship", true);
+}

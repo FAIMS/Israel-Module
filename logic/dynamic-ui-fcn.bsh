@@ -1,0 +1,40 @@
+/****************************** DYNAMIC UI - FCN ******************************/
+void updateFcnVolume() {
+  String ref       = "FCN/General/FCN_Class";
+  String vocabName = getMenuValue(ref);
+
+  if (vocabName.equals("{Sediment}")) { showFcnVolume(); return; }
+  if (vocabName.equals("{Other}"   )) { showFcnVolume(); return; }
+
+  hideFcnVolume();
+}
+
+void hideFcnVolume() {
+  hideView("FCN/General/Volume_Liters");
+}
+
+void showFcnVolume() {
+  String refView  = "FCN/General/Volume_Liters";
+  String refGroup = "FCN/General/Volume_Liters_Group";
+
+  if (hasView(refView)) return;
+
+  String label      = guessArch16nVal (refView);
+  String attribName = getAttributeName(refView);
+
+  // Create view
+  FormInputDef viewDef = createViewDef();
+  viewDef.createTextField     ("decimal");
+  viewDef.setLabel            (label);
+  viewDef.setAttributeName    (attribName);
+  viewDef.setAttributeType    ("measure");
+  viewDef.setAnnotationEnabled(true);
+  viewDef.setCertaintyEnabled (true);
+  viewDef.setInfoEnabled      (true);
+
+  createView(refView, viewDef, refGroup);
+}
+
+addOnEvent("FCN/General/FCN_Class", "click", "updateFcnVolume()");
+addOnEvent("FCN",                "prefetch", "showFcnVolume()");
+addOnEvent("FCN",                   "fetch", "updateFcnVolume()");
