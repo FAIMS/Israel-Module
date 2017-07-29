@@ -235,6 +235,7 @@
 <Trench_Files>
   Square_Files
   <Add_Trench_Files>
+    Square_Files
     <cols>
       <Trench_Files_Site_Name        f="id readonly" i="Trench/Trench/Trench_Site_Name">
         Site Name
@@ -245,9 +246,10 @@
       </Trench_Files_Year_of_Campaign>
     </cols>
     <Trench_Files_Trench_ID f="id readonly" i="Trench/Trench/Trench_Trench_ID">
-      Trench ID
+      Square ID
       <str><fmt>-$0</fmt></str>
     </Trench_Files_Trench_ID>
+    <Subsquare i="Trench/Trench/Subsquare"/>
     <author f="readonly"/>
     <File_Type f="id">
       <str><fmt>-$0</fmt></str>
@@ -275,21 +277,28 @@
   <desc>The physical result of any single action whether it leaves a positive or negative record within the stratigraphic sequence. (MoLAS 1994)</desc>
   <General>
     <cols>
-      <Locus_Site_Name f="id notnull" i="Trench/Trench/Trench_Site_Name">
-        Site Name
-        <str>
-          <pos>1</pos>
-        </str>
-      </Locus_Site_Name>
+      <author>
+        <Area i="Trench/Trench/Area">
+          <str>
+            <pos>1</pos>
+            <fmt>$0</fmt>
+          </str>
+        </Area>
       <Locus_Trench_ID f="id readonly" i="Trench/Trench/Trench_Trench_ID">
-        Trench ID
+        Square ID
         <!--The semantics of the autonum flag have been changed using
              @POSTPROC-->
         <str>
-          <pos>4</pos>
-          <fmt>-$0</fmt>
+          <pos>2</pos>
+          <fmt>$0-</fmt>
         </str>
       </Locus_Trench_ID>
+      <Subsquare i="Trench/Trench/Subsquare">
+        <str>
+          <pos>3</pos>
+          <fmt>$0-</fmt>
+        </str>
+      </Subsquare>
       <Locus_Locus_ID f="id notnull" b="decimal">
         Locus ID
         <desc>Every archaeological locus (negative element (cut), deposit, structure, skeleton, artefact cluster) is given a unique 3 or 4 letter locus code. Each trench is designated with a separate letter which starts the code, so it is immediately obvious to which trench a locus belongs. For example locus HAA belongs to Trench H, locus MQP to Trench M etc.
@@ -297,8 +306,8 @@
         Burial locus codes begin with the letter Z, followed by the trench letter. Hence burial ZHA is the first burial locus from trench H.
         Check with the trench supervisor who will assign the locus code from the central register.</desc>
         <str>
-          <pos>5</pos>
-          <fmt>-L$0</fmt>
+          <pos>4</pos>
+          <fmt>$0</fmt>
         </str>
       </Locus_Locus_ID>
     </cols>
@@ -359,12 +368,11 @@
         <desc>The extent to which the locus has been contaminated.</desc>
         <opts>
           <opt>No Observation</opt>
-          <opt>Contaminated (with Recent Material)</opt>
-          <opt>Possibly Contaminated (with Recent Material)</opt>
-          <opt>Anthropogenic Secondary Deposit (Ancient)</opt>
-          <opt>Anthropogenic Primary Deposit</opt>
-          <opt>Natural Primary Deposit</opt>
-          <opt>Natural Secondary Deposit</opt>
+          <opt>Contaminated</opt>
+          <opt>Possibly Contaminated</opt>
+          <opt>High Likelihood High Amount Derived</opt>
+          <opt>Low Likelihood Low Amount Derived</opt>
+          <opt>Primary Deposit</opt>
         </opts>
       </Contamination>
     </cols>
@@ -378,13 +386,13 @@
       <opts>
         <opt p="gallery/Blanks/Trail.png">No Observation
         <desc>data not collected</desc></opt>
-        <opt p="gallery/ContextType/Orange/Cut.png">Cut
+        <opt p="gallery/ContextType/Orange/Cut.png">Pit
         <desc>Any Locus which represents the removal of earlier deposit and thus forms a negative interface (cut) with another locus, such as a cut for a pit, burial, ditch, wall foundation or robber trench.</desc></opt>
-        <opt p="gallery/ContextType/Orange/Deposit.png">Deposit
+        <opt p="gallery/ContextType/Orange/Deposit.png">Fill
         <desc>Any Locus with deposited sediment and soil, such as floor layers, pit and grave fills, hearth fills and natural sediments.</desc></opt>
-        <opt p="gallery/ContextType/Orange/Natural.png">Natural
+        <opt p="gallery/ContextType/Orange/Natural.png">Surface
         <desc>Any Locus with deposited sediment and soil, such as floor layers, pit and grave fills, hearth fills and natural sediments.</desc></opt>
-        <opt p="gallery/ContextType/Orange/Structure.png">Construction
+        <opt p="gallery/ContextType/Orange/Structure.png">Architecture
         <desc>Any Locus consisting of deliberately constructed structural element, independent of a Negative Element (i.e. cut, such as a wall or a hearth).</desc></opt>
         <opt p="gallery/ContextType/Orange/Skeleton.png">Skeleton
         <desc>Human skeletal remains.</desc></opt>
@@ -400,10 +408,6 @@
         <desc>The date excavation of the Locus ended and it was closed. Press the 'Add Date Closed' button to insert today's date.</desc>
       </Date_Closed>
       <Add_Date_Closed t="button"/>
-    </cols>
-    <cols>
-      <author f="readonly">Record Created By:</author>
-      <timestamp f="readonly">Record Created Date:</timestamp>
     </cols>
   </General>
   <Measure>
@@ -459,22 +463,18 @@
     </Volume_Liters>
   </Measure>
   <Cut>
-    <Cut_Your_Interpretation f="notnull">
+    Pit
+    <Cut_Your_Interpretation>
       Your Interpretation
       <desc>Your interpretation of the likely function of the Locus using standardised definitions.</desc>
       <opts>
         <opt>No Observation</opt>
-        <opt>Hangtu</opt>
         <opt>Indeterminate</opt>
         <opt>Animal/Plant hole</opt>
         <opt>Stakehole</opt>
         <opt>Posthole</opt>
         <opt>Pit</opt>
         <opt>Hearth/Fire pit</opt>
-        <opt>Ditch/Trench</opt>
-        <opt>Construction Cut</opt>
-        <opt>Burial</opt>
-        <opt>Erosional Feature</opt>
         <opt>Other
           <desc>Function not elsewhere described. Provide details in Annotation field.</desc>
         </opt>
