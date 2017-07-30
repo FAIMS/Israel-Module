@@ -137,6 +137,11 @@
       <formatString>$2-</formatString>
       <appendCharacterString> - </appendCharacterString>
     </property>
+    <property name="Trench Site Name" type="measure" isIdentifier="true">
+      <description></description>
+      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
+      <appendCharacterString> - </appendCharacterString>
+    </property>
     <property name="Trench Trench ID" type="measure" isIdentifier="true">
       <description></description>
       <formatString>-$2-</formatString>
@@ -366,6 +371,11 @@
     <property name="Locus Area" type="measure">
       <description></description>
       <formatString>$2</formatString>
+      <appendCharacterString> - </appendCharacterString>
+    </property>
+    <property name="Locus Site Name" type="measure" isIdentifier="true">
+      <description></description>
+      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
       <appendCharacterString> - </appendCharacterString>
     </property>
     <property name="Locus Trench ID" type="measure" isIdentifier="true">
@@ -868,6 +878,31 @@
       <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
       <appendCharacterString> - </appendCharacterString>
     </property>
+    <property name="Surface Type" type="measure">
+      <description></description>
+      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
+      <appendCharacterString> - </appendCharacterString>
+    </property>
+    <property name="Extent Length" type="measure">
+      <description></description>
+      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
+      <appendCharacterString> - </appendCharacterString>
+    </property>
+    <property name="Extend Width" type="measure">
+      <description></description>
+      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
+      <appendCharacterString> - </appendCharacterString>
+    </property>
+    <property name="Thickness max" type="measure">
+      <description></description>
+      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
+      <appendCharacterString> - </appendCharacterString>
+    </property>
+    <property name="Composition Description" type="measure">
+      <description></description>
+      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
+      <appendCharacterString> - </appendCharacterString>
+    </property>
     <property name="Deposit Your Interpretation" type="vocab">
       <description>Your interpretation of the likely function of the locus.</description>
       <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
@@ -1259,11 +1294,16 @@
       <appendCharacterString> - </appendCharacterString>
     </property>
     <property name="Stratum Feature ID" type="measure" isIdentifier="true">
-      <description>Feature number taken from the central register.</description>
+      <description></description>
       <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
       <appendCharacterString> - </appendCharacterString>
     </property>
     <property name="R Paren" type="measure" isIdentifier="true">
+      <description></description>
+      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
+      <appendCharacterString> - </appendCharacterString>
+    </property>
+    <property name="Stratum Feature Area" type="measure">
       <description></description>
       <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
       <appendCharacterString> - </appendCharacterString>
@@ -1741,6 +1781,174 @@
       <appendCharacterString> - </appendCharacterString>
     </property>
     <property name="Accuracy" type="measure">
+      <description></description>
+      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
+      <appendCharacterString> - </appendCharacterString>
+    </property>
+    <property name="X Coordinates" type="measure">
+      <description></description>
+      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
+      <appendCharacterString> - </appendCharacterString>
+    </property>
+    <property name="Y Coordinates" type="measure">
+      <description></description>
+      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
+      <appendCharacterString> - </appendCharacterString>
+    </property>
+    <property name="Z Coordinates" type="measure">
+      <description></description>
+      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
+      <appendCharacterString> - </appendCharacterString>
+    </property>
+    <property name="Weight kg" type="measure">
+      <description></description>
+      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
+      <appendCharacterString> - </appendCharacterString>
+    </property>
+    <property name="Type" type="vocab">
+      <description></description>
+      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
+      <appendCharacterString> - </appendCharacterString>
+      <lookup>
+        <term>{Pottery}
+<description></description></term>
+        <term>{Bone}
+<description></description></term>
+        <term>{Metal}
+<description></description></term>
+        <term>{Stone_Object}
+<description></description></term>
+        <term>{Glass}
+<description></description></term>
+        <term>{Carbon_14_Sample}
+<description></description></term>
+        <term>{Botanic_Sample}
+<description></description></term>
+        <term>{Shell}
+<description></description></term>
+        <term>{Other}
+<description></description></term>
+      </lookup>
+    </property>
+    <property name="Washed" type="vocab">
+      <description></description>
+      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
+      <appendCharacterString> - </appendCharacterString>
+      <lookup>
+        <term>{Yes}
+<description></description></term>
+        <term>{No}
+<description></description></term>
+        <term>{N_A}
+<description></description></term>
+      </lookup>
+    </property>
+    <property name="Weighted" type="vocab">
+      <description></description>
+      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
+      <appendCharacterString> - </appendCharacterString>
+      <lookup>
+        <term>{Yes}
+<description></description></term>
+        <term>{No}
+<description></description></term>
+        <term>{N_A}
+<description></description></term>
+      </lookup>
+    </property>
+    <property name="Analysed" type="vocab">
+      <description></description>
+      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
+      <appendCharacterString> - </appendCharacterString>
+      <lookup>
+        <term>{Yes}
+<description></description></term>
+        <term>{No}
+<description></description></term>
+        <term>{N_A}
+<description></description></term>
+      </lookup>
+    </property>
+    <property name="Restorable" type="vocab">
+      <description></description>
+      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
+      <appendCharacterString> - </appendCharacterString>
+      <lookup>
+        <term>{Yes}
+<description></description></term>
+        <term>{No}
+<description></description></term>
+        <term>{Maybe}
+<description></description></term>
+        <term>{N_A}
+<description></description></term>
+      </lookup>
+    </property>
+    <property name="Principal Period" type="vocab">
+      <description></description>
+      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
+      <appendCharacterString> - </appendCharacterString>
+      <lookup>
+        <term>{EB}
+<description>EB (Early Bronze Age) 3300-2000 BC</description></term>
+        <term>{MB}
+<description>MB (Middle Bronze Age) 2000-1550 BC</description></term>
+        <term>{LB}
+<description>LB (Late Bronze Age) 1550-1200/1130 BC</description></term>
+        <term>{Iron_I}
+<description>Iron I 1200/1130-980 BC</description></term>
+        <term>{Iron_IIA}
+<description>Iron IIA 980-830 BC</description></term>
+        <term>{Iron_IIB}
+<description>Iron IIB 830-722/701 BC</description></term>
+        <term>{Iron_IIC}
+<description>Iron IIC 722/701-539 BC</description></term>
+        <term>{Persian}
+<description>Persian 539-332 BC</description></term>
+        <term>{Hellenistic}
+<description>Hellenistic 332-63 BC</description></term>
+        <term>{Roman}
+<description>Roman 63 BC-323 AD</description></term>
+        <term>{Byzantine}
+<description>Byzantine 323-638 AD</description></term>
+        <term>{Early_Islamic}
+<description>Early Islamic 638-1099 AD</description></term>
+        <term>{Crusader}
+<description>Crusader 1099-1250 AD</description></term>
+        <term>{Mamluk}
+<description>Mamluk 1250-1540 AD</description></term>
+        <term>{Ottoman}
+<description>Ottoman 1540-1917 AD</description></term>
+        <term>{Mandate}
+<description>Mandate 1917-1947 AD</description></term>
+        <term>{Other}
+<description></description></term>
+      </lookup>
+    </property>
+    <property name="Chronology Precision" type="vocab">
+      <description></description>
+      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
+      <appendCharacterString> - </appendCharacterString>
+      <lookup>
+        <term>{Clean}
+<description></description></term>
+        <term>{Mixed}
+<description></description></term>
+        <term>{N_A}
+<description></description></term>
+      </lookup>
+    </property>
+    <property name="Chronology Note" type="measure">
+      <description></description>
+      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
+      <appendCharacterString> - </appendCharacterString>
+    </property>
+    <property name="Intrusive Materials Comment" type="measure">
+      <description></description>
+      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
+      <appendCharacterString> - </appendCharacterString>
+    </property>
+    <property name="General Notes" type="measure">
       <description></description>
       <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
       <appendCharacterString> - </appendCharacterString>

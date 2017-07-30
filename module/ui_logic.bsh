@@ -156,7 +156,7 @@ REF_TO_TYPE.put("Control/Site/New_Site_Name", "input");
 REF_TO_TYPE.put("Control/Site/Year_of_Campaign", "input");
 REF_TO_TYPE.put("Control/Site/GPS_Diagnostics", "gpsdiag");
 REF_TO_TYPE.put("Control/Site/New_Square", "button");
-REF_TO_TYPE.put("Control/Site/New_Dairy", "button");
+REF_TO_TYPE.put("Control/Site/New_Diary", "button");
 REF_TO_TYPE.put("Control/Site/Choose_an_Existing_Site", "list");
 REF_TO_TYPE.put("Control/Next_IDs/Next_Stratum_Feature_ID", "input");
 REF_TO_TYPE.put("Control/Next_IDs/Next_FCN_ID", "input");
@@ -173,6 +173,7 @@ REF_TO_TYPE.put("Site/Site/List_of_Existing_Trenches", "list");
 REF_TO_TYPE.put("Site/Vars/Device_Code", "dropdown");
 REF_TO_TYPE.put("Trench/Trench/Trench_author", "input");
 REF_TO_TYPE.put("Trench/Trench/Area", "input");
+REF_TO_TYPE.put("Trench/Trench/Trench_Site_Name", "input");
 REF_TO_TYPE.put("Trench/Trench/Trench_Trench_ID", "input");
 REF_TO_TYPE.put("Trench/Trench/Subsquare", "dropdown");
 REF_TO_TYPE.put("Trench/Trench/Team_Members", "input");
@@ -223,6 +224,7 @@ REF_TO_TYPE.put("Trench_Files/Add_Trench_Files/View_Attached_Files", "viewfiles"
 REF_TO_TYPE.put("Trench_Files/Vars/Device_Code", "dropdown");
 REF_TO_TYPE.put("Locus/General/Locus_author", "input");
 REF_TO_TYPE.put("Locus/General/Area", "input");
+REF_TO_TYPE.put("Locus/General/Locus_Site_Name", "input");
 REF_TO_TYPE.put("Locus/General/Locus_Trench_ID", "input");
 REF_TO_TYPE.put("Locus/General/Subsquare", "input");
 REF_TO_TYPE.put("Locus/General/Locus_Locus_ID", "input");
@@ -284,6 +286,11 @@ REF_TO_TYPE.put("Locus/Construction/Sorting", "input");
 REF_TO_TYPE.put("Locus/Construction/Notes", "input");
 REF_TO_TYPE.put("Locus/Construction/Plans", "input");
 REF_TO_TYPE.put("Locus/Construction/Section_Numbers", "input");
+REF_TO_TYPE.put("Locus/Surface/Surface_Type", "input");
+REF_TO_TYPE.put("Locus/Surface/Extent_Length", "input");
+REF_TO_TYPE.put("Locus/Surface/Extend_Width", "input");
+REF_TO_TYPE.put("Locus/Surface/Thickness_max", "input");
+REF_TO_TYPE.put("Locus/Surface/Composition_Description", "input");
 REF_TO_TYPE.put("Locus/Deposit/Deposit_Your_Interpretation", "dropdown");
 REF_TO_TYPE.put("Locus/Deposit/Texture", "dropdown");
 REF_TO_TYPE.put("Locus/Deposit/Texture_Description", "input");
@@ -343,6 +350,7 @@ REF_TO_TYPE.put("Locus/Material_Helper/Material_Helper", "dropdown");
 REF_TO_TYPE.put("Locus/Material_Helper/Update_Material", "button");
 REF_TO_TYPE.put("Locus/Vars/Device_Code", "dropdown");
 REF_TO_TYPE.put("Locus/Vars/Locus_Year_of_Campaign", "input");
+REF_TO_TYPE.put("Stratum_Feature/General/Area", "input");
 REF_TO_TYPE.put("Stratum_Feature/General/Record_Type", "radio");
 REF_TO_TYPE.put("Stratum_Feature/General/Feature_Type", "dropdown");
 REF_TO_TYPE.put("Stratum_Feature/General/Feature_Prefix", "input");
@@ -455,6 +463,20 @@ REF_TO_TYPE.put("FCN/General/Northing", "input");
 REF_TO_TYPE.put("FCN/General/Easting", "input");
 REF_TO_TYPE.put("FCN/General/Accuracy", "input");
 REF_TO_TYPE.put("FCN/General/Take_From_GPS_1", "button");
+REF_TO_TYPE.put("FCN/General/X_Coordinates", "input");
+REF_TO_TYPE.put("FCN/General/Y_Coordinates", "input");
+REF_TO_TYPE.put("FCN/General/Z_Coordinates", "input");
+REF_TO_TYPE.put("FCN/General/Weight_kg", "input");
+REF_TO_TYPE.put("FCN/General/Type", "checkbox");
+REF_TO_TYPE.put("FCN/General/Washed", "radio");
+REF_TO_TYPE.put("FCN/General/Weighted", "radio");
+REF_TO_TYPE.put("FCN/General/Analysed", "radio");
+REF_TO_TYPE.put("FCN/General/Restorable", "radio");
+REF_TO_TYPE.put("FCN/General/Principal_Period", "dropdown");
+REF_TO_TYPE.put("FCN/General/Chronology_Precision", "radio");
+REF_TO_TYPE.put("FCN/General/Chronology_Note", "input");
+REF_TO_TYPE.put("FCN/General/Intrusive_Materials_Comment", "input");
+REF_TO_TYPE.put("FCN/General/General_Notes", "input");
 REF_TO_TYPE.put("FCN/General/Attach_Photograph", "camera");
 REF_TO_TYPE.put("FCN/General/Attach_Photograph_Button_1", "button");
 REF_TO_TYPE.put("FCN/Vars/FCN_Year_of_Campaign", "input");
@@ -487,6 +509,7 @@ REF_TO_TYPE.put("Locus/General", "tab");
 REF_TO_TYPE.put("Locus/Measure", "tab");
 REF_TO_TYPE.put("Locus/Cut", "tab");
 REF_TO_TYPE.put("Locus/Construction", "tab");
+REF_TO_TYPE.put("Locus/Surface", "tab");
 REF_TO_TYPE.put("Locus/Deposit", "tab");
 REF_TO_TYPE.put("Locus/Skeleton", "tab");
 REF_TO_TYPE.put("Locus/Int", "tab");
@@ -523,6 +546,7 @@ DATA_REFS.add("Site/Site/Site_Year_of_Campaign");
 DATA_REFS.add("Site/Vars/Device_Code");
 DATA_REFS.add("Trench/Trench/Trench_author");
 DATA_REFS.add("Trench/Trench/Area");
+DATA_REFS.add("Trench/Trench/Trench_Site_Name");
 DATA_REFS.add("Trench/Trench/Trench_Trench_ID");
 DATA_REFS.add("Trench/Trench/Subsquare");
 DATA_REFS.add("Trench/Trench/Team_Members");
@@ -554,6 +578,7 @@ DATA_REFS.add("Trench_Files/Add_Trench_Files/Attach_File");
 DATA_REFS.add("Trench_Files/Vars/Device_Code");
 DATA_REFS.add("Locus/General/Locus_author");
 DATA_REFS.add("Locus/General/Area");
+DATA_REFS.add("Locus/General/Locus_Site_Name");
 DATA_REFS.add("Locus/General/Locus_Trench_ID");
 DATA_REFS.add("Locus/General/Subsquare");
 DATA_REFS.add("Locus/General/Locus_Locus_ID");
@@ -611,6 +636,11 @@ DATA_REFS.add("Locus/Construction/Sorting");
 DATA_REFS.add("Locus/Construction/Notes");
 DATA_REFS.add("Locus/Construction/Plans");
 DATA_REFS.add("Locus/Construction/Section_Numbers");
+DATA_REFS.add("Locus/Surface/Surface_Type");
+DATA_REFS.add("Locus/Surface/Extent_Length");
+DATA_REFS.add("Locus/Surface/Extend_Width");
+DATA_REFS.add("Locus/Surface/Thickness_max");
+DATA_REFS.add("Locus/Surface/Composition_Description");
 DATA_REFS.add("Locus/Deposit/Deposit_Your_Interpretation");
 DATA_REFS.add("Locus/Deposit/Texture");
 DATA_REFS.add("Locus/Deposit/Texture_Description");
@@ -652,6 +682,7 @@ DATA_REFS.add("Locus/Add/Attach_File");
 DATA_REFS.add("Locus/Material_Helper/Material_Helper");
 DATA_REFS.add("Locus/Vars/Device_Code");
 DATA_REFS.add("Locus/Vars/Locus_Year_of_Campaign");
+DATA_REFS.add("Stratum_Feature/General/Area");
 DATA_REFS.add("Stratum_Feature/General/Record_Type");
 DATA_REFS.add("Stratum_Feature/General/Feature_Type");
 DATA_REFS.add("Stratum_Feature/General/Feature_Prefix");
@@ -722,6 +753,20 @@ DATA_REFS.add("FCN/General/Longitude");
 DATA_REFS.add("FCN/General/Northing");
 DATA_REFS.add("FCN/General/Easting");
 DATA_REFS.add("FCN/General/Accuracy");
+DATA_REFS.add("FCN/General/X_Coordinates");
+DATA_REFS.add("FCN/General/Y_Coordinates");
+DATA_REFS.add("FCN/General/Z_Coordinates");
+DATA_REFS.add("FCN/General/Weight_kg");
+DATA_REFS.add("FCN/General/Type");
+DATA_REFS.add("FCN/General/Washed");
+DATA_REFS.add("FCN/General/Weighted");
+DATA_REFS.add("FCN/General/Analysed");
+DATA_REFS.add("FCN/General/Restorable");
+DATA_REFS.add("FCN/General/Principal_Period");
+DATA_REFS.add("FCN/General/Chronology_Precision");
+DATA_REFS.add("FCN/General/Chronology_Note");
+DATA_REFS.add("FCN/General/Intrusive_Materials_Comment");
+DATA_REFS.add("FCN/General/General_Notes");
 DATA_REFS.add("FCN/General/Attach_Photograph");
 DATA_REFS.add("FCN/Vars/FCN_Year_of_Campaign");
 DATA_REFS.add("FCN/Vars/Device_Code");
@@ -783,6 +828,7 @@ TABS_AS_LIST.add("Locus/General");
 TABS_AS_LIST.add("Locus/Measure");
 TABS_AS_LIST.add("Locus/Cut");
 TABS_AS_LIST.add("Locus/Construction");
+TABS_AS_LIST.add("Locus/Surface");
 TABS_AS_LIST.add("Locus/Deposit");
 TABS_AS_LIST.add("Locus/Skeleton");
 TABS_AS_LIST.add("Locus/Int");
@@ -835,6 +881,7 @@ ATTRIB_NAMES_NON_STANDARD.put("Locus/Construction/Plans", "Locus Plans");
 ATTRIB_NAMES_NON_STANDARD.put("Locus/Construction/Section_Numbers", "Locus Section Numbers");
 ATTRIB_NAMES_NON_STANDARD.put("Locus/Int/Your_Discussion", "Locus Your Discussion");
 ATTRIB_NAMES_NON_STANDARD.put("Locus/Add/Photo", "Locus Photo");
+ATTRIB_NAMES_NON_STANDARD.put("Stratum_Feature/General/Area", "Stratum Feature Area");
 ATTRIB_NAMES_NON_STANDARD.put("Stratum_Feature/General/Discussion", "Stratum Feature Discussion");
 ATTRIB_NAMES_NON_STANDARD.put("Stratum_Feature/General/Length", "Stratum Feature Length");
 ATTRIB_NAMES_NON_STANDARD.put("Stratum_Feature/General/Width", "Stratum Feature Width");
@@ -1653,7 +1700,7 @@ void timedPopulateCursorList(String ref, String q, int limit) {
 
 void setUpTypeHierarchy() {
   //- 
-  //  - Legacy
+  //  - Diary
   //  - Trench
   //    - Trench Files
   //    - Locus
@@ -1665,9 +1712,10 @@ void setUpTypeHierarchy() {
   //      - Photograph Log
   //    - Diary
   //    - Legacy
+  //  - Legacy
 
   n0 = Tree("", 1);
-  n1 = Tree("Legacy", 1);
+  n1 = Tree("Diary", 1);
   n2 = Tree("Trench", 1);
   n3 = Tree("Trench Files", 1);
   n4 = Tree("Locus", 1);
@@ -1679,9 +1727,11 @@ void setUpTypeHierarchy() {
   n10 = Tree("Photograph Log", 1);
   n11 = Tree("Diary", 1);
   n12 = Tree("Legacy", 1);
+  n13 = Tree("Legacy", 1);
 
   n0.addChild(n1);
   n0.addChild(n2);
+  n0.addChild(n13);
 
   n2.addChild(n3);
   n2.addChild(n4);
@@ -2463,6 +2513,7 @@ void inheritFieldValue(String src, String dst) {
 inheritFieldValue("Control/Site/New_Site_Name", "Site/Site/Site_Site_Name", true);
 inheritFieldValue("Control/Site/Year_of_Campaign", "Site/Site/Site_Year_of_Campaign", true);
 inheritFieldValue("User/User_List/Device_Code", "Site/Vars/Device_Code", false);
+inheritFieldValue("Site/Site/Site_Site_Name", "Trench/Trench/Trench_Site_Name", true);
 inheritFieldValue("Site/Site/Trench_ID", "Trench/Trench/Trench_Trench_ID", true);
 inheritFieldValue("Site/Site/Site_Year_of_Campaign", "Trench/Vars/Trench_Year_of_Campaign", true);
 inheritFieldValue("User/User_List/Device_Code", "Trench/Vars/Device_Code", false);
@@ -2472,11 +2523,13 @@ inheritFieldValue("Trench/Trench/Trench_Trench_ID", "Trench_Files/Add_Trench_Fil
 inheritFieldValue("Trench/Trench/Subsquare", "Trench_Files/Add_Trench_Files/Subsquare", true);
 inheritFieldValue("User/User_List/Device_Code", "Trench_Files/Vars/Device_Code", false);
 inheritFieldValue("Trench/Trench/Area", "Locus/General/Area", true);
+inheritFieldValue("Trench/Trench/Trench_Site_Name", "Locus/General/Locus_Site_Name", true);
 inheritFieldValue("Trench/Trench/Trench_Trench_ID", "Locus/General/Locus_Trench_ID", true);
 inheritFieldValue("Trench/Trench/Subsquare", "Locus/General/Subsquare", true);
 inheritFieldValue("Trench/Trench/Team_Members", "Locus/General/Team_Members", true);
 inheritFieldValue("User/User_List/Device_Code", "Locus/Vars/Device_Code", false);
 inheritFieldValue("Trench/Vars/Trench_Year_of_Campaign", "Locus/Vars/Locus_Year_of_Campaign", true);
+inheritFieldValue("Trench/Trench/Area", "Stratum_Feature/General/Area", true);
 inheritFieldValue("Trench/Trench/Trench_Trench_ID", "Stratum_Feature/General/Stratum_Feature_Trench_ID", true);
 inheritFieldValue("User/User_List/Device_Code", "Stratum_Feature/Vars/Device_Code", false);
 inheritFieldValue("Trench/Trench/Trench_Site_Name", "Stratum_Feature/Vars/Stratum_Feature_Site_Name", true);
@@ -3170,6 +3223,7 @@ void validateTrench() {
 }
 void validateLocus() {
   List f = new ArrayList(); // Fields to be validated
+  f.add(fieldPair("Locus/General/Locus_Site_Name", "{Site_Name}"));
   f.add(fieldPair("Locus/General/Locus_Locus_ID", "{Locus_ID}"));
   f.add(fieldPair("Locus/General/Excavation_Method", "{Excavation_Method}"));
   f.add(fieldPair("Locus/Measure/Absolute_Height_Top_m", "{Absolute_Height_Top__m_}"));
@@ -3434,10 +3488,6 @@ void onClickUserModuleGuide () {
   newTab("User/Help", true);
 }
 
-void onClickControlNewDairy () {
-  newTab("Dairy", true);
-}
-
 void onClickTrenchSetDateClosed () {
   newTab("Date_Closed", true);
 }
@@ -3457,6 +3507,11 @@ void onClickStratumFeatureCreateRelationshipstoThisStratumFeature () {
 void onClickControlNewSquare () {
   parentTabgroup__ = "Control";
   newTrench();
+}
+
+void onClickControlNewDiary () {
+  parentTabgroup__ = "Control";
+  newDiary();
 }
 
 void onClickRelationshipCreateNewLegacy () {
@@ -3521,7 +3576,7 @@ void onClickStratumFeatureAddPhotographLog () {
 addOnEvent("User/User_List/Login", "click", "onClickUserLogin()");
 addOnEvent("User/User_List/Module_Guide", "click", "onClickUserModuleGuide()");
 addOnEvent("Control/Site/New_Square", "click", "onClickControlNewSquare()");
-addOnEvent("Control/Site/New_Dairy", "click", "onClickControlNewDairy()");
+addOnEvent("Control/Site/New_Diary", "click", "onClickControlNewDiary()");
 addOnEvent("Trench/Trench/Set_Date_Closed", "click", "onClickTrenchSetDateClosed()");
 addOnEvent("Locus/Deposit/Material_Helper", "click", "onClickLocusMaterialHelper()");
 addOnEvent("Locus/Relationships/Create_Relationships_to_This_Locus", "click", "onClickLocusCreateRelationshipstoThisLocus()");
@@ -4684,7 +4739,7 @@ entityTypes.add(new NameValuePair("{Site}", "Site"));
 entityTypes.add(new NameValuePair("{Square}", "Trench"));
 entityTypes.add(new NameValuePair("{Square_Files}", "Trench Files"));
 entityTypes.add(new NameValuePair("{Locus}", "Locus"));
-entityTypes.add(new NameValuePair("{Stratum_Feature}", "Stratum Feature"));
+entityTypes.add(new NameValuePair("{Phase}", "Stratum Feature"));
 entityTypes.add(new NameValuePair("{Sediment_Aggregate}", "Sediment Aggregate"));
 entityTypes.add(new NameValuePair("{Photograph_Log}", "Photograph Log"));
 entityTypes.add(new NameValuePair("{Diary}", "Diary"));

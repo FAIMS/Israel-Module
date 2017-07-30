@@ -331,6 +331,15 @@ public class ModuleUtil extends ModuleHelper {
 
     /*
         Type: tab
+        Ref:  Locus/Surface
+     */
+    public static View get_Locus_Surface(Solo solo) {
+        String ref = "Locus/Surface";
+        return (android.view.View) solo.getView((Object) ref);
+    }
+
+    /*
+        Type: tab
         Ref:  Locus/Vars
      */
     public static View get_Locus_Vars(Solo solo) {
@@ -600,10 +609,10 @@ public class ModuleUtil extends ModuleHelper {
 
     /*
         Type: button
-        Ref:  Control/Site/New_Dairy
+        Ref:  Control/Site/New_Diary
      */
-    public static View get_Control_Site_NewDairy(Solo solo) {
-        String ref = "Control/Site/New_Dairy";
+    public static View get_Control_Site_NewDiary(Solo solo) {
+        String ref = "Control/Site/New_Diary";
         return (android.view.View) solo.getView((Object) ref);
     }
 
@@ -1095,6 +1104,15 @@ public class ModuleUtil extends ModuleHelper {
 
     /*
         Type: checkbox
+        Ref:  FCN/General/Type
+     */
+    public static View get_FCN_General_Type(Solo solo) {
+        String ref = "FCN/General/Type";
+        return (android.view.View) solo.getView((Object) ref);
+    }
+
+    /*
+        Type: checkbox
         Ref:  Locus/General/Excavation_Method
      */
     public static View get_Locus_General_ExcavationMethod(Solo solo) {
@@ -1126,6 +1144,15 @@ public class ModuleUtil extends ModuleHelper {
      */
     public static View get_Diary_Vars_DeviceCode(Solo solo) {
         String ref = "Diary/Vars/Device_Code";
+        return (android.view.View) solo.getView((Object) ref);
+    }
+
+    /*
+        Type: dropdown
+        Ref:  FCN/General/Principal_Period
+     */
+    public static View get_FCN_General_PrincipalPeriod(Solo solo) {
+        String ref = "FCN/General/Principal_Period";
         return (android.view.View) solo.getView((Object) ref);
     }
 
@@ -1644,6 +1671,15 @@ public class ModuleUtil extends ModuleHelper {
 
     /*
         Type: input
+        Ref:  FCN/General/Chronology_Note
+     */
+    public static EditText get_FCN_General_ChronologyNote(Solo solo) {
+        String ref = "FCN/General/Chronology_Note";
+        return (android.widget.EditText) solo.getView((Object) ref);
+    }
+
+    /*
+        Type: input
         Ref:  FCN/General/Easting
      */
     public static View get_FCN_General_Easting(Solo solo) {
@@ -1667,6 +1703,24 @@ public class ModuleUtil extends ModuleHelper {
     public static View get_FCN_General_FCNTrenchID(Solo solo) {
         String ref = "FCN/General/FCN_Trench_ID";
         return (android.view.View) solo.getView((Object) ref);
+    }
+
+    /*
+        Type: input
+        Ref:  FCN/General/General_Notes
+     */
+    public static EditText get_FCN_General_GeneralNotes(Solo solo) {
+        String ref = "FCN/General/General_Notes";
+        return (android.widget.EditText) solo.getView((Object) ref);
+    }
+
+    /*
+        Type: input
+        Ref:  FCN/General/Intrusive_Materials_Comment
+     */
+    public static EditText get_FCN_General_IntrusiveMaterialsComment(Solo solo) {
+        String ref = "FCN/General/Intrusive_Materials_Comment";
+        return (android.widget.EditText) solo.getView((Object) ref);
     }
 
     /*
@@ -1711,6 +1765,42 @@ public class ModuleUtil extends ModuleHelper {
      */
     public static EditText get_FCN_General_Subsquare(Solo solo) {
         String ref = "FCN/General/Subsquare";
+        return (android.widget.EditText) solo.getView((Object) ref);
+    }
+
+    /*
+        Type: input
+        Ref:  FCN/General/Weight_kg
+     */
+    public static EditText get_FCN_General_Weightkg(Solo solo) {
+        String ref = "FCN/General/Weight_kg";
+        return (android.widget.EditText) solo.getView((Object) ref);
+    }
+
+    /*
+        Type: input
+        Ref:  FCN/General/X_Coordinates
+     */
+    public static EditText get_FCN_General_XCoordinates(Solo solo) {
+        String ref = "FCN/General/X_Coordinates";
+        return (android.widget.EditText) solo.getView((Object) ref);
+    }
+
+    /*
+        Type: input
+        Ref:  FCN/General/Y_Coordinates
+     */
+    public static EditText get_FCN_General_YCoordinates(Solo solo) {
+        String ref = "FCN/General/Y_Coordinates";
+        return (android.widget.EditText) solo.getView((Object) ref);
+    }
+
+    /*
+        Type: input
+        Ref:  FCN/General/Z_Coordinates
+     */
+    public static EditText get_FCN_General_ZCoordinates(Solo solo) {
+        String ref = "FCN/General/Z_Coordinates";
         return (android.widget.EditText) solo.getView((Object) ref);
     }
 
@@ -1990,6 +2080,15 @@ public class ModuleUtil extends ModuleHelper {
      */
     public static EditText get_Locus_General_LocusLocusID(Solo solo) {
         String ref = "Locus/General/Locus_Locus_ID";
+        return (android.widget.EditText) solo.getView((Object) ref);
+    }
+
+    /*
+        Type: input
+        Ref:  Locus/General/Locus_Site_Name
+     */
+    public static EditText get_Locus_General_LocusSiteName(Solo solo) {
+        String ref = "Locus/General/Locus_Site_Name";
         return (android.widget.EditText) solo.getView((Object) ref);
     }
 
@@ -2409,6 +2508,51 @@ public class ModuleUtil extends ModuleHelper {
 
     /*
         Type: input
+        Ref:  Locus/Surface/Composition_Description
+     */
+    public static EditText get_Locus_Surface_CompositionDescription(Solo solo) {
+        String ref = "Locus/Surface/Composition_Description";
+        return (android.widget.EditText) solo.getView((Object) ref);
+    }
+
+    /*
+        Type: input
+        Ref:  Locus/Surface/Extend_Width
+     */
+    public static EditText get_Locus_Surface_ExtendWidth(Solo solo) {
+        String ref = "Locus/Surface/Extend_Width";
+        return (android.widget.EditText) solo.getView((Object) ref);
+    }
+
+    /*
+        Type: input
+        Ref:  Locus/Surface/Extent_Length
+     */
+    public static EditText get_Locus_Surface_ExtentLength(Solo solo) {
+        String ref = "Locus/Surface/Extent_Length";
+        return (android.widget.EditText) solo.getView((Object) ref);
+    }
+
+    /*
+        Type: input
+        Ref:  Locus/Surface/Surface_Type
+     */
+    public static EditText get_Locus_Surface_SurfaceType(Solo solo) {
+        String ref = "Locus/Surface/Surface_Type";
+        return (android.widget.EditText) solo.getView((Object) ref);
+    }
+
+    /*
+        Type: input
+        Ref:  Locus/Surface/Thickness_max
+     */
+    public static EditText get_Locus_Surface_Thicknessmax(Solo solo) {
+        String ref = "Locus/Surface/Thickness_max";
+        return (android.widget.EditText) solo.getView((Object) ref);
+    }
+
+    /*
+        Type: input
         Ref:  Locus/Vars/Locus_Year_of_Campaign
      */
     public static EditText get_Locus_Vars_LocusYearofCampaign(Solo solo) {
@@ -2576,6 +2720,15 @@ public class ModuleUtil extends ModuleHelper {
     public static EditText get_SoilMunselColor_Vars_SoilMunselColorLocusID(Solo solo) {
         String ref = "Soil_Munsel_Color/Vars/Soil_Munsel_Color_Locus_ID";
         return (android.widget.EditText) solo.getView((Object) ref);
+    }
+
+    /*
+        Type: input
+        Ref:  Stratum_Feature/General/Area
+     */
+    public static View get_StratumFeature_General_Area(Solo solo) {
+        String ref = "Stratum_Feature/General/Area";
+        return (android.view.View) solo.getView((Object) ref);
     }
 
     /*
@@ -2931,6 +3084,15 @@ public class ModuleUtil extends ModuleHelper {
 
     /*
         Type: input
+        Ref:  Trench/Trench/Trench_Site_Name
+     */
+    public static View get_Trench_Trench_TrenchSiteName(Solo solo) {
+        String ref = "Trench/Trench/Trench_Site_Name";
+        return (android.view.View) solo.getView((Object) ref);
+    }
+
+    /*
+        Type: input
         Ref:  Trench/Trench/Trench_Trench_ID
      */
     public static EditText get_Trench_Trench_TrenchTrenchID(Solo solo) {
@@ -3196,6 +3358,51 @@ public class ModuleUtil extends ModuleHelper {
      */
     public static View get_SedimentAggregate_SedimentAggregate_SoilStoneShape(Solo solo) {
         String ref = "Sediment_Aggregate/Sediment_Aggregate/Soil_Stone_Shape";
+        return (android.view.View) solo.getView((Object) ref);
+    }
+
+    /*
+        Type: radio
+        Ref:  FCN/General/Analysed
+     */
+    public static View get_FCN_General_Analysed(Solo solo) {
+        String ref = "FCN/General/Analysed";
+        return (android.view.View) solo.getView((Object) ref);
+    }
+
+    /*
+        Type: radio
+        Ref:  FCN/General/Chronology_Precision
+     */
+    public static View get_FCN_General_ChronologyPrecision(Solo solo) {
+        String ref = "FCN/General/Chronology_Precision";
+        return (android.view.View) solo.getView((Object) ref);
+    }
+
+    /*
+        Type: radio
+        Ref:  FCN/General/Restorable
+     */
+    public static View get_FCN_General_Restorable(Solo solo) {
+        String ref = "FCN/General/Restorable";
+        return (android.view.View) solo.getView((Object) ref);
+    }
+
+    /*
+        Type: radio
+        Ref:  FCN/General/Washed
+     */
+    public static View get_FCN_General_Washed(Solo solo) {
+        String ref = "FCN/General/Washed";
+        return (android.view.View) solo.getView((Object) ref);
+    }
+
+    /*
+        Type: radio
+        Ref:  FCN/General/Weighted
+     */
+    public static View get_FCN_General_Weighted(Solo solo) {
+        String ref = "FCN/General/Weighted";
         return (android.view.View) solo.getView((Object) ref);
     }
 

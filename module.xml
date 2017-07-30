@@ -75,7 +75,7 @@
     <Year_of_Campaign f="notnull" b="decimal"/>
     <GPS_Diagnostics t="gpsdiag"/>
     <New_Square t="button" l="Trench"/>
-    <New_Dairy t="button" l="Dairy"/>
+    <New_Diary t="button" l="Diary"/>
     <Choose_an_Existing_Site t="list" e="Trench"/>
   </Site>
   <Next_IDs>
@@ -125,6 +125,12 @@
         <fmt>$0-</fmt>
       </str>
     </Area>
+    <Trench_Site_Name f="id readonly" i="Site/Site/Site_Site_Name">
+      Site Name
+      <str>
+        <pos>1</pos>
+      </str>
+    </Trench_Site_Name>
     <Trench_Trench_ID f="id notnull" i="Site/Site/Trench_ID">
       Square ID
       <str>
@@ -280,6 +286,12 @@
             <fmt>$0</fmt>
           </str>
         </Area>
+        <Locus_Site_Name f="id notnull" i="Trench/Trench/Trench_Site_Name">
+        Site Name
+        <str>
+          <pos>1</pos>
+        </str>
+        </Locus_Site_Name>
       <Locus_Trench_ID f="id readonly" i="Trench/Trench/Trench_Trench_ID">
         Square ID
         <!--The semantics of the autonum flag have been changed using
@@ -619,8 +631,9 @@
     <Section_Numbers/>
   </Construction>
   <Surface>
-    <Type>
-    </Type>
+    <Surface_Type>
+      Type
+    </Surface_Type>
     <Extent_Length>
       Extent Length (cm)
     </Extent_Length>
@@ -628,10 +641,9 @@
       Extent Width (cm)
     </Extend_Width>
     <Thickness_max>
-      Thickness max (cm) 
+      Thickness max (cm)
     </Thickness_max>
-    <Composition_Description>
-    </Composition_Description>
+    <Composition_Description/>
   </Surface>
   <Deposit>
     Fill
@@ -1043,6 +1055,7 @@
   <desc>A group of loci.</desc>
   <General>
     Phase
+    <Area f="readonly" i="Trench/Trench/Area"/>
     <Record_Type t="radio" f="notnull">
       <opts>
         <opt>Stratum</opt>
@@ -1087,7 +1100,6 @@
       </Stratum_Feature_Trench_ID>
       <Stratum_Feature_ID f="id notnull autonum">
         Stratum/Feature ID
-        <desc>Feature number taken from the central register.</desc>
         <str><pos>6</pos></str>
       </Stratum_Feature_ID>
     </cols>

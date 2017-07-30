@@ -35,7 +35,7 @@
               <Year_of_Campaign/>
               <GPS_Diagnostics/>
               <New_Square/>
-              <New_Dairy/>
+              <New_Diary/>
               <Choose_an_Existing_Site/>
             </Site>
             <Next_IDs>
@@ -83,6 +83,7 @@
             <Trench>
               <Trench_author/>
               <Area/>
+              <Trench_Site_Name/>
               <Trench_Trench_ID/>
               <Subsquare/>
               <Team_Members/>
@@ -183,14 +184,17 @@
                   <Area/>
                 </Col_2>
                 <Col_3>
-                  <Locus_Trench_ID/>
+                  <Locus_Site_Name/>
                 </Col_3>
                 <Col_4>
-                  <Subsquare/>
+                  <Locus_Trench_ID/>
                 </Col_4>
                 <Col_5>
-                  <Locus_Locus_ID/>
+                  <Subsquare/>
                 </Col_5>
+                <Col_6>
+                  <Locus_Locus_ID/>
+                </Col_6>
               </Colgroup_1>
               <Brief_Description/>
               <Colgroup_2>
@@ -331,6 +335,13 @@
               <Plans/>
               <Section_Numbers/>
             </Construction>
+            <Surface>
+              <Surface_Type/>
+              <Extent_Length/>
+              <Extend_Width/>
+              <Thickness_max/>
+              <Composition_Description/>
+            </Surface>
             <Deposit>
               <Deposit_Your_Interpretation/>
               <Texture/>
@@ -477,6 +488,7 @@
           </Locus>
           <Stratum_Feature>
             <General>
+              <Area/>
               <Record_Type/>
               <Feature_Type_Group/>
               <Feature_Prefix_Group/>
@@ -761,6 +773,28 @@
                 </Col_3>
               </Colgroup_4>
               <Take_From_GPS_1/>
+              <Colgroup_5>
+                <Col_1>
+                  <X_Coordinates/>
+                </Col_1>
+                <Col_2>
+                  <Y_Coordinates/>
+                </Col_2>
+                <Col_3>
+                  <Z_Coordinates/>
+                </Col_3>
+              </Colgroup_5>
+              <Weight_kg/>
+              <Type/>
+              <Washed/>
+              <Weighted/>
+              <Analysed/>
+              <Restorable/>
+              <Principal_Period/>
+              <Chronology_Precision/>
+              <Chronology_Note/>
+              <Intrusive_Materials_Comment/>
+              <General_Notes/>
               <Attach_Photograph/>
               <Attach_Photograph_Button_1/>
             </General>
@@ -810,7 +844,7 @@
       <bind nodeset="/faims/Trench/Trench/X_Coordinate" type="decimal"/>
       <bind nodeset="/faims/Trench/Trench/Y_Coordinate" type="decimal"/>
       <bind nodeset="/faims/Date_Closed/Date_Closed/Date_Closed" type="date"/>
-      <bind nodeset="/faims/Locus/General/Colgroup_1/Col_5/Locus_Locus_ID" type="decimal"/>
+      <bind nodeset="/faims/Locus/General/Colgroup_1/Col_6/Locus_Locus_ID" type="decimal"/>
       <bind nodeset="/faims/Locus/General/Colgroup_2/Col_1/Grid_X" type="decimal"/>
       <bind nodeset="/faims/Locus/General/Colgroup_2/Col_2/Grid_Y" type="decimal"/>
       <bind nodeset="/faims/Locus/Measure/Colgroup_1/Col_1/Absolute_Height_Top_m" type="decimal"/>
@@ -865,6 +899,10 @@
       <bind nodeset="/faims/Stratum_Feature/General/Colgroup_5/Col_1/Mid_X" type="decimal"/>
       <bind nodeset="/faims/Stratum_Feature/General/Colgroup_5/Col_2/Mid_Y" type="decimal"/>
       <bind nodeset="/faims/Sediment_Aggregate/Sediment_Aggregate/Colgroup_1/Col_2/Percentage" type="decimal"/>
+      <bind nodeset="/faims/FCN/General/Colgroup_5/Col_1/X_Coordinates" type="decimal"/>
+      <bind nodeset="/faims/FCN/General/Colgroup_5/Col_2/Y_Coordinates" type="decimal"/>
+      <bind nodeset="/faims/FCN/General/Colgroup_5/Col_3/Z_Coordinates" type="decimal"/>
+      <bind nodeset="/faims/FCN/General/Weight_kg" type="decimal"/>
     </model>
   </h:head>
   <h:body>
@@ -939,8 +977,8 @@
         <trigger ref="New_Square">
           <label>{New_Square}</label>
         </trigger>
-        <trigger ref="New_Dairy">
-          <label>{New_Dairy}</label>
+        <trigger ref="New_Diary">
+          <label>{New_Diary}</label>
         </trigger>
         <select1 appearance="compact" ref="Choose_an_Existing_Site">
           <label>{Choose_an_Existing_Site}</label>
@@ -1065,6 +1103,9 @@
         </input>
         <input faims_attribute_name="Trench Area" faims_attribute_type="measure" ref="Area" faims_style_class="required">
           <label>{Area}</label>
+        </input>
+        <input faims_attribute_name="Trench Site Name" faims_attribute_type="measure" ref="Trench_Site_Name" faims_read_only="true">
+          <label>{Site_Name}</label>
         </input>
         <input faims_attribute_name="Trench Trench ID" faims_attribute_type="measure" ref="Trench_Trench_ID" faims_style_class="required">
           <label>{Square_ID}</label>
@@ -1344,17 +1385,23 @@
           </group>
           <group ref="Col_3" faims_style="even">
             <label/>
+            <input faims_attribute_name="Locus Site Name" faims_attribute_type="measure" ref="Locus_Site_Name" faims_style_class="required">
+              <label>{Site_Name}</label>
+            </input>
+          </group>
+          <group ref="Col_4" faims_style="even">
+            <label/>
             <input faims_attribute_name="Locus Trench ID" faims_attribute_type="measure" ref="Locus_Trench_ID" faims_read_only="true">
               <label>{Square_ID}</label>
             </input>
           </group>
-          <group ref="Col_4" faims_style="even">
+          <group ref="Col_5" faims_style="even">
             <label/>
             <input faims_attribute_name="Locus Subsquare" faims_attribute_type="measure" ref="Subsquare">
               <label>{Subsquare}</label>
             </input>
           </group>
-          <group ref="Col_5" faims_style="even">
+          <group ref="Col_6" faims_style="even">
             <label/>
             <input faims_attribute_name="Locus Locus ID" faims_attribute_type="measure" ref="Locus_Locus_ID" faims_style_class="required">
               <label>{Locus_ID}</label>
@@ -1718,6 +1765,24 @@
         </input>
         <input faims_attribute_name="Locus Section Numbers" faims_attribute_type="measure" ref="Section_Numbers">
           <label>{Section_Numbers}</label>
+        </input>
+      </group>
+      <group ref="Surface">
+        <label>{Surface}</label>
+        <input faims_attribute_name="Surface Type" faims_attribute_type="measure" ref="Surface_Type">
+          <label>{Type}</label>
+        </input>
+        <input faims_attribute_name="Extent Length" faims_attribute_type="measure" ref="Extent_Length">
+          <label>{Extent_Length__cm_}</label>
+        </input>
+        <input faims_attribute_name="Extend Width" faims_attribute_type="measure" ref="Extend_Width">
+          <label>{Extent_Width__cm_}</label>
+        </input>
+        <input faims_attribute_name="Thickness max" faims_attribute_type="measure" ref="Thickness_max">
+          <label>{Thickness_max__cm_}</label>
+        </input>
+        <input faims_attribute_name="Composition Description" faims_attribute_type="measure" ref="Composition_Description">
+          <label>{Composition_Description}</label>
         </input>
       </group>
       <group ref="Deposit">
@@ -2085,9 +2150,12 @@
       </group>
     </group>
     <group ref="Stratum_Feature" faims_archent_type="Stratum Feature">
-      <label>{Stratum_Feature}</label>
+      <label>{Phase}</label>
       <group ref="General">
-        <label>{General}</label>
+        <label>{Phase}</label>
+        <input faims_attribute_name="Stratum Feature Area" faims_attribute_type="measure" ref="Area" faims_read_only="true">
+          <label>{Area}</label>
+        </input>
         <select1 appearance="full" faims_attribute_name="Record Type" faims_attribute_type="vocab" ref="Record_Type" faims_style_class="required">
           <label>{Record_Type}</label>
           <item>
@@ -2766,6 +2834,88 @@
         <trigger ref="Take_From_GPS_1">
           <label>{Take_From_GPS}</label>
         </trigger>
+        <group ref="Colgroup_5" faims_style="orientation">
+          <label/>
+          <group ref="Col_1" faims_style="even">
+            <label/>
+            <input faims_attribute_name="X Coordinates" faims_attribute_type="measure" ref="X_Coordinates">
+              <label>{X_Coordinates}</label>
+            </input>
+          </group>
+          <group ref="Col_2" faims_style="even">
+            <label/>
+            <input faims_attribute_name="Y Coordinates" faims_attribute_type="measure" ref="Y_Coordinates">
+              <label>{Y_Coordinates}</label>
+            </input>
+          </group>
+          <group ref="Col_3" faims_style="even">
+            <label/>
+            <input faims_attribute_name="Z Coordinates" faims_attribute_type="measure" ref="Z_Coordinates">
+              <label>{Z_Coordinates}</label>
+            </input>
+          </group>
+        </group>
+        <input faims_attribute_name="Weight kg" faims_attribute_type="measure" ref="Weight_kg">
+          <label>{Weight__kg_}</label>
+        </input>
+        <select faims_attribute_name="Type" faims_attribute_type="vocab" ref="Type">
+          <label>{Type}</label>
+          <item>
+            <label>Options not loaded</label>
+            <value>Options not loaded</value>
+          </item>
+        </select>
+        <select1 appearance="full" faims_attribute_name="Washed" faims_attribute_type="vocab" ref="Washed">
+          <label>{Washed}</label>
+          <item>
+            <label>Options not loaded</label>
+            <value>Options not loaded</value>
+          </item>
+        </select1>
+        <select1 appearance="full" faims_attribute_name="Weighted" faims_attribute_type="vocab" ref="Weighted">
+          <label>{Weighted}</label>
+          <item>
+            <label>Options not loaded</label>
+            <value>Options not loaded</value>
+          </item>
+        </select1>
+        <select1 appearance="full" faims_attribute_name="Analysed" faims_attribute_type="vocab" ref="Analysed">
+          <label>{Analysed}</label>
+          <item>
+            <label>Options not loaded</label>
+            <value>Options not loaded</value>
+          </item>
+        </select1>
+        <select1 appearance="full" faims_attribute_name="Restorable" faims_attribute_type="vocab" ref="Restorable">
+          <label>{Restorable}</label>
+          <item>
+            <label>Options not loaded</label>
+            <value>Options not loaded</value>
+          </item>
+        </select1>
+        <select1 faims_attribute_name="Principal Period" faims_attribute_type="vocab" ref="Principal_Period">
+          <label>{Principal_Period}</label>
+          <item>
+            <label>Options not loaded</label>
+            <value>Options not loaded</value>
+          </item>
+        </select1>
+        <select1 appearance="full" faims_attribute_name="Chronology Precision" faims_attribute_type="vocab" ref="Chronology_Precision">
+          <label>{Chronology_Precision}</label>
+          <item>
+            <label>Options not loaded</label>
+            <value>Options not loaded</value>
+          </item>
+        </select1>
+        <input faims_attribute_name="Chronology Note" faims_attribute_type="measure" ref="Chronology_Note">
+          <label>{Chronology_Note}</label>
+        </input>
+        <input faims_attribute_name="Intrusive Materials Comment" faims_attribute_type="measure" ref="Intrusive_Materials_Comment">
+          <label>{Intrusive_Materials_Comment}</label>
+        </input>
+        <input faims_attribute_name="General Notes" faims_attribute_type="measure" ref="General_Notes">
+          <label>{General_Notes}</label>
+        </input>
         <select faims_sync="true" type="camera" faims_attribute_name="Attach Photograph" faims_attribute_type="measure" ref="Attach_Photograph">
           <label>{Attach_Photograph}</label>
           <item>
