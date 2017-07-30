@@ -50,7 +50,7 @@
     <description>Loci unequivocally contemporary</description>
   </RelationshipElement>
   <RelationshipElement name="ParentChild" type="hierarchical">
-    <description></description>
+    <description/>
     <parent>{parent_of}</parent>
     <child>{child_of}</child>
   </RelationshipElement>
@@ -71,12 +71,12 @@
 <Control f="nodata">
   <Site f="noscroll">
     Control
-    <New_Site_Name    f="notnull"/>
+    <New_Site_Name f="notnull"/>
     <Year_of_Campaign f="notnull" b="decimal"/>
     <GPS_Diagnostics t="gpsdiag"/>
-    <New_Square         t="button" l="Trench"/>
-    <New_Dairy        t="button" l="Dairy"/>
-    <Choose_an_Existing_Site t="list"   e="Trench"/>
+    <New_Square t="button" l="Trench"/>
+    <New_Dairy t="button" l="Dairy"/>
+    <Choose_an_Existing_Site t="list" e="Trench"/>
   </Site>
   <Next_IDs>
     <autonum/>
@@ -104,7 +104,7 @@
       'Trench ID' must be in the format 'T + number', e.g. T1, T2, T3.
     </Guide>
     <Trench_ID f="nodata notnull"/>
-    <Create_New_Trench         lc="Trench"/>
+    <Create_New_Trench lc="Trench"/>
     <List_of_Existing_Trenches ec="Trench"/>
   </Site>
   <Vars f="hidden">
@@ -179,7 +179,7 @@
     <Date_Closed f="readonly"/>
     <Brief_Description/>
     <Your_Discussion/>
-    <Add_Trench_Files      t="button"   lc="Trench_Files">
+    <Add_Trench_Files t="button" lc="Trench_Files">
       Add Square Files
     </Add_Trench_Files>
     <Attached_Trench_Files t="dropdown" ec="Trench_Files">
@@ -187,8 +187,8 @@
     </Attached_Trench_Files>
   </Trench>
   <Loci f="noscroll">
-    <Create_New_Locus      t="button" lc="Locus"/>
-    <List_of_Existing_Loci t="list"   ec="Locus"/>
+    <Create_New_Locus t="button" lc="Locus"/>
+    <List_of_Existing_Loci t="list" ec="Locus"/>
   </Loci>
   <Strata_Features f="noscroll">
     Phases
@@ -200,12 +200,12 @@
     </List_of_Existing_Strata_Features>
   </Strata_Features>
   <Diaries f="noscroll">
-    <Create_New_Diary         t="button" lc="Diary"/>
-    <List_of_Existing_Diaries t="list"   ec="Diary"/>
+    <Create_New_Diary t="button" lc="Diary"/>
+    <List_of_Existing_Diaries t="list" ec="Diary"/>
   </Diaries>
   <Legacies f="noscroll">
-    <Create_New_Legacy         t="button" lc="Legacy"/>
-    <List_of_Existing_Legacies t="list"   ec="Legacy"/>
+    <Create_New_Legacy t="button" lc="Legacy"/>
+    <List_of_Existing_Legacies t="list" ec="Legacy"/>
   </Legacies>
   <Vars f="hidden">
     <Trench_Year_of_Campaign f="id" i="Site/Site/Site_Year_of_Campaign">
@@ -233,7 +233,7 @@
   <Add_Trench_Files>
     Square_Files
     <cols>
-      <Trench_Files_Site_Name        f="id readonly" i="Trench/Trench/Trench_Site_Name">
+      <Trench_Files_Site_Name f="id readonly" i="Trench/Trench/Trench_Site_Name">
         Site Name
       </Trench_Files_Site_Name>
       <Trench_Files_Year_of_Campaign f="id readonly" i="Trench/Vars/Trench_Year_of_Campaign">
@@ -396,7 +396,7 @@
     </Locus_Type>
     <Fill_in_Locus_Type_Details t="button"/>
     <cols>
-      <Photo_of_Plan    t="camera"/>
+      <Photo_of_Plan t="camera"/>
       <Photo_of_Section t="camera"/>
     </cols>
     <cols>
@@ -596,14 +596,14 @@
     <Your_Description/>
     <Your_Interpretation/>
     <Discussion/>
-    <Length       b="decimal">
+    <Length b="decimal">
       Length (m)
     </Length>
-    <Width        b="decimal">
+    <Width b="decimal">
       Width (m)
     </Width>
     <cols>
-      <Top_Depth  b="decimal">
+      <Top_Depth b="decimal">
         Top Depth (m)
       </Top_Depth>
       <Bottom_Depth b="decimal">
@@ -611,13 +611,28 @@
       </Bottom_Depth>
     </cols>
 
-    <Mid_X        b="decimal"/>
-    <Mid_Y        b="decimal"/>
-    <Sorting      b="decimal"/>
+    <Mid_X b="decimal"/>
+    <Mid_Y b="decimal"/>
+    <Sorting b="decimal"/>
     <Notes/>
     <Plans/>
     <Section_Numbers/>
   </Construction>
+  <Surface>
+    <Type>
+    </Type>
+    <Extent_Length>
+      Extent Length (cm)
+    </Extent_Length>
+    <Extend_Width>
+      Extent Width (cm)
+    </Extend_Width>
+    <Thickness_max>
+      Thickness max (cm) 
+    </Thickness_max>
+    <Composition_Description>
+    </Composition_Description>
+  </Surface>
   <Deposit>
     Fill
     <Deposit_Your_Interpretation f="notnull">
@@ -732,7 +747,7 @@
       </desc>
     </Soil_Colour>
     <Add_Munsel_Color t="button" lc="Soil_Munsel_Color"/>
-    <Munsel_Colors t="dropdown"  ec="Soil_Munsel_Color"/>
+    <Munsel_Colors t="dropdown" ec="Soil_Munsel_Color"/>
     <Deposit_Bedding>
       Bedding
       <desc>Describes the base of the deposit</desc>
@@ -899,19 +914,19 @@
       </Existing_Relationships_to_This_Locus>
       <col>
         <Selected_Relationship t="webview"/>
-        <Load_Related_Locus  t="button">
+        <Load_Related_Locus t="button">
           Load Related Locus
         </Load_Related_Locus>
-        <Delete_Relationship   t="button"/>
+        <Delete_Relationship t="button"/>
       </col>
     </cols>
   </Relationships>
   <FCNs f="noscroll">
     Pottery Basket
-    <Add_FCN              t="button" lc="FCN">
+    <Add_FCN t="button" lc="FCN">
       Add Pottery Basket
     </Add_FCN>
-    <List_of_Related_FCNs t="list"   ec="FCN">
+    <List_of_Related_FCNs t="list" ec="FCN">
       Existing Pottery Baskets
     </List_of_Related_FCNs>
   </FCNs>
@@ -1024,9 +1039,10 @@
 </Locus>
 
 <Stratum_Feature>
-  Stratum/Feature
+  Phase
   <desc>A group of loci.</desc>
   <General>
+    Phase
     <Record_Type t="radio" f="notnull">
       <opts>
         <opt>Stratum</opt>
@@ -1153,7 +1169,7 @@
         <Load_Related_Locus t="button">
           Load Related Locus
         </Load_Related_Locus>
-        <Delete_Relationship   t="button"/>
+        <Delete_Relationship t="button"/>
       </col>
     </cols>
   </Stratum_Feature_Loci>
@@ -1271,7 +1287,7 @@
     </Soil_Stone_Shape>
   </Sediment_Aggregate>
   <Vars f="hidden">
-    <Locus_ID  i="Locus/General/Locus_Locus_ID"/>
+    <Locus_ID i="Locus/General/Locus_Locus_ID"/>
     <Trench_ID i="Locus/General/Locus_Trench_ID"/>
     <Device_Code i="User/User_List/Device_Code!">
       <!--@SOURCE: vocabs/device-code.xml-->
@@ -1405,31 +1421,31 @@
     <Parent_Identifier t="webview"/>
     <cols>
       <Trench_ID f="notnull"/>
-      <Locus_ID  f="notnull"/>
+      <Locus_ID f="notnull"/>
     </cols>
     <Relationship_Type t="dropdown" f="persist!"/>
-    <Search            t="button"/>
+    <Search t="button"/>
     <cols>
       <col>
-        <Add_Relationship      t="button"/>
+        <Add_Relationship t="button"/>
         <Proposed_Relationship t="webview"/>
       </col>
       <col>
-        <Delete_Relationship   t="button"/>
+        <Delete_Relationship t="button"/>
         <Selected_Relationship t="webview"/>
       </col>
     </cols>
     <cols>
-      <Unrelated_Loci         t="list"/>
+      <Unrelated_Loci t="list"/>
       <Existing_Relationships t="list"/>
     </cols>
   </Relationships>
   <Legacies f="noscroll">
-    <Create_New_Legacy         t="button" l="Legacy"/>
-    <List_of_Existing_Legacies t="list"   e="Legacy"/>
+    <Create_New_Legacy t="button" l="Legacy"/>
+    <List_of_Existing_Legacies t="list" e="Legacy"/>
   </Legacies>
   <Vars f="hidden">
-    <Relationship_Site_Name        i="Locus/General/Locus_Site_Name!"/>
+    <Relationship_Site_Name i="Locus/General/Locus_Site_Name!"/>
     <Relationship_Year_of_Campaign i="Locus/Vars/Locus_Year_of_Campaign!"/>
   </Vars>
 </Relationship>
@@ -1446,7 +1462,7 @@
     <Search t="button"/>
     <cols>
       <col>
-        <Add_Relationship      t="button"/>
+        <Add_Relationship t="button"/>
         <Proposed_Relationship t="webview"/>
       </col>
       <col>
@@ -1455,16 +1471,16 @@
       </col>
     </cols>
     <cols>
-      <Unrelated_Loci         t="list"/>
+      <Unrelated_Loci t="list"/>
       <Existing_Relationships t="list"/>
     </cols>
   </Relationships>
   <Legacies f="noscroll">
-    <Create_New_Legacy         t="button" l="Legacy"/>
-    <List_of_Existing_Legacies t="list"   e="Legacy"/>
+    <Create_New_Legacy t="button" l="Legacy"/>
+    <List_of_Existing_Legacies t="list" e="Legacy"/>
   </Legacies>
   <Vars f="hidden">
-    <Stratum_Feature_Relationship_Site_Name        i="Stratum_Feature/Vars/Stratum_Feature_Site_Name!"/>
+    <Stratum_Feature_Relationship_Site_Name i="Stratum_Feature/Vars/Stratum_Feature_Site_Name!"/>
     <Stratum_Feature_Relationship_Year_of_Campaign i="Stratum_Feature/Vars/Stratum_Feature_Year_of_Campaign!"/>
   </Vars>
 </Stratum_Feature_Relationship>
@@ -1516,6 +1532,122 @@
       </timestamp>
     </cols>
     <gps/>
+    <cols>
+      <X_Coordinates b="decimal">
+      </X_Coordinates>
+      <Y_Coordinates b="decimal">
+      </Y_Coordinates>
+      <Z_Coordinates b="decimal">
+      </Z_Coordinates>
+    </cols>
+    <Weight_kg b="decimal">
+        Weight (kg)
+    </Weight_kg>
+    <Type t="checkbox">
+      <opts>
+        <opt>Pottery</opt>
+        <opt>Bone</opt>
+        <opt>Metal</opt>
+        <opt>Stone Object</opt>
+        <opt>Glass</opt>
+        <opt>Carbon 14 Sample</opt>
+        <opt>Botanic Sample</opt>
+        <opt>Shell</opt>
+        <opt>Other</opt>
+      </opts>
+    </Type>
+    <Washed t="radio">
+      <opts>
+        <opt>Yes</opt>
+        <opt>No</opt>
+        <opt>N/A</opt>
+      </opts>
+    </Washed>
+    <Weighted t="radio">
+      <opts>
+        <opt>Yes</opt>
+        <opt>No</opt>
+        <opt>N/A</opt>
+      </opts>
+    </Weighted>
+    <Analysed t="radio">
+      <opts>
+        <opt>Yes</opt>
+        <opt>No</opt>
+        <opt>N/A</opt>
+      </opts>
+    </Analysed>
+    <Restorable t="radio">
+      <opts>
+        <opt>Yes</opt>
+        <opt>No</opt>
+        <opt>Maybe</opt>
+        <opt>N/A</opt>
+      </opts>
+    </Restorable>
+    <Principal_Period>
+      <opts>
+        <opt>EB
+          <desc>EB (Early Bronze Age) 3300-2000 BC</desc>
+        </opt>
+        <opt>MB
+          <desc>MB (Middle Bronze Age) 2000-1550 BC</desc>
+        </opt>
+        <opt>LB
+        <desc>LB (Late Bronze Age) 1550-1200/1130 BC</desc>
+        </opt>
+        <opt>Iron I
+        <desc>Iron I 1200/1130-980 BC</desc>
+        </opt>
+        <opt>Iron IIA
+        <desc>Iron IIA 980-830 BC</desc>
+        </opt>
+        <opt>Iron IIB
+        <desc>Iron IIB 830-722/701 BC</desc>
+        </opt>
+        <opt>Iron IIC
+        <desc>Iron IIC 722/701-539 BC</desc>
+        </opt>
+        <opt>Persian
+        <desc>Persian 539-332 BC</desc>
+        </opt>
+        <opt>Hellenistic
+        <desc>Hellenistic 332-63 BC</desc>
+        </opt>
+        <opt>Roman
+        <desc>Roman 63 BC-323 AD</desc>
+        </opt>
+        <opt>Byzantine
+        <desc>Byzantine 323-638 AD</desc>
+        </opt>
+        <opt>Early Islamic
+        <desc>Early Islamic 638-1099 AD</desc>
+        </opt>
+        <opt>Crusader
+        <desc>Crusader 1099-1250 AD</desc>
+        </opt>
+        <opt>Mamluk
+        <desc>Mamluk 1250-1540 AD</desc>
+        </opt>
+        <opt>Ottoman
+        <desc>Ottoman 1540-1917 AD</desc>
+        </opt>
+        <opt>Mandate
+        <desc>Mandate 1917-1947 AD</desc>
+        </opt>
+        <opt>Other</opt>
+      </opts>
+    </Principal_Period>
+    <Chronology_Precision t="radio">
+      <opts>
+        <opt>Clean</opt>
+        <opt>Mixed</opt>
+        <opt>N/A</opt>
+      </opts>
+    </Chronology_Precision>
+    <Chronology_Note/>
+    <Intrusive_Materials_Comment/>
+    <General_Notes/>
     <Attach_Photograph t="camera"/>
   </General>
   <Vars f="hidden">
@@ -1557,10 +1689,10 @@
 <Legacy>
   <Legacy>
     <cols>
-      <Legacy_Site_Name        f="id readonly" i="Trench/Trench/Trench_Site_Name Relationship/Vars/Relationship_Site_Name Stratum_Feature_Relationship/Vars/Stratum_Feature_Relationship_Site_Name">
+      <Legacy_Site_Name f="id readonly" i="Trench/Trench/Trench_Site_Name Relationship/Vars/Relationship_Site_Name Stratum_Feature_Relationship/Vars/Stratum_Feature_Relationship_Site_Name">
         Site Name
       </Legacy_Site_Name>
-      <Legacy_Year_of_Campaign f="id notnull"  i="Trench/Vars/Trench_Year_of_Campaign Relationship/Vars/Relationship_Year_of_Campaign Stratum_Feature_Relationship/Vars/Stratum_Feature_Relationship_Year_of_Campaign">
+      <Legacy_Year_of_Campaign f="id notnull" i="Trench/Vars/Trench_Year_of_Campaign Relationship/Vars/Relationship_Year_of_Campaign Stratum_Feature_Relationship/Vars/Stratum_Feature_Relationship_Year_of_Campaign">
         Year of Campaign
         <str><fmt> $0</fmt></str>
       </Legacy_Year_of_Campaign>
