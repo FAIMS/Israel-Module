@@ -189,23 +189,25 @@
                 <Col_4>
                   <Locus_Trench_ID/>
                 </Col_4>
-                <Col_5>
-                  <Subsquare/>
-                </Col_5>
-                <Col_6>
-                  <Locus_Locus_ID/>
-                </Col_6>
               </Colgroup_1>
-              <Brief_Description/>
               <Colgroup_2>
+                <Col_1>
+                  <Subsquare/>
+                </Col_1>
+                <Col_2>
+                  <Locus_Locus_ID/>
+                </Col_2>
+              </Colgroup_2>
+              <Brief_Description/>
+              <Colgroup_3>
                 <Col_1>
                   <Grid_X/>
                 </Col_1>
                 <Col_2>
                   <Grid_Y/>
                 </Col_2>
-              </Colgroup_2>
-              <Colgroup_3>
+              </Colgroup_3>
+              <Colgroup_4>
                 <Col_1>
                   <Date_Opened/>
                   <Team_Members/>
@@ -213,18 +215,18 @@
                 <Col_2>
                   <Excavation_Method/>
                 </Col_2>
-              </Colgroup_3>
-              <Colgroup_4>
+              </Colgroup_4>
+              <Colgroup_5>
                 <Col_1>
                   <Basal_Edge_Definition/>
                 </Col_1>
                 <Col_2>
                   <Contamination/>
                 </Col_2>
-              </Colgroup_4>
+              </Colgroup_5>
               <Locus_Type/>
               <Fill_in_Locus_Type_Details/>
-              <Colgroup_5>
+              <Colgroup_6>
                 <Col_1>
                   <Photo_of_Plan/>
                   <Photo_of_Plan_Button_1/>
@@ -233,15 +235,15 @@
                   <Photo_of_Section/>
                   <Photo_of_Section_Button_1/>
                 </Col_2>
-              </Colgroup_5>
-              <Colgroup_6>
+              </Colgroup_6>
+              <Colgroup_7>
                 <Col_1>
                   <Date_Closed/>
                 </Col_1>
                 <Col_2>
                   <Add_Date_Closed/>
                 </Col_2>
-              </Colgroup_6>
+              </Colgroup_7>
             </General>
             <Measure>
               <Colgroup_1>
@@ -489,9 +491,6 @@
           <Stratum_Feature>
             <General>
               <Area/>
-              <Record_Type/>
-              <Feature_Type_Group/>
-              <Feature_Prefix_Group/>
               <Colgroup_1>
                 <Col_1>
                   <Stratum_Feature_Trench_ID/>
@@ -513,44 +512,30 @@
               </Colgroup_2>
               <Colgroup_3>
                 <Col_1>
-                  <NW_Top_Depth/>
-                  <SW_Top_Depth/>
-                  <Center_Top_Depth/>
+                  <Top_Depth/>
                 </Col_1>
                 <Col_2>
-                  <NE_Top_Depth/>
-                  <SE_Top_Depth/>
+                  <Bottom_Depth/>
                 </Col_2>
               </Colgroup_3>
               <Colgroup_4>
-                <Col_1>
-                  <NW_Bottom_Depth/>
-                  <SW_Bottom_Depth/>
-                  <Center_Bottom_Depth/>
-                </Col_1>
-                <Col_2>
-                  <NE_Bottom_Depth/>
-                  <SE_Bottom_Depth/>
-                </Col_2>
-              </Colgroup_4>
-              <Colgroup_5>
                 <Col_1>
                   <Mid_X/>
                 </Col_1>
                 <Col_2>
                   <Mid_Y/>
                 </Col_2>
-              </Colgroup_5>
+              </Colgroup_4>
               <Plans/>
               <Section_Numbers/>
-              <Colgroup_6>
+              <Colgroup_5>
                 <Col_1>
                   <Stratum_Feature_author/>
                 </Col_1>
                 <Col_2>
                   <Stratum_Feature_timestamp/>
                 </Col_2>
-              </Colgroup_6>
+              </Colgroup_5>
             </General>
             <Stratum_Feature_Loci>
               <Create_Relationships_to_This_Stratum_Feature/>
@@ -581,7 +566,6 @@
               <Stratum_Feature_Year_of_Campaign/>
               <L_Paren/>
               <R_Paren/>
-              <Last_Feature_Type/>
               <Last_Feature_Prefix/>
             </Vars>
           </Stratum_Feature>
@@ -844,9 +828,9 @@
       <bind nodeset="/faims/Trench/Trench/X_Coordinate" type="decimal"/>
       <bind nodeset="/faims/Trench/Trench/Y_Coordinate" type="decimal"/>
       <bind nodeset="/faims/Date_Closed/Date_Closed/Date_Closed" type="date"/>
-      <bind nodeset="/faims/Locus/General/Colgroup_1/Col_6/Locus_Locus_ID" type="decimal"/>
-      <bind nodeset="/faims/Locus/General/Colgroup_2/Col_1/Grid_X" type="decimal"/>
-      <bind nodeset="/faims/Locus/General/Colgroup_2/Col_2/Grid_Y" type="decimal"/>
+      <bind nodeset="/faims/Locus/General/Colgroup_2/Col_2/Locus_Locus_ID" type="decimal"/>
+      <bind nodeset="/faims/Locus/General/Colgroup_3/Col_1/Grid_X" type="decimal"/>
+      <bind nodeset="/faims/Locus/General/Colgroup_3/Col_2/Grid_Y" type="decimal"/>
       <bind nodeset="/faims/Locus/Measure/Colgroup_1/Col_1/Absolute_Height_Top_m" type="decimal"/>
       <bind nodeset="/faims/Locus/Measure/Colgroup_1/Col_2/Absolute_Height_Bottom_m" type="decimal"/>
       <bind nodeset="/faims/Locus/Measure/Colgroup_2/Col_1/Measure_Length" type="decimal"/>
@@ -886,18 +870,10 @@
       <bind nodeset="/faims/Locus/Skeleton/Colgroup_7/Col_3/Target_D_Z" type="decimal"/>
       <bind nodeset="/faims/Stratum_Feature/General/Colgroup_2/Col_1/Length" type="decimal"/>
       <bind nodeset="/faims/Stratum_Feature/General/Colgroup_2/Col_2/Width" type="decimal"/>
-      <bind nodeset="/faims/Stratum_Feature/General/Colgroup_3/Col_1/NW_Top_Depth" type="decimal"/>
-      <bind nodeset="/faims/Stratum_Feature/General/Colgroup_3/Col_1/SW_Top_Depth" type="decimal"/>
-      <bind nodeset="/faims/Stratum_Feature/General/Colgroup_3/Col_1/Center_Top_Depth" type="decimal"/>
-      <bind nodeset="/faims/Stratum_Feature/General/Colgroup_3/Col_2/NE_Top_Depth" type="decimal"/>
-      <bind nodeset="/faims/Stratum_Feature/General/Colgroup_3/Col_2/SE_Top_Depth" type="decimal"/>
-      <bind nodeset="/faims/Stratum_Feature/General/Colgroup_4/Col_1/NW_Bottom_Depth" type="decimal"/>
-      <bind nodeset="/faims/Stratum_Feature/General/Colgroup_4/Col_1/SW_Bottom_Depth" type="decimal"/>
-      <bind nodeset="/faims/Stratum_Feature/General/Colgroup_4/Col_1/Center_Bottom_Depth" type="decimal"/>
-      <bind nodeset="/faims/Stratum_Feature/General/Colgroup_4/Col_2/NE_Bottom_Depth" type="decimal"/>
-      <bind nodeset="/faims/Stratum_Feature/General/Colgroup_4/Col_2/SE_Bottom_Depth" type="decimal"/>
-      <bind nodeset="/faims/Stratum_Feature/General/Colgroup_5/Col_1/Mid_X" type="decimal"/>
-      <bind nodeset="/faims/Stratum_Feature/General/Colgroup_5/Col_2/Mid_Y" type="decimal"/>
+      <bind nodeset="/faims/Stratum_Feature/General/Colgroup_3/Col_1/Top_Depth" type="decimal"/>
+      <bind nodeset="/faims/Stratum_Feature/General/Colgroup_3/Col_2/Bottom_Depth" type="decimal"/>
+      <bind nodeset="/faims/Stratum_Feature/General/Colgroup_4/Col_1/Mid_X" type="decimal"/>
+      <bind nodeset="/faims/Stratum_Feature/General/Colgroup_4/Col_2/Mid_Y" type="decimal"/>
       <bind nodeset="/faims/Sediment_Aggregate/Sediment_Aggregate/Colgroup_1/Col_2/Percentage" type="decimal"/>
       <bind nodeset="/faims/FCN/General/Colgroup_5/Col_1/X_Coordinates" type="decimal"/>
       <bind nodeset="/faims/FCN/General/Colgroup_5/Col_2/Y_Coordinates" type="decimal"/>
@@ -981,7 +957,7 @@
           <label>{New_Diary}</label>
         </trigger>
         <select1 appearance="compact" ref="Choose_an_Existing_Site">
-          <label>{Choose_an_Existing_Site}</label>
+          <label>{Existing_Squares}</label>
           <item>
             <label>Options not loaded</label>
             <value>Options not loaded</value>
@@ -991,7 +967,7 @@
       <group ref="Next_IDs">
         <label>{Next_IDs}</label>
         <input ref="Next_Stratum_Feature_ID" faims_style_class="required">
-          <label>{Stratum_Feature_ID}</label>
+          <label>{Phase_ID}</label>
         </input>
         <input ref="Next_FCN_ID" faims_style_class="required">
           <label>{Pottery_Basket_ID}</label>
@@ -1395,13 +1371,16 @@
               <label>{Square_ID}</label>
             </input>
           </group>
-          <group ref="Col_5" faims_style="even">
+        </group>
+        <group ref="Colgroup_2" faims_style="orientation">
+          <label/>
+          <group ref="Col_1" faims_style="even">
             <label/>
             <input faims_attribute_name="Locus Subsquare" faims_attribute_type="measure" ref="Subsquare">
               <label>{Subsquare}</label>
             </input>
           </group>
-          <group ref="Col_6" faims_style="even">
+          <group ref="Col_2" faims_style="even">
             <label/>
             <input faims_attribute_name="Locus Locus ID" faims_attribute_type="measure" ref="Locus_Locus_ID" faims_style_class="required">
               <label>{Locus_ID}</label>
@@ -1411,7 +1390,7 @@
         <input faims_attribute_name="Locus Brief Description" faims_attribute_type="measure" ref="Brief_Description">
           <label>{Brief_Description}</label>
         </input>
-        <group ref="Colgroup_2" faims_style="orientation">
+        <group ref="Colgroup_3" faims_style="orientation">
           <label/>
           <group ref="Col_1" faims_style="even">
             <label/>
@@ -1426,7 +1405,7 @@
             </input>
           </group>
         </group>
-        <group ref="Colgroup_3" faims_style="orientation">
+        <group ref="Colgroup_4" faims_style="orientation">
           <label/>
           <group ref="Col_1" faims_style="even">
             <label/>
@@ -1448,7 +1427,7 @@
             </select>
           </group>
         </group>
-        <group ref="Colgroup_4" faims_style="orientation">
+        <group ref="Colgroup_5" faims_style="orientation">
           <label/>
           <group ref="Col_1" faims_style="even">
             <label/>
@@ -1481,7 +1460,7 @@
         <trigger ref="Fill_in_Locus_Type_Details">
           <label>{Fill_in_Locus_Type_Details}</label>
         </trigger>
-        <group ref="Colgroup_5" faims_style="orientation">
+        <group ref="Colgroup_6" faims_style="orientation">
           <label/>
           <group ref="Col_1" faims_style="even">
             <label/>
@@ -1510,7 +1489,7 @@
             </trigger>
           </group>
         </group>
-        <group ref="Colgroup_6" faims_style="orientation">
+        <group ref="Colgroup_7" faims_style="orientation">
           <label/>
           <group ref="Col_1" faims_style="even">
             <label/>
@@ -1748,10 +1727,10 @@
             </input>
           </group>
         </group>
-        <input faims_attribute_name="Locus Mid X" faims_attribute_type="measure" ref="Mid_X">
+        <input faims_attribute_name="Mid X" faims_attribute_type="measure" ref="Mid_X">
           <label>{Mid_X}</label>
         </input>
-        <input faims_attribute_name="Locus Mid Y" faims_attribute_type="measure" ref="Mid_Y">
+        <input faims_attribute_name="Mid Y" faims_attribute_type="measure" ref="Mid_Y">
           <label>{Mid_Y}</label>
         </input>
         <input faims_attribute_name="Sorting" faims_attribute_type="measure" ref="Sorting">
@@ -1760,10 +1739,10 @@
         <input faims_attribute_name="Notes" faims_attribute_type="measure" ref="Notes">
           <label>{Notes}</label>
         </input>
-        <input faims_attribute_name="Locus Plans" faims_attribute_type="measure" ref="Plans">
+        <input faims_attribute_name="Plans" faims_attribute_type="measure" ref="Plans">
           <label>{Plans}</label>
         </input>
-        <input faims_attribute_name="Locus Section Numbers" faims_attribute_type="measure" ref="Section_Numbers">
+        <input faims_attribute_name="Section Numbers" faims_attribute_type="measure" ref="Section_Numbers">
           <label>{Section_Numbers}</label>
         </input>
       </group>
@@ -2156,31 +2135,18 @@
         <input faims_attribute_name="Stratum Feature Area" faims_attribute_type="measure" ref="Area" faims_read_only="true">
           <label>{Area}</label>
         </input>
-        <select1 appearance="full" faims_attribute_name="Record Type" faims_attribute_type="vocab" ref="Record_Type" faims_style_class="required">
-          <label>{Record_Type}</label>
-          <item>
-            <label>Options not loaded</label>
-            <value>Options not loaded</value>
-          </item>
-        </select1>
-        <group ref="Feature_Type_Group">
-          <label/>
-        </group>
-        <group ref="Feature_Prefix_Group">
-          <label/>
-        </group>
         <group ref="Colgroup_1" faims_style="orientation">
           <label/>
           <group ref="Col_1" faims_style="even">
             <label/>
             <input faims_attribute_name="Stratum Feature Trench ID" faims_attribute_type="measure" ref="Stratum_Feature_Trench_ID" faims_read_only="true">
-              <label>{Trench_ID}</label>
+              <label>{Square_ID}</label>
             </input>
           </group>
           <group ref="Col_2" faims_style="even">
             <label/>
             <input faims_attribute_name="Stratum Feature ID" faims_attribute_type="measure" ref="Stratum_Feature_ID" faims_style_class="required">
-              <label>{Stratum_Feature_ID}</label>
+              <label>{Phase_ID}</label>
             </input>
           </group>
         </group>
@@ -2212,23 +2178,14 @@
           <label/>
           <group ref="Col_1" faims_style="even">
             <label/>
-            <input faims_attribute_name="NW Top Depth" faims_attribute_type="measure" ref="NW_Top_Depth">
-              <label>{NW_Top_Depth}</label>
-            </input>
-            <input faims_attribute_name="SW Top Depth" faims_attribute_type="measure" ref="SW_Top_Depth">
-              <label>{SW_Top_Depth}</label>
-            </input>
-            <input faims_attribute_name="Center Top Depth" faims_attribute_type="measure" ref="Center_Top_Depth">
-              <label>{Center_Top_Depth}</label>
+            <input faims_attribute_name="Top Depth" faims_attribute_type="measure" ref="Top_Depth">
+              <label>{Top_Depth__m_}</label>
             </input>
           </group>
           <group ref="Col_2" faims_style="even">
             <label/>
-            <input faims_attribute_name="NE Top Depth" faims_attribute_type="measure" ref="NE_Top_Depth">
-              <label>{NE_Top_Depth}</label>
-            </input>
-            <input faims_attribute_name="SE Top Depth" faims_attribute_type="measure" ref="SE_Top_Depth">
-              <label>{SE_Top_Depth}</label>
+            <input faims_attribute_name="Bottom Depth" faims_attribute_type="measure" ref="Bottom_Depth">
+              <label>{Bottom_Depth__m_}</label>
             </input>
           </group>
         </group>
@@ -2236,48 +2193,24 @@
           <label/>
           <group ref="Col_1" faims_style="even">
             <label/>
-            <input faims_attribute_name="NW Bottom Depth" faims_attribute_type="measure" ref="NW_Bottom_Depth">
-              <label>{NW_Bottom_Depth}</label>
-            </input>
-            <input faims_attribute_name="SW Bottom Depth" faims_attribute_type="measure" ref="SW_Bottom_Depth">
-              <label>{SW_Bottom_Depth}</label>
-            </input>
-            <input faims_attribute_name="Center Bottom Depth" faims_attribute_type="measure" ref="Center_Bottom_Depth">
-              <label>{Center_Bottom_Depth}</label>
-            </input>
-          </group>
-          <group ref="Col_2" faims_style="even">
-            <label/>
-            <input faims_attribute_name="NE Bottom Depth" faims_attribute_type="measure" ref="NE_Bottom_Depth">
-              <label>{NE_Bottom_Depth}</label>
-            </input>
-            <input faims_attribute_name="SE Bottom Depth" faims_attribute_type="measure" ref="SE_Bottom_Depth">
-              <label>{SE_Bottom_Depth}</label>
-            </input>
-          </group>
-        </group>
-        <group ref="Colgroup_5" faims_style="orientation">
-          <label/>
-          <group ref="Col_1" faims_style="even">
-            <label/>
-            <input faims_attribute_name="Stratum Feature Mid X" faims_attribute_type="measure" ref="Mid_X">
+            <input faims_attribute_name="Mid X" faims_attribute_type="measure" ref="Mid_X">
               <label>{Mid_X}</label>
             </input>
           </group>
           <group ref="Col_2" faims_style="even">
             <label/>
-            <input faims_attribute_name="Stratum Feature Mid Y" faims_attribute_type="measure" ref="Mid_Y">
+            <input faims_attribute_name="Mid Y" faims_attribute_type="measure" ref="Mid_Y">
               <label>{Mid_Y}</label>
             </input>
           </group>
         </group>
-        <input faims_attribute_name="Stratum Feature Plans" faims_attribute_type="measure" ref="Plans">
+        <input faims_attribute_name="Plans" faims_attribute_type="measure" ref="Plans">
           <label>{Plans}</label>
         </input>
-        <input faims_attribute_name="Stratum Feature Section Numbers" faims_attribute_type="measure" ref="Section_Numbers">
+        <input faims_attribute_name="Section Numbers" faims_attribute_type="measure" ref="Section_Numbers">
           <label>{Section_Numbers}</label>
         </input>
-        <group ref="Colgroup_6" faims_style="orientation">
+        <group ref="Colgroup_5" faims_style="orientation">
           <label/>
           <group ref="Col_1" faims_style="even">
             <label/>
@@ -2384,13 +2317,6 @@
         <input faims_attribute_name="R Paren" faims_attribute_type="measure" ref="R_Paren">
           <label>{R_Paren}</label>
         </input>
-        <select1 faims_attribute_name="Last Feature Type" faims_attribute_type="vocab" ref="Last_Feature_Type">
-          <label>{Last_Feature_Type}</label>
-          <item>
-            <label>Options not loaded</label>
-            <value>Options not loaded</value>
-          </item>
-        </select1>
         <input faims_attribute_name="Last Feature Prefix" faims_attribute_type="measure" ref="Last_Feature_Prefix">
           <label>{Last_Feature_Prefix}</label>
         </input>
@@ -2459,13 +2385,13 @@
           <group ref="Col_2" faims_style="even">
             <label/>
             <input faims_attribute_name="Photo Stratum Feature ID" faims_attribute_type="measure" ref="Photo_Stratum_Feature_ID" faims_read_only="true">
-              <label>{Stratum_Feature_ID}</label>
+              <label>{Phase_ID}</label>
             </input>
           </group>
           <group ref="Col_3" faims_style="even">
             <label/>
             <input faims_attribute_name="Photograph Reference ID" faims_attribute_type="measure" ref="Photograph_Reference_ID">
-              <label>{Photograph_Reference_ID}</label>
+              <label>{Photograph_Register_ID}</label>
             </input>
           </group>
         </group>
@@ -2518,7 +2444,7 @@
           <group ref="Col_2" faims_style="even">
             <label/>
             <input faims_attribute_name="Diary author" faims_attribute_type="measure" ref="Diary_author" faims_read_only="true">
-              <label>{Diary_author}</label>
+              <label>{Created_by}</label>
             </input>
           </group>
         </group>

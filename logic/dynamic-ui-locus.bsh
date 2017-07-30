@@ -22,38 +22,50 @@ void openLocusTabs(Boolean showGeneralInformationTab){
   String refSke = "Locus/Skeleton";
   String refCon = "Locus/Construction";
   String refGen = "Locus/General";
+  String refSur = "Locus/Surface";
 
   String refCtxtType = "Locus/General/Locus_Type";
   String vocabName   = getMenuValue(refCtxtType);
 
   if (vocabName == null)
     vocabName = "";
-
-  if (vocabName.equals("{Deposit}") || vocabName.equals("{Natural}")){
+    System.out.println(vocabName);
+  if (vocabName.equals("{Fill}")){
     cancelTab(refCut, false);
     cancelTab(refCon, false);
     cancelTab(refSke, false);
+    cancelTab(refSur, false);
     showTab  (refDep);
-  } else if (vocabName.equals("{Cut}")){
+  } else if (vocabName.equals("{Pit}")){
     cancelTab(refDep, false);
     cancelTab(refCon, false);
     cancelTab(refSke, false);
+    cancelTab(refSur, false);
     showTab  (refCut);
-  } else if (vocabName.equals("{Construction}")){
+  } else if (vocabName.equals("{Architecture}")){
     cancelTab(refDep, false);
     cancelTab(refCut, false);
     cancelTab(refSke, false);
+    cancelTab(refSur, false);
     showTab  (refCon);
   } else if (vocabName.equals("{Skeleton}")){
     cancelTab(refDep, false);
     cancelTab(refCut, false);
     cancelTab(refCon, false);
+    cancelTab(refSur, false);
     showTab  (refSke);
-  } else {
+  } else if (vocabName.equals("{Surface}")){
     cancelTab(refCut, false);
     cancelTab(refDep, false);
     cancelTab(refCon, false);
     cancelTab(refSke, false);
+    showTab  (refSur);
+  }else {
+    cancelTab(refCut, false);
+    cancelTab(refDep, false);
+    cancelTab(refCon, false);
+    cancelTab(refSke, false);
+    cancelTab(refSur, false);
   }
 
   if(showGeneralInformationTab)
