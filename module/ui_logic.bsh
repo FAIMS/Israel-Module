@@ -6286,46 +6286,8 @@ void openLocusTabs(Boolean showGeneralInformationTab){
   if(showGeneralInformationTab)
     showTab(refGen);
 }
-/****************************** DYNAMIC UI - FCN ******************************/
-void updateFcnVolume() {
-  String ref       = "FCN/General/FCN_Class";
-  String vocabName = getMenuValue(ref);
 
-  if (vocabName.equals("{Sediment}")) { showFcnVolume(); return; }
-  if (vocabName.equals("{Other}"   )) { showFcnVolume(); return; }
-
-  hideFcnVolume();
-}
-
-void hideFcnVolume() {
-  hideView("FCN/General/Volume_Liters");
-}
-
-void showFcnVolume() {
-  String refView  = "FCN/General/Volume_Liters";
-  String refGroup = "FCN/General/Volume_Liters_Group";
-
-  if (hasView(refView)) return;
-
-  String label      = guessArch16nVal (refView);
-  String attribName = getAttributeName(refView);
-
-  // Create view
-  FormInputDef viewDef = createViewDef();
-  viewDef.createTextField     ("decimal");
-  viewDef.setLabel            (label);
-  viewDef.setAttributeName    (attribName);
-  viewDef.setAttributeType    ("measure");
-  viewDef.setAnnotationEnabled(true);
-  viewDef.setCertaintyEnabled (true);
-  viewDef.setInfoEnabled      (true);
-
-  createView(refView, viewDef, refGroup);
-}
-
-addOnEvent("FCN/General/FCN_Class", "click", "updateFcnVolume()");
-addOnEvent("FCN",                "prefetch", "showFcnVolume()");
-addOnEvent("FCN",                   "fetch", "updateFcnVolume()");
+  
 /******************************* CONTEXT DATES ********************************/
 addOnEvent("Locus/General/Add_Date_Closed", "click", "setLocusDateClosed()");
 addOnEvent("Locus", "create", "setLocusDateOpened()");
@@ -6722,39 +6684,6 @@ boolean isValidNewSiteName() {
 boolean isValidYearOfCampaign() {
   return isNotBlank("Control/Site/Year_of_Campaign");
 }
-/************************* FCN ENTITY LIST POPULATION *************************/
-addOnEvent("Trench", "create", "populateTrenchFcns()");
-addOnEvent("Trench", "fetch",  "populateTrenchFcns()");
-addOnEvent("FCN",    "save",   "populateTrenchFcns()");
-addOnEvent("Trench/FCNs/List_of_Existing_FCNs", "click", "loadEntity()");
-
-void populateTrenchFcns() {
-  String parentUuid    = getUuid("Trench");
-  String refEntityList = "Trench/FCNs/List_of_Existing_FCNs";
-
-  String q = "";
-  q += "SELECT childuuid, response";
-  q += "  FROM parentchild JOIN latestNonDeletedArchEntFormattedIdentifiers ON (childuuid = uuid)";
-  q += "  JOIN createdmodifiedatby USING (uuid)";
-  q += " WHERE (relationshipid IN (SELECT relationshipid";
-  q += "                            FROM latestnondeletedrelationship JOIN relntype USING (relntypeid)";
-  q += "                           WHERE relntypename IN ('Trench - FCN'))";
-  q += "   AND parentuuid = '{parentUuid}')";
-  q += "    OR (parentuuid IN (SELECT childuuid";
-  q += "                       FROM parentchild";
-  q += "                      WHERE relationshipid in (SELECT relationshipid";
-  q += "                                                 FROM latestnondeletedrelationship JOIN relntype USING (relntypeid)";
-  q += "                                                WHERE relntypename IN ('Trench - Locus'))";
-  q += "                        AND parentuuid = '{parentUuid}'))";
-  q += "   AND childaenttypename IN ('FCN')";
-  q += " ORDER BY parentchild.createdat DESC";
-  q += " LIMIT ? OFFSET ?";
-  q  = replaceFirst(q, "{parentUuid}", parentUuid);
-  q  = replaceFirst(q, "{parentUuid}", parentUuid);
-
-  populateCursorList(refEntityList, q, 25);
-}
-
 
 /*************************** CUSTOM DIARY TIMESTAMP ***************************/
 import java.text.SimpleDateFormat;

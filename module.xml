@@ -76,7 +76,9 @@
     <GPS_Diagnostics t="gpsdiag"/>
     <New_Square t="button" l="Trench"/>
     <New_Diary t="button" l="Diary"/>
-    <Choose_an_Existing_Site t="list" e="Trench"/>
+    <Choose_an_Existing_Site t="list" e="Trench">
+      Existing Squares
+    </Choose_an_Existing_Site>
   </Site>
   <Next_IDs>
     <autonum/>
@@ -301,6 +303,8 @@
           <fmt>$0-</fmt>
         </str>
       </Locus_Trench_ID>
+    </cols>
+    <cols>
       <Subsquare i="Trench/Trench/Subsquare">
         <str>
           <pos>3</pos>
@@ -1056,50 +1060,13 @@
   <General>
     Phase
     <Area f="readonly" i="Trench/Trench/Area"/>
-    <Record_Type t="radio" f="notnull">
-      <opts>
-        <opt>Stratum</opt>
-        <opt>Feature</opt>
-      </opts>
-    </Record_Type>
-    <Feature_Type_Group t="group"/>
-    <Feature_Type t="dropdown" f="noui">
-      <!--This will be added to the UI dynamically-->
-      <opts>
-        <opt>No Observation</opt>
-        <opt>Negative Element</opt>
-        <opt>Deposit Structure</opt>
-        <opt>Wall</opt>
-        <opt>Floor</opt>
-        <opt>Well</opt>
-        <opt>Pit</opt>
-        <opt>Room</opt>
-        <opt>Burial</opt>
-        <opt>Building</opt>
-        <opt>Surface</opt>
-        <opt>Space</opt>
-        <opt>Posthole</opt>
-        <opt>Posthole Row</opt>
-        <opt>Hearth</opt>
-        <opt>Kiln</opt>
-        <opt>Furnace</opt>
-        <opt>House</opt>
-        <opt>Midden</opt>
-        <opt>Ditch</opt>
-        <opt>Other</opt>
-      </opts>
-    </Feature_Type>
-    <Feature_Prefix_Group t="group"/>
-    <Feature_Prefix t="input" f="id notnull noui">
-      <str><pos>4</pos></str>
-    </Feature_Prefix>
     <cols>
       <Stratum_Feature_Trench_ID f="id readonly" i="Trench/Trench/Trench_Trench_ID">
-        Trench ID
+        Square ID
         <str><pos>3</pos><fmt>-$0-</fmt></str>
       </Stratum_Feature_Trench_ID>
       <Stratum_Feature_ID f="id notnull autonum">
-        Stratum/Feature ID
+        Phase ID
         <str><pos>6</pos></str>
       </Stratum_Feature_ID>
     </cols>
@@ -1123,40 +1090,22 @@
       </Width>
     </cols>
     <cols>
-      <col>
-        <NW_Top_Depth b="decimal"/>
-        <SW_Top_Depth b="decimal"/>
-        <Center_Top_Depth b="decimal"/>
-      </col>
-      <col>
-        <NE_Top_Depth b="decimal"/>
-        <SE_Top_Depth b="decimal"/>
-      </col>
-    </cols>
-    <cols>
-      <col>
-        <NW_Bottom_Depth b="decimal"/>
-        <SW_Bottom_Depth b="decimal"/>
-        <Center_Bottom_Depth b="decimal"/>
-      </col>
-      <col>
-        <NE_Bottom_Depth b="decimal"/>
-        <SE_Bottom_Depth b="decimal"/>
-      </col>
+      <Top_Depth b="decimal">
+        Top Depth (m)
+      </Top_Depth>
+      <Bottom_Depth b="decimal">
+        Bottom Depth (m)
+      </Bottom_Depth>
     </cols>
     <cols>
       <Mid_X b="decimal">
-        <desc>An appropriate mid-point on the feature should be recorded on the X/Y coordinates. This will locate the feature on the site grid system.</desc>
       </Mid_X>
       <Mid_Y b="decimal">
-        <desc>An appropriate mid-point on the feature should be recorded on the X/Y coordinates. This will locate the feature on the site grid system.</desc>
       </Mid_Y>
     </cols>
     <Plans>
-      <desc>Reference numbers to plans or drawings of this feature.</desc>
     </Plans>
     <Section_Numbers>
-      <desc>Reference numbers to section drawings of this feature</desc>
     </Section_Numbers>
     <cols>
       <author f="readonly">
@@ -1221,7 +1170,7 @@
         <pos>7</pos>
       </str>
     </R_Paren>
-    <Last_Feature_Type t="dropdown" vp="Stratum_Feature/General/Feature_Type"/>
+    <!--<Last_Feature_Type t="dropdown" vp="Stratum_Feature/General/Feature_Type"/>-->
     <Last_Feature_Prefix/>
   </Vars>
 </Stratum_Feature>
@@ -1230,73 +1179,42 @@
   Sediment/Aggregate
   <Sediment_Aggregate>
     Sediment/Aggregate
-    <cols>
-      <Component_Type f="id">
-        <desc>Describe the components which make up 10% or more of the deposit.</desc>
-        <str>
-          <pos>1</pos>
-          <fmt>$1-</fmt>
-        </str>
-        <opts>
-          <opt>No Observation
-          <desc>data not collected</desc></opt>
-          <opt>Grit
-          <desc>Size up to 5 mm.</desc></opt>
-          <opt>Small Stones
-          <desc>Size up to 10 mm.</desc></opt>
-          <opt>Large stones
-          <desc>Size over 10 mm.</desc></opt>
-          <opt>Tauf
-          <desc>Mud building material including mortar.</desc></opt>
-          <opt>Midden
-          <desc>Organic debris e.g. bones carbonised material phytoliths etc</desc></opt>
-          <opt>Plaster
-          <desc>Fragments of plaster.</desc></opt>
-          <opt>Mudbrick
-          <desc>Fragments of mudbrick or whole mudbricks not part of a coherent structural element.</desc></opt>
-          <opt>Ash
-          <desc>White/grey fine material which may contain charcoal and other burnt plant material.</desc></opt>
-          <opt>Artefacts
-          <desc>Human manufactured materials including lithics, beads, ground stone etc.</desc></opt>
-        </opts>
-      </Component_Type>
-      <Percentage f="id" b="decimal">
-        <str>
-          <pos>2</pos>
-          <fmt>$2%</fmt>
-        </str>
-        <desc>Enter the approximate % volume of this material in the Locus.</desc>
-      </Percentage>
-    </cols>
-    <Soil_Stone_Shape>
-      <desc>Shape and roundness of stones and pebbles in the deposit.</desc>
+    <Component_Type f="id">
+      <desc>Describe the components which make up 10% or more of the deposit.</desc>
+      <str>
+        <pos>1</pos>
+        <fmt>$1-</fmt>
+      </str>
       <opts>
-        <opt p="gallery/Other/NA.png">No Observation
+        <opt>No Observation
         <desc>data not collected</desc></opt>
-        <opt p="gallery/Pebbles/Angular.png">Angular
-        <desc>Sharp pebbles or stones.</desc>
-        <opt p="gallery/Pebbles/AngularAngular.png">Angular
-        <desc>Sharp and pointed.</desc></opt>
-        <opt p="gallery/Pebbles/AngularSub.png">Sub-angular
-        <desc>A little sharp and pointed.</desc></opt>
-        <opt p="gallery/Pebbles/AngularVery.png">Very angular
-        <desc>Very sharp and pointed.</desc></opt></opt>
-        <opt p="gallery/Pebbles/Rounded.png">Rounded
-        <desc>Rounded stones and pebbles.</desc>
-        <opt p="gallery/Pebbles/RoundedRounded.png">Rounded
-        <desc>Mostly rounded pebble or stone.</desc></opt>
-        <opt p="gallery/Pebbles/RoundedSub.png">Sub-rounded
-        <desc>Some rounding to pebbles or stones.</desc></opt>
-        <opt p="gallery/Pebbles/RoundedWell.png">Well-rounded
-        <desc>Very rounded pebble or stone.</desc></opt></opt>
-        <opt p="gallery/Pebbles/DressedStone.png">Dressed Stone
-        <desc>Those that have been clearly shaped for use.</desc></opt>
-        <opt p="gallery/Pebbles/Tabular.png">Tabular
-        <desc>Stones with flattened upper and lower surfaces.</desc></opt>
-        <opt p="gallery/Pebbles/Ground.png">Ground
-        <desc>Stones that have been deliberately shaped smooth by grinding.</desc></opt>
+        <opt>Grit
+        <desc>Size up to 5 mm.</desc></opt>
+        <opt>Small Stones
+        <desc>Size up to 10 mm.</desc></opt>
+        <opt>Large stones
+        <desc>Size over 10 mm.</desc></opt>
+        <opt>Tauf
+        <desc>Mud building material including mortar.</desc></opt>
+        <opt>Midden
+        <desc>Organic debris e.g. bones carbonised material phytoliths etc</desc></opt>
+        <opt>Plaster
+        <desc>Fragments of plaster.</desc></opt>
+        <opt>Mudbrick
+        <desc>Fragments of mudbrick or whole mudbricks not part of a coherent structural element.</desc></opt>
+        <opt>Ash
+        <desc>White/grey fine material which may contain charcoal and other burnt plant material.</desc></opt>
+        <opt>Artefacts
+        <desc>Human manufactured materials including lithics, beads, ground stone etc.</desc></opt>
       </opts>
-    </Soil_Stone_Shape>
+    </Component_Type>
+    <Percentage f="id" b="decimal">
+      <str>
+        <pos>2</pos>
+        <fmt>$2%</fmt>
+      </str>
+      <desc>Enter the approximate % volume of this material in the Locus.</desc>
+    </Percentage>
   </Sediment_Aggregate>
   <Vars f="hidden">
     <Locus_ID i="Locus/General/Locus_Locus_ID"/>
@@ -1320,7 +1238,7 @@
         </str>
       </Photo_Locus_ID>
       <Photo_Stratum_Feature_ID f="id readonly" i="Stratum_Feature/General/Stratum_Feature_ID">
-        Stratum/Feature ID
+        Phase ID
         <desc>Unique number or code for each Stratum/Feature</desc>
         <str>
           <fmt>{{ if $0 then "-($0)" }}</fmt>
@@ -1328,6 +1246,7 @@
         </str>
       </Photo_Stratum_Feature_ID>
       <Photograph_Reference_ID>
+        Photograph Register ID
         <desc>Unique number or code allocated by creator of the image. It could be a filename or a reference number</desc>
       </Photograph_Reference_ID>
     </cols>
@@ -1381,7 +1300,7 @@
 <Diary>
   <Diary>
     <Title>
-      <desc>Give your entry a simple, short title, such as Daily Trench Update, Burial 34, Storm Damage. Note that diary entries allow you to add information in addition to the locus, feature and artefact records elsewhere in the module and should not be the primary description point for those entities</desc>
+      <desc>Give your entry a simple, short title. Note that diary entries allow you to add information in addition to the locus, feature and artefact records elsewhere in the module and should not be the primary description point for those entities</desc>
     </Title>
     <cols>
       <Timestamp f="id readonly">
@@ -1392,6 +1311,7 @@
         </str>
       </Timestamp>
       <author>
+        Created by
         <desc>Your name will be added here based on your login</desc>
       </author>
     </cols>
@@ -1743,8 +1663,8 @@
   <!--@SOURCE: logic/relationships-feature-stratum-to-locus.bsh-->
   <!--@SOURCE: logic/dynamic-ui-helpers.bsh-->
   <!--@SOURCE: logic/dynamic-ui-locus.bsh-->
-  <!--@SOURCE: logic/dynamic-ui-feature-stratum.bsh-->
-  <!--@SOURCE: logic/dynamic-ui-fcn.bsh-->
+
+
   <!--@SOURCE: logic/locus-dates.bsh-->
   <!--@SOURCE: logic/soil-texture-helper.bsh-->
   <!--@SOURCE: logic/custom-search.bsh-->
@@ -1752,7 +1672,7 @@
   <!--@SOURCE: logic/date-closed.bsh-->
   <!--@SOURCE: logic/create-new-trench-button.bsh-->
   <!--@SOURCE: logic/create-new-site-button.bsh-->
-  <!--@SOURCE: logic/fcn-entity-list-population.bsh-->
+
   <!--@SOURCE: logic/custom-diary-timestamp.bsh-->
   <!--@SOURCE: logic/field-clearing.bsh-->
 ]]></logic>
