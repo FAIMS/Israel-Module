@@ -1433,31 +1433,6 @@
       <formatString>$2%</formatString>
       <appendCharacterString> - </appendCharacterString>
     </property>
-    <property name="Soil Stone Shape" type="vocab">
-      <description>Shape and roundness of stones and pebbles in the deposit.</description>
-      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
-      <appendCharacterString> - </appendCharacterString>
-      <lookup>
-        <term pictureURL="files/data/gallery/Other/NA.png">{No_Observation}
-<description>data not collected</description></term>
-        <term pictureURL="files/data/gallery/Pebbles/Angular.png">{Angular}
-<description>Sharp pebbles or stones.</description><term pictureURL="files/data/gallery/Pebbles/AngularAngular.png">{Angular}
-<description>Sharp and pointed.</description></term><term pictureURL="files/data/gallery/Pebbles/AngularSub.png">{Sub_angular}
-<description>A little sharp and pointed.</description></term><term pictureURL="files/data/gallery/Pebbles/AngularVery.png">{Very_angular}
-<description>Very sharp and pointed.</description></term></term>
-        <term pictureURL="files/data/gallery/Pebbles/Rounded.png">{Rounded}
-<description>Rounded stones and pebbles.</description><term pictureURL="files/data/gallery/Pebbles/RoundedRounded.png">{Rounded}
-<description>Mostly rounded pebble or stone.</description></term><term pictureURL="files/data/gallery/Pebbles/RoundedSub.png">{Sub_rounded}
-<description>Some rounding to pebbles or stones.</description></term><term pictureURL="files/data/gallery/Pebbles/RoundedWell.png">{Well_rounded}
-<description>Very rounded pebble or stone.</description></term></term>
-        <term pictureURL="files/data/gallery/Pebbles/DressedStone.png">{Dressed_Stone}
-<description>Those that have been clearly shaped for use.</description></term>
-        <term pictureURL="files/data/gallery/Pebbles/Tabular.png">{Tabular}
-<description>Stones with flattened upper and lower surfaces.</description></term>
-        <term pictureURL="files/data/gallery/Pebbles/Ground.png">{Ground}
-<description>Stones that have been deliberately shaped smooth by grinding.</description></term>
-      </lookup>
-    </property>
     <property name="Sediment Aggregate Locus ID" type="measure">
       <description></description>
       <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>

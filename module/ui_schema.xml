@@ -571,15 +571,8 @@
           </Stratum_Feature>
           <Sediment_Aggregate>
             <Sediment_Aggregate>
-              <Colgroup_1>
-                <Col_1>
-                  <Component_Type/>
-                </Col_1>
-                <Col_2>
-                  <Percentage/>
-                </Col_2>
-              </Colgroup_1>
-              <Soil_Stone_Shape/>
+              <Component_Type/>
+              <Percentage/>
             </Sediment_Aggregate>
             <Vars>
               <Locus_ID/>
@@ -874,7 +867,7 @@
       <bind nodeset="/faims/Stratum_Feature/General/Colgroup_3/Col_2/Bottom_Depth" type="decimal"/>
       <bind nodeset="/faims/Stratum_Feature/General/Colgroup_4/Col_1/Mid_X" type="decimal"/>
       <bind nodeset="/faims/Stratum_Feature/General/Colgroup_4/Col_2/Mid_Y" type="decimal"/>
-      <bind nodeset="/faims/Sediment_Aggregate/Sediment_Aggregate/Colgroup_1/Col_2/Percentage" type="decimal"/>
+      <bind nodeset="/faims/Sediment_Aggregate/Sediment_Aggregate/Percentage" type="decimal"/>
       <bind nodeset="/faims/FCN/General/Colgroup_5/Col_1/X_Coordinates" type="decimal"/>
       <bind nodeset="/faims/FCN/General/Colgroup_5/Col_2/Y_Coordinates" type="decimal"/>
       <bind nodeset="/faims/FCN/General/Colgroup_5/Col_3/Z_Coordinates" type="decimal"/>
@@ -2326,32 +2319,16 @@
       <label>{Sediment_Aggregate}</label>
       <group ref="Sediment_Aggregate">
         <label>{Sediment_Aggregate}</label>
-        <group ref="Colgroup_1" faims_style="orientation">
-          <label/>
-          <group ref="Col_1" faims_style="even">
-            <label/>
-            <select1 faims_attribute_name="Component Type" faims_attribute_type="vocab" ref="Component_Type">
-              <label>{Component_Type}</label>
-              <item>
-                <label>Options not loaded</label>
-                <value>Options not loaded</value>
-              </item>
-            </select1>
-          </group>
-          <group ref="Col_2" faims_style="even">
-            <label/>
-            <input faims_attribute_name="Percentage" faims_attribute_type="measure" ref="Percentage">
-              <label>{Percentage}</label>
-            </input>
-          </group>
-        </group>
-        <select1 type="image" faims_attribute_name="Soil Stone Shape" faims_attribute_type="vocab" ref="Soil_Stone_Shape">
-          <label>{Soil_Stone_Shape}</label>
+        <select1 faims_attribute_name="Component Type" faims_attribute_type="vocab" ref="Component_Type">
+          <label>{Component_Type}</label>
           <item>
             <label>Options not loaded</label>
             <value>Options not loaded</value>
           </item>
         </select1>
+        <input faims_attribute_name="Percentage" faims_attribute_type="measure" ref="Percentage">
+          <label>{Percentage}</label>
+        </input>
       </group>
       <group ref="Vars" faims_hidden="true">
         <label>{Vars}</label>

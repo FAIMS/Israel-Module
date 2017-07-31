@@ -387,7 +387,6 @@ REF_TO_TYPE.put("Stratum_Feature/Vars/R_Paren", "input");
 REF_TO_TYPE.put("Stratum_Feature/Vars/Last_Feature_Prefix", "input");
 REF_TO_TYPE.put("Sediment_Aggregate/Sediment_Aggregate/Component_Type", "dropdown");
 REF_TO_TYPE.put("Sediment_Aggregate/Sediment_Aggregate/Percentage", "input");
-REF_TO_TYPE.put("Sediment_Aggregate/Sediment_Aggregate/Soil_Stone_Shape", "picture");
 REF_TO_TYPE.put("Sediment_Aggregate/Vars/Locus_ID", "input");
 REF_TO_TYPE.put("Sediment_Aggregate/Vars/Trench_ID", "input");
 REF_TO_TYPE.put("Sediment_Aggregate/Vars/Device_Code", "dropdown");
@@ -696,7 +695,6 @@ DATA_REFS.add("Stratum_Feature/Vars/R_Paren");
 DATA_REFS.add("Stratum_Feature/Vars/Last_Feature_Prefix");
 DATA_REFS.add("Sediment_Aggregate/Sediment_Aggregate/Component_Type");
 DATA_REFS.add("Sediment_Aggregate/Sediment_Aggregate/Percentage");
-DATA_REFS.add("Sediment_Aggregate/Sediment_Aggregate/Soil_Stone_Shape");
 DATA_REFS.add("Sediment_Aggregate/Vars/Locus_ID");
 DATA_REFS.add("Sediment_Aggregate/Vars/Trench_ID");
 DATA_REFS.add("Sediment_Aggregate/Vars/Device_Code");
@@ -762,7 +760,6 @@ VP_REF_TO_REF.put("User/User_List/Device_Code", "Locus/Vars/Device_Code");
 HIER_REFS.add("Locus/Cut/Cut_Your_Interpretation");
 HIER_REFS.add("Locus/Cut/Shape_of_Base");
 HIER_REFS.add("Locus/Material_Helper/Material_Helper");
-HIER_REFS.add("Sediment_Aggregate/Sediment_Aggregate/Soil_Stone_Shape");
 HIER_REFS.add("Soil_Munsel_Color/Add_Soil_Munsel_Color/Soil_Munsel_Color");
 
 TAB_GROUPS_AS_LIST.add("User");
@@ -6289,122 +6286,6 @@ void openLocusTabs(Boolean showGeneralInformationTab){
   if(showGeneralInformationTab)
     showTab(refGen);
 }
-/************************* DYNAMIC UI - CONTEXT GROUP *************************/
-// Prefetch this vocab seeing as it will be dynamically loaded multiple times
-// throughout the module's runtime.
-void updateStratumFeatureFields() {
-  String ref       = "Stratum_Feature/General/Record_Type";
-  String vocabName = getMenuValue(ref);
-  String STRATUM   = "{Stratum}";
-  String FEATURE   = "{Feature}";
-
-  if (isNull(vocabName)) {
-    setMenuValue(ref, FEATURE);
-    updateStratumFeatureToFeature();
-    return;
-  }
-
-  if (vocabName.equals(STRATUM)) updateStratumFeatureToStratum();
-  if (vocabName.equals(FEATURE)) updateStratumFeatureToFeature();
-}
-
-void updateStratumFeatureToStratum() {
-  hideStratumFeaturePrefix();
-  hideStratumFeatureType();
-  showStratumFeatureParens();
-}
-
-void updateStratumFeatureToFeature() {
-  showStratumFeaturePrefix();
-  showStratumFeatureType();
-  hideStratumFeatureParens();
-}
-
-void hideStratumFeatureType() {
-  hideView(
-      "Stratum_Feature/General/Feature_Type",
-      "Stratum_Feature/Vars/Last_Feature_Type"
-  );
-}
-
-void hideStratumFeaturePrefix() {
-  hideView(
-      "Stratum_Feature/General/Feature_Prefix",
-      "Stratum_Feature/Vars/Last_Feature_Prefix"
-  );
-}
-
-void hideView(String refView, String refViewLast) {
-  copyFieldValue(refView, refViewLast);
-  hideView(refView);
-}
-
-void hideStratumFeatureParens() {
-  setFieldValue("Stratum_Feature/Vars/L_Paren", "");
-  setFieldValue("Stratum_Feature/Vars/R_Paren", "");
-}
-
-void showStratumFeatureType() {
-  String refViewLast = "Stratum_Feature/Vars/Last_Feature_Type";
-  String refView     = "Stratum_Feature/General/Feature_Type";
-  String refGroup    = "Stratum_Feature/General/Feature_Type_Group";
-
-  if (hasView(refView)) return;
-
-  String label      = guessArch16nVal (refView);
-  String attribName = getAttributeName(refView);
-
-  // Create view
-  FormInputDef viewDef = createViewDef();
-  viewDef.createDropDown      ();
-  viewDef.setLabel            (label);
-  viewDef.setAttributeName    (attribName);
-  viewDef.setAttributeType    ("vocab");
-  viewDef.setAnnotationEnabled(true);
-  viewDef.setCertaintyEnabled (true);
-  viewDef.setInfoEnabled      (true);
-
-  createView(refView, viewDef, refGroup);
-
-  // Populate view
-  makeVocab(refView);
-  copyFieldValue(refViewLast, refView);
-}
-
-void showStratumFeaturePrefix() {
-  String refViewLast = "Stratum_Feature/Vars/Last_Feature_Prefix";
-  String refView     = "Stratum_Feature/General/Feature_Prefix";
-  String refGroup    = "Stratum_Feature/General/Feature_Prefix_Group";
-
-  if (hasView(refView)) return;
-
-  String label      = guessArch16nVal (refView);
-  String attribName = getAttributeName(refView);
-
-  // Create view
-  FormInputDef viewDef = createViewDef();
-  viewDef.createTextField     ();
-  viewDef.setLabel            (label);
-  viewDef.setAttributeName    (attribName);
-  viewDef.setAttributeType    ("measure");
-  viewDef.setAnnotationEnabled(true);
-  viewDef.setCertaintyEnabled (true);
-  viewDef.setInfoEnabled      (true);
-  viewDef.setStyleCss         ("required");
-
-  createView(refView, viewDef, refGroup);
-  copyFieldValue(refViewLast, refView);
-}
-
-void showStratumFeatureParens() {
-  setFieldValue("Stratum_Feature/Vars/L_Paren", "(");
-  setFieldValue("Stratum_Feature/Vars/R_Paren", ")");
-}
-
-addOnEvent("Stratum_Feature/General/Record_Type", "click", "updateStratumFeatureFields()");
-addOnEvent("Stratum_Feature", "create",   "updateStratumFeatureFields()");
-addOnEvent("Stratum_Feature", "prefetch", "updateStratumFeatureToFeature()");
-addOnEvent("Stratum_Feature",    "fetch", "updateStratumFeatureFields()");
 /****************************** DYNAMIC UI - FCN ******************************/
 void updateFcnVolume() {
   String ref       = "FCN/General/FCN_Class";
@@ -6703,10 +6584,11 @@ String getCond(String ref, String defaultCond) {
     return "isSelected(\"Locus/General/Locus_Type\", \"{Skeleton}\")";
   if (refTab.equals("Locus/Construction"))
     return "isSelected(\"Locus/General/Locus_Type\", \"{Construction}\")";
-
+  // Not needed for Israel Module
+  /*
   if (ref.equals("Stratum_Feature/General/Feature_Prefix"))
     return "isSelected(\"Stratum_Feature/General/Record_Type\", \"{Feature}\")";
-
+  */
   return defaultCond;
 }
 

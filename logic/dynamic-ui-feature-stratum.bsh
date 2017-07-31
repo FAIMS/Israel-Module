@@ -2,19 +2,7 @@
 // Prefetch this vocab seeing as it will be dynamically loaded multiple times
 // throughout the module's runtime.
 void updateStratumFeatureFields() {
-  String ref       = "Stratum_Feature/General/Record_Type";
-  String vocabName = getMenuValue(ref);
-  String STRATUM   = "{Stratum}";
-  String FEATURE   = "{Feature}";
-
-  if (isNull(vocabName)) {
-    setMenuValue(ref, FEATURE);
-    updateStratumFeatureToFeature();
-    return;
-  }
-
-  if (vocabName.equals(STRATUM)) updateStratumFeatureToStratum();
-  if (vocabName.equals(FEATURE)) updateStratumFeatureToFeature();
+  return;
 }
 
 void updateStratumFeatureToStratum() {
@@ -110,7 +98,6 @@ void showStratumFeatureParens() {
   setFieldValue("Stratum_Feature/Vars/R_Paren", ")");
 }
 
-addOnEvent("Stratum_Feature/General/Record_Type", "click", "updateStratumFeatureFields()");
 addOnEvent("Stratum_Feature", "create",   "updateStratumFeatureFields()");
 addOnEvent("Stratum_Feature", "prefetch", "updateStratumFeatureToFeature()");
 addOnEvent("Stratum_Feature",    "fetch", "updateStratumFeatureFields()");
