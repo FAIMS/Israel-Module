@@ -285,14 +285,16 @@
         <Area i="Trench/Trench/Area">
           <str>
             <pos>1</pos>
-            <fmt>$0</fmt>
+            <fmt>$0-</fmt>
           </str>
         </Area>
         <Locus_Site_Name f="id notnull" i="Trench/Trench/Trench_Site_Name">
         Site Name
+        <!--
         <str>
           <pos>1</pos>
         </str>
+        -->
         </Locus_Site_Name>
       <Locus_Trench_ID f="id readonly" i="Trench/Trench/Trench_Trench_ID">
         Square ID
@@ -319,7 +321,7 @@
         Check with the trench supervisor who will assign the locus code from the central register.</desc>
         <str>
           <pos>4</pos>
-          <fmt>$0</fmt>
+          <fmt>$0-</fmt>
         </str>
       </Locus_Locus_ID>
     </cols>
@@ -392,8 +394,8 @@
       <desc>Describe the locus type by selecting an icon as defined below.
         When you have selected a locus type you can proceed to open the "Fill in locus type details" page. Note this page will not open unless you have selected a locus type.</desc>
       <str>
-        <pos>3</pos>
-        <fmt>-$1</fmt>
+        <pos>5</pos>
+        <fmt>-$0</fmt>
       </str>
       <opts>
         <opt p="gallery/Blanks/Trail.png">No Observation
@@ -1233,8 +1235,8 @@
         Locus ID
         <desc>Unique number or code for each Locus</desc>
         <str>
-          <fmt>{{if $0 then "-$0"}}</fmt>
-          <pos>4</pos>
+          <fmt>{{if $0 then "$0"}}</fmt>
+          <pos>1</pos>
         </str>
       </Photo_Locus_ID>
       <Photo_Stratum_Feature_ID f="id readonly" i="Stratum_Feature/General/Stratum_Feature_ID">
@@ -1242,7 +1244,7 @@
         <desc>Unique number or code for each Stratum/Feature</desc>
         <str>
           <fmt>{{ if $0 then "-($0)" }}</fmt>
-          <pos>5</pos>
+          <pos>2</pos>
         </str>
       </Photo_Stratum_Feature_ID>
       <Photograph_Reference_ID>
@@ -1254,7 +1256,7 @@
       <desc>The type of scene captured, eg opening or closing view of the Locus. (Vocab: Open, Close, Other)</desc>
       <str>
         <fmt>-$0</fmt>
-        <pos>6</pos>
+        <pos>3</pos>
       </str>
       <opts>
         <opt>No Observation
@@ -1274,22 +1276,28 @@
   </Photograph_Log>
   <Vars f="hidden">
     <Photograph_Log_Site_Name f="id" i="Locus/General/Locus_Site_Name Stratum_Feature/Vars/Stratum_Feature_Site_Name">
+  <!-->      
       <str>
         <fmt>Photo-$0</fmt>
         <pos>1</pos>
       </str>
+      -->
     </Photograph_Log_Site_Name>
     <Photograph_Log_Year_of_Campaign f="id" i="Locus/Vars/Locus_Year_of_Campaign Stratum_Feature/Vars/Stratum_Feature_Year_of_Campaign">
+      <!--
       <str>
         <fmt> $0</fmt>
         <pos>2</pos>
       </str>
+      -->
     </Photograph_Log_Year_of_Campaign>
     <Photograph_Trench_ID f="id" i="Locus/General/Locus_Trench_ID Stratum_Feature/General/Stratum_Feature_Trench_ID">
+      <!--
       <str>
         <fmt>-$0</fmt>
         <pos>3</pos>
       </str>
+      -->
     </Photograph_Trench_ID>
     <Device_Code i="User/User_List/Device_Code!">
       <!--@SOURCE: vocabs/device-code.xml-->
@@ -1306,13 +1314,17 @@
       <Timestamp f="id readonly">
         <desc>The date this entry is created will automatically appear here</desc>
         <str>
-          <pos>4</pos>
-          <fmt>-$0</fmt>
+          <pos>1</pos>
+          <fmt>$0</fmt>
         </str>
       </Timestamp>
       <author>
         Created by
         <desc>Your name will be added here based on your login</desc>
+        <str>
+          <pos>2</pos>
+          <fmt>-$0</fmt>
+        </str>
       </author>
     </cols>
     <Text>
@@ -1352,7 +1364,9 @@
   <Relationships f="noscroll">
     <Parent_Identifier t="webview"/>
     <cols>
-      <Trench_ID f="notnull"/>
+      <Trench_ID f="notnull">
+        Square ID
+      </Trench_ID>/&gt;
       <Locus_ID f="notnull"/>
     </cols>
     <Relationship_Type t="dropdown" f="persist!"/>
@@ -1388,7 +1402,9 @@
   <Relationships f="noscroll">
     <Parent_Identifier t="webview"/>
     <cols>
-      <Trench_ID f="notnull"/>
+      <Trench_ID f="notnull">
+        Square ID
+      </Trench_ID>/&gt;
       <Locus_ID f="notnull"/>
     </cols>
     <Search t="button"/>
@@ -1435,8 +1451,8 @@
       </FCN_Trench_ID>
       <Subsquare i="Locus/General/Subsquare">
         <str>
-          <pos>4</pos>
-          <fmt>$3</fmt>
+          <pos>3</pos>
+          <fmt>-$0</fmt>
         </str>
       </Subsquare>
     </cols>
@@ -1449,14 +1465,14 @@
         Check with the trench supervisor who will assign the locus code from the central register.</desc>
         <str>
           <pos>4</pos>
-          <fmt>$0</fmt>
+          <fmt>-$0</fmt>
         </str>
       </Locus_ID>
       <FCN_ID f="id notnull autonum">
         Pottery Basket ID
         <str>
           <pos>5</pos>
-          <fmt>$0</fmt>
+          <fmt>-$0</fmt>
         </str>
       </FCN_ID>
       <timestamp>
@@ -1631,7 +1647,7 @@
     </cols>
     <cols>
       <Legacy_Trench_ID f="id notnull">
-        Trench ID
+        Square ID
         <str>
           <fmt> $0</fmt>
         </str>
