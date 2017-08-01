@@ -124,7 +124,7 @@
     <Area f="id notnull">
       <str>
         <pos>1</pos>
-        <fmt>$0-</fmt>
+        <fmt>$0 </fmt>
       </str>
     </Area>
     <Trench_Site_Name f="id readonly" i="Site/Site/Site_Site_Name">
@@ -137,13 +137,13 @@
       Square ID
       <str>
         <pos>2</pos>
-        <fmt>-$0-</fmt>
+        <fmt> $0</fmt>
       </str>
     </Trench_Trench_ID>
     <Subsquare>
       <str>
         <pos>3</pos>
-        <fmt>-$0</fmt>
+        <fmt> $0</fmt>
       </str>
       <opts>
         <opt>1</opt>
@@ -249,14 +249,26 @@
         <str><fmt> $0</fmt></str>
       </Trench_Files_Year_of_Campaign>
     </cols>
-    <Trench_Files_Trench_ID f="id readonly" i="Trench/Trench/Trench_Trench_ID">
+    <Area i="Trench/Trench/Area">
+      <str>
+        <pos>1</pos>
+        <fmt>$0</fmt>
+      </str>
+    </Area>
+    <Trench_Files_Trench_ID f="id readonly notnull" i="Trench/Trench/Trench_Trench_ID">
       Square ID
-      <str><fmt>-$0</fmt></str>
+      <str>
+        <pos>2</pos>
+        <fmt> $0</fmt>
+    </str>
     </Trench_Files_Trench_ID>
     <Subsquare i="Trench/Trench/Subsquare"/>
     <author f="readonly"/>
     <File_Type f="id">
-      <str><fmt>-$0</fmt></str>
+      <str>
+        <pos>3</pos>
+        <fmt> $0</fmt>
+    </str>
       <opts>
         <opt>Plan</opt>
         <opt>Section</opt>
@@ -267,8 +279,6 @@
     <File_Name/>
     <File_Comment/>
     <Add_Photo t="camera"/>
-    <Attach_File t="file"/>
-    <View_Attached_Files t="viewfiles"/>
   </Add_Trench_Files>
   <Vars f="hidden">
     <Device_Code i="User/User_List/Device_Code!">
@@ -285,7 +295,7 @@
         <Area i="Trench/Trench/Area">
           <str>
             <pos>1</pos>
-            <fmt>$0-</fmt>
+            <fmt>$0</fmt>
           </str>
         </Area>
         <Locus_Site_Name f="id notnull" i="Trench/Trench/Trench_Site_Name">
@@ -302,7 +312,7 @@
              @POSTPROC-->
         <str>
           <pos>2</pos>
-          <fmt>$0-</fmt>
+          <fmt$0</fmt>
         </str>
       </Locus_Trench_ID>
     </cols>
@@ -310,18 +320,18 @@
       <Subsquare i="Trench/Trench/Subsquare">
         <str>
           <pos>3</pos>
-          <fmt>$0-</fmt>
+          <fmt> $0</fmt>
         </str>
       </Subsquare>
-      <Locus_Locus_ID f="id notnull" b="decimal">
+      <Locus_Locus_ID f="id notnull autonum" b="decimal">
         Locus ID
-        <desc>Every archaeological locus (negative element (cut), deposit, structure, skeleton, artefact cluster) is given a unique 3 or 4 letter locus code. Each trench is designated with a separate letter which starts the code, so it is immediately obvious to which trench a locus belongs. For example locus HAA belongs to Trench H, locus MQP to Trench M etc.
+        <desc>Every archaeological locus (pit, fill, surface, architecture, skeleton) is given a unique 3 or 4 letter locus code. Each trench is designated with a separate letter which starts the code, so it is immediately obvious to which trench a locus belongs. For example locus HAA belongs to Trench H, locus MQP to Trench M etc.
         The loci are labelled consecutively in alphabetical order using the letters following the trench letter. For Trench H the first locus would be HAA, the second HAB, the third HAB and so on. In addition sets of letters can denote parts of trenches, buildings etc. E.g. HFs might denote loci from a specific building.
         Burial locus codes begin with the letter Z, followed by the trench letter. Hence burial ZHA is the first burial locus from trench H.
         Check with the trench supervisor who will assign the locus code from the central register.</desc>
         <str>
           <pos>4</pos>
-          <fmt>$0-</fmt>
+          <fmt> $0</fmt>
         </str>
       </Locus_Locus_ID>
     </cols>
@@ -395,7 +405,7 @@
         When you have selected a locus type you can proceed to open the "Fill in locus type details" page. Note this page will not open unless you have selected a locus type.</desc>
       <str>
         <pos>5</pos>
-        <fmt>-$0</fmt>
+        <fmt> $0</fmt>
       </str>
       <opts>
         <opt p="gallery/Blanks/Trail.png">No Observation
@@ -1185,7 +1195,7 @@
       <desc>Describe the components which make up 10% or more of the deposit.</desc>
       <str>
         <pos>1</pos>
-        <fmt>$1-</fmt>
+        <fmt>$1</fmt>
       </str>
       <opts>
         <opt>No Observation
@@ -1213,7 +1223,7 @@
     <Percentage f="id" b="decimal">
       <str>
         <pos>2</pos>
-        <fmt>$2%</fmt>
+        <fmt> $2%</fmt>
       </str>
       <desc>Enter the approximate % volume of this material in the Locus.</desc>
     </Percentage>
@@ -1243,7 +1253,7 @@
         Phase ID
         <desc>Unique number or code for each Stratum/Feature</desc>
         <str>
-          <fmt>{{ if $0 then "-($0)" }}</fmt>
+          <fmt>{{ if $0 then " ($0)" }}</fmt>
           <pos>2</pos>
         </str>
       </Photo_Stratum_Feature_ID>
@@ -1255,7 +1265,7 @@
     <Scene_Type f="id">
       <desc>The type of scene captured, eg opening or closing view of the Locus. (Vocab: Open, Close, Other)</desc>
       <str>
-        <fmt>-$0</fmt>
+        <fmt> $0</fmt>
         <pos>3</pos>
       </str>
       <opts>
@@ -1276,7 +1286,7 @@
   </Photograph_Log>
   <Vars f="hidden">
     <Photograph_Log_Site_Name f="id" i="Locus/General/Locus_Site_Name Stratum_Feature/Vars/Stratum_Feature_Site_Name">
-  <!-->      
+  <!-->
       <str>
         <fmt>Photo-$0</fmt>
         <pos>1</pos>
@@ -1323,7 +1333,7 @@
         <desc>Your name will be added here based on your login</desc>
         <str>
           <pos>2</pos>
-          <fmt>-$0</fmt>
+          <fmt> $0</fmt>
         </str>
       </author>
     </cols>
@@ -1446,13 +1456,13 @@
         Square ID
         <str>
           <pos>2</pos>
-          <fmt>-$0</fmt>
+          <fmt> $0</fmt>
         </str>
       </FCN_Trench_ID>
       <Subsquare i="Locus/General/Subsquare">
         <str>
           <pos>3</pos>
-          <fmt>-$0</fmt>
+          <fmt> $0</fmt>
         </str>
       </Subsquare>
     </cols>
@@ -1465,14 +1475,14 @@
         Check with the trench supervisor who will assign the locus code from the central register.</desc>
         <str>
           <pos>4</pos>
-          <fmt>-$0</fmt>
+          <fmt> $0</fmt>
         </str>
       </Locus_ID>
       <FCN_ID f="id notnull autonum">
         Pottery Basket ID
         <str>
           <pos>5</pos>
-          <fmt>-$0</fmt>
+          <fmt> $0</fmt>
         </str>
       </FCN_ID>
       <timestamp>
