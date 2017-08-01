@@ -152,11 +152,8 @@
             <Add_Trench_Files>
               <Colgroup_1>
                 <Col_1>
-                  <Trench_Files_Site_Name/>
-                </Col_1>
-                <Col_2>
                   <Trench_Files_Year_of_Campaign/>
-                </Col_2>
+                </Col_1>
               </Colgroup_1>
               <Area/>
               <Trench_Files_Trench_ID/>
@@ -560,7 +557,6 @@
             </Add>
             <Vars>
               <Device_Code/>
-              <Stratum_Feature_Site_Name/>
               <Stratum_Feature_Year_of_Campaign/>
               <L_Paren/>
               <R_Paren/>
@@ -595,7 +591,6 @@
               <Brief_Description/>
             </Photograph_Log>
             <Vars>
-              <Photograph_Log_Site_Name/>
               <Photograph_Log_Year_of_Campaign/>
               <Photograph_Trench_ID/>
               <Device_Code/>
@@ -617,7 +612,6 @@
               <Photo_Button_1/>
             </Diary>
             <Vars>
-              <Diary_Site_Name/>
               <Diary_Year_of_Campaign/>
               <Diary_Trench_ID/>
               <Device_Code/>
@@ -660,7 +654,6 @@
               <List_of_Existing_Legacies/>
             </Legacies>
             <Vars>
-              <Relationship_Site_Name/>
               <Relationship_Year_of_Campaign/>
             </Vars>
           </Relationship>
@@ -700,7 +693,6 @@
               <List_of_Existing_Legacies/>
             </Legacies>
             <Vars>
-              <Stratum_Feature_Relationship_Site_Name/>
               <Stratum_Feature_Relationship_Year_of_Campaign/>
             </Vars>
           </Stratum_Feature_Relationship>
@@ -725,7 +717,7 @@
                   <FCN_ID/>
                 </Col_2>
                 <Col_3>
-                  <FCN_timestamp/>
+                  <Date_Collected/>
                 </Col_3>
               </Colgroup_2>
               <Colgroup_3>
@@ -791,20 +783,12 @@
             <Legacy>
               <Colgroup_1>
                 <Col_1>
-                  <Legacy_Site_Name/>
-                </Col_1>
-                <Col_2>
-                  <Legacy_Year_of_Campaign/>
-                </Col_2>
-              </Colgroup_1>
-              <Colgroup_2>
-                <Col_1>
                   <Legacy_Trench_ID/>
                 </Col_1>
                 <Col_2>
                   <Legacy_Locus_ID/>
                 </Col_2>
-              </Colgroup_2>
+              </Colgroup_1>
             </Legacy>
             <Var>
               <Device_Code/>
@@ -1263,12 +1247,6 @@
         <group ref="Colgroup_1" faims_style="orientation">
           <label/>
           <group ref="Col_1" faims_style="even">
-            <label/>
-            <input faims_attribute_name="Trench Files Site Name" faims_attribute_type="measure" ref="Trench_Files_Site_Name" faims_read_only="true">
-              <label>{Site_Name}</label>
-            </input>
-          </group>
-          <group ref="Col_2" faims_style="even">
             <label/>
             <input faims_attribute_name="Trench Files Year of Campaign" faims_attribute_type="measure" ref="Trench_Files_Year_of_Campaign" faims_read_only="true">
               <label>{Year_of_Campaign}</label>
@@ -2286,9 +2264,6 @@
             <value>Options not loaded</value>
           </item>
         </select1>
-        <input faims_attribute_name="Stratum Feature Site Name" faims_attribute_type="measure" ref="Stratum_Feature_Site_Name">
-          <label>{Stratum_Feature_Site_Name}</label>
-        </input>
         <input faims_attribute_name="Stratum Feature Year of Campaign" faims_attribute_type="measure" ref="Stratum_Feature_Year_of_Campaign">
           <label>{Stratum_Feature_Year_of_Campaign}</label>
         </input>
@@ -2373,9 +2348,6 @@
       </group>
       <group ref="Vars" faims_hidden="true">
         <label>{Vars}</label>
-        <input faims_attribute_name="Photograph Log Site Name" faims_attribute_type="measure" ref="Photograph_Log_Site_Name">
-          <label>{Photograph_Log_Site_Name}</label>
-        </input>
         <input faims_attribute_name="Photograph Log Year of Campaign" faims_attribute_type="measure" ref="Photograph_Log_Year_of_Campaign">
           <label>{Photograph_Log_Year_of_Campaign}</label>
         </input>
@@ -2429,9 +2401,6 @@
       </group>
       <group ref="Vars" faims_hidden="true">
         <label>{Vars}</label>
-        <input faims_attribute_name="Diary Site Name" faims_attribute_type="measure" ref="Diary_Site_Name">
-          <label>{Diary_Site_Name}</label>
-        </input>
         <input faims_attribute_name="Diary Year of Campaign" faims_attribute_type="measure" ref="Diary_Year_of_Campaign">
           <label>{Diary_Year_of_Campaign}</label>
         </input>
@@ -2539,9 +2508,6 @@
       </group>
       <group ref="Vars" faims_hidden="true">
         <label>{Vars}</label>
-        <input ref="Relationship_Site_Name">
-          <label>{Relationship_Site_Name}</label>
-        </input>
         <input ref="Relationship_Year_of_Campaign">
           <label>{Relationship_Year_of_Campaign}</label>
         </input>
@@ -2632,9 +2598,6 @@
       </group>
       <group ref="Vars" faims_hidden="true">
         <label>{Vars}</label>
-        <input ref="Stratum_Feature_Relationship_Site_Name">
-          <label>{Stratum_Feature_Relationship_Site_Name}</label>
-        </input>
         <input ref="Stratum_Feature_Relationship_Year_of_Campaign">
           <label>{Stratum_Feature_Relationship_Year_of_Campaign}</label>
         </input>
@@ -2681,7 +2644,7 @@
           </group>
           <group ref="Col_3" faims_style="even">
             <label/>
-            <input faims_attribute_name="FCN timestamp" faims_attribute_type="measure" ref="FCN_timestamp" faims_read_only="true">
+            <input faims_attribute_name="Date Collected" faims_attribute_type="measure" ref="Date_Collected">
               <label>{Date_Collected}</label>
             </input>
           </group>
@@ -2863,21 +2826,6 @@
       <group ref="Legacy">
         <label>{Legacy}</label>
         <group ref="Colgroup_1" faims_style="orientation">
-          <label/>
-          <group ref="Col_1" faims_style="even">
-            <label/>
-            <input faims_attribute_name="Legacy Site Name" faims_attribute_type="measure" ref="Legacy_Site_Name" faims_read_only="true">
-              <label>{Site_Name}</label>
-            </input>
-          </group>
-          <group ref="Col_2" faims_style="even">
-            <label/>
-            <input faims_attribute_name="Legacy Year of Campaign" faims_attribute_type="measure" ref="Legacy_Year_of_Campaign" faims_style_class="required">
-              <label>{Year_of_Campaign}</label>
-            </input>
-          </group>
-        </group>
-        <group ref="Colgroup_2" faims_style="orientation">
           <label/>
           <group ref="Col_1" faims_style="even">
             <label/>

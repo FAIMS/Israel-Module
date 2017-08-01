@@ -241,9 +241,6 @@
   <Add_Trench_Files>
     Square_Files
     <cols>
-      <Trench_Files_Site_Name f="id readonly" i="Trench/Trench/Trench_Site_Name">
-        Site Name
-      </Trench_Files_Site_Name>
       <Trench_Files_Year_of_Campaign f="id readonly" i="Trench/Vars/Trench_Year_of_Campaign">
         Year of Campaign
         <str><fmt> $0</fmt></str>
@@ -1163,9 +1160,6 @@
     <Device_Code i="User/User_List/Device_Code!">
       <!--@SOURCE: vocabs/device-code.xml-->
     </Device_Code>
-    <Stratum_Feature_Site_Name f="id" i="Trench/Trench/Trench_Site_Name">
-      <str><pos>1</pos></str>
-    </Stratum_Feature_Site_Name>
     <Stratum_Feature_Year_of_Campaign f="id" i="Trench/Vars/Trench_Year_of_Campaign">
       <str>
         <pos>2</pos>
@@ -1285,14 +1279,6 @@
     <Brief_Description/>
   </Photograph_Log>
   <Vars f="hidden">
-    <Photograph_Log_Site_Name f="id" i="Locus/General/Locus_Site_Name Stratum_Feature/Vars/Stratum_Feature_Site_Name">
-  <!-->
-      <str>
-        <fmt>Photo-$0</fmt>
-        <pos>1</pos>
-      </str>
-      -->
-    </Photograph_Log_Site_Name>
     <Photograph_Log_Year_of_Campaign f="id" i="Locus/Vars/Locus_Year_of_Campaign Stratum_Feature/Vars/Stratum_Feature_Year_of_Campaign">
       <!--
       <str>
@@ -1345,12 +1331,7 @@
     </Photo>
   </Diary>
   <Vars f="hidden">
-    <Diary_Site_Name f="id" i="Trench/Trench/Trench_Site_Name">
-      <str>
-        <fmt>Diary-$0</fmt>
-        <pos>1</pos>
-      </str>
-    </Diary_Site_Name>
+
     <Diary_Year_of_Campaign f="id" i="Trench/Vars/Trench_Year_of_Campaign">
       <str>
         <fmt> $0</fmt>
@@ -1376,7 +1357,7 @@
     <cols>
       <Trench_ID f="notnull">
         Square ID
-      </Trench_ID>/&gt;
+      </Trench_ID>
       <Locus_ID f="notnull"/>
     </cols>
     <Relationship_Type t="dropdown" f="persist!"/>
@@ -1401,7 +1382,9 @@
     <List_of_Existing_Legacies t="list" e="Legacy"/>
   </Legacies>
   <Vars f="hidden">
+    <!--
     <Relationship_Site_Name i="Locus/General/Locus_Site_Name!"/>
+  -->
     <Relationship_Year_of_Campaign i="Locus/Vars/Locus_Year_of_Campaign!"/>
   </Vars>
 </Relationship>
@@ -1414,7 +1397,7 @@
     <cols>
       <Trench_ID f="notnull">
         Square ID
-      </Trench_ID>/&gt;
+      </Trench_ID>
       <Locus_ID f="notnull"/>
     </cols>
     <Search t="button"/>
@@ -1438,7 +1421,9 @@
     <List_of_Existing_Legacies t="list" e="Legacy"/>
   </Legacies>
   <Vars f="hidden">
+    <!--
     <Stratum_Feature_Relationship_Site_Name i="Stratum_Feature/Vars/Stratum_Feature_Site_Name!"/>
+  -->
     <Stratum_Feature_Relationship_Year_of_Campaign i="Stratum_Feature/Vars/Stratum_Feature_Year_of_Campaign!"/>
   </Vars>
 </Stratum_Feature_Relationship>
@@ -1485,9 +1470,7 @@
           <fmt>-$0</fmt>
         </str>
       </FCN_ID>
-      <timestamp>
-        Date Collected
-      </timestamp>
+      <Date_Collected/>
     </cols>
     <gps/>
     <cols>
@@ -1646,6 +1629,7 @@
 
 <Legacy>
   <Legacy>
+    <!--
     <cols>
       <Legacy_Site_Name f="id readonly" i="Trench/Trench/Trench_Site_Name Relationship/Vars/Relationship_Site_Name Stratum_Feature_Relationship/Vars/Stratum_Feature_Relationship_Site_Name">
         Site Name
@@ -1655,6 +1639,7 @@
         <str><fmt> $0</fmt></str>
       </Legacy_Year_of_Campaign>
     </cols>
+  -->
     <cols>
       <Legacy_Trench_ID f="id notnull">
         Square ID
@@ -1701,5 +1686,6 @@
 
   <!--@SOURCE: logic/custom-diary-timestamp.bsh-->
   <!--@SOURCE: logic/field-clearing.bsh-->
+  <!--@SOURCE: logic/custom-pottery-basket-timestamp.bsh-->
 ]]></logic>
 </module>
