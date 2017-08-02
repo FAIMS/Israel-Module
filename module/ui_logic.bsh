@@ -209,7 +209,6 @@ REF_TO_TYPE.put("Trench/Vars/Device_Code", "dropdown");
 REF_TO_TYPE.put("Date_Closed/Date_Closed/Date_Closed", "input");
 REF_TO_TYPE.put("Date_Closed/Date_Closed/Set_Date_Closed", "button");
 REF_TO_TYPE.put("Date_Closed/Date_Closed/Cancel", "button");
-REF_TO_TYPE.put("Trench_Files/Add_Trench_Files/Trench_Files_Year_of_Campaign", "input");
 REF_TO_TYPE.put("Trench_Files/Add_Trench_Files/Area", "input");
 REF_TO_TYPE.put("Trench_Files/Add_Trench_Files/Trench_Files_Trench_ID", "input");
 REF_TO_TYPE.put("Trench_Files/Add_Trench_Files/Subsquare", "input");
@@ -378,7 +377,6 @@ REF_TO_TYPE.put("Stratum_Feature/Add/Guide_2", "webview");
 REF_TO_TYPE.put("Stratum_Feature/Add/Add_Photograph_Log", "button");
 REF_TO_TYPE.put("Stratum_Feature/Add/Select_a_Photograph_Log", "dropdown");
 REF_TO_TYPE.put("Stratum_Feature/Vars/Device_Code", "dropdown");
-REF_TO_TYPE.put("Stratum_Feature/Vars/Stratum_Feature_Year_of_Campaign", "input");
 REF_TO_TYPE.put("Stratum_Feature/Vars/L_Paren", "input");
 REF_TO_TYPE.put("Stratum_Feature/Vars/R_Paren", "input");
 REF_TO_TYPE.put("Stratum_Feature/Vars/Last_Feature_Prefix", "input");
@@ -392,7 +390,6 @@ REF_TO_TYPE.put("Photograph_Log/Photograph_Log/Photo_Stratum_Feature_ID", "input
 REF_TO_TYPE.put("Photograph_Log/Photograph_Log/Photograph_Reference_ID", "input");
 REF_TO_TYPE.put("Photograph_Log/Photograph_Log/Scene_Type", "dropdown");
 REF_TO_TYPE.put("Photograph_Log/Photograph_Log/Brief_Description", "input");
-REF_TO_TYPE.put("Photograph_Log/Vars/Photograph_Log_Year_of_Campaign", "input");
 REF_TO_TYPE.put("Photograph_Log/Vars/Photograph_Trench_ID", "input");
 REF_TO_TYPE.put("Photograph_Log/Vars/Device_Code", "dropdown");
 REF_TO_TYPE.put("Diary/Diary/Title", "input");
@@ -401,7 +398,6 @@ REF_TO_TYPE.put("Diary/Diary/Diary_author", "input");
 REF_TO_TYPE.put("Diary/Diary/Text", "input");
 REF_TO_TYPE.put("Diary/Diary/Photo", "camera");
 REF_TO_TYPE.put("Diary/Diary/Photo_Button_1", "button");
-REF_TO_TYPE.put("Diary/Vars/Diary_Year_of_Campaign", "input");
 REF_TO_TYPE.put("Diary/Vars/Diary_Trench_ID", "input");
 REF_TO_TYPE.put("Diary/Vars/Device_Code", "dropdown");
 REF_TO_TYPE.put("Relationship/Relationships/Parent_Identifier", "webview");
@@ -417,7 +413,6 @@ REF_TO_TYPE.put("Relationship/Relationships/Unrelated_Loci", "list");
 REF_TO_TYPE.put("Relationship/Relationships/Existing_Relationships", "list");
 REF_TO_TYPE.put("Relationship/Legacies/Create_New_Legacy", "button");
 REF_TO_TYPE.put("Relationship/Legacies/List_of_Existing_Legacies", "list");
-REF_TO_TYPE.put("Relationship/Vars/Relationship_Year_of_Campaign", "input");
 REF_TO_TYPE.put("Stratum_Feature_Relationship/Relationships/Parent_Identifier", "webview");
 REF_TO_TYPE.put("Stratum_Feature_Relationship/Relationships/Trench_ID", "input");
 REF_TO_TYPE.put("Stratum_Feature_Relationship/Relationships/Locus_ID", "input");
@@ -430,7 +425,6 @@ REF_TO_TYPE.put("Stratum_Feature_Relationship/Relationships/Unrelated_Loci", "li
 REF_TO_TYPE.put("Stratum_Feature_Relationship/Relationships/Existing_Relationships", "list");
 REF_TO_TYPE.put("Stratum_Feature_Relationship/Legacies/Create_New_Legacy", "button");
 REF_TO_TYPE.put("Stratum_Feature_Relationship/Legacies/List_of_Existing_Legacies", "list");
-REF_TO_TYPE.put("Stratum_Feature_Relationship/Vars/Stratum_Feature_Relationship_Year_of_Campaign", "input");
 REF_TO_TYPE.put("FCN/General/Area", "input");
 REF_TO_TYPE.put("FCN/General/FCN_Trench_ID", "input");
 REF_TO_TYPE.put("FCN/General/Subsquare", "input");
@@ -459,7 +453,6 @@ REF_TO_TYPE.put("FCN/General/Intrusive_Materials_Comment", "input");
 REF_TO_TYPE.put("FCN/General/General_Notes", "input");
 REF_TO_TYPE.put("FCN/General/Attach_Photograph", "camera");
 REF_TO_TYPE.put("FCN/General/Attach_Photograph_Button_1", "button");
-REF_TO_TYPE.put("FCN/Vars/FCN_Year_of_Campaign", "input");
 REF_TO_TYPE.put("FCN/Vars/Device_Code", "dropdown");
 REF_TO_TYPE.put("Soil_Munsel_Color/Add_Soil_Munsel_Color/Soil_Munsel_Color", "dropdown");
 REF_TO_TYPE.put("Soil_Munsel_Color/Vars/Soil_Munsel_Color_Locus_ID", "input");
@@ -544,7 +537,6 @@ DATA_REFS.add("Trench/Trench/Brief_Description");
 DATA_REFS.add("Trench/Trench/Your_Discussion");
 DATA_REFS.add("Trench/Vars/Trench_Year_of_Campaign");
 DATA_REFS.add("Trench/Vars/Device_Code");
-DATA_REFS.add("Trench_Files/Add_Trench_Files/Trench_Files_Year_of_Campaign");
 DATA_REFS.add("Trench_Files/Add_Trench_Files/Area");
 DATA_REFS.add("Trench_Files/Add_Trench_Files/Trench_Files_Trench_ID");
 DATA_REFS.add("Trench_Files/Add_Trench_Files/Subsquare");
@@ -679,7 +671,6 @@ DATA_REFS.add("Stratum_Feature/General/Stratum_Feature_timestamp");
 DATA_REFS.add("Stratum_Feature/Add/Photo");
 DATA_REFS.add("Stratum_Feature/Add/Attach_File");
 DATA_REFS.add("Stratum_Feature/Vars/Device_Code");
-DATA_REFS.add("Stratum_Feature/Vars/Stratum_Feature_Year_of_Campaign");
 DATA_REFS.add("Stratum_Feature/Vars/L_Paren");
 DATA_REFS.add("Stratum_Feature/Vars/R_Paren");
 DATA_REFS.add("Stratum_Feature/Vars/Last_Feature_Prefix");
@@ -693,7 +684,6 @@ DATA_REFS.add("Photograph_Log/Photograph_Log/Photo_Stratum_Feature_ID");
 DATA_REFS.add("Photograph_Log/Photograph_Log/Photograph_Reference_ID");
 DATA_REFS.add("Photograph_Log/Photograph_Log/Scene_Type");
 DATA_REFS.add("Photograph_Log/Photograph_Log/Brief_Description");
-DATA_REFS.add("Photograph_Log/Vars/Photograph_Log_Year_of_Campaign");
 DATA_REFS.add("Photograph_Log/Vars/Photograph_Trench_ID");
 DATA_REFS.add("Photograph_Log/Vars/Device_Code");
 DATA_REFS.add("Diary/Diary/Title");
@@ -701,7 +691,6 @@ DATA_REFS.add("Diary/Diary/Timestamp");
 DATA_REFS.add("Diary/Diary/Diary_author");
 DATA_REFS.add("Diary/Diary/Text");
 DATA_REFS.add("Diary/Diary/Photo");
-DATA_REFS.add("Diary/Vars/Diary_Year_of_Campaign");
 DATA_REFS.add("Diary/Vars/Diary_Trench_ID");
 DATA_REFS.add("Diary/Vars/Device_Code");
 DATA_REFS.add("FCN/General/Area");
@@ -730,7 +719,6 @@ DATA_REFS.add("FCN/General/Chronology_Note");
 DATA_REFS.add("FCN/General/Intrusive_Materials_Comment");
 DATA_REFS.add("FCN/General/General_Notes");
 DATA_REFS.add("FCN/General/Attach_Photograph");
-DATA_REFS.add("FCN/Vars/FCN_Year_of_Campaign");
 DATA_REFS.add("FCN/Vars/Device_Code");
 DATA_REFS.add("Soil_Munsel_Color/Add_Soil_Munsel_Color/Soil_Munsel_Color");
 DATA_REFS.add("Soil_Munsel_Color/Vars/Soil_Munsel_Color_Locus_ID");
@@ -1652,8 +1640,8 @@ void timedPopulateCursorList(String ref, String q, int limit) {
 
 void setUpTypeHierarchy() {
   //- 
-  //  - Diary
   //  - Legacy
+  //  - Diary
   //  - Trench
   //    - Trench Files
   //    - Locus
@@ -1667,8 +1655,8 @@ void setUpTypeHierarchy() {
   //    - Legacy
 
   n0 = Tree("", 1);
-  n1 = Tree("Diary", 1);
-  n2 = Tree("Legacy", 1);
+  n1 = Tree("Legacy", 1);
+  n2 = Tree("Diary", 1);
   n3 = Tree("Trench", 1);
   n4 = Tree("Trench Files", 1);
   n5 = Tree("Locus", 1);
@@ -2485,7 +2473,6 @@ inheritFieldValue("Site/Site/Site_Site_Name", "Trench/Trench/Trench_Site_Name", 
 inheritFieldValue("Site/Site/Trench_ID", "Trench/Trench/Trench_Trench_ID", true);
 inheritFieldValue("Site/Site/Site_Year_of_Campaign", "Trench/Vars/Trench_Year_of_Campaign", true);
 inheritFieldValue("User/User_List/Device_Code", "Trench/Vars/Device_Code", false);
-inheritFieldValue("Trench/Vars/Trench_Year_of_Campaign", "Trench_Files/Add_Trench_Files/Trench_Files_Year_of_Campaign", true);
 inheritFieldValue("Trench/Trench/Area", "Trench_Files/Add_Trench_Files/Area", true);
 inheritFieldValue("Trench/Trench/Trench_Trench_ID", "Trench_Files/Add_Trench_Files/Trench_Files_Trench_ID", true);
 inheritFieldValue("Trench/Trench/Subsquare", "Trench_Files/Add_Trench_Files/Subsquare", true);
@@ -2500,29 +2487,21 @@ inheritFieldValue("Trench/Vars/Trench_Year_of_Campaign", "Locus/Vars/Locus_Year_
 inheritFieldValue("Trench/Trench/Area", "Stratum_Feature/General/Area", true);
 inheritFieldValue("Trench/Trench/Trench_Trench_ID", "Stratum_Feature/General/Stratum_Feature_Trench_ID", true);
 inheritFieldValue("User/User_List/Device_Code", "Stratum_Feature/Vars/Device_Code", false);
-inheritFieldValue("Trench/Vars/Trench_Year_of_Campaign", "Stratum_Feature/Vars/Stratum_Feature_Year_of_Campaign", true);
 inheritFieldValue("Locus/General/Locus_Locus_ID", "Sediment_Aggregate/Vars/Locus_ID", true);
 inheritFieldValue("Locus/General/Locus_Trench_ID", "Sediment_Aggregate/Vars/Trench_ID", true);
 inheritFieldValue("User/User_List/Device_Code", "Sediment_Aggregate/Vars/Device_Code", false);
 inheritFieldValue("Locus/General/Locus_Locus_ID", "Photograph_Log/Photograph_Log/Photo_Locus_ID", true);
 inheritFieldValue("Stratum_Feature/General/Stratum_Feature_ID", "Photograph_Log/Photograph_Log/Photo_Stratum_Feature_ID", true);
-inheritFieldValue("Locus/Vars/Locus_Year_of_Campaign", "Photograph_Log/Vars/Photograph_Log_Year_of_Campaign", true);
-inheritFieldValue("Stratum_Feature/Vars/Stratum_Feature_Year_of_Campaign", "Photograph_Log/Vars/Photograph_Log_Year_of_Campaign", true);
 inheritFieldValue("Locus/General/Locus_Trench_ID", "Photograph_Log/Vars/Photograph_Trench_ID", true);
 inheritFieldValue("Stratum_Feature/General/Stratum_Feature_Trench_ID", "Photograph_Log/Vars/Photograph_Trench_ID", true);
 inheritFieldValue("User/User_List/Device_Code", "Photograph_Log/Vars/Device_Code", false);
-inheritFieldValue("Trench/Vars/Trench_Year_of_Campaign", "Diary/Vars/Diary_Year_of_Campaign", true);
 inheritFieldValue("Trench/Trench/Trench_Trench_ID", "Diary/Vars/Diary_Trench_ID", true);
 inheritFieldValue("User/User_List/Device_Code", "Diary/Vars/Device_Code", false);
-inheritFieldValue("Locus/Vars/Locus_Year_of_Campaign", "Relationship/Vars/Relationship_Year_of_Campaign", false);
-inheritFieldValue("Stratum_Feature/Vars/Stratum_Feature_Year_of_Campaign", "Stratum_Feature_Relationship/Vars/Stratum_Feature_Relationship_Year_of_Campaign", false);
 inheritFieldValue("Locus/General/Area", "FCN/General/Area", true);
 inheritFieldValue("Locus/General/Locus_Trench_ID", "FCN/General/FCN_Trench_ID", true);
 inheritFieldValue("Trench/Trench/Trench_Trench_ID", "FCN/General/FCN_Trench_ID", true);
 inheritFieldValue("Locus/General/Subsquare", "FCN/General/Subsquare", true);
 inheritFieldValue("Locus/General/Locus_Locus_ID", "FCN/General/Locus_ID", true);
-inheritFieldValue("Locus/Vars/Locus_Year_of_Campaign", "FCN/Vars/FCN_Year_of_Campaign", true);
-inheritFieldValue("Trench/Vars/Trench_Year_of_Campaign", "FCN/Vars/FCN_Year_of_Campaign", true);
 inheritFieldValue("User/User_List/Device_Code", "FCN/Vars/Device_Code", false);
 inheritFieldValue("Locus/General/Locus_Locus_ID", "Soil_Munsel_Color/Vars/Soil_Munsel_Color_Locus_ID", true);
 inheritFieldValue("User/User_List/Device_Code", "Soil_Munsel_Color/Vars/Device_Code", false);
@@ -6367,9 +6346,9 @@ void populateSquare() {
   q += "   FROM latestNonDeletedAentvalue";
   q += "   JOIN latestNonDeletedArchEntFormattedIdentifiers USING (uuid)";
   q += "   JOIN attributekey USING (attributeid)";
-  q += "  WHERE attributename = 'Site Site Name'";
-  q += "     OR attributename = 'Site Year of Campaign'";
-
+  q += "  WHERE attributename = 'Square ID'";
+  q += "     OR attributename = 'Area'";
+  q += "     OR attributename = 'Subsquare'";
   FetchCallback popSite = new FetchCallback() {
     onFetch(result) {
       List normalised = normaliseSiteResult(result);

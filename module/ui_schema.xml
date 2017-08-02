@@ -153,11 +153,6 @@
           </Date_Closed>
           <Trench_Files>
             <Add_Trench_Files>
-              <Colgroup_1>
-                <Col_1>
-                  <Trench_Files_Year_of_Campaign/>
-                </Col_1>
-              </Colgroup_1>
               <Area/>
               <Trench_Files_Trench_ID/>
               <Subsquare/>
@@ -560,7 +555,6 @@
             </Add>
             <Vars>
               <Device_Code/>
-              <Stratum_Feature_Year_of_Campaign/>
               <L_Paren/>
               <R_Paren/>
               <Last_Feature_Prefix/>
@@ -594,7 +588,6 @@
               <Brief_Description/>
             </Photograph_Log>
             <Vars>
-              <Photograph_Log_Year_of_Campaign/>
               <Photograph_Trench_ID/>
               <Device_Code/>
             </Vars>
@@ -615,7 +608,6 @@
               <Photo_Button_1/>
             </Diary>
             <Vars>
-              <Diary_Year_of_Campaign/>
               <Diary_Trench_ID/>
               <Device_Code/>
             </Vars>
@@ -656,9 +648,7 @@
               <Create_New_Legacy/>
               <List_of_Existing_Legacies/>
             </Legacies>
-            <Vars>
-              <Relationship_Year_of_Campaign/>
-            </Vars>
+            <Vars/>
           </Relationship>
           <Stratum_Feature_Relationship>
             <Relationships>
@@ -695,9 +685,7 @@
               <Create_New_Legacy/>
               <List_of_Existing_Legacies/>
             </Legacies>
-            <Vars>
-              <Stratum_Feature_Relationship_Year_of_Campaign/>
-            </Vars>
+            <Vars/>
           </Stratum_Feature_Relationship>
           <FCN>
             <General>
@@ -769,7 +757,6 @@
               <Attach_Photograph_Button_1/>
             </General>
             <Vars>
-              <FCN_Year_of_Campaign/>
               <Device_Code/>
             </Vars>
           </FCN>
@@ -1254,15 +1241,6 @@
       <label>{Square_Files}</label>
       <group ref="Add_Trench_Files">
         <label>{Square_Files}</label>
-        <group ref="Colgroup_1" faims_style="orientation">
-          <label/>
-          <group ref="Col_1" faims_style="even">
-            <label/>
-            <input faims_attribute_name="Trench Files Year of Campaign" faims_attribute_type="measure" ref="Trench_Files_Year_of_Campaign" faims_read_only="true">
-              <label>{Year_of_Campaign}</label>
-            </input>
-          </group>
-        </group>
         <input faims_attribute_name="Trench Files Area" faims_attribute_type="measure" ref="Area">
           <label>{Area}</label>
         </input>
@@ -2274,9 +2252,6 @@
             <value>Options not loaded</value>
           </item>
         </select1>
-        <input faims_attribute_name="Stratum Feature Year of Campaign" faims_attribute_type="measure" ref="Stratum_Feature_Year_of_Campaign">
-          <label>{Stratum_Feature_Year_of_Campaign}</label>
-        </input>
         <input faims_attribute_name="L Paren" faims_attribute_type="measure" ref="L_Paren">
           <label>{L_Paren}</label>
         </input>
@@ -2358,9 +2333,6 @@
       </group>
       <group ref="Vars" faims_hidden="true">
         <label>{Vars}</label>
-        <input faims_attribute_name="Photograph Log Year of Campaign" faims_attribute_type="measure" ref="Photograph_Log_Year_of_Campaign">
-          <label>{Photograph_Log_Year_of_Campaign}</label>
-        </input>
         <input faims_attribute_name="Photograph Trench ID" faims_attribute_type="measure" ref="Photograph_Trench_ID">
           <label>{Photograph_Trench_ID}</label>
         </input>
@@ -2411,9 +2383,6 @@
       </group>
       <group ref="Vars" faims_hidden="true">
         <label>{Vars}</label>
-        <input faims_attribute_name="Diary Year of Campaign" faims_attribute_type="measure" ref="Diary_Year_of_Campaign">
-          <label>{Diary_Year_of_Campaign}</label>
-        </input>
         <input faims_attribute_name="Diary Trench ID" faims_attribute_type="measure" ref="Diary_Trench_ID">
           <label>{Diary_Trench_ID}</label>
         </input>
@@ -2518,9 +2487,6 @@
       </group>
       <group ref="Vars" faims_hidden="true">
         <label>{Vars}</label>
-        <input ref="Relationship_Year_of_Campaign">
-          <label>{Relationship_Year_of_Campaign}</label>
-        </input>
       </group>
     </group>
     <group ref="Stratum_Feature_Relationship">
@@ -2608,9 +2574,6 @@
       </group>
       <group ref="Vars" faims_hidden="true">
         <label>{Vars}</label>
-        <input ref="Stratum_Feature_Relationship_Year_of_Campaign">
-          <label>{Stratum_Feature_Relationship_Year_of_Campaign}</label>
-        </input>
       </group>
     </group>
     <group ref="FCN" faims_archent_type="FCN">
@@ -2793,9 +2756,6 @@
       </group>
       <group ref="Vars" faims_hidden="true">
         <label>{Vars}</label>
-        <input faims_attribute_name="FCN Year of Campaign" faims_attribute_type="measure" ref="FCN_Year_of_Campaign">
-          <label>{FCN_Year_of_Campaign}</label>
-        </input>
         <select1 faims_attribute_name="Device Code" faims_attribute_type="vocab" ref="Device_Code">
           <label>{Device_Code}</label>
           <item>
