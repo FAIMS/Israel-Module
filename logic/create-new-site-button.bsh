@@ -27,6 +27,7 @@ boolean isNotBlank(String ref) {
   return !isNull(val);
 }
 
+/*
 boolean isValidNewSiteName() {
   return isNotBlank("Control/Site/New_Site_Name");
 }
@@ -34,3 +35,4 @@ boolean isValidNewSiteName() {
 boolean isValidYearOfCampaign() {
   return isNotBlank("Control/Site/Year_of_Campaign");
 }
+*/

@@ -137,11 +137,6 @@
       <formatString>$2 </formatString>
       <appendCharacterString> - </appendCharacterString>
     </property>
-    <property name="Trench Site Name" type="measure" isIdentifier="true">
-      <description></description>
-      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
-      <appendCharacterString> - </appendCharacterString>
-    </property>
     <property name="Trench Trench ID" type="measure" isIdentifier="true">
       <description></description>
       <formatString> $2</formatString>
@@ -407,11 +402,6 @@
       </lookup>
     </property>
     <property name="Locus author" type="measure">
-      <description></description>
-      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
-      <appendCharacterString> - </appendCharacterString>
-    </property>
-    <property name="Locus Site Name" type="measure" isIdentifier="true">
       <description></description>
       <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
       <appendCharacterString> - </appendCharacterString>
@@ -1554,12 +1544,12 @@
     </property>
     <property name="FCN Trench ID" type="measure" isIdentifier="true">
       <description></description>
-      <formatString>-$2</formatString>
+      <formatString> $2</formatString>
       <appendCharacterString> - </appendCharacterString>
     </property>
     <property name="FCN Subsquare" type="measure">
       <description></description>
-      <formatString>-$2</formatString>
+      <formatString> $2</formatString>
       <appendCharacterString> - </appendCharacterString>
     </property>
     <property name="FCN Locus ID" type="measure">
@@ -1567,12 +1557,12 @@
         The loci are labelled consecutively in alphabetical order using the letters following the trench letter. For Trench H the first locus would be HAA, the second HAB, the third HAB and so on. In addition sets of letters can denote parts of trenches, buildings etc. E.g. HFs might denote loci from a specific building.
         Burial locus codes begin with the letter Z, followed by the trench letter. Hence burial ZHA is the first burial locus from trench H.
         Check with the trench supervisor who will assign the locus code from the central register.</description>
-      <formatString>-$2</formatString>
+      <formatString> $2</formatString>
       <appendCharacterString> - </appendCharacterString>
     </property>
     <property name="FCN ID" type="measure" isIdentifier="true">
       <description></description>
-      <formatString>-$2</formatString>
+      <formatString> $2</formatString>
       <appendCharacterString> - </appendCharacterString>
     </property>
     <property name="Date Collected" type="measure">
@@ -1803,7 +1793,7 @@
     </property>
     <property name="Soil Munsel Color" type="vocab" isIdentifier="true">
       <description></description>
-      <formatString>-Color-$1</formatString>
+      <formatString> Color-$1</formatString>
       <appendCharacterString> - </appendCharacterString>
       <lookup>
         <term>{R}

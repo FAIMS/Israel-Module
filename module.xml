@@ -129,12 +129,14 @@
         <fmt>$0 </fmt>
       </str>
     </Area>
+    <!--
     <Trench_Site_Name f="id readonly" i="Site/Site/Site_Site_Name">
       Site Name
       <str>
         <pos>1</pos>
       </str>
     </Trench_Site_Name>
+  -->
     <Trench_Trench_ID f="id notnull" i="Site/Site/Trench_ID">
       Square ID
       <str>
@@ -291,14 +293,14 @@
             <fmt>$0</fmt>
           </str>
         </Area>
+        <!--
         <Locus_Site_Name f="id notnull" i="Trench/Trench/Trench_Site_Name">
         Site Name
-        <!--
         <str>
           <pos>1</pos>
         </str>
-        -->
         </Locus_Site_Name>
+      -->
       <Locus_Trench_ID f="id readonly" i="Trench/Trench/Trench_Trench_ID">
         Square ID
         <!--The semantics of the autonum flag have been changed using
@@ -1418,13 +1420,13 @@
         Square ID
         <str>
           <pos>2</pos>
-          <fmt>-$0</fmt>
+          <fmt> $0</fmt>
         </str>
       </FCN_Trench_ID>
       <Subsquare i="Locus/General/Subsquare">
         <str>
           <pos>3</pos>
-          <fmt>-$0</fmt>
+          <fmt> $0</fmt>
         </str>
       </Subsquare>
     </cols>
@@ -1437,14 +1439,14 @@
         Check with the trench supervisor who will assign the locus code from the central register.</desc>
         <str>
           <pos>4</pos>
-          <fmt>-$0</fmt>
+          <fmt> $0</fmt>
         </str>
       </Locus_ID>
       <FCN_ID f="id notnull autonum">
         Pottery Basket ID
         <str>
           <pos>5</pos>
-          <fmt>-$0</fmt>
+          <fmt> $0</fmt>
         </str>
       </FCN_ID>
       <Date_Collected/>
@@ -1580,7 +1582,7 @@
     <Soil_Munsel_Color f="id">
       <str>
         <pos>2</pos>
-        <fmt>-Color-$0</fmt>
+        <fmt> Color-$0</fmt>
       </str>
       <!--@SOURCE: vocabs/munsel.xml-->
     </Soil_Munsel_Color>

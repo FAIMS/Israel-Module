@@ -174,7 +174,6 @@ REF_TO_TYPE.put("Site/Site/List_of_Existing_Trenches", "list");
 REF_TO_TYPE.put("Site/Vars/Device_Code", "dropdown");
 REF_TO_TYPE.put("Trench/Trench/Trench_author", "input");
 REF_TO_TYPE.put("Trench/Trench/Area", "input");
-REF_TO_TYPE.put("Trench/Trench/Trench_Site_Name", "input");
 REF_TO_TYPE.put("Trench/Trench/Trench_Trench_ID", "input");
 REF_TO_TYPE.put("Trench/Trench/Subsquare", "dropdown");
 REF_TO_TYPE.put("Trench/Trench/Team_Members", "input");
@@ -221,7 +220,6 @@ REF_TO_TYPE.put("Trench_Files/Add_Trench_Files/Add_Photo_Button_1", "button");
 REF_TO_TYPE.put("Trench_Files/Vars/Device_Code", "dropdown");
 REF_TO_TYPE.put("Locus/General/Locus_author", "input");
 REF_TO_TYPE.put("Locus/General/Area", "input");
-REF_TO_TYPE.put("Locus/General/Locus_Site_Name", "input");
 REF_TO_TYPE.put("Locus/General/Locus_Trench_ID", "input");
 REF_TO_TYPE.put("Locus/General/Subsquare", "input");
 REF_TO_TYPE.put("Locus/General/Locus_Locus_ID", "input");
@@ -518,7 +516,6 @@ DATA_REFS.add("Site/Site/Site_Year_of_Campaign");
 DATA_REFS.add("Site/Vars/Device_Code");
 DATA_REFS.add("Trench/Trench/Trench_author");
 DATA_REFS.add("Trench/Trench/Area");
-DATA_REFS.add("Trench/Trench/Trench_Site_Name");
 DATA_REFS.add("Trench/Trench/Trench_Trench_ID");
 DATA_REFS.add("Trench/Trench/Subsquare");
 DATA_REFS.add("Trench/Trench/Team_Members");
@@ -548,7 +545,6 @@ DATA_REFS.add("Trench_Files/Add_Trench_Files/Add_Photo");
 DATA_REFS.add("Trench_Files/Vars/Device_Code");
 DATA_REFS.add("Locus/General/Locus_author");
 DATA_REFS.add("Locus/General/Area");
-DATA_REFS.add("Locus/General/Locus_Site_Name");
 DATA_REFS.add("Locus/General/Locus_Trench_ID");
 DATA_REFS.add("Locus/General/Subsquare");
 DATA_REFS.add("Locus/General/Locus_Locus_ID");
@@ -1639,9 +1635,9 @@ void timedPopulateCursorList(String ref, String q, int limit) {
 }
 
 void setUpTypeHierarchy() {
-  //- 
-  //  - Legacy
+  //-
   //  - Diary
+  //  - Legacy
   //  - Trench
   //    - Trench Files
   //    - Locus
@@ -1655,8 +1651,8 @@ void setUpTypeHierarchy() {
   //    - Legacy
 
   n0 = Tree("", 1);
-  n1 = Tree("Legacy", 1);
-  n2 = Tree("Diary", 1);
+  n1 = Tree("Diary", 1);
+  n2 = Tree("Legacy", 1);
   n3 = Tree("Trench", 1);
   n4 = Tree("Trench Files", 1);
   n5 = Tree("Locus", 1);
@@ -2469,7 +2465,6 @@ void inheritFieldValue(String src, String dst) {
 inheritFieldValue("Control/Vars/New_Site_Name", "Site/Site/Site_Site_Name", true);
 inheritFieldValue("Control/Vars/Year_of_Campaign", "Site/Site/Site_Year_of_Campaign", true);
 inheritFieldValue("User/User_List/Device_Code", "Site/Vars/Device_Code", false);
-inheritFieldValue("Site/Site/Site_Site_Name", "Trench/Trench/Trench_Site_Name", true);
 inheritFieldValue("Site/Site/Trench_ID", "Trench/Trench/Trench_Trench_ID", true);
 inheritFieldValue("Site/Site/Site_Year_of_Campaign", "Trench/Vars/Trench_Year_of_Campaign", true);
 inheritFieldValue("User/User_List/Device_Code", "Trench/Vars/Device_Code", false);
@@ -2478,7 +2473,6 @@ inheritFieldValue("Trench/Trench/Trench_Trench_ID", "Trench_Files/Add_Trench_Fil
 inheritFieldValue("Trench/Trench/Subsquare", "Trench_Files/Add_Trench_Files/Subsquare", true);
 inheritFieldValue("User/User_List/Device_Code", "Trench_Files/Vars/Device_Code", false);
 inheritFieldValue("Trench/Trench/Area", "Locus/General/Area", true);
-inheritFieldValue("Trench/Trench/Trench_Site_Name", "Locus/General/Locus_Site_Name", true);
 inheritFieldValue("Trench/Trench/Trench_Trench_ID", "Locus/General/Locus_Trench_ID", true);
 inheritFieldValue("Trench/Trench/Subsquare", "Locus/General/Subsquare", true);
 inheritFieldValue("Trench/Trench/Team_Members", "Locus/General/Team_Members", true);
@@ -3166,7 +3160,6 @@ void validateTrenchFiles() {
 }
 void validateLocus() {
   List f = new ArrayList(); // Fields to be validated
-  f.add(fieldPair("Locus/General/Locus_Site_Name", "{Site_Name}"));
   f.add(fieldPair("Locus/General/Locus_Locus_ID", "{Locus_ID}"));
   f.add(fieldPair("Locus/General/Excavation_Method", "{Excavation_Method}"));
   f.add(fieldPair("Locus/Measure/Absolute_Height_Top_m", "{Absolute_Height_Top__m_}"));
@@ -3851,13 +3844,13 @@ void newSite(String parent){
     parentTabgroup   = parent;
     parentTabgroup__ = parent;
   }
-  
+
 
   setUuid(tabgroup, null);
   newTabGroup(tabgroup);
   populateAuthorAndTimestamp(tabgroup);
   populateEntityListsInTabGroup(tabgroup);
-  
+
 
   executeOnEvent(tabgroup, "create");
 }
@@ -3873,13 +3866,13 @@ void newTrench(String parent){
     parentTabgroup   = parent;
     parentTabgroup__ = parent;
   }
-  
+
 
   setUuid(tabgroup, null);
   newTabGroup(tabgroup);
   populateAuthorAndTimestamp(tabgroup);
   populateEntityListsInTabGroup(tabgroup);
-  
+
 
   executeOnEvent(tabgroup, "create");
 }
@@ -3895,13 +3888,13 @@ void newTrenchFiles(String parent){
     parentTabgroup   = parent;
     parentTabgroup__ = parent;
   }
-  
+
 
   setUuid(tabgroup, null);
   newTabGroup(tabgroup);
   populateAuthorAndTimestamp(tabgroup);
   populateEntityListsInTabGroup(tabgroup);
-  
+
 
   executeOnEvent(tabgroup, "create");
 }
@@ -3967,13 +3960,13 @@ void newSedimentAggregate(String parent){
     parentTabgroup   = parent;
     parentTabgroup__ = parent;
   }
-  
+
 
   setUuid(tabgroup, null);
   newTabGroup(tabgroup);
   populateAuthorAndTimestamp(tabgroup);
   populateEntityListsInTabGroup(tabgroup);
-  
+
 
   executeOnEvent(tabgroup, "create");
 }
@@ -3989,13 +3982,13 @@ void newPhotographLog(String parent){
     parentTabgroup   = parent;
     parentTabgroup__ = parent;
   }
-  
+
 
   setUuid(tabgroup, null);
   newTabGroup(tabgroup);
   populateAuthorAndTimestamp(tabgroup);
   populateEntityListsInTabGroup(tabgroup);
-  
+
 
   executeOnEvent(tabgroup, "create");
 }
@@ -4011,13 +4004,13 @@ void newDiary(String parent){
     parentTabgroup   = parent;
     parentTabgroup__ = parent;
   }
-  
+
 
   setUuid(tabgroup, null);
   newTabGroup(tabgroup);
   populateAuthorAndTimestamp(tabgroup);
   populateEntityListsInTabGroup(tabgroup);
-  
+
 
   executeOnEvent(tabgroup, "create");
 }
@@ -4058,13 +4051,13 @@ void newSoilMunselColor(String parent){
     parentTabgroup   = parent;
     parentTabgroup__ = parent;
   }
-  
+
 
   setUuid(tabgroup, null);
   newTabGroup(tabgroup);
   populateAuthorAndTimestamp(tabgroup);
   populateEntityListsInTabGroup(tabgroup);
-  
+
 
   executeOnEvent(tabgroup, "create");
 }
@@ -4080,13 +4073,13 @@ void newLegacy(String parent){
     parentTabgroup   = parent;
     parentTabgroup__ = parent;
   }
-  
+
 
   setUuid(tabgroup, null);
   newTabGroup(tabgroup);
   populateAuthorAndTimestamp(tabgroup);
   populateEntityListsInTabGroup(tabgroup);
-  
+
 
   executeOnEvent(tabgroup, "create");
 }
@@ -4099,11 +4092,11 @@ void duplicateSite(){
   String uuidOld = getUuid(tabgroup);
   setUuid(tabgroup, "");
   disableAutoSave(tabgroup);
-  
+
   clearGpsInTabGroup(tabgroup);
   populateAuthorAndTimestamp(tabgroup);
   populateEntityListsInTabGroup(tabgroup);
-  
+
   executeOnEvent(tabgroup, "copy");
 
   saveCallback = new SaveCallback() {
@@ -4135,7 +4128,7 @@ void duplicateSite(){
     onFetch(result) {
       excludeAttributes = new ArrayList();
 
-      
+
 
       duplicateTabGroup(tabgroup, null, getExtraAttributes(result), excludeAttributes, saveCallback);
     }
@@ -4146,11 +4139,11 @@ void duplicateTrench(){
   String uuidOld = getUuid(tabgroup);
   setUuid(tabgroup, "");
   disableAutoSave(tabgroup);
-  
+
   clearGpsInTabGroup(tabgroup);
   populateAuthorAndTimestamp(tabgroup);
   populateEntityListsInTabGroup(tabgroup);
-  
+
   executeOnEvent(tabgroup, "copy");
 
   saveCallback = new SaveCallback() {
@@ -4182,7 +4175,7 @@ void duplicateTrench(){
     onFetch(result) {
       excludeAttributes = new ArrayList();
 
-      
+
 
       duplicateTabGroup(tabgroup, null, getExtraAttributes(result), excludeAttributes, saveCallback);
     }
@@ -4193,7 +4186,7 @@ void duplicateTrenchFiles(){
   String uuidOld = getUuid(tabgroup);
   setUuid(tabgroup, "");
   disableAutoSave(tabgroup);
-  
+
   clearGpsInTabGroup(tabgroup);
   populateAuthorAndTimestamp(tabgroup);
   populateEntityListsInTabGroup(tabgroup);
@@ -4342,11 +4335,11 @@ void duplicateSedimentAggregate(){
   String uuidOld = getUuid(tabgroup);
   setUuid(tabgroup, "");
   disableAutoSave(tabgroup);
-  
+
   clearGpsInTabGroup(tabgroup);
   populateAuthorAndTimestamp(tabgroup);
   populateEntityListsInTabGroup(tabgroup);
-  
+
   executeOnEvent(tabgroup, "copy");
 
   saveCallback = new SaveCallback() {
@@ -4378,7 +4371,7 @@ void duplicateSedimentAggregate(){
     onFetch(result) {
       excludeAttributes = new ArrayList();
 
-      
+
 
       duplicateTabGroup(tabgroup, null, getExtraAttributes(result), excludeAttributes, saveCallback);
     }
@@ -4389,11 +4382,11 @@ void duplicatePhotographLog(){
   String uuidOld = getUuid(tabgroup);
   setUuid(tabgroup, "");
   disableAutoSave(tabgroup);
-  
+
   clearGpsInTabGroup(tabgroup);
   populateAuthorAndTimestamp(tabgroup);
   populateEntityListsInTabGroup(tabgroup);
-  
+
   executeOnEvent(tabgroup, "copy");
 
   saveCallback = new SaveCallback() {
@@ -4425,7 +4418,7 @@ void duplicatePhotographLog(){
     onFetch(result) {
       excludeAttributes = new ArrayList();
 
-      
+
 
       duplicateTabGroup(tabgroup, null, getExtraAttributes(result), excludeAttributes, saveCallback);
     }
@@ -4436,7 +4429,7 @@ void duplicateDiary(){
   String uuidOld = getUuid(tabgroup);
   setUuid(tabgroup, "");
   disableAutoSave(tabgroup);
-  
+
   clearGpsInTabGroup(tabgroup);
   populateAuthorAndTimestamp(tabgroup);
   populateEntityListsInTabGroup(tabgroup);
@@ -4530,11 +4523,11 @@ void duplicateSoilMunselColor(){
   String uuidOld = getUuid(tabgroup);
   setUuid(tabgroup, "");
   disableAutoSave(tabgroup);
-  
+
   clearGpsInTabGroup(tabgroup);
   populateAuthorAndTimestamp(tabgroup);
   populateEntityListsInTabGroup(tabgroup);
-  
+
   executeOnEvent(tabgroup, "copy");
 
   saveCallback = new SaveCallback() {
@@ -4566,7 +4559,7 @@ void duplicateSoilMunselColor(){
     onFetch(result) {
       excludeAttributes = new ArrayList();
 
-      
+
 
       duplicateTabGroup(tabgroup, null, getExtraAttributes(result), excludeAttributes, saveCallback);
     }
@@ -4577,11 +4570,11 @@ void duplicateLegacy(){
   String uuidOld = getUuid(tabgroup);
   setUuid(tabgroup, "");
   disableAutoSave(tabgroup);
-  
+
   clearGpsInTabGroup(tabgroup);
   populateAuthorAndTimestamp(tabgroup);
   populateEntityListsInTabGroup(tabgroup);
-  
+
   executeOnEvent(tabgroup, "copy");
 
   saveCallback = new SaveCallback() {
@@ -4613,7 +4606,7 @@ void duplicateLegacy(){
     onFetch(result) {
       excludeAttributes = new ArrayList();
 
-      
+
 
       duplicateTabGroup(tabgroup, null, getExtraAttributes(result), excludeAttributes, saveCallback);
     }
@@ -6317,10 +6310,10 @@ void setTextureActual(){
 /******************************************************************************/
 delOnEvent("Control/Search", "show", "search()");
 addOnEvent("Control/Search", "show", "populateSelectUser()");
-addOnEvent("Control/Search", "show", "populateSite()");
-
+//addOnEvent("Control/Search", "show", "populateSite()");
+addOnEvent("Control/Search", "show", "populateSquare()");
 addOnEvent("Control/Search/Select_User", "click", "search()");
-addOnEvent("Control/Search/Select_Site", "click", "search()");
+//addOnEvent("Control/Search/Select_Site", "click", "search()");
 
 void populateSelectUser(){
   String refSearchUsers = "Control/Search/Select_User";
@@ -6337,28 +6330,41 @@ void populateSelectUser(){
     }
   });
 }
-/*
+
 void populateSquare() {
-  String refSite = "Control/Search/Select_Square";
+  String refSquare = "Control/Search/Select_Square";
 
   String q = "";
   q += " SELECT uuid, response, attributename, measure";
   q += "   FROM latestNonDeletedAentvalue";
   q += "   JOIN latestNonDeletedArchEntFormattedIdentifiers USING (uuid)";
   q += "   JOIN attributekey USING (attributeid)";
-  q += "  WHERE attributename = 'Square ID'";
-  q += "     OR attributename = 'Area'";
-  q += "     OR attributename = 'Subsquare'";
+  q += "  WHERE attributename = 'Trench Trench ID'";
+  //q += "     OR attributename = 'Trench Area'";
+
   FetchCallback popSite = new FetchCallback() {
     onFetch(result) {
-      List normalised = normaliseSiteResult(result);
-      populateDropDown(refSite, normalised);
+      List l = new ArrayList();
+
+      // Add all option to the list
+      List all = new ArrayList();
+      all.add("");
+      all.add("{All}");
+      all.add("");
+      all.add("");
+
+      // Add 'all' option to the List l
+      l.add(all);
+      // Add all existing Column record to List l
+      l.addAll(result);
+      // Populate dropdown list with List l
+      populateDropDown(refSquare, l);
     }
   };
 
   fetchAll(q, popSite);
 }
-*/
+
 
 void populateSite() {
   String refSite = "Control/Search/Select_Site";
@@ -6453,13 +6459,13 @@ void search(){
   String refSearchTerm  = tabgroup + "/Search/Search_Term";
   String refEntityTypes = tabgroup + "/Search/Entity_Types";
   String refSelectUser  = tabgroup + "/Search/Select_User";
-  String refSelectSite  = tabgroup + "/Search/Select_Site";
+  String refSelectSite  = tabgroup + "/Search/Select_Square";
 
   String type = getFieldValue(refEntityTypes);
   String term = getFieldValue(refSearchTerm);
   String user = getFieldValue(refSelectUser);
-  String name = getSearchSiteName(refSelectSite);
-  String year = getSearchSiteYear(refSelectSite);
+  String name = getFieldValue(refSelectSite);//Square ID
+  //System.out.println(name);
   if (isNull(user)) return;
   String searchQuery = "SELECT uuid, response " +
                        "  FROM latestNonDeletedArchEntFormattedIdentifiers  " +
@@ -6469,23 +6475,6 @@ void search(){
                        "                   AND ( aenttypename LIKE '{type}' OR '' = '{type}' ) " +
                        "                   AND ( userid = {user} OR -1 = {user}) " +
                        "                ) " +
-                       "  AND  ( " +
-                       "           ('{name}' = '\\0' AND '{year}' = '\\0') OR" +
-                       "           uuid IN (" +
-                       "            SELECT uuid" +
-                       "              FROM latestnondeletedaentvalue" +
-                       "              JOIN attributekey USING (attributeid)" +
-                       "             WHERE attributename IN " + ATTRIBS_SITE_NAME +
-                       "               AND measure = '{name}'" +
-                       "               AND uuid IN (" +
-                       "                    SELECT uuid" +
-                       "                      FROM latestnondeletedaentvalue" +
-                       "                      JOIN attributekey USING (attributeid)" +
-                       "                     WHERE attributename IN " + ATTRIBS_YEAR_OF_CAMPAIGN +
-                       "                       AND measure = '{year}'" +
-                       "               )" +
-                       "           )" +
-                       "       )" +
                        " ORDER BY response " +
                        " LIMIT ? " +
                        "OFFSET ? ";
@@ -6495,9 +6484,7 @@ void search(){
   searchQuery = replaceFirst(searchQuery, "{user}", user);
   searchQuery = replaceFirst(searchQuery, "{user}", user);
   searchQuery = replaceFirst(searchQuery, "{name}", name);
-  searchQuery = replaceFirst(searchQuery, "{year}", year);
   searchQuery = replaceFirst(searchQuery, "{name}", name);
-  searchQuery = replaceFirst(searchQuery, "{year}", year);
 
   populateCursorList(refEntityList, searchQuery, 25);
   refreshTabgroupCSS(tabgroup);
@@ -6678,6 +6665,7 @@ boolean isNotBlank(String ref) {
   return !isNull(val);
 }
 
+/*
 boolean isValidNewSiteName() {
   return isNotBlank("Control/Site/New_Site_Name");
 }
@@ -6685,6 +6673,7 @@ boolean isValidNewSiteName() {
 boolean isValidYearOfCampaign() {
   return isNotBlank("Control/Site/Year_of_Campaign");
 }
+*/
 
 /*************************** CUSTOM DIARY TIMESTAMP ***************************/
 import java.text.SimpleDateFormat;
@@ -6701,12 +6690,12 @@ void populateDiaryTimestamp() {
   setFieldValue(ref, nowStr);
 }
 /******************************* FIELD CLEARING *******************************/
-clearControlNewSiteName()    { clearField("Control/Site/New_Site_Name"); }
-clearControlYearofCampaign() { clearField("Control/Site/Year_of_Campaign"); }
+//clearControlNewSiteName()    { clearField("Control/Site/New_Site_Name"); }
+//clearControlYearofCampaign() { clearField("Control/Site/Year_of_Campaign"); }
 clearSiteTrenchId()          { clearField("Site/Site/Trench_ID"); }
 
-addOnEvent("Control/Site/New_Site_Name",    "show", "clearControlNewSiteName()");
-addOnEvent("Control/Site/Year_of_Campaign", "show", "clearControlYearofCampaign()");
+//addOnEvent("Control/Site/New_Site_Name",    "show", "clearControlNewSiteName()");
+//addOnEvent("Control/Site/Year_of_Campaign", "show", "clearControlYearofCampaign()");
 addOnEvent("Site/Site/Trench_ID",           "show", "clearSiteTrenchId()");
 /*************************** CUSTOM DIARY TIMESTAMP ***************************/
 import java.text.SimpleDateFormat;

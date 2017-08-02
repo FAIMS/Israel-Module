@@ -26,11 +26,6 @@
     </property>
   </ArchaeologicalElement>
   <ArchaeologicalElement name="Locus">
-    <property name="Locus Site Name">
-      <validator type="blankchecker">
-        <param type="field" value="measure"/>
-      </validator>
-    </property>
     <property name="Locus Locus ID">
       <validator type="blankchecker">
         <param type="field" value="measure"/>

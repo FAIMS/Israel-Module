@@ -58,7 +58,7 @@
                   <Select_User/>
                 </Col_1>
                 <Col_2>
-                  <Select_Site/>
+                  <Select_Square/>
                 </Col_2>
               </Colgroup_1>
               <Select_User/>
@@ -86,7 +86,6 @@
             <Trench>
               <Trench_author/>
               <Area/>
-              <Trench_Site_Name/>
               <Trench_Trench_ID/>
               <Subsquare/>
               <Team_Members/>
@@ -177,11 +176,8 @@
                   <Area/>
                 </Col_2>
                 <Col_3>
-                  <Locus_Site_Name/>
-                </Col_3>
-                <Col_4>
                   <Locus_Trench_ID/>
-                </Col_4>
+                </Col_3>
               </Colgroup_1>
               <Colgroup_2>
                 <Col_1>
@@ -977,8 +973,8 @@
           </group>
           <group ref="Col_2" faims_style="even">
             <label/>
-            <select1 ref="Select_Site">
-              <label>{Select_Site}</label>
+            <select1 ref="Select_Square">
+              <label>{Select_Square}</label>
               <item>
                 <label>Options not loaded</label>
                 <value>Options not loaded</value>
@@ -1051,9 +1047,6 @@
         </input>
         <input faims_attribute_name="Trench Area" faims_attribute_type="measure" ref="Area" faims_style_class="required">
           <label>{Area}</label>
-        </input>
-        <input faims_attribute_name="Trench Site Name" faims_attribute_type="measure" ref="Trench_Site_Name" faims_read_only="true">
-          <label>{Site_Name}</label>
         </input>
         <input faims_attribute_name="Trench Trench ID" faims_attribute_type="measure" ref="Trench_Trench_ID" faims_style_class="required">
           <label>{Square_ID}</label>
@@ -1307,12 +1300,6 @@
             </input>
           </group>
           <group ref="Col_3" faims_style="even">
-            <label/>
-            <input faims_attribute_name="Locus Site Name" faims_attribute_type="measure" ref="Locus_Site_Name" faims_style_class="required">
-              <label>{Site_Name}</label>
-            </input>
-          </group>
-          <group ref="Col_4" faims_style="even">
             <label/>
             <input faims_attribute_name="Locus Trench ID" faims_attribute_type="measure" ref="Locus_Trench_ID" faims_read_only="true">
               <label>{Square_ID}</label>
