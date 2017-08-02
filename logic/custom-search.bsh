@@ -24,6 +24,28 @@ void populateSelectUser(){
     }
   });
 }
+/*
+void populateSquare() {
+  String refSite = "Control/Search/Select_Square";
+
+  String q = "";
+  q += " SELECT uuid, response, attributename, measure";
+  q += "   FROM latestNonDeletedAentvalue";
+  q += "   JOIN latestNonDeletedArchEntFormattedIdentifiers USING (uuid)";
+  q += "   JOIN attributekey USING (attributeid)";
+  q += "  WHERE attributename = 'Square ID'";
+  q += "     OR attributename = 'Area'";
+  q += "     OR attributename = 'Subsquare'";
+  FetchCallback popSite = new FetchCallback() {
+    onFetch(result) {
+      List normalised = normaliseSiteResult(result);
+      populateDropDown(refSite, normalised);
+    }
+  };
+
+  fetchAll(q, popSite);
+}
+*/
 
 void populateSite() {
   String refSite = "Control/Search/Select_Site";

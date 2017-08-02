@@ -1,5 +1,5 @@
 /*
- * GENERATED WITH FAIMS-TOOLS, SHA1: c856a7c30feaa8f5e55312ffa4b6699092de8f73
+ * GENERATED WITH FAIMS-TOOLS, SHA1: ca512b49eaf4f375812f14cde4b96c9c98693ab2
  */
 import android.util.Log;
 import android.os.Build.MODEL;
@@ -152,18 +152,19 @@ REF_TO_TYPE.put("User/User_List/Device_Code", "dropdown");
 REF_TO_TYPE.put("User/User_List/Login", "button");
 REF_TO_TYPE.put("User/User_List/Module_Guide", "button");
 REF_TO_TYPE.put("User/Help/Help", "webview");
-REF_TO_TYPE.put("Control/Site/New_Site_Name", "input");
-REF_TO_TYPE.put("Control/Site/Year_of_Campaign", "input");
-REF_TO_TYPE.put("Control/Site/GPS_Diagnostics", "gpsdiag");
 REF_TO_TYPE.put("Control/Site/New_Square", "button");
 REF_TO_TYPE.put("Control/Site/New_Diary", "button");
+REF_TO_TYPE.put("Control/Site/GPS_Diagnostics", "gpsdiag");
 REF_TO_TYPE.put("Control/Site/Choose_an_Existing_Site", "list");
+REF_TO_TYPE.put("Control/Next_IDs/Next_Locus_Locus_ID", "input");
 REF_TO_TYPE.put("Control/Next_IDs/Next_Stratum_Feature_ID", "input");
 REF_TO_TYPE.put("Control/Next_IDs/Next_FCN_ID", "input");
 REF_TO_TYPE.put("Control/Search/Search_Term", "input");
 REF_TO_TYPE.put("Control/Search/Search_Button", "button");
 REF_TO_TYPE.put("Control/Search/Entity_Types", "dropdown");
 REF_TO_TYPE.put("Control/Search/Entity_List", "list");
+REF_TO_TYPE.put("Control/Vars/New_Site_Name", "input");
+REF_TO_TYPE.put("Control/Vars/Year_of_Campaign", "input");
 REF_TO_TYPE.put("Site/Site/Site_Site_Name", "input");
 REF_TO_TYPE.put("Site/Site/Site_Year_of_Campaign", "input");
 REF_TO_TYPE.put("Site/Site/Guide", "webview");
@@ -471,6 +472,7 @@ REF_TO_TYPE.put("User/Help", "tab");
 REF_TO_TYPE.put("Control/Site", "tab");
 REF_TO_TYPE.put("Control/Next_IDs", "tab");
 REF_TO_TYPE.put("Control/Search", "tab");
+REF_TO_TYPE.put("Control/Vars", "tab");
 REF_TO_TYPE.put("Site/Site", "tab");
 REF_TO_TYPE.put("Site/Vars", "tab");
 REF_TO_TYPE.put("Trench/Trench", "tab");
@@ -768,6 +770,7 @@ TABS_AS_LIST.add("User/Help");
 TABS_AS_LIST.add("Control/Site");
 TABS_AS_LIST.add("Control/Next_IDs");
 TABS_AS_LIST.add("Control/Search");
+TABS_AS_LIST.add("Control/Vars");
 TABS_AS_LIST.add("Site/Site");
 TABS_AS_LIST.add("Site/Vars");
 TABS_AS_LIST.add("Trench/Trench");
@@ -915,6 +918,7 @@ HashSet getTabsAsHashSet() {
 
 List getStartingIdRefs() {
   List l = new ArrayList();
+  l.add("Control/Next_IDs/Next_Locus_Locus_ID");
   l.add("Control/Next_IDs/Next_Stratum_Feature_ID");
   l.add("Control/Next_IDs/Next_FCN_ID");
   return l;
@@ -1648,6 +1652,7 @@ void timedPopulateCursorList(String ref, String q, int limit) {
 
 void setUpTypeHierarchy() {
   //- 
+  //  - Diary
   //  - Legacy
   //  - Trench
   //    - Trench Files
@@ -1660,39 +1665,38 @@ void setUpTypeHierarchy() {
   //      - Photograph Log
   //    - Diary
   //    - Legacy
-  //  - Diary
 
   n0 = Tree("", 1);
-  n1 = Tree("Legacy", 1);
-  n2 = Tree("Trench", 1);
-  n3 = Tree("Trench Files", 1);
-  n4 = Tree("Locus", 1);
-  n5 = Tree("Soil Munsel Color", 1);
-  n6 = Tree("Sediment Aggregate", 1);
-  n7 = Tree("FCN", 1);
-  n8 = Tree("Photograph Log", 1);
-  n9 = Tree("Stratum Feature", 1);
-  n10 = Tree("Photograph Log", 1);
-  n11 = Tree("Diary", 1);
-  n12 = Tree("Legacy", 1);
-  n13 = Tree("Diary", 1);
+  n1 = Tree("Diary", 1);
+  n2 = Tree("Legacy", 1);
+  n3 = Tree("Trench", 1);
+  n4 = Tree("Trench Files", 1);
+  n5 = Tree("Locus", 1);
+  n6 = Tree("Soil Munsel Color", 1);
+  n7 = Tree("Sediment Aggregate", 1);
+  n8 = Tree("FCN", 1);
+  n9 = Tree("Photograph Log", 1);
+  n10 = Tree("Stratum Feature", 1);
+  n11 = Tree("Photograph Log", 1);
+  n12 = Tree("Diary", 1);
+  n13 = Tree("Legacy", 1);
 
   n0.addChild(n1);
   n0.addChild(n2);
-  n0.addChild(n13);
+  n0.addChild(n3);
 
-  n2.addChild(n3);
-  n2.addChild(n4);
-  n2.addChild(n9);
-  n2.addChild(n11);
-  n2.addChild(n12);
+  n3.addChild(n4);
+  n3.addChild(n5);
+  n3.addChild(n10);
+  n3.addChild(n12);
+  n3.addChild(n13);
 
-  n4.addChild(n5);
-  n4.addChild(n6);
-  n4.addChild(n7);
-  n4.addChild(n8);
+  n5.addChild(n6);
+  n5.addChild(n7);
+  n5.addChild(n8);
+  n5.addChild(n9);
 
-  n9.addChild(n10);
+  n10.addChild(n11);
 
 
   PERF_TYPE_TREE = n0;
@@ -2299,17 +2303,26 @@ void setFieldValueFromLocalSettings(String ref) {
   setFieldValueFromLocalSettings(ref, false);
 }
 
-void setFieldValueFromLocalSettingsOnShow(
+void setFieldValueFromLocalSettingsOnEvent(
     String ref,
     boolean doOverwrite,
-    String defaultVal
+    String defaultVal,
+    String event
 ) {
   String cb = fun2str(
       "setFieldValueFromLocalSettings",
       new Object[]{ref, doOverwrite, defaultVal}
   );
 
-  addOnEvent(getTabGroupRef(ref), "show", cb);
+  addOnEvent(getTabGroupRef(ref), event, cb);
+}
+
+void setFieldValueFromLocalSettingsOnShow(
+    String ref,
+    boolean doOverwrite,
+    String defaultVal
+) {
+  setFieldValueFromLocalSettingsOnEvent(ref, doOverwrite, defaultVal, "show");
 }
 
 void setFieldValueFromLocalSettingsOnShow(String ref, boolean doOverwrite) {
@@ -2325,8 +2338,15 @@ void setFieldValueFromLocalSettingsOnShow(String ref, boolean doOverwrite) {
  * be so if the call is made in the autogenerator's `logic` tags.
  */
 void persistOverSessions(String ref, boolean doOverwrite, String defaultVal) {
-  setFieldValueFromLocalSettingsOnShow(ref, doOverwrite, defaultVal);
-  insertIntoLocalSettingsOnChange     (ref);
+  String tabGroupRef = getTabGroupRef(ref);
+  boolean isData = !isFlaggedNodata(tabGroupRef);
+
+  String event;
+  if (isData) event = "create";
+  else        event = "show";
+
+  setFieldValueFromLocalSettingsOnEvent(ref, doOverwrite, defaultVal, event);
+  insertIntoLocalSettingsOnChange      (ref);
 }
 
 void persistOverSessions(String ref, boolean doOverwrite) {
@@ -2458,8 +2478,8 @@ void inheritFieldValue(String src, String dst) {
   inheritFieldValue(src, dst, true);
 }
 
-inheritFieldValue("Control/Site/New_Site_Name", "Site/Site/Site_Site_Name", true);
-inheritFieldValue("Control/Site/Year_of_Campaign", "Site/Site/Site_Year_of_Campaign", true);
+inheritFieldValue("Control/Vars/New_Site_Name", "Site/Site/Site_Site_Name", true);
+inheritFieldValue("Control/Vars/Year_of_Campaign", "Site/Site/Site_Year_of_Campaign", true);
 inheritFieldValue("User/User_List/Device_Code", "Site/Vars/Device_Code", false);
 inheritFieldValue("Site/Site/Site_Site_Name", "Trench/Trench/Trench_Site_Name", true);
 inheritFieldValue("Site/Site/Trench_ID", "Trench/Trench/Trench_Trench_ID", true);
@@ -3133,10 +3153,11 @@ String validateFields(List fields, String format) {
 
 void validateControl() {
   List f = new ArrayList(); // Fields to be validated
-  f.add(fieldPair("Control/Site/New_Site_Name", "{New_Site_Name}"));
-  f.add(fieldPair("Control/Site/Year_of_Campaign", "{Year_of_Campaign}"));
+  f.add(fieldPair("Control/Next_IDs/Next_Locus_Locus_ID", "{Locus_ID}"));
   f.add(fieldPair("Control/Next_IDs/Next_Stratum_Feature_ID", "{Phase_ID}"));
   f.add(fieldPair("Control/Next_IDs/Next_FCN_ID", "{Pottery_Basket_ID}"));
+  f.add(fieldPair("Control/Vars/New_Site_Name", "{New_Site_Name}"));
+  f.add(fieldPair("Control/Vars/Year_of_Campaign", "{Year_of_Campaign}"));
 
   String validationMessage = validateFields(f, "PLAINTEXT");
   showWarning("{validation_results}", validationMessage);
@@ -3917,13 +3938,16 @@ void newLocus(String parent){
     parentTabgroup   = parent;
     parentTabgroup__ = parent;
   }
-  
+  if (isNull("Control/Next_IDs/Next_Locus_Locus_ID")) {
+    showWarning("{Alert}", "{A_next_ID_has_not_been_entered_please_provide_one}");
+    return;
+  }
 
   setUuid(tabgroup, null);
   newTabGroup(tabgroup);
   populateAuthorAndTimestamp(tabgroup);
   populateEntityListsInTabGroup(tabgroup);
-  
+  incAutoNum("Locus/General/Locus_Locus_ID");
 
   executeOnEvent(tabgroup, "create");
 }
@@ -4237,7 +4261,7 @@ void duplicateLocus(){
   String uuidOld = getUuid(tabgroup);
   setUuid(tabgroup, "");
   disableAutoSave(tabgroup);
-  
+  incAutoNum("Locus/General/Locus_Locus_ID");
   clearGpsInTabGroup(tabgroup);
   populateAuthorAndTimestamp(tabgroup);
   populateEntityListsInTabGroup(tabgroup);
@@ -5065,6 +5089,7 @@ for (String ref : getStartingIdRefs())
 
 void incAutoNum(String destPath) {
   Map destToSource = new HashMap();
+  destToSource.put("Locus/General/Locus_Locus_ID", "Control/Next_IDs/Next_Locus_Locus_ID");
   destToSource.put("Stratum_Feature/General/Stratum_Feature_ID", "Control/Next_IDs/Next_Stratum_Feature_ID");
   destToSource.put("FCN/General/FCN_ID", "Control/Next_IDs/Next_FCN_ID");
 
@@ -6333,6 +6358,28 @@ void populateSelectUser(){
     }
   });
 }
+/*
+void populateSquare() {
+  String refSite = "Control/Search/Select_Square";
+
+  String q = "";
+  q += " SELECT uuid, response, attributename, measure";
+  q += "   FROM latestNonDeletedAentvalue";
+  q += "   JOIN latestNonDeletedArchEntFormattedIdentifiers USING (uuid)";
+  q += "   JOIN attributekey USING (attributeid)";
+  q += "  WHERE attributename = 'Site Site Name'";
+  q += "     OR attributename = 'Site Year of Campaign'";
+
+  FetchCallback popSite = new FetchCallback() {
+    onFetch(result) {
+      List normalised = normaliseSiteResult(result);
+      populateDropDown(refSite, normalised);
+    }
+  };
+
+  fetchAll(q, popSite);
+}
+*/
 
 void populateSite() {
   String refSite = "Control/Search/Select_Site";

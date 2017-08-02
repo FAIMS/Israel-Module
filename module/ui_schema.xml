@@ -31,14 +31,13 @@
           </User>
           <Control>
             <Site>
-              <New_Site_Name/>
-              <Year_of_Campaign/>
-              <GPS_Diagnostics/>
               <New_Square/>
               <New_Diary/>
+              <GPS_Diagnostics/>
               <Choose_an_Existing_Site/>
             </Site>
             <Next_IDs>
+              <Next_Locus_Locus_ID/>
               <Next_Stratum_Feature_ID/>
               <Next_FCN_ID/>
             </Next_IDs>
@@ -65,6 +64,10 @@
               <Select_User/>
               <Entity_List/>
             </Search>
+            <Vars>
+              <New_Site_Name/>
+              <Year_of_Campaign/>
+            </Vars>
           </Control>
           <Site>
             <Site>
@@ -796,9 +799,10 @@
           </Legacy>
         </faims>
       </instance>
-      <bind nodeset="/faims/Control/Site/Year_of_Campaign" type="decimal"/>
+      <bind nodeset="/faims/Control/Next_IDs/Next_Locus_Locus_ID" type="decimal"/>
       <bind nodeset="/faims/Control/Next_IDs/Next_Stratum_Feature_ID" type="decimal"/>
       <bind nodeset="/faims/Control/Next_IDs/Next_FCN_ID" type="decimal"/>
+      <bind nodeset="/faims/Control/Vars/Year_of_Campaign" type="decimal"/>
       <bind nodeset="/faims/Site/Site/Site_Year_of_Campaign" type="decimal"/>
       <bind nodeset="/faims/Trench/Trench/X_Coordinate" type="decimal"/>
       <bind nodeset="/faims/Trench/Trench/Y_Coordinate" type="decimal"/>
@@ -916,21 +920,15 @@
       <label>{Control}</label>
       <group ref="Site" faims_scrollable="false">
         <label>{Control}</label>
-        <input ref="New_Site_Name" faims_style_class="required">
-          <label>{New_Site_Name}</label>
-        </input>
-        <input ref="Year_of_Campaign" faims_style_class="required">
-          <label>{Year_of_Campaign}</label>
-        </input>
-        <input faims_read_only="true" ref="GPS_Diagnostics">
-          <label>{GPS_Diagnostics}</label>
-        </input>
         <trigger ref="New_Square">
           <label>{New_Square}</label>
         </trigger>
         <trigger ref="New_Diary">
           <label>{New_Diary}</label>
         </trigger>
+        <input faims_read_only="true" ref="GPS_Diagnostics">
+          <label>{GPS_Diagnostics}</label>
+        </input>
         <select1 appearance="compact" ref="Choose_an_Existing_Site">
           <label>{Existing_Squares}</label>
           <item>
@@ -941,6 +939,9 @@
       </group>
       <group ref="Next_IDs">
         <label>{Next_IDs}</label>
+        <input ref="Next_Locus_Locus_ID" faims_style_class="required">
+          <label>{Locus_ID}</label>
+        </input>
         <input ref="Next_Stratum_Feature_ID" faims_style_class="required">
           <label>{Phase_ID}</label>
         </input>
@@ -1005,6 +1006,15 @@
             <value>Options not loaded</value>
           </item>
         </select1>
+      </group>
+      <group ref="Vars" faims_hidden="true">
+        <label>{Vars}</label>
+        <input ref="New_Site_Name" faims_style_class="required">
+          <label>{New_Site_Name}</label>
+        </input>
+        <input ref="Year_of_Campaign" faims_style_class="required">
+          <label>{Year_of_Campaign}</label>
+        </input>
       </group>
     </group>
     <group ref="Site" faims_archent_type="Site">

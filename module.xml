@@ -71,11 +71,9 @@
 <Control f="nodata">
   <Site f="noscroll">
     Control
-    <New_Site_Name f="notnull"/>
-    <Year_of_Campaign f="notnull" b="decimal"/>
-    <GPS_Diagnostics t="gpsdiag"/>
     <New_Square t="button" l="Trench"/>
     <New_Diary t="button" l="Diary"/>
+    <GPS_Diagnostics t="gpsdiag"/>
     <Choose_an_Existing_Site t="list" e="Trench">
       Existing Squares
     </Choose_an_Existing_Site>
@@ -91,14 +89,18 @@
         english.0.properties.
          -->
   </search>
+  <Vars f="hidden">
+    <New_Site_Name f="notnull"/>
+    <Year_of_Campaign f="notnull" b="decimal"/>
+  </Vars>
 </Control>
 
 <Site>
   <Site f="noscroll">
-    <Site_Site_Name f="id readonly" i="Control/Site/New_Site_Name">
+    <Site_Site_Name f="id readonly" i="Control/Vars/New_Site_Name">
       Site Name
     </Site_Site_Name>
-    <Site_Year_of_Campaign f="id readonly" b="decimal" i="Control/Site/Year_of_Campaign">
+    <Site_Year_of_Campaign f="id readonly" b="decimal" i="Control/Vars/Year_of_Campaign">
       Year of Campaign
       <str><fmt> $0</fmt></str>
     </Site_Year_of_Campaign>
@@ -320,7 +322,7 @@
           <fmt> $0</fmt>
         </str>
       </Subsquare>
-      <Locus_Locus_ID f="id notnull" b="decimal">
+      <Locus_Locus_ID f="id notnull autonum" b="decimal">
         Locus ID
         <desc>Every archaeological locus (negative element (cut), deposit, structure, skeleton, artefact cluster) is given a unique 3 or 4 letter locus code. Each trench is designated with a separate letter which starts the code, so it is immediately obvious to which trench a locus belongs. For example locus HAA belongs to Trench H, locus MQP to Trench M etc.
         The loci are labelled consecutively in alphabetical order using the letters following the trench letter. For Trench H the first locus would be HAA, the second HAB, the third HAB and so on. In addition sets of letters can denote parts of trenches, buildings etc. E.g. HFs might denote loci from a specific building.
@@ -1319,7 +1321,7 @@
         <desc>Your name will be added here based on your login</desc>
         <str>
           <pos>2</pos>
-          <fmt>-$0</fmt>
+          <fmt> $0</fmt>
         </str>
       </author>
     </cols>
@@ -1644,7 +1646,7 @@
       <Legacy_Trench_ID f="id notnull">
         Square ID
         <str>
-          <fmt> $0</fmt>
+          <fmt>$0</fmt>
         </str>
         <!--@SOURCE: vocabs/area-code.xml-->
       </Legacy_Trench_ID>

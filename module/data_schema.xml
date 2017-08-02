@@ -1521,7 +1521,7 @@
     </property>
     <property name="Diary author" type="measure">
       <description>Your name will be added here based on your login</description>
-      <formatString>-$2</formatString>
+      <formatString> $2</formatString>
       <appendCharacterString> - </appendCharacterString>
     </property>
     <property name="Diary Year of Campaign" type="measure" isIdentifier="true">
@@ -5007,7 +5007,7 @@
     <description></description>
     <property name="Legacy Trench ID" type="measure" isIdentifier="true">
       <description></description>
-      <formatString> $2</formatString>
+      <formatString>$2</formatString>
       <appendCharacterString> - </appendCharacterString>
     </property>
     <property name="Legacy Locus ID" type="measure" isIdentifier="true">
