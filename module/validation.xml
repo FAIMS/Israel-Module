@@ -1,6 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
 <ValidationSchema>
-  <ArchaeologicalElement name="Site"/>
   <ArchaeologicalElement name="Trench">
     <property name="Trench Area">
       <validator type="blankchecker">
@@ -22,6 +21,11 @@
     <property name="Trench Files Trench ID">
       <validator type="blankchecker">
         <param type="field" value="measure"/>
+      </validator>
+    </property>
+    <property name="File Type">
+      <validator type="blankchecker">
+        <param type="field" value="vocab"/>
       </validator>
     </property>
   </ArchaeologicalElement>
@@ -214,6 +218,16 @@
     <property name="FCN ID">
       <validator type="blankchecker">
         <param type="field" value="measure"/>
+      </validator>
+    </property>
+    <property name="Principal Period">
+      <validator type="blankchecker">
+        <param type="field" value="vocab"/>
+      </validator>
+    </property>
+    <property name="Chronology Precision">
+      <validator type="blankchecker">
+        <param type="field" value="vocab"/>
       </validator>
     </property>
   </ArchaeologicalElement>

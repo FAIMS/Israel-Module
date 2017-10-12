@@ -40,8 +40,8 @@ replacement="
           <\/group>
           <group ref=\"Col_2\" faims_style=\"even\">
             <label\/>
-            <select1 ref=\"Select_Site\">
-              <label>{Select_Site}<\/label>
+            <select1 ref=\"Select_Square\">
+              <label>{Select_Square}<\/label>
               <item>
                 <label>Options not loaded<\/label>
                 <value>Options not loaded<\/value>
@@ -62,7 +62,7 @@ replacement="
                   <Select_User\/>
                 <\/Col_1>
                 <Col_2>
-                  <Select_Site\/>
+                  <Select_Square\/>
                 <\/Col_2>
               <\/Colgroup_1>
               <Select_User\/>"
@@ -86,6 +86,7 @@ perl -0777 -i.original -pe "s/$string/$replacement/igs" validation.xml
 cat << EOF >> english.0.properties
 Select_User=Select User
 Select_Site=Select Site
+Select_Square=Select Square
 Volume_Liters=Volume (Liters)
 Must_be_between_0_0_and_90_0=(Must be between 0.0 and 90.0)
 Cannot_Log_in=Cannot Log in
@@ -113,7 +114,6 @@ bonded_to=Bonded to
 broadly_contemporary_with=Broadly contemporary with
 butted_by=Butted by
 butts=Butts
-child_of=Child of
 covered_by=Covered by
 covers=Covers
 cut_by=Cut by
@@ -125,8 +125,6 @@ immediately_earlier_than=Immediately Earlier Than
 immediately_later_than=Immediately Later Than
 includes=includes
 is_included_in=is included in
-parentchild=ParentChild
-parent_of=Parent of
 precisely_contemporary_with=Precisely Contemporary with
 invalid_trench_id_head=Invalid Trench ID
 invalid_trench_id_body=The given Trench ID is not valid. Valid Trench IDs consist of a capital 'T' followed by one or more digits.

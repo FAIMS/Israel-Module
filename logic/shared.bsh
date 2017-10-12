@@ -51,12 +51,6 @@ void populateLotLabel(String lotRef) {
   setFieldToIdentifier(identiferType, lotRef);
 }
 
-boolean isValidTrenchId() {
-  String ref = "Site/Site/Trench_ID";
-  String trenchId = getFieldValue(ref);
-  return trenchId.matches("T\\d+");
-}
-
 List getAttribNamesEndingWith(String ending) {
   List attribNamesEndingWith = new ArrayList();
   for (String ref : DATA_REFS) {
@@ -86,7 +80,5 @@ String getAttribNamesEndingWithAsString(String ending) {
   return attribNamesString;
 }
 
-ATTRIBS_TRENCH_ID        = getAttribNamesEndingWithAsString("Trench ID");
-ATTRIBS_LOCUS_ID         = getAttribNamesEndingWithAsString("Locus ID");
-ATTRIBS_SITE_NAME        = getAttribNamesEndingWithAsString("Site Name");
-ATTRIBS_YEAR_OF_CAMPAIGN = getAttribNamesEndingWithAsString("Year of Campaign");
+ATTRIBS_TRENCH_ID = getAttribNamesEndingWithAsString("Trench ID");
+ATTRIBS_LOCUS_ID  = getAttribNamesEndingWithAsString("Locus ID");

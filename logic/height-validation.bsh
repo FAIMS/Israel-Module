@@ -1,0 +1,72 @@
+/***************************** HEIGHT VALIDATION ******************************/
+// Like `any` in Python
+boolean any(List booleans) {
+  for (b : booleans)
+    if (b) return true;
+  return false;
+}
+
+// Returns true if any ref in `refs` is filled in. False otherwise
+boolean anyNotNull(List refs) {
+  List vals  = new ArrayList();
+  List conds = new ArrayList();
+
+  for (ref : refs) vals.add(getFieldValue(ref));
+  for (val : vals) conds.add(!isNull(val));
+
+  return any(conds);
+}
+
+List getTopHeightRefs() {
+  List refs = new ArrayList();
+  refs.add("Locus/Measure/NW_Top_Height");
+  refs.add("Locus/Measure/SW_Top_Height");
+  refs.add("Locus/Measure/Center_Top_Height");
+  refs.add("Locus/Measure/NE_Top_Height");
+  refs.add("Locus/Measure/SE_Top_Height");
+  return refs;
+}
+
+List getBottomHeightRefs() {
+  List refs = new ArrayList();
+  refs.add("Locus/Measure/NW_Bottom_Height");
+  refs.add("Locus/Measure/SW_Bottom_Height");
+  refs.add("Locus/Measure/Center_Bottom_Height");
+  refs.add("Locus/Measure/NE_Bottom_Height");
+  refs.add("Locus/Measure/SE_Bottom_Height");
+  return refs;
+}
+
+void validateTopHeights() {
+  List refs = getTopHeightRefs();
+  boolean isValid = anyNotNull(refs);
+
+  if (!isValid) {
+    String head;
+    String body;
+
+    head = "Invalid Top Heights";
+    body = "You must fill in at least one of the five 'Top Height' fields.";
+
+    showWarning(head, body);
+  }
+}
+
+void validateBottomHeights() {
+  List refs = getBottomHeightRefs();
+  boolean isValid = anyNotNull(refs);
+
+
+  if (!isValid) {
+    String head;
+    String body;
+
+    head = "Invalid Bottom Heights";
+    body = "You must fill in at least one of the five 'Bottom Height' fields.";
+
+    showWarning(head, body);
+  }
+}
+
+addOnEvent("Locus/Measure", "leave", "validateTopHeights()");
+addOnEvent("Locus/Measure", "leave", "validateBottomHeights()");

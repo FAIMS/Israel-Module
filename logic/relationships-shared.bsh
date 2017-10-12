@@ -41,7 +41,7 @@ void deleteRelationship() {
 
   String q = "";
   q += " INSERT INTO aentreln (uuid, relationshipid, deleted, participatesverb, userid)";
-  q += " SELECT uuid, relationshipid, 'true', participatesverb, '"+userid+"'";
+  q += " SELECT uuid, relationshipid, 'true', participatesverb, '"+userId+"'";
   q += " FROM latestnondeletedaentreln";
   q += " WHERE relationshipid = '"+selectedRelId+"'";
 

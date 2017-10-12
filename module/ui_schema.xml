@@ -64,24 +64,7 @@
               <Select_User/>
               <Entity_List/>
             </Search>
-            <Vars>
-              <New_Site_Name/>
-              <Year_of_Campaign/>
-            </Vars>
           </Control>
-          <Site>
-            <Site>
-              <Site_Site_Name/>
-              <Site_Year_of_Campaign/>
-              <Guide/>
-              <Trench_ID/>
-              <Create_New_Trench/>
-              <List_of_Existing_Trenches/>
-            </Site>
-            <Vars>
-              <Device_Code/>
-            </Vars>
-          </Site>
           <Trench>
             <Trench>
               <Trench_author/>
@@ -139,7 +122,6 @@
               <List_of_Existing_Legacies/>
             </Legacies>
             <Vars>
-              <Trench_Year_of_Campaign/>
               <Device_Code/>
             </Vars>
           </Trench>
@@ -349,6 +331,7 @@
               <Soil_Colour/>
               <Add_Munsel_Color/>
               <Munsel_Colors/>
+              <Deposit_Structure/>
               <Deposit_Bedding/>
               <Colgroup_2>
                 <Col_1>
@@ -474,7 +457,6 @@
             </Material_Helper>
             <Vars>
               <Device_Code/>
-              <Locus_Year_of_Campaign/>
             </Vars>
           </Locus>
           <Stratum_Feature>
@@ -560,6 +542,7 @@
             <Sediment_Aggregate>
               <Component_Type/>
               <Percentage/>
+              <Soil_Stone_Shape/>
             </Sediment_Aggregate>
             <Vars>
               <Locus_ID/>
@@ -644,7 +627,6 @@
               <Create_New_Legacy/>
               <List_of_Existing_Legacies/>
             </Legacies>
-            <Vars/>
           </Relationship>
           <Stratum_Feature_Relationship>
             <Relationships>
@@ -681,7 +663,6 @@
               <Create_New_Legacy/>
               <List_of_Existing_Legacies/>
             </Legacies>
-            <Vars/>
           </Stratum_Feature_Relationship>
           <FCN>
             <General>
@@ -785,12 +766,9 @@
       <bind nodeset="/faims/Control/Next_IDs/Next_Locus_Locus_ID" type="decimal"/>
       <bind nodeset="/faims/Control/Next_IDs/Next_Stratum_Feature_ID" type="decimal"/>
       <bind nodeset="/faims/Control/Next_IDs/Next_FCN_ID" type="decimal"/>
-      <bind nodeset="/faims/Control/Vars/Year_of_Campaign" type="decimal"/>
-      <bind nodeset="/faims/Site/Site/Site_Year_of_Campaign" type="decimal"/>
       <bind nodeset="/faims/Trench/Trench/X_Coordinate" type="decimal"/>
       <bind nodeset="/faims/Trench/Trench/Y_Coordinate" type="decimal"/>
       <bind nodeset="/faims/Date_Closed/Date_Closed/Date_Closed" type="date"/>
-      <bind nodeset="/faims/Locus/General/Colgroup_2/Col_2/Locus_Locus_ID" type="decimal"/>
       <bind nodeset="/faims/Locus/General/Colgroup_3/Col_1/Grid_X" type="decimal"/>
       <bind nodeset="/faims/Locus/General/Colgroup_3/Col_2/Grid_Y" type="decimal"/>
       <bind nodeset="/faims/Locus/Measure/Colgroup_1/Col_1/Absolute_Height_Top_m" type="decimal"/>
@@ -817,6 +795,9 @@
       <bind nodeset="/faims/Locus/Construction/Mid_X" type="decimal"/>
       <bind nodeset="/faims/Locus/Construction/Mid_Y" type="decimal"/>
       <bind nodeset="/faims/Locus/Construction/Sorting" type="decimal"/>
+      <bind nodeset="/faims/Locus/Surface/Extent_Length" type="decimal"/>
+      <bind nodeset="/faims/Locus/Surface/Extend_Width" type="decimal"/>
+      <bind nodeset="/faims/Locus/Surface/Thickness_max" type="decimal"/>
       <bind nodeset="/faims/Locus/Skeleton/Skeleton_Days_Exposed" type="decimal"/>
       <bind nodeset="/faims/Locus/Skeleton/Colgroup_4/Col_1/Target_A_X" type="decimal"/>
       <bind nodeset="/faims/Locus/Skeleton/Colgroup_4/Col_2/Target_A_Y" type="decimal"/>
@@ -878,7 +859,7 @@
             <value>Options not loaded</value>
           </item>
         </select1>
-        <select1 ref="Device_Code">
+        <select1 appearance="full" ref="Device_Code">
           <label>{Device_Code}</label>
           <item>
             <label>Options not loaded</label>
@@ -984,53 +965,6 @@
         </group>
         <select1 appearance="compact" ref="Entity_List">
           <label>{Entity_List}</label>
-          <item>
-            <label>Options not loaded</label>
-            <value>Options not loaded</value>
-          </item>
-        </select1>
-      </group>
-      <group ref="Vars" faims_hidden="true">
-        <label>{Vars}</label>
-        <input ref="New_Site_Name" faims_style_class="required">
-          <label>{New_Site_Name}</label>
-        </input>
-        <input ref="Year_of_Campaign" faims_style_class="required">
-          <label>{Year_of_Campaign}</label>
-        </input>
-      </group>
-    </group>
-    <group ref="Site" faims_archent_type="Site">
-      <label>{Site}</label>
-      <group ref="Site" faims_scrollable="false">
-        <label>{Site}</label>
-        <input faims_attribute_name="Site Site Name" faims_attribute_type="measure" ref="Site_Site_Name" faims_read_only="true">
-          <label>{Site_Name}</label>
-        </input>
-        <input faims_attribute_name="Site Year of Campaign" faims_attribute_type="measure" ref="Site_Year_of_Campaign" faims_read_only="true">
-          <label>{Year_of_Campaign}</label>
-        </input>
-        <input faims_web="true" ref="Guide">
-          <label>{_Trench_ID__must_be_in_the_format__T___number___e_g__T1__T2__T3_}</label>
-        </input>
-        <input ref="Trench_ID" faims_style_class="required">
-          <label>{Trench_ID}</label>
-        </input>
-        <trigger ref="Create_New_Trench">
-          <label>{Create_New_Trench}</label>
-        </trigger>
-        <select1 appearance="compact" ref="List_of_Existing_Trenches">
-          <label>{List_of_Existing_Trenches}</label>
-          <item>
-            <label>Options not loaded</label>
-            <value>Options not loaded</value>
-          </item>
-        </select1>
-      </group>
-      <group ref="Vars" faims_hidden="true">
-        <label>{Vars}</label>
-        <select1 faims_attribute_name="Device Code" faims_attribute_type="vocab" ref="Device_Code">
-          <label>{Device_Code}</label>
           <item>
             <label>Options not loaded</label>
             <value>Options not loaded</value>
@@ -1203,9 +1137,6 @@
       </group>
       <group ref="Vars" faims_hidden="true">
         <label>{Vars}</label>
-        <input faims_attribute_name="Trench Year of Campaign" faims_attribute_type="measure" ref="Trench_Year_of_Campaign">
-          <label>{Trench_Year_of_Campaign}</label>
-        </input>
         <select1 faims_attribute_name="Device Code" faims_attribute_type="vocab" ref="Device_Code">
           <label>{Device_Code}</label>
           <item>
@@ -1240,13 +1171,13 @@
         <input faims_attribute_name="Trench Files Trench ID" faims_attribute_type="measure" ref="Trench_Files_Trench_ID" faims_style_class="required" faims_read_only="true">
           <label>{Square_ID}</label>
         </input>
-        <input faims_attribute_name="Trench Files Subsquare" faims_attribute_type="measure" ref="Subsquare">
+        <input faims_attribute_name="Trench Files Subsquare" faims_attribute_type="measure" ref="Subsquare" faims_read_only="true">
           <label>{Subsquare}</label>
         </input>
         <input faims_attribute_name="Trench Files author" faims_attribute_type="measure" ref="Trench_Files_author" faims_read_only="true">
           <label>{Author}</label>
         </input>
-        <select1 faims_attribute_name="File Type" faims_attribute_type="vocab" ref="File_Type">
+        <select1 faims_attribute_name="File Type" faims_attribute_type="vocab" ref="File_Type" faims_style_class="required">
           <label>{File_Type}</label>
           <item>
             <label>Options not loaded</label>
@@ -1310,7 +1241,7 @@
           <label/>
           <group ref="Col_1" faims_style="even">
             <label/>
-            <input faims_attribute_name="Locus Subsquare" faims_attribute_type="measure" ref="Subsquare">
+            <input faims_attribute_name="Locus Subsquare" faims_attribute_type="measure" ref="Subsquare" faims_read_only="true">
               <label>{Subsquare}</label>
             </input>
           </group>
@@ -1682,9 +1613,13 @@
       </group>
       <group ref="Surface">
         <label>{Surface}</label>
-        <input faims_attribute_name="Surface Type" faims_attribute_type="measure" ref="Surface_Type">
+        <select1 faims_attribute_name="Surface Type" faims_attribute_type="vocab" ref="Surface_Type">
           <label>{Type}</label>
-        </input>
+          <item>
+            <label>Options not loaded</label>
+            <value>Options not loaded</value>
+          </item>
+        </select1>
         <input faims_attribute_name="Extent Length" faims_attribute_type="measure" ref="Extent_Length">
           <label>{Extent_Length__cm_}</label>
         </input>
@@ -1694,9 +1629,13 @@
         <input faims_attribute_name="Thickness max" faims_attribute_type="measure" ref="Thickness_max">
           <label>{Thickness_max__cm_}</label>
         </input>
-        <input faims_attribute_name="Composition Description" faims_attribute_type="measure" ref="Composition_Description">
+        <select1 faims_attribute_name="Composition Description" faims_attribute_type="vocab" ref="Composition_Description">
           <label>{Composition_Description}</label>
-        </input>
+          <item>
+            <label>Options not loaded</label>
+            <value>Options not loaded</value>
+          </item>
+        </select1>
       </group>
       <group ref="Deposit">
         <label>{Fill}</label>
@@ -1751,6 +1690,13 @@
         </trigger>
         <select1 ref="Munsel_Colors">
           <label>{Munsel_Colors}</label>
+          <item>
+            <label>Options not loaded</label>
+            <value>Options not loaded</value>
+          </item>
+        </select1>
+        <select1 faims_attribute_name="Deposit Structure" faims_attribute_type="vocab" ref="Deposit_Structure">
+          <label>{Deposit_Structure}</label>
           <item>
             <label>Options not loaded</label>
             <value>Options not loaded</value>
@@ -2057,9 +2003,6 @@
             <value>Options not loaded</value>
           </item>
         </select1>
-        <input faims_attribute_name="Locus Year of Campaign" faims_attribute_type="measure" ref="Locus_Year_of_Campaign">
-          <label>{Locus_Year_of_Campaign}</label>
-        </input>
       </group>
     </group>
     <group ref="Stratum_Feature" faims_archent_type="Stratum Feature">
@@ -2163,14 +2106,14 @@
       <group ref="Stratum_Feature_Loci" faims_scrollable="false">
         <label>{Relationships}</label>
         <trigger ref="Create_Relationships_to_This_Stratum_Feature">
-          <label>{Create_Relationships_to_this_Stratum_Feature}</label>
+          <label>{Create_Relationships_to_this_Phase}</label>
         </trigger>
         <group ref="Colgroup_1" faims_style="orientation">
           <label/>
           <group ref="Col_1" faims_style="even">
             <label/>
             <select1 appearance="compact" ref="Existing_Relationships_to_This_Stratum_Feature">
-              <label>{Existing_Relationships_to_this_Stratum_Feature}</label>
+              <label>{Existing_Relationships_to_this_Phase}</label>
               <item>
                 <label>Options not loaded</label>
                 <value>Options not loaded</value>
@@ -2264,6 +2207,13 @@
         <input faims_attribute_name="Percentage" faims_attribute_type="measure" ref="Percentage">
           <label>{Percentage}</label>
         </input>
+        <select1 faims_attribute_name="Soil Stone Shape" faims_attribute_type="vocab" ref="Soil_Stone_Shape">
+          <label>{Soil_Stone_Shape}</label>
+          <item>
+            <label>Options not loaded</label>
+            <value>Options not loaded</value>
+          </item>
+        </select1>
       </group>
       <group ref="Vars" faims_hidden="true">
         <label>{Vars}</label>
@@ -2472,12 +2422,9 @@
           </item>
         </select1>
       </group>
-      <group ref="Vars" faims_hidden="true">
-        <label>{Vars}</label>
-      </group>
     </group>
     <group ref="Stratum_Feature_Relationship">
-      <label>{Stratum_Feature_Relationship}</label>
+      <label>{Phase_Relationship}</label>
       <group ref="Relationships" faims_scrollable="false">
         <label>{Relationships}</label>
         <input faims_web="true" ref="Parent_Identifier">
@@ -2559,12 +2506,9 @@
           </item>
         </select1>
       </group>
-      <group ref="Vars" faims_hidden="true">
-        <label>{Vars}</label>
-      </group>
     </group>
     <group ref="FCN" faims_archent_type="FCN">
-      <label>{FCN}</label>
+      <label>{Pottery_Basket}</label>
       <group ref="General">
         <label>{General}</label>
         <group ref="Colgroup_1" faims_style="orientation">
@@ -2583,7 +2527,7 @@
           </group>
           <group ref="Col_3" faims_style="even">
             <label/>
-            <input faims_attribute_name="FCN Subsquare" faims_attribute_type="measure" ref="Subsquare">
+            <input faims_attribute_name="FCN Subsquare" faims_attribute_type="measure" ref="Subsquare" faims_read_only="true">
               <label>{Subsquare}</label>
             </input>
           </group>
@@ -2707,14 +2651,14 @@
             <value>Options not loaded</value>
           </item>
         </select1>
-        <select1 faims_attribute_name="Principal Period" faims_attribute_type="vocab" ref="Principal_Period">
+        <select1 faims_attribute_name="Principal Period" faims_attribute_type="vocab" ref="Principal_Period" faims_style_class="required">
           <label>{Principal_Period}</label>
           <item>
             <label>Options not loaded</label>
             <value>Options not loaded</value>
           </item>
         </select1>
-        <select1 appearance="full" faims_attribute_name="Chronology Precision" faims_attribute_type="vocab" ref="Chronology_Precision">
+        <select1 appearance="full" faims_attribute_name="Chronology Precision" faims_attribute_type="vocab" ref="Chronology_Precision" faims_style_class="required">
           <label>{Chronology_Precision}</label>
           <item>
             <label>Options not loaded</label>

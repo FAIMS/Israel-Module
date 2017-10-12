@@ -5,52 +5,37 @@
     <parent>{includes}</parent>
     <child>{is_included_in}</child>
   </RelationshipElement>
-  <RelationshipElement name="{arbitrarily_separated_from}" type="bidirectional">
-    <description>When two or more locus codes have been assigned to what is ultimately determined to be the same locus</description>
+  <RelationshipElement name="Lying against" type="bidirectional">
+    <description/>
   </RelationshipElement>
-  <RelationshipElement name="{bonded_to}" type="bidirectional">
-    <description>Implements a bonded to for loci</description>
+  <RelationshipElement name="Incorporated" type="bidirectional">
+    <description/>
   </RelationshipElement>
-  <RelationshipElement name="{broadly_contemporary_with}" type="bidirectional">
-    <description>Loci suspected to be contemporary but no direct physical relationship or evidence (i.e. adjacent buildings)</description>
+  <RelationshipElement name="Same as" type="bidirectional">
+    <description/>
   </RelationshipElement>
-  <RelationshipElement name="{butts}" type="hierarchical">
-    <description>Implements a Butts-Butted by for loci.</description>
-    <parent>{butts}</parent>
-    <child>{butted_by}</child>
-  </RelationshipElement>
-  <RelationshipElement name="{covers}" type="hierarchical">
-    <description>Implements a Butts-Butted by for loci.</description>
-    <parent>{covers}</parent>
-    <child>{covered_by}</child>
+  <RelationshipElement name="Includes/Merged with" type="bidirectional">
+    <description/>
   </RelationshipElement>
   <RelationshipElement name="{cuts}" type="hierarchical">
     <description>Implements a cuts-cutby for loci.</description>
     <parent>{cuts}</parent>
     <child>{cut_by}</child>
   </RelationshipElement>
-  <RelationshipElement name="{earlierlater}" type="hierarchical">
-    <description>Implements a Stratigraphically Immediately Earlier-Later for loci.</description>
-    <parent>{immediately_earlier_than}</parent>
-    <child>{immediately_later_than}</child>
+  <RelationshipElement name="Abutts" type="hierarchical">
+    <description>Implements a Butts-Butted by for loci.</description>
+    <parent>Abutts</parent>
+    <child>Abutted by</child>
   </RelationshipElement>
-  <RelationshipElement name="{fill_of}" type="hierarchical">
-    <description>Implements a fillof-filledwith for loci.</description>
-    <parent>{fill_of}</parent>
-    <child>{filled_with}</child>
+  <RelationshipElement name="Above" type="hierarchical">
+    <description>Implements a Butts-Butted by for loci.</description>
+    <parent>Above</parent>
+    <child>Below</child>
   </RelationshipElement>
-  <RelationshipElement name="{precisely_contemporary_with}" type="bidirectional">
-    <description>Loci unequivocally contemporary</description>
-  </RelationshipElement>
-  <RelationshipElement name="ParentChild" type="hierarchical">
-    <description/>
-    <parent>{parent_of}</parent>
-    <child>{child_of}</child>
-  </RelationshipElement>
-  <RelationshipElement name="Site - Trench" type="hierarchical">
-    <description>A 1-to-n relationship between the parent and its children, respectively.</description>
-    <parent>Parent Of</parent>
-    <child>Child Of</child>
+  <RelationshipElement name="Sealed by" type="hierarchical">
+    <description>Implements a Butts-Butted by for loci.</description>
+    <parent>Sealed by</parent>
+    <child>Seals</child>
   </RelationshipElement>
   <RelationshipElement name="Trench - Trench Files" type="hierarchical">
     <description>A 1-to-n relationship between the parent and its children, respectively.</description>
@@ -102,39 +87,11 @@
     <parent>Parent Of</parent>
     <child>Child Of</child>
   </RelationshipElement>
-  <ArchaeologicalElement name="Site">
-    <description></description>
-    <property name="Site Site Name" type="measure" isIdentifier="true">
-      <description></description>
-      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
-      <appendCharacterString> - </appendCharacterString>
-    </property>
-    <property name="Site Year of Campaign" type="measure" isIdentifier="true">
-      <description></description>
-      <formatString> $2</formatString>
-      <appendCharacterString> - </appendCharacterString>
-    </property>
-    <property name="Device Code" type="vocab">
-      <description></description>
-      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
-      <appendCharacterString> - </appendCharacterString>
-      <lookup>
-        <term>{1}
-<description></description></term>
-        <term>{2}
-<description></description></term>
-        <term>{3}
-<description></description></term>
-        <term>{4}
-<description></description></term>
-      </lookup>
-    </property>
-  </ArchaeologicalElement>
   <ArchaeologicalElement name="Trench">
     <description></description>
     <property name="Trench Area" type="measure" isIdentifier="true">
       <description></description>
-      <formatString>$2 </formatString>
+      <formatString>$2</formatString>
       <appendCharacterString> - </appendCharacterString>
     </property>
     <property name="Trench Trench ID" type="measure" isIdentifier="true">
@@ -142,12 +99,7 @@
       <formatString> $2</formatString>
       <appendCharacterString> - </appendCharacterString>
     </property>
-    <property name="Trench Year of Campaign" type="measure" isIdentifier="true">
-      <description></description>
-      <formatString> $2</formatString>
-      <appendCharacterString> - </appendCharacterString>
-    </property>
-    <property name="Trench Subsquare" type="vocab">
+    <property name="Trench Subsquare" type="vocab" isIdentifier="true">
       <description></description>
       <formatString> $1</formatString>
       <appendCharacterString> - </appendCharacterString>
@@ -285,12 +237,17 @@
   </ArchaeologicalElement>
   <ArchaeologicalElement name="Trench Files">
     <description></description>
-    <property name="Trench Files Area" type="measure">
+    <property name="Trench Files Area" type="measure" isIdentifier="true">
       <description></description>
       <formatString>$2</formatString>
       <appendCharacterString> - </appendCharacterString>
     </property>
     <property name="Trench Files Trench ID" type="measure" isIdentifier="true">
+      <description></description>
+      <formatString> $2</formatString>
+      <appendCharacterString> - </appendCharacterString>
+    </property>
+    <property name="Trench Files Subsquare" type="measure" isIdentifier="true">
       <description></description>
       <formatString> $2</formatString>
       <appendCharacterString> - </appendCharacterString>
@@ -309,11 +266,6 @@
         <term>{Other}
 <description></description></term>
       </lookup>
-    </property>
-    <property name="Trench Files Subsquare" type="measure">
-      <description></description>
-      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
-      <appendCharacterString> - </appendCharacterString>
     </property>
     <property name="Trench Files author" type="measure">
       <description></description>
@@ -353,7 +305,7 @@
   </ArchaeologicalElement>
   <ArchaeologicalElement name="Locus">
     <description>The physical result of any single action whether it leaves a positive or negative record within the stratigraphic sequence. (MoLAS 1994)</description>
-    <property name="Locus Area" type="measure">
+    <property name="Locus Area" type="measure" isIdentifier="true">
       <description></description>
       <formatString>$2</formatString>
       <appendCharacterString> - </appendCharacterString>
@@ -363,12 +315,7 @@
       <formatString> $2</formatString>
       <appendCharacterString> - </appendCharacterString>
     </property>
-    <property name="Locus Year of Campaign" type="measure" isIdentifier="true">
-      <description></description>
-      <formatString> $2</formatString>
-      <appendCharacterString> - </appendCharacterString>
-    </property>
-    <property name="Locus Subsquare" type="measure">
+    <property name="Locus Subsquare" type="measure" isIdentifier="true">
       <description></description>
       <formatString> $2</formatString>
       <appendCharacterString> - </appendCharacterString>
@@ -463,7 +410,7 @@
 <description>There is a distinction between the excavated locus and earlier locus/loci but the excavated loci and the earlier loci grade into each other</description></term>
         <term>{Clear}
 <description>The boundary with the earlier locus/loci was very clearly defined during excavation.</description></term>
-        <term>{ArbitrarySpit}
+        <term>{Arbitrary_Spit}
 <description>There is no meaningful boundary with an earlier locus. The boundary has been artificially created by the excavation process.</description></term>
       </lookup>
     </property>
@@ -683,8 +630,6 @@
       <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
       <appendCharacterString> - </appendCharacterString>
       <lookup>
-        <term>{No_Observation}
-<description></description></term>
         <term>{Vertical}
 <description>Sides are vertical</description></term>
         <term>{Convex}
@@ -692,10 +637,6 @@
         <term>{Concave}
 <description></description></term>
         <term>{Stepped}
-<description></description></term>
-        <term>{Irregular}
-<description></description></term>
-        <term>{Bag_Shaped}
 <description></description></term>
       </lookup>
     </property>
@@ -858,10 +799,20 @@
       <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
       <appendCharacterString> - </appendCharacterString>
     </property>
-    <property name="Surface Type" type="measure">
+    <property name="Surface Type" type="vocab">
       <description></description>
       <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
       <appendCharacterString> - </appendCharacterString>
+      <lookup>
+        <term>{Beaten_Earth}
+<description></description></term>
+        <term>{Plastered}
+<description></description></term>
+        <term>{Cobblestone}
+<description></description></term>
+        <term>{Other}
+<description></description></term>
+      </lookup>
     </property>
     <property name="Extent Length" type="measure">
       <description></description>
@@ -878,10 +829,22 @@
       <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
       <appendCharacterString> - </appendCharacterString>
     </property>
-    <property name="Composition Description" type="measure">
+    <property name="Composition Description" type="vocab">
       <description></description>
       <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
       <appendCharacterString> - </appendCharacterString>
+      <lookup>
+        <term>{Compaction}
+<description></description><term>{Soft}
+<description></description></term><term>{Medium}
+<description></description></term><term>{Hard}
+<description></description></term></term>
+        <term>{Inclusions}
+<description></description><term>{Organic_Material}
+<description></description></term><term>{Charcoal}
+<description></description></term><term>{Stone_Chips}
+<description></description></term></term>
+      </lookup>
     </property>
     <property name="Deposit Your Interpretation" type="vocab">
       <description>Your interpretation of the likely function of the locus.</description>
@@ -898,11 +861,13 @@
 <description>Material probably dumped as a result of other activity e.g. material removed from cuts or other constructional or destructional activity.</description></term>
         <term>{Burial}
 <description>A fill or other deposit associated with a skeleton and forming part of a burial feature.</description></term>
-        <term>{Structural_Debris_Collapse}
+        <term>{Structural_Debris}
 <description>Material derived from collapse of a wall, roof or other structure</description></term>
-        <term>{Naturally_derived}
+        <term>{Collapse}
+<description>Material derived from collapse of a wall, roof or other structure</description></term>
+        <term>{Naturally_Derived}
 <description>A deposit partly or wholly accumulating through natural sedimentary processes, such as water or wind deposition.</description></term>
-        <term>{Erosional_products}
+        <term>{Erosional_Products}
 <description>Material deriving from the erosion of earlier archaeological sediments.</description></term>
         <term>{Artifact_Cluster}
 <description>A distinct concentration of artifacts or ecofacts. Make sure you record its xyz coordinates centre and edges.</description></term>
@@ -910,8 +875,6 @@
 <description>A deposit consisting largely of carbonized/charred plant material and/or ash</description></term>
         <term>{Arbitrary}
 <description>This applies to artificial loci excavated for excavational convenience eg section cleaning material whose precise provenience is unclear. Does not include arbitrary spits or spatial units deliberately excavated for finer control of horizontal and vert</description></term>
-        <term>{Distinct_floor_contact}
-<description>To be used for material that directly reflects the use of a surface or floor - artefact material on the surface perhaps thin deposits of occupation material. These loci will be gridded into spatial units for closer control of artifact distributions.</description></term>
         <term>{Animal_Plant}
 <description>Deposit derived from plant or animal activity</description></term>
         <term>{Other}
@@ -1003,6 +966,23 @@
       </description>
       <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
       <appendCharacterString> - </appendCharacterString>
+    </property>
+    <property name="Deposit Structure" type="vocab">
+      <description></description>
+      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
+      <appendCharacterString> - </appendCharacterString>
+      <lookup>
+        <term>{No_Observation}
+<description></description></term>
+        <term>{Homogenous}
+<description></description></term>
+        <term>{Heterogenous}
+<description></description></term>
+        <term>{Laminated}
+<description></description></term>
+        <term>{Compact_laminated}
+<description></description></term>
+      </lookup>
     </property>
     <property name="Deposit Bedding" type="vocab">
       <description>Describes the base of the deposit</description>
@@ -1250,22 +1230,22 @@
     <description>A group of loci.</description>
     <property name="Stratum Feature Trench ID" type="measure" isIdentifier="true">
       <description></description>
-      <formatString>-$2-</formatString>
+      <formatString>$2</formatString>
       <appendCharacterString> - </appendCharacterString>
     </property>
     <property name="L Paren" type="measure" isIdentifier="true">
       <description></description>
-      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
+      <formatString>-$2</formatString>
       <appendCharacterString> - </appendCharacterString>
     </property>
     <property name="Stratum Feature ID" type="measure" isIdentifier="true">
       <description></description>
-      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
+      <formatString>$2</formatString>
       <appendCharacterString> - </appendCharacterString>
     </property>
     <property name="R Paren" type="measure" isIdentifier="true">
       <description></description>
-      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
+      <formatString>$2</formatString>
       <appendCharacterString> - </appendCharacterString>
     </property>
     <property name="Stratum Feature Area" type="measure">
@@ -1373,7 +1353,7 @@
     <description></description>
     <property name="Component Type" type="vocab" isIdentifier="true">
       <description>Describe the components which make up 10% or more of the deposit.</description>
-      <formatString>$1-</formatString>
+      <formatString>$1</formatString>
       <appendCharacterString> - </appendCharacterString>
       <lookup>
         <term>{No_Observation}
@@ -1400,8 +1380,33 @@
     </property>
     <property name="Percentage" type="measure" isIdentifier="true">
       <description>Enter the approximate % volume of this material in the Locus.</description>
-      <formatString>$2%</formatString>
+      <formatString>-$2%</formatString>
       <appendCharacterString> - </appendCharacterString>
+    </property>
+    <property name="Soil Stone Shape" type="vocab">
+      <description></description>
+      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
+      <appendCharacterString> - </appendCharacterString>
+      <lookup>
+        <term>{No_Observation}
+<description></description></term>
+        <term>{Angular}
+<description></description><term>{Angular}
+<description></description></term><term>{Sub_angular}
+<description></description></term><term>{Very_Angular}
+<description></description></term></term>
+        <term>{Rounded}
+<description></description><term>{Rounded}
+<description></description></term><term>{Sub_rounded}
+<description></description></term><term>{Well_rounded}
+<description></description></term></term>
+        <term>{Dressed_Stone}
+<description></description></term>
+        <term>{Tabular}
+<description></description></term>
+        <term>{Ground}
+<description></description></term>
+      </lookup>
     </property>
     <property name="Sediment Aggregate Locus ID" type="measure">
       <description></description>
@@ -1433,12 +1438,17 @@
     <description>A record of images created and stored on another device, eg by a professional site photographer.</description>
     <property name="Photo Locus ID" type="measure" isIdentifier="true">
       <description>Unique number or code for each Locus</description>
-      <formatString>{{if $2 then "$2"}}</formatString>
+      <formatString>Photo-$2</formatString>
+      <appendCharacterString> - </appendCharacterString>
+    </property>
+    <property name="Photograph Trench ID" type="measure" isIdentifier="true">
+      <description></description>
+      <formatString>-{{ if $2 then "-$2"}}</formatString>
       <appendCharacterString> - </appendCharacterString>
     </property>
     <property name="Photo Stratum Feature ID" type="measure" isIdentifier="true">
-      <description>Unique number or code for each Stratum/Feature</description>
-      <formatString>{{ if $2 then "-($2)" }}</formatString>
+      <description>Unique number or code for each Phase</description>
+      <formatString>{{ if $2 then "-($2)"}}</formatString>
       <appendCharacterString> - </appendCharacterString>
     </property>
     <property name="Scene Type" type="vocab" isIdentifier="true">
@@ -1446,14 +1456,14 @@
       <formatString>-$1</formatString>
       <appendCharacterString> - </appendCharacterString>
       <lookup>
-        <term>{No_Observation}
-<description>data not collected</description></term>
-        <term>{Open}
-<description>Photograph taken on opening the Locus.</description></term>
-        <term>{Close}
-<description>Photograph taken on closing the Locus.</description></term>
+        <term>{Opening}
+<description></description></term>
+        <term>{Closing}
+<description></description></term>
+        <term>{Overview}
+<description></description></term>
         <term>{Other}
-<description>Scene not elsewhere described. Enter detail into Annotation field.</description></term>
+<description></description></term>
       </lookup>
     </property>
     <property name="Photograph Reference ID" type="measure">
@@ -1462,11 +1472,6 @@
       <appendCharacterString> - </appendCharacterString>
     </property>
     <property name="Photograph Log Brief Description" type="measure">
-      <description></description>
-      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
-      <appendCharacterString> - </appendCharacterString>
-    </property>
-    <property name="Photograph Trench ID" type="measure" isIdentifier="true">
       <description></description>
       <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
       <appendCharacterString> - </appendCharacterString>
@@ -1491,17 +1496,17 @@
     <description></description>
     <property name="Timestamp" type="measure" isIdentifier="true">
       <description>The date this entry is created will automatically appear here</description>
-      <formatString>$2</formatString>
+      <formatString>Diary-$2</formatString>
       <appendCharacterString> - </appendCharacterString>
     </property>
-    <property name="Diary author" type="measure">
+    <property name="Diary author" type="measure" isIdentifier="true">
       <description>Your name will be added here based on your login</description>
       <formatString> $2</formatString>
       <appendCharacterString> - </appendCharacterString>
     </property>
     <property name="Diary Trench ID" type="measure" isIdentifier="true">
       <description></description>
-      <formatString>-$2</formatString>
+      <formatString>{{ if "$2" then "-$2"}}</formatString>
       <appendCharacterString> - </appendCharacterString>
     </property>
     <property name="Title" type="measure">
@@ -1537,7 +1542,7 @@
   </ArchaeologicalElement>
   <ArchaeologicalElement name="FCN">
     <description></description>
-    <property name="FCN Area" type="measure">
+    <property name="FCN Area" type="measure" isIdentifier="true">
       <description></description>
       <formatString>$2</formatString>
       <appendCharacterString> - </appendCharacterString>
@@ -1547,12 +1552,12 @@
       <formatString> $2</formatString>
       <appendCharacterString> - </appendCharacterString>
     </property>
-    <property name="FCN Subsquare" type="measure">
+    <property name="FCN Subsquare" type="measure" isIdentifier="true">
       <description></description>
       <formatString> $2</formatString>
       <appendCharacterString> - </appendCharacterString>
     </property>
-    <property name="FCN Locus ID" type="measure">
+    <property name="FCN Locus ID" type="measure" isIdentifier="true">
       <description>Every archaeological locus (negative element (cut), deposit, structure, skeleton, artefact cluster) is given a unique 3 or 4 letter locus code. Each trench is designated with a separate letter which starts the code, so it is immediately obvious to which trench a locus belongs. For example locus HAA belongs to Trench H, locus MQP to Trench M etc.
         The loci are labelled consecutively in alphabetical order using the letters following the trench letter. For Trench H the first locus would be HAA, the second HAB, the third HAB and so on. In addition sets of letters can denote parts of trenches, buildings etc. E.g. HFs might denote loci from a specific building.
         Burial locus codes begin with the letter Z, followed by the trench letter. Hence burial ZHA is the first burial locus from trench H.

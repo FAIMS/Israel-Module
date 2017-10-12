@@ -4,10 +4,8 @@
 /******************************************************************************/
 delOnEvent("Control/Search", "show", "search()");
 addOnEvent("Control/Search", "show", "populateSelectUser()");
-//addOnEvent("Control/Search", "show", "populateSite()");
 addOnEvent("Control/Search", "show", "populateSquare()");
-addOnEvent("Control/Search/Select_User", "click", "search()");
-//addOnEvent("Control/Search/Select_Site", "click", "search()");
+delOnEvent("Control/Search/Entity_Types"  , "click" , "search()");
 
 void populateSelectUser(){
   String refSearchUsers = "Control/Search/Select_User";
@@ -29,122 +27,24 @@ void populateSquare() {
   String refSquare = "Control/Search/Select_Square";
 
   String q = "";
-  q += " SELECT uuid, response, attributename, measure";
-  q += "   FROM latestNonDeletedAentvalue";
-  q += "   JOIN latestNonDeletedArchEntFormattedIdentifiers USING (uuid)";
-  q += "   JOIN attributekey USING (attributeid)";
-  q += "  WHERE attributename = 'Trench Trench ID'";
-  //q += "     OR attributename = 'Trench Area'";
+  q += " SELECT DISTINCT measure, measure";
+  q += "            FROM latestNonDeletedAentvalue";
+  q += "            JOIN attributekey USING (attributeid)";
+  q += "           WHERE attributename IN " + ATTRIBS_TRENCH_ID;
+  q += "             AND measure IS NOT NULL";
+  q += "           UNION";
+  q += "          SELECT '\\0', '{All}'";
 
-  FetchCallback popSite = new FetchCallback() {
+  FetchCallback popSquare = new FetchCallback() {
     onFetch(result) {
-      List l = new ArrayList();
-
-      // Add all option to the list
-      List all = new ArrayList();
-      all.add("");
-      all.add("{All}");
-      all.add("");
-      all.add("");
-
-      // Add 'all' option to the List l
-      l.add(all);
-      // Add all existing Column record to List l
-      l.addAll(result);
-      // Populate dropdown list with List l
-      populateDropDown(refSquare, l);
+      if (!isNull(result))
+        populateDropDown(refSquare, result, false);
     }
   };
 
-  fetchAll(q, popSite);
+  fetchAll(q, popSquare);
 }
 
-
-void populateSite() {
-  String refSite = "Control/Search/Select_Site";
-
-  String q = "";
-  q += " SELECT uuid, response, attributename, measure";
-  q += "   FROM latestNonDeletedAentvalue";
-  q += "   JOIN latestNonDeletedArchEntFormattedIdentifiers USING (uuid)";
-  q += "   JOIN attributekey USING (attributeid)";
-  q += "  WHERE attributename = 'Site Site Name'";
-  q += "     OR attributename = 'Site Year of Campaign'";
-
-  FetchCallback popSite = new FetchCallback() {
-    onFetch(result) {
-      List normalised = normaliseSiteResult(result);
-      populateDropDown(refSite, normalised);
-    }
-  };
-
-  fetchAll(q, popSite);
-}
-
-List normaliseSiteResult(List result) {
-  Map  normalisedResultMap  = new HashMap();
-  List normalisedResultList = new ArrayList();
-
-  for (List row : result) {
-    String uuid     = row.get(0);
-    String response = row.get(1);
-    String attrName = row.get(2);
-    String attrVal  = row.get(3);
-
-    List mapRow = normalisedResultMap.get(uuid);
-    mapRow = updateMapRow(mapRow, "Response", response);
-    mapRow = updateMapRow(mapRow, attrName,   attrVal);
-
-    normalisedResultMap.put(uuid, mapRow);
-  }
-
-  insertListRow(normalisedResultList, "", "", "{All}");
-  for (List val : normalisedResultMap.values()) {
-    String response = val.get(0);
-    String siteName = val.get(1);
-    String siteYear = val.get(2);
-
-    insertListRow(normalisedResultList, siteName, siteYear, response);
-  }
-
-  return normalisedResultList;
-}
-
-List updateMapRow(List row, String key, String val) {
-  String RESPONSE         = "Response";
-  String SITE_NAME        = "Site Name";
-  String YEAR_OF_CAMPAIGN = "Year of Campaign";
-
-  if (row == null) {
-    row = new ArrayList();
-    row.add("");
-    row.add("");
-    row.add("");
-  } else {
-    row = new ArrayList(row);
-  }
-
-  if (key == null)
-    return row;
-  else if (key.contains(RESPONSE        )) row.set(0, val);
-  else if (key.contains(SITE_NAME       )) row.set(1, val);
-  else if (key.contains(YEAR_OF_CAMPAIGN)) row.set(2, val);
-
-  return row;
-}
-
-void insertListRow(
-    List   normalisedList,
-    String siteName,
-    String siteYear,
-    String response
-) {
-    List normalisedRow = new ArrayList();
-    normalisedRow.add(siteName + SEP + siteYear);
-    normalisedRow.add(response);
-
-    normalisedList.add(normalisedRow);
-}
 
 // Overrides auto-generated definition
 void search(){
@@ -153,12 +53,12 @@ void search(){
   String refSearchTerm  = tabgroup + "/Search/Search_Term";
   String refEntityTypes = tabgroup + "/Search/Entity_Types";
   String refSelectUser  = tabgroup + "/Search/Select_User";
-  String refSelectSite  = tabgroup + "/Search/Select_Square";
+  String refSelectSqar  = tabgroup + "/Search/Select_Square";
 
   String type = getFieldValue(refEntityTypes);
   String term = getFieldValue(refSearchTerm);
   String user = getFieldValue(refSelectUser);
-  String name = getFieldValue(refSelectSite);//Square ID
+  String name = getFieldValue(refSelectSqar);//Square ID
   //System.out.println(name);
   if (isNull(user)) return;
   String searchQuery = "SELECT uuid, response " +
@@ -169,6 +69,16 @@ void search(){
                        "                   AND ( aenttypename LIKE '{type}' OR '' = '{type}' ) " +
                        "                   AND ( userid = {user} OR -1 = {user}) " +
                        "                ) " +
+                       "  AND  ( " +
+                       "           '{name}' = '\\0' OR" +
+                       "           uuid IN (" +
+                       "            SELECT uuid" +
+                       "              FROM latestnondeletedaentvalue" +
+                       "              JOIN attributekey USING (attributeid)" +
+                       "             WHERE attributename IN " + ATTRIBS_TRENCH_ID +
+                       "               AND measure = '{name}'" +
+                       "           )" +
+                       "       )" +
                        " ORDER BY response " +
                        " LIMIT ? " +
                        "OFFSET ? ";
@@ -184,24 +94,4 @@ void search(){
   refreshTabgroupCSS(tabgroup);
 
   Log.d("Module", "Search query: " + searchQuery);
-}
-
-String getSearchSiteName(String ref) {
-  return getSearchSiteField(ref, 0);
-}
-
-String getSearchSiteYear(String ref) {
-  return getSearchSiteField(ref, 1);
-}
-
-String getSearchSiteField(String ref, int index) {
-  String   nameYear = getFieldValue(ref);
-  if (isNull(nameYear))
-    nameYear = "";
-
-  String[] splitted = nameYear.split(SEP);
-  if (index < splitted.length)
-    return splitted[index];
-  else
-    return "\\0";
 }

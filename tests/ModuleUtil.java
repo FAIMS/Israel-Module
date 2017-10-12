@@ -89,15 +89,6 @@ public class ModuleUtil extends ModuleHelper {
 
     /*
         Type: tab group
-        Ref:  Site
-     */
-    public static View get_Site(Solo solo) {
-        String ref = "Site";
-        return (android.view.View) solo.getView((Object) ref);
-    }
-
-    /*
-        Type: tab group
         Ref:  Soil_Munsel_Color
      */
     public static View get_SoilMunselColor(Solo solo) {
@@ -385,15 +376,6 @@ public class ModuleUtil extends ModuleHelper {
 
     /*
         Type: tab
-        Ref:  Relationship/Vars
-     */
-    public static View get_Relationship_Vars(Solo solo) {
-        String ref = "Relationship/Vars";
-        return (android.view.View) solo.getView((Object) ref);
-    }
-
-    /*
-        Type: tab
         Ref:  Sediment_Aggregate/Sediment_Aggregate
      */
     public static View get_SedimentAggregate_SedimentAggregate(Solo solo) {
@@ -407,24 +389,6 @@ public class ModuleUtil extends ModuleHelper {
      */
     public static View get_SedimentAggregate_Vars(Solo solo) {
         String ref = "Sediment_Aggregate/Vars";
-        return (android.view.View) solo.getView((Object) ref);
-    }
-
-    /*
-        Type: tab
-        Ref:  Site/Site
-     */
-    public static View get_Site_Site(Solo solo) {
-        String ref = "Site/Site";
-        return (android.view.View) solo.getView((Object) ref);
-    }
-
-    /*
-        Type: tab
-        Ref:  Site/Vars
-     */
-    public static View get_Site_Vars(Solo solo) {
-        String ref = "Site/Vars";
         return (android.view.View) solo.getView((Object) ref);
     }
 
@@ -497,15 +461,6 @@ public class ModuleUtil extends ModuleHelper {
      */
     public static View get_StratumFeatureRelationship_Relationships(Solo solo) {
         String ref = "Stratum_Feature_Relationship/Relationships";
-        return (android.view.View) solo.getView((Object) ref);
-    }
-
-    /*
-        Type: tab
-        Ref:  Stratum_Feature_Relationship/Vars
-     */
-    public static View get_StratumFeatureRelationship_Vars(Solo solo) {
-        String ref = "Stratum_Feature_Relationship/Vars";
         return (android.view.View) solo.getView((Object) ref);
     }
 
@@ -843,15 +798,6 @@ public class ModuleUtil extends ModuleHelper {
 
     /*
         Type: button
-        Ref:  Site/Site/Create_New_Trench
-     */
-    public static View get_Site_Site_CreateNewTrench(Solo solo) {
-        String ref = "Site/Site/Create_New_Trench";
-        return (android.view.View) solo.getView((Object) ref);
-    }
-
-    /*
-        Type: button
         Ref:  Stratum_Feature/Add/Add_Photograph_Log
      */
     public static View get_StratumFeature_Add_AddPhotographLog(Solo solo) {
@@ -1009,15 +955,6 @@ public class ModuleUtil extends ModuleHelper {
      */
     public static View get_TrenchFiles_AddTrenchFiles_AddPhotoButton1(Solo solo) {
         String ref = "Trench_Files/Add_Trench_Files/Add_Photo_Button_1";
-        return (android.view.View) solo.getView((Object) ref);
-    }
-
-    /*
-        Type: button
-        Ref:  Trench_Files/Add_Trench_Files/Attach_File_Button_1
-     */
-    public static View get_TrenchFiles_AddTrenchFiles_AttachFileButton1(Solo solo) {
-        String ref = "Trench_Files/Add_Trench_Files/Attach_File_Button_1";
         return (android.view.View) solo.getView((Object) ref);
     }
 
@@ -1266,6 +1203,15 @@ public class ModuleUtil extends ModuleHelper {
 
     /*
         Type: dropdown
+        Ref:  Locus/Deposit/Deposit_Structure
+     */
+    public static View get_Locus_Deposit_DepositStructure(Solo solo) {
+        String ref = "Locus/Deposit/Deposit_Structure";
+        return (android.view.View) solo.getView((Object) ref);
+    }
+
+    /*
+        Type: dropdown
         Ref:  Locus/Deposit/Deposit_Your_Interpretation
      */
     public static View get_Locus_Deposit_DepositYourInterpretation(Solo solo) {
@@ -1329,6 +1275,24 @@ public class ModuleUtil extends ModuleHelper {
 
     /*
         Type: dropdown
+        Ref:  Locus/Surface/Composition_Description
+     */
+    public static View get_Locus_Surface_CompositionDescription(Solo solo) {
+        String ref = "Locus/Surface/Composition_Description";
+        return (android.view.View) solo.getView((Object) ref);
+    }
+
+    /*
+        Type: dropdown
+        Ref:  Locus/Surface/Surface_Type
+     */
+    public static View get_Locus_Surface_SurfaceType(Solo solo) {
+        String ref = "Locus/Surface/Surface_Type";
+        return (android.view.View) solo.getView((Object) ref);
+    }
+
+    /*
+        Type: dropdown
         Ref:  Locus/Vars/Device_Code
      */
     public static View get_Locus_Vars_DeviceCode(Solo solo) {
@@ -1374,19 +1338,19 @@ public class ModuleUtil extends ModuleHelper {
 
     /*
         Type: dropdown
-        Ref:  Sediment_Aggregate/Vars/Device_Code
+        Ref:  Sediment_Aggregate/Sediment_Aggregate/Soil_Stone_Shape
      */
-    public static View get_SedimentAggregate_Vars_DeviceCode(Solo solo) {
-        String ref = "Sediment_Aggregate/Vars/Device_Code";
+    public static View get_SedimentAggregate_SedimentAggregate_SoilStoneShape(Solo solo) {
+        String ref = "Sediment_Aggregate/Sediment_Aggregate/Soil_Stone_Shape";
         return (android.view.View) solo.getView((Object) ref);
     }
 
     /*
         Type: dropdown
-        Ref:  Site/Vars/Device_Code
+        Ref:  Sediment_Aggregate/Vars/Device_Code
      */
-    public static View get_Site_Vars_DeviceCode(Solo solo) {
-        String ref = "Site/Vars/Device_Code";
+    public static View get_SedimentAggregate_Vars_DeviceCode(Solo solo) {
+        String ref = "Sediment_Aggregate/Vars/Device_Code";
         return (android.view.View) solo.getView((Object) ref);
     }
 
@@ -1423,15 +1387,6 @@ public class ModuleUtil extends ModuleHelper {
      */
     public static View get_StratumFeature_Vars_DeviceCode(Solo solo) {
         String ref = "Stratum_Feature/Vars/Device_Code";
-        return (android.view.View) solo.getView((Object) ref);
-    }
-
-    /*
-        Type: dropdown
-        Ref:  Stratum_Feature/Vars/Last_Feature_Type
-     */
-    public static View get_StratumFeature_Vars_LastFeatureType(Solo solo) {
-        String ref = "Stratum_Feature/Vars/Last_Feature_Type";
         return (android.view.View) solo.getView((Object) ref);
     }
 
@@ -1491,15 +1446,6 @@ public class ModuleUtil extends ModuleHelper {
 
     /*
         Type: dropdown
-        Ref:  User/User_List/Device_Code
-     */
-    public static View get_User_UserList_DeviceCode(Solo solo) {
-        String ref = "User/User_List/Device_Code";
-        return (android.view.View) solo.getView((Object) ref);
-    }
-
-    /*
-        Type: dropdown
         Ref:  User/User_List/Users
      */
     public static View get_User_UserList_Users(Solo solo) {
@@ -1526,15 +1472,6 @@ public class ModuleUtil extends ModuleHelper {
     }
 
     /*
-        Type: file
-        Ref:  Trench_Files/Add_Trench_Files/Attach_File
-     */
-    public static View get_TrenchFiles_AddTrenchFiles_AttachFile(Solo solo) {
-        String ref = "Trench_Files/Add_Trench_Files/Attach_File";
-        return (android.view.View) solo.getView((Object) ref);
-    }
-
-    /*
         Type: gpsdiag
         Ref:  Control/Site/GPS_Diagnostics
      */
@@ -1554,6 +1491,15 @@ public class ModuleUtil extends ModuleHelper {
 
     /*
         Type: input
+        Ref:  Control/Next_IDs/Next_Locus_Locus_ID
+     */
+    public static EditText get_Control_NextIDs_NextLocusLocusID(Solo solo) {
+        String ref = "Control/Next_IDs/Next_Locus_Locus_ID";
+        return (android.widget.EditText) solo.getView((Object) ref);
+    }
+
+    /*
+        Type: input
         Ref:  Control/Next_IDs/Next_Stratum_Feature_ID
      */
     public static EditText get_Control_NextIDs_NextStratumFeatureID(Solo solo) {
@@ -1567,24 +1513,6 @@ public class ModuleUtil extends ModuleHelper {
      */
     public static EditText get_Control_Search_SearchTerm(Solo solo) {
         String ref = "Control/Search/Search_Term";
-        return (android.widget.EditText) solo.getView((Object) ref);
-    }
-
-    /*
-        Type: input
-        Ref:  Control/Site/New_Site_Name
-     */
-    public static EditText get_Control_Site_NewSiteName(Solo solo) {
-        String ref = "Control/Site/New_Site_Name";
-        return (android.widget.EditText) solo.getView((Object) ref);
-    }
-
-    /*
-        Type: input
-        Ref:  Control/Site/Year_of_Campaign
-     */
-    public static EditText get_Control_Site_YearofCampaign(Solo solo) {
-        String ref = "Control/Site/Year_of_Campaign";
         return (android.widget.EditText) solo.getView((Object) ref);
     }
 
@@ -1626,28 +1554,10 @@ public class ModuleUtil extends ModuleHelper {
 
     /*
         Type: input
-        Ref:  Diary/Vars/Diary_Site_Name
-     */
-    public static EditText get_Diary_Vars_DiarySiteName(Solo solo) {
-        String ref = "Diary/Vars/Diary_Site_Name";
-        return (android.widget.EditText) solo.getView((Object) ref);
-    }
-
-    /*
-        Type: input
         Ref:  Diary/Vars/Diary_Trench_ID
      */
     public static EditText get_Diary_Vars_DiaryTrenchID(Solo solo) {
         String ref = "Diary/Vars/Diary_Trench_ID";
-        return (android.widget.EditText) solo.getView((Object) ref);
-    }
-
-    /*
-        Type: input
-        Ref:  Diary/Vars/Diary_Year_of_Campaign
-     */
-    public static EditText get_Diary_Vars_DiaryYearofCampaign(Solo solo) {
-        String ref = "Diary/Vars/Diary_Year_of_Campaign";
         return (android.widget.EditText) solo.getView((Object) ref);
     }
 
@@ -1675,6 +1585,15 @@ public class ModuleUtil extends ModuleHelper {
      */
     public static EditText get_FCN_General_ChronologyNote(Solo solo) {
         String ref = "FCN/General/Chronology_Note";
+        return (android.widget.EditText) solo.getView((Object) ref);
+    }
+
+    /*
+        Type: input
+        Ref:  FCN/General/Date_Collected
+     */
+    public static EditText get_FCN_General_DateCollected(Solo solo) {
+        String ref = "FCN/General/Date_Collected";
         return (android.widget.EditText) solo.getView((Object) ref);
     }
 
@@ -1763,9 +1682,9 @@ public class ModuleUtil extends ModuleHelper {
         Type: input
         Ref:  FCN/General/Subsquare
      */
-    public static EditText get_FCN_General_Subsquare(Solo solo) {
+    public static View get_FCN_General_Subsquare(Solo solo) {
         String ref = "FCN/General/Subsquare";
-        return (android.widget.EditText) solo.getView((Object) ref);
+        return (android.view.View) solo.getView((Object) ref);
     }
 
     /*
@@ -1806,15 +1725,6 @@ public class ModuleUtil extends ModuleHelper {
 
     /*
         Type: input
-        Ref:  FCN/Vars/FCN_Year_of_Campaign
-     */
-    public static EditText get_FCN_Vars_FCNYearofCampaign(Solo solo) {
-        String ref = "FCN/Vars/FCN_Year_of_Campaign";
-        return (android.widget.EditText) solo.getView((Object) ref);
-    }
-
-    /*
-        Type: input
         Ref:  Legacy/Legacy/Legacy_Locus_ID
      */
     public static EditText get_Legacy_Legacy_LegacyLocusID(Solo solo) {
@@ -1824,28 +1734,10 @@ public class ModuleUtil extends ModuleHelper {
 
     /*
         Type: input
-        Ref:  Legacy/Legacy/Legacy_Site_Name
-     */
-    public static View get_Legacy_Legacy_LegacySiteName(Solo solo) {
-        String ref = "Legacy/Legacy/Legacy_Site_Name";
-        return (android.view.View) solo.getView((Object) ref);
-    }
-
-    /*
-        Type: input
         Ref:  Legacy/Legacy/Legacy_Trench_ID
      */
     public static EditText get_Legacy_Legacy_LegacyTrenchID(Solo solo) {
         String ref = "Legacy/Legacy/Legacy_Trench_ID";
-        return (android.widget.EditText) solo.getView((Object) ref);
-    }
-
-    /*
-        Type: input
-        Ref:  Legacy/Legacy/Legacy_Year_of_Campaign
-     */
-    public static EditText get_Legacy_Legacy_LegacyYearofCampaign(Solo solo) {
-        String ref = "Legacy/Legacy/Legacy_Year_of_Campaign";
         return (android.widget.EditText) solo.getView((Object) ref);
     }
 
@@ -2085,15 +1977,6 @@ public class ModuleUtil extends ModuleHelper {
 
     /*
         Type: input
-        Ref:  Locus/General/Locus_Site_Name
-     */
-    public static EditText get_Locus_General_LocusSiteName(Solo solo) {
-        String ref = "Locus/General/Locus_Site_Name";
-        return (android.widget.EditText) solo.getView((Object) ref);
-    }
-
-    /*
-        Type: input
         Ref:  Locus/General/Locus_Trench_ID
      */
     public static View get_Locus_General_LocusTrenchID(Solo solo) {
@@ -2105,9 +1988,9 @@ public class ModuleUtil extends ModuleHelper {
         Type: input
         Ref:  Locus/General/Subsquare
      */
-    public static EditText get_Locus_General_Subsquare(Solo solo) {
+    public static View get_Locus_General_Subsquare(Solo solo) {
         String ref = "Locus/General/Subsquare";
-        return (android.widget.EditText) solo.getView((Object) ref);
+        return (android.view.View) solo.getView((Object) ref);
     }
 
     /*
@@ -2508,15 +2391,6 @@ public class ModuleUtil extends ModuleHelper {
 
     /*
         Type: input
-        Ref:  Locus/Surface/Composition_Description
-     */
-    public static EditText get_Locus_Surface_CompositionDescription(Solo solo) {
-        String ref = "Locus/Surface/Composition_Description";
-        return (android.widget.EditText) solo.getView((Object) ref);
-    }
-
-    /*
-        Type: input
         Ref:  Locus/Surface/Extend_Width
      */
     public static EditText get_Locus_Surface_ExtendWidth(Solo solo) {
@@ -2535,28 +2409,10 @@ public class ModuleUtil extends ModuleHelper {
 
     /*
         Type: input
-        Ref:  Locus/Surface/Surface_Type
-     */
-    public static EditText get_Locus_Surface_SurfaceType(Solo solo) {
-        String ref = "Locus/Surface/Surface_Type";
-        return (android.widget.EditText) solo.getView((Object) ref);
-    }
-
-    /*
-        Type: input
         Ref:  Locus/Surface/Thickness_max
      */
     public static EditText get_Locus_Surface_Thicknessmax(Solo solo) {
         String ref = "Locus/Surface/Thickness_max";
-        return (android.widget.EditText) solo.getView((Object) ref);
-    }
-
-    /*
-        Type: input
-        Ref:  Locus/Vars/Locus_Year_of_Campaign
-     */
-    public static EditText get_Locus_Vars_LocusYearofCampaign(Solo solo) {
-        String ref = "Locus/Vars/Locus_Year_of_Campaign";
         return (android.widget.EditText) solo.getView((Object) ref);
     }
 
@@ -2598,24 +2454,6 @@ public class ModuleUtil extends ModuleHelper {
 
     /*
         Type: input
-        Ref:  Photograph_Log/Vars/Photograph_Log_Site_Name
-     */
-    public static EditText get_PhotographLog_Vars_PhotographLogSiteName(Solo solo) {
-        String ref = "Photograph_Log/Vars/Photograph_Log_Site_Name";
-        return (android.widget.EditText) solo.getView((Object) ref);
-    }
-
-    /*
-        Type: input
-        Ref:  Photograph_Log/Vars/Photograph_Log_Year_of_Campaign
-     */
-    public static EditText get_PhotographLog_Vars_PhotographLogYearofCampaign(Solo solo) {
-        String ref = "Photograph_Log/Vars/Photograph_Log_Year_of_Campaign";
-        return (android.widget.EditText) solo.getView((Object) ref);
-    }
-
-    /*
-        Type: input
         Ref:  Photograph_Log/Vars/Photograph_Trench_ID
      */
     public static EditText get_PhotographLog_Vars_PhotographTrenchID(Solo solo) {
@@ -2638,24 +2476,6 @@ public class ModuleUtil extends ModuleHelper {
      */
     public static EditText get_Relationship_Relationships_TrenchID(Solo solo) {
         String ref = "Relationship/Relationships/Trench_ID";
-        return (android.widget.EditText) solo.getView((Object) ref);
-    }
-
-    /*
-        Type: input
-        Ref:  Relationship/Vars/Relationship_Site_Name
-     */
-    public static EditText get_Relationship_Vars_RelationshipSiteName(Solo solo) {
-        String ref = "Relationship/Vars/Relationship_Site_Name";
-        return (android.widget.EditText) solo.getView((Object) ref);
-    }
-
-    /*
-        Type: input
-        Ref:  Relationship/Vars/Relationship_Year_of_Campaign
-     */
-    public static EditText get_Relationship_Vars_RelationshipYearofCampaign(Solo solo) {
-        String ref = "Relationship/Vars/Relationship_Year_of_Campaign";
         return (android.widget.EditText) solo.getView((Object) ref);
     }
 
@@ -2688,33 +2508,6 @@ public class ModuleUtil extends ModuleHelper {
 
     /*
         Type: input
-        Ref:  Site/Site/Site_Site_Name
-     */
-    public static View get_Site_Site_SiteSiteName(Solo solo) {
-        String ref = "Site/Site/Site_Site_Name";
-        return (android.view.View) solo.getView((Object) ref);
-    }
-
-    /*
-        Type: input
-        Ref:  Site/Site/Site_Year_of_Campaign
-     */
-    public static View get_Site_Site_SiteYearofCampaign(Solo solo) {
-        String ref = "Site/Site/Site_Year_of_Campaign";
-        return (android.view.View) solo.getView((Object) ref);
-    }
-
-    /*
-        Type: input
-        Ref:  Site/Site/Trench_ID
-     */
-    public static EditText get_Site_Site_TrenchID(Solo solo) {
-        String ref = "Site/Site/Trench_ID";
-        return (android.widget.EditText) solo.getView((Object) ref);
-    }
-
-    /*
-        Type: input
         Ref:  Soil_Munsel_Color/Vars/Soil_Munsel_Color_Locus_ID
      */
     public static EditText get_SoilMunselColor_Vars_SoilMunselColorLocusID(Solo solo) {
@@ -2733,19 +2526,10 @@ public class ModuleUtil extends ModuleHelper {
 
     /*
         Type: input
-        Ref:  Stratum_Feature/General/Center_Bottom_Depth
+        Ref:  Stratum_Feature/General/Bottom_Depth
      */
-    public static EditText get_StratumFeature_General_CenterBottomDepth(Solo solo) {
-        String ref = "Stratum_Feature/General/Center_Bottom_Depth";
-        return (android.widget.EditText) solo.getView((Object) ref);
-    }
-
-    /*
-        Type: input
-        Ref:  Stratum_Feature/General/Center_Top_Depth
-     */
-    public static EditText get_StratumFeature_General_CenterTopDepth(Solo solo) {
-        String ref = "Stratum_Feature/General/Center_Top_Depth";
+    public static EditText get_StratumFeature_General_BottomDepth(Solo solo) {
+        String ref = "Stratum_Feature/General/Bottom_Depth";
         return (android.widget.EditText) solo.getView((Object) ref);
     }
 
@@ -2805,82 +2589,10 @@ public class ModuleUtil extends ModuleHelper {
 
     /*
         Type: input
-        Ref:  Stratum_Feature/General/NE_Bottom_Depth
-     */
-    public static EditText get_StratumFeature_General_NEBottomDepth(Solo solo) {
-        String ref = "Stratum_Feature/General/NE_Bottom_Depth";
-        return (android.widget.EditText) solo.getView((Object) ref);
-    }
-
-    /*
-        Type: input
-        Ref:  Stratum_Feature/General/NE_Top_Depth
-     */
-    public static EditText get_StratumFeature_General_NETopDepth(Solo solo) {
-        String ref = "Stratum_Feature/General/NE_Top_Depth";
-        return (android.widget.EditText) solo.getView((Object) ref);
-    }
-
-    /*
-        Type: input
-        Ref:  Stratum_Feature/General/NW_Bottom_Depth
-     */
-    public static EditText get_StratumFeature_General_NWBottomDepth(Solo solo) {
-        String ref = "Stratum_Feature/General/NW_Bottom_Depth";
-        return (android.widget.EditText) solo.getView((Object) ref);
-    }
-
-    /*
-        Type: input
-        Ref:  Stratum_Feature/General/NW_Top_Depth
-     */
-    public static EditText get_StratumFeature_General_NWTopDepth(Solo solo) {
-        String ref = "Stratum_Feature/General/NW_Top_Depth";
-        return (android.widget.EditText) solo.getView((Object) ref);
-    }
-
-    /*
-        Type: input
         Ref:  Stratum_Feature/General/Plans
      */
     public static EditText get_StratumFeature_General_Plans(Solo solo) {
         String ref = "Stratum_Feature/General/Plans";
-        return (android.widget.EditText) solo.getView((Object) ref);
-    }
-
-    /*
-        Type: input
-        Ref:  Stratum_Feature/General/SE_Bottom_Depth
-     */
-    public static EditText get_StratumFeature_General_SEBottomDepth(Solo solo) {
-        String ref = "Stratum_Feature/General/SE_Bottom_Depth";
-        return (android.widget.EditText) solo.getView((Object) ref);
-    }
-
-    /*
-        Type: input
-        Ref:  Stratum_Feature/General/SE_Top_Depth
-     */
-    public static EditText get_StratumFeature_General_SETopDepth(Solo solo) {
-        String ref = "Stratum_Feature/General/SE_Top_Depth";
-        return (android.widget.EditText) solo.getView((Object) ref);
-    }
-
-    /*
-        Type: input
-        Ref:  Stratum_Feature/General/SW_Bottom_Depth
-     */
-    public static EditText get_StratumFeature_General_SWBottomDepth(Solo solo) {
-        String ref = "Stratum_Feature/General/SW_Bottom_Depth";
-        return (android.widget.EditText) solo.getView((Object) ref);
-    }
-
-    /*
-        Type: input
-        Ref:  Stratum_Feature/General/SW_Top_Depth
-     */
-    public static EditText get_StratumFeature_General_SWTopDepth(Solo solo) {
-        String ref = "Stratum_Feature/General/SW_Top_Depth";
         return (android.widget.EditText) solo.getView((Object) ref);
     }
 
@@ -2909,6 +2621,15 @@ public class ModuleUtil extends ModuleHelper {
     public static View get_StratumFeature_General_StratumFeatureTrenchID(Solo solo) {
         String ref = "Stratum_Feature/General/Stratum_Feature_Trench_ID";
         return (android.view.View) solo.getView((Object) ref);
+    }
+
+    /*
+        Type: input
+        Ref:  Stratum_Feature/General/Top_Depth
+     */
+    public static EditText get_StratumFeature_General_TopDepth(Solo solo) {
+        String ref = "Stratum_Feature/General/Top_Depth";
+        return (android.widget.EditText) solo.getView((Object) ref);
     }
 
     /*
@@ -2949,24 +2670,6 @@ public class ModuleUtil extends ModuleHelper {
 
     /*
         Type: input
-        Ref:  Stratum_Feature/Vars/Stratum_Feature_Site_Name
-     */
-    public static EditText get_StratumFeature_Vars_StratumFeatureSiteName(Solo solo) {
-        String ref = "Stratum_Feature/Vars/Stratum_Feature_Site_Name";
-        return (android.widget.EditText) solo.getView((Object) ref);
-    }
-
-    /*
-        Type: input
-        Ref:  Stratum_Feature/Vars/Stratum_Feature_Year_of_Campaign
-     */
-    public static EditText get_StratumFeature_Vars_StratumFeatureYearofCampaign(Solo solo) {
-        String ref = "Stratum_Feature/Vars/Stratum_Feature_Year_of_Campaign";
-        return (android.widget.EditText) solo.getView((Object) ref);
-    }
-
-    /*
-        Type: input
         Ref:  Stratum_Feature_Relationship/Relationships/Locus_ID
      */
     public static EditText get_StratumFeatureRelationship_Relationships_LocusID(Solo solo) {
@@ -2980,24 +2683,6 @@ public class ModuleUtil extends ModuleHelper {
      */
     public static EditText get_StratumFeatureRelationship_Relationships_TrenchID(Solo solo) {
         String ref = "Stratum_Feature_Relationship/Relationships/Trench_ID";
-        return (android.widget.EditText) solo.getView((Object) ref);
-    }
-
-    /*
-        Type: input
-        Ref:  Stratum_Feature_Relationship/Vars/Stratum_Feature_Relationship_Site_Name
-     */
-    public static EditText get_StratumFeatureRelationship_Vars_StratumFeatureRelationshipSiteName(Solo solo) {
-        String ref = "Stratum_Feature_Relationship/Vars/Stratum_Feature_Relationship_Site_Name";
-        return (android.widget.EditText) solo.getView((Object) ref);
-    }
-
-    /*
-        Type: input
-        Ref:  Stratum_Feature_Relationship/Vars/Stratum_Feature_Relationship_Year_of_Campaign
-     */
-    public static EditText get_StratumFeatureRelationship_Vars_StratumFeatureRelationshipYearofCampaign(Solo solo) {
-        String ref = "Stratum_Feature_Relationship/Vars/Stratum_Feature_Relationship_Year_of_Campaign";
         return (android.widget.EditText) solo.getView((Object) ref);
     }
 
@@ -3084,15 +2769,6 @@ public class ModuleUtil extends ModuleHelper {
 
     /*
         Type: input
-        Ref:  Trench/Trench/Trench_Site_Name
-     */
-    public static View get_Trench_Trench_TrenchSiteName(Solo solo) {
-        String ref = "Trench/Trench/Trench_Site_Name";
-        return (android.view.View) solo.getView((Object) ref);
-    }
-
-    /*
-        Type: input
         Ref:  Trench/Trench/Trench_Trench_ID
      */
     public static EditText get_Trench_Trench_TrenchTrenchID(Solo solo) {
@@ -3129,10 +2805,10 @@ public class ModuleUtil extends ModuleHelper {
 
     /*
         Type: input
-        Ref:  Trench/Vars/Trench_Year_of_Campaign
+        Ref:  Trench_Files/Add_Trench_Files/Area
      */
-    public static EditText get_Trench_Vars_TrenchYearofCampaign(Solo solo) {
-        String ref = "Trench/Vars/Trench_Year_of_Campaign";
+    public static EditText get_TrenchFiles_AddTrenchFiles_Area(Solo solo) {
+        String ref = "Trench_Files/Add_Trench_Files/Area";
         return (android.widget.EditText) solo.getView((Object) ref);
     }
 
@@ -3158,17 +2834,8 @@ public class ModuleUtil extends ModuleHelper {
         Type: input
         Ref:  Trench_Files/Add_Trench_Files/Subsquare
      */
-    public static EditText get_TrenchFiles_AddTrenchFiles_Subsquare(Solo solo) {
+    public static View get_TrenchFiles_AddTrenchFiles_Subsquare(Solo solo) {
         String ref = "Trench_Files/Add_Trench_Files/Subsquare";
-        return (android.widget.EditText) solo.getView((Object) ref);
-    }
-
-    /*
-        Type: input
-        Ref:  Trench_Files/Add_Trench_Files/Trench_Files_Site_Name
-     */
-    public static View get_TrenchFiles_AddTrenchFiles_TrenchFilesSiteName(Solo solo) {
-        String ref = "Trench_Files/Add_Trench_Files/Trench_Files_Site_Name";
         return (android.view.View) solo.getView((Object) ref);
     }
 
@@ -3178,15 +2845,6 @@ public class ModuleUtil extends ModuleHelper {
      */
     public static View get_TrenchFiles_AddTrenchFiles_TrenchFilesTrenchID(Solo solo) {
         String ref = "Trench_Files/Add_Trench_Files/Trench_Files_Trench_ID";
-        return (android.view.View) solo.getView((Object) ref);
-    }
-
-    /*
-        Type: input
-        Ref:  Trench_Files/Add_Trench_Files/Trench_Files_Year_of_Campaign
-     */
-    public static View get_TrenchFiles_AddTrenchFiles_TrenchFilesYearofCampaign(Solo solo) {
-        String ref = "Trench_Files/Add_Trench_Files/Trench_Files_Year_of_Campaign";
         return (android.view.View) solo.getView((Object) ref);
     }
 
@@ -3250,15 +2908,6 @@ public class ModuleUtil extends ModuleHelper {
      */
     public static View get_Relationship_Relationships_UnrelatedLoci(Solo solo) {
         String ref = "Relationship/Relationships/Unrelated_Loci";
-        return (android.view.View) solo.getView((Object) ref);
-    }
-
-    /*
-        Type: list
-        Ref:  Site/Site/List_of_Existing_Trenches
-     */
-    public static View get_Site_Site_ListofExistingTrenches(Solo solo) {
-        String ref = "Site/Site/List_of_Existing_Trenches";
         return (android.view.View) solo.getView((Object) ref);
     }
 
@@ -3353,15 +3002,6 @@ public class ModuleUtil extends ModuleHelper {
     }
 
     /*
-        Type: picture
-        Ref:  Sediment_Aggregate/Sediment_Aggregate/Soil_Stone_Shape
-     */
-    public static View get_SedimentAggregate_SedimentAggregate_SoilStoneShape(Solo solo) {
-        String ref = "Sediment_Aggregate/Sediment_Aggregate/Soil_Stone_Shape";
-        return (android.view.View) solo.getView((Object) ref);
-    }
-
-    /*
         Type: radio
         Ref:  FCN/General/Analysed
      */
@@ -3444,10 +3084,10 @@ public class ModuleUtil extends ModuleHelper {
 
     /*
         Type: radio
-        Ref:  Stratum_Feature/General/Record_Type
+        Ref:  User/User_List/Device_Code
      */
-    public static View get_StratumFeature_General_RecordType(Solo solo) {
-        String ref = "Stratum_Feature/General/Record_Type";
+    public static View get_User_UserList_DeviceCode(Solo solo) {
+        String ref = "User/User_List/Device_Code";
         return (android.view.View) solo.getView((Object) ref);
     }
 
@@ -3466,15 +3106,6 @@ public class ModuleUtil extends ModuleHelper {
      */
     public static View get_StratumFeature_Add_ViewAttachedFiles(Solo solo) {
         String ref = "Stratum_Feature/Add/View_Attached_Files";
-        return (android.view.View) solo.getView((Object) ref);
-    }
-
-    /*
-        Type: viewfiles
-        Ref:  Trench_Files/Add_Trench_Files/View_Attached_Files
-     */
-    public static View get_TrenchFiles_AddTrenchFiles_ViewAttachedFiles(Solo solo) {
-        String ref = "Trench_Files/Add_Trench_Files/View_Attached_Files";
         return (android.view.View) solo.getView((Object) ref);
     }
 
@@ -3511,15 +3142,6 @@ public class ModuleUtil extends ModuleHelper {
      */
     public static View get_Relationship_Relationships_SelectedRelationship(Solo solo) {
         String ref = "Relationship/Relationships/Selected_Relationship";
-        return (android.view.View) solo.getView((Object) ref);
-    }
-
-    /*
-        Type: webview
-        Ref:  Site/Site/Guide
-     */
-    public static View get_Site_Site_Guide(Solo solo) {
-        String ref = "Site/Site/Guide";
         return (android.view.View) solo.getView((Object) ref);
     }
 
