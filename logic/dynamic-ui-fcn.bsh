@@ -10,12 +10,12 @@ void updatePotteryBasketVolume() {
 }
 
 void hidePotteryBasketVolume() {
-  hideView("Pottery_Basket/General/Volume_Liters");
+  hideView("Pottery_Basket/General/Volume_Litres");
 }
 
 void showPotteryBasketVolume() {
-  String refView  = "Pottery_Basket/General/Volume_Liters";
-  String refGroup = "Pottery_Basket/General/Volume_Liters_Group";
+  String refView  = "Pottery_Basket/General/Volume_Litres";
+  String refGroup = "Pottery_Basket/General/Volume_Litres_Group";
 
   if (hasView(refView)) return;
 

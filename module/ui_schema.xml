@@ -258,7 +258,7 @@
                   <SE_Bottom_Height/>
                 </Col_2>
               </Colgroup_4>
-              <Volume_Liters/>
+              <Volume_Litres/>
             </Measure>
             <Cut>
               <Cut_Your_Interpretation/>
@@ -786,7 +786,7 @@
       <bind nodeset="/faims/Locus/Measure/Colgroup_4/Col_1/Center_Bottom_Height" type="decimal"/>
       <bind nodeset="/faims/Locus/Measure/Colgroup_4/Col_2/NE_Bottom_Height" type="decimal"/>
       <bind nodeset="/faims/Locus/Measure/Colgroup_4/Col_2/SE_Bottom_Height" type="decimal"/>
-      <bind nodeset="/faims/Locus/Measure/Volume_Liters" type="decimal"/>
+      <bind nodeset="/faims/Locus/Measure/Volume_Litres" type="decimal"/>
       <bind nodeset="/faims/Locus/Cut/Orientation_Degree" type="decimal"/>
       <bind nodeset="/faims/Locus/Construction/Length" type="decimal"/>
       <bind nodeset="/faims/Locus/Construction/Width" type="decimal"/>
@@ -1456,8 +1456,8 @@
             </input>
           </group>
         </group>
-        <input faims_attribute_name="Volume Liters" faims_attribute_type="measure" ref="Volume_Liters" faims_style_class="required">
-          <label>{Volume__liters_}</label>
+        <input faims_attribute_name="Volume Litres" faims_attribute_type="measure" ref="Volume_Litres" faims_style_class="required">
+          <label>{Volume__litres_}</label>
         </input>
       </group>
       <group ref="Cut">

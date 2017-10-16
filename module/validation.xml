@@ -65,7 +65,7 @@
         <param type="field" value="measure"/>
       </validator>
     </property>
-    <property name="Volume Liters">
+    <property name="Volume Litres">
       <validator type="blankchecker">
         <param type="field" value="measure"/>
       </validator>

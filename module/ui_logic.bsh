@@ -312,7 +312,7 @@ REF_TO_TYPE.put("Locus/Measure/SW_Bottom_Height", "input");
 REF_TO_TYPE.put("Locus/Measure/Center_Bottom_Height", "input");
 REF_TO_TYPE.put("Locus/Measure/NE_Bottom_Height", "input");
 REF_TO_TYPE.put("Locus/Measure/SE_Bottom_Height", "input");
-REF_TO_TYPE.put("Locus/Measure/Volume_Liters", "input");
+REF_TO_TYPE.put("Locus/Measure/Volume_Litres", "input");
 REF_TO_TYPE.put("Locus/Cut/Cut_Your_Interpretation", "dropdown");
 REF_TO_TYPE.put("Locus/Cut/Shape_in_Plan", "dropdown");
 REF_TO_TYPE.put("Locus/Cut/Shape_of_Cut_-_Note", "input");
@@ -625,7 +625,7 @@ DATA_REFS.add("Locus/Measure/SW_Bottom_Height");
 DATA_REFS.add("Locus/Measure/Center_Bottom_Height");
 DATA_REFS.add("Locus/Measure/NE_Bottom_Height");
 DATA_REFS.add("Locus/Measure/SE_Bottom_Height");
-DATA_REFS.add("Locus/Measure/Volume_Liters");
+DATA_REFS.add("Locus/Measure/Volume_Litres");
 DATA_REFS.add("Locus/Cut/Cut_Your_Interpretation");
 DATA_REFS.add("Locus/Cut/Shape_in_Plan");
 DATA_REFS.add("Locus/Cut/Shape_of_Cut_-_Note");
@@ -1911,7 +1911,6 @@ void timedPopulateCursorList(String ref, String q, int limit) {
 
 void setUpTypeHierarchy() {
   //- 
-  //  - Legacy
   //  - Square
   //    - Square Files
   //    - Locus
@@ -1923,39 +1922,40 @@ void setUpTypeHierarchy() {
   //      - Photograph Log
   //    - Diary
   //    - Legacy
+  //  - Legacy
   //  - Diary
 
   n0 = Tree("", 1);
-  n1 = Tree("Legacy", 1);
-  n2 = Tree("Square", 1);
-  n3 = Tree("Square Files", 1);
-  n4 = Tree("Locus", 1);
-  n5 = Tree("Soil Munsel Color", 1);
-  n6 = Tree("Sediment Aggregate", 1);
-  n7 = Tree("Pottery Basket", 1);
-  n8 = Tree("Photograph Log", 1);
-  n9 = Tree("Phase", 1);
-  n10 = Tree("Photograph Log", 1);
-  n11 = Tree("Diary", 1);
+  n1 = Tree("Square", 1);
+  n2 = Tree("Square Files", 1);
+  n3 = Tree("Locus", 1);
+  n4 = Tree("Soil Munsel Color", 1);
+  n5 = Tree("Sediment Aggregate", 1);
+  n6 = Tree("Pottery Basket", 1);
+  n7 = Tree("Photograph Log", 1);
+  n8 = Tree("Phase", 1);
+  n9 = Tree("Photograph Log", 1);
+  n10 = Tree("Diary", 1);
+  n11 = Tree("Legacy", 1);
   n12 = Tree("Legacy", 1);
   n13 = Tree("Diary", 1);
 
   n0.addChild(n1);
-  n0.addChild(n2);
+  n0.addChild(n12);
   n0.addChild(n13);
 
-  n2.addChild(n3);
-  n2.addChild(n4);
-  n2.addChild(n9);
-  n2.addChild(n11);
-  n2.addChild(n12);
+  n1.addChild(n2);
+  n1.addChild(n3);
+  n1.addChild(n8);
+  n1.addChild(n10);
+  n1.addChild(n11);
 
-  n4.addChild(n5);
-  n4.addChild(n6);
-  n4.addChild(n7);
-  n4.addChild(n8);
+  n3.addChild(n4);
+  n3.addChild(n5);
+  n3.addChild(n6);
+  n3.addChild(n7);
 
-  n9.addChild(n10);
+  n8.addChild(n9);
 
 
   PERF_TYPE_TREE = n0;
@@ -3496,7 +3496,7 @@ void validateLocus() {
   f.add(fieldPair("Locus/Measure/Measure_Length", "{Length__m_}"));
   f.add(fieldPair("Locus/Measure/Measure_Width", "{Width__m_}"));
   f.add(fieldPair("Locus/Measure/Measure_Depth", "{Depth__m_}"));
-  f.add(fieldPair("Locus/Measure/Volume_Liters", "{Volume__liters_}"));
+  f.add(fieldPair("Locus/Measure/Volume_Litres", "{Volume__litres_}"));
   f.add(fieldPair("Locus/Cut/Shape_in_Plan", "{Shape_in_Plan}"));
   f.add(fieldPair("Locus/Cut/Shape_of_Corners", "{Shape_of_Corners}"));
   f.add(fieldPair("Locus/Cut/Break_of_Slope_-_Top", "{Break_of_Slope___Top}"));

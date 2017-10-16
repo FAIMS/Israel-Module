@@ -116,7 +116,10 @@
         <opt>Pick
           <desc>Excavated by pick.</desc>
         </opt>
-        <opt>Shovel</opt>
+        <opt>
+          Shovel
+          <desc>Excavated by shovel.</desc>
+        </opt>
         <opt>Other
           <desc>Excavated by another method. Add details in Annotation field.</desc>
         </opt>
@@ -208,8 +211,8 @@
     <cols>
       <Subsquare f="readonly" i="Square/Square/Subsquare"/>
       <Locus_ID f="notnull autonum">
-        <desc>Every archaeological locus (negative element (cut), deposit, structure, skeleton, artefact cluster) is given a unique 3 or 4 letter locus code. Each trench is designated with a separate letter which starts the code, so it is immediately obvious to which trench a locus belongs. For example locus HAA belongs to Square H, locus MQP to Square M etc.
-        The loci are labelled consecutively in alphabetical order using the letters following the trench letter. For Square H the first locus would be HAA, the second HAB, the third HAB and so on. In addition sets of letters can denote parts of trenches, buildings etc. E.g. HFs might denote loci from a specific building.
+        <desc>Every archaeological locus (negative element (cut), deposit, structure, skeleton, artefact cluster) is given a unique 3 or 4 letter locus code. Each trench is designated with a separate letter which starts the code, so it is immediately obvious to which trench a locus belongs. For example locus HAA belongs to Trench H, locus MQP to Trench M etc.
+        The loci are labelled consecutively in alphabetical order using the letters following the trench letter. For Trench H the first locus would be HAA, the second HAB, the third HAB and so on. In addition sets of letters can denote parts of trenches, buildings etc. E.g. HFs might denote loci from a specific building.
         Burial locus codes begin with the letter Z, followed by the trench letter. Hence burial ZHA is the first burial locus from trench H.
         Check with the trench supervisor who will assign the locus code from the central register.</desc>
       </Locus_ID>
@@ -248,6 +251,7 @@
           </opt>
           <opt>
             Shovel
+            <desc>Excavated by shovel.</desc>
           </opt>
           <opt>Other
             <desc>Excavated by another method. Add details in Annotation field.</desc>
@@ -356,10 +360,10 @@
         <SE_Bottom_Height b="decimal"/>
       </col>
     </cols>
-    <Volume_Liters f="notnull" b="decimal">
-      Volume (liters)
-      <desc>Estimate the volume of the locus in liters. All soil will be collected in buckets of a known volume. A tally should be kept of buckets produced from a locus and the total volume calculated using that tally.</desc>
-    </Volume_Liters>
+    <Volume_Litres f="notnull" b="decimal">
+      Volume (litres)
+      <desc>Estimate the volume of the locus in litres. All soil will be collected in buckets of a known volume. A tally should be kept of buckets produced from a locus and the total volume calculated using that tally.</desc>
+    </Volume_Litres>
   </Measure>
   <Cut>
     Pit
@@ -375,11 +379,11 @@
           <opt>Stone-lined</opt>
           <opt>Plastered</opt>
           <opt>No Lining</opt>
+          <opt>Other
+            <desc>Function not elsewhere described. Provide details in Annotation field.</desc>
+          </opt>
         </opt>
         <opt>Hearth/Fire pit</opt>
-        <opt>Other
-          <desc>Function not elsewhere described. Provide details in Annotation field.</desc>
-        </opt>
       </opts>
     </Cut_Your_Interpretation>
     <cols>
@@ -1158,7 +1162,7 @@
       </author>
     </cols>
     <Text>
-      <desc>Record your diary entry here in as much detail as necessary and append with photographs, video and/or audio</desc>
+      <desc>Record your diary entry here in as much detail as necessary and append with photographs.</desc>
     </Text>
     <Photo t="camera">
       <desc>Use this button to take a photo relevant to this entry using the camera on the tablet</desc>
@@ -1243,8 +1247,8 @@
     </cols>
     <cols>
       <Locus_ID f="readonly" i="Locus/General/Locus_ID">
-        <desc>Every archaeological locus (negative element (cut), deposit, structure, skeleton, artefact cluster) is given a unique 3 or 4 letter locus code. Each trench is designated with a separate letter which starts the code, so it is immediately obvious to which trench a locus belongs. For example locus HAA belongs to Square H, locus MQP to Square M etc.
-        The loci are labelled consecutively in alphabetical order using the letters following the trench letter. For Square H the first locus would be HAA, the second HAB, the third HAB and so on. In addition sets of letters can denote parts of trenches, buildings etc. E.g. HFs might denote loci from a specific building.
+        <desc>Every archaeological locus (negative element (cut), deposit, structure, skeleton, artefact cluster) is given a unique 3 or 4 letter locus code. Each trench is designated with a separate letter which starts the code, so it is immediately obvious to which trench a locus belongs. For example locus HAA belongs to Trench H, locus MQP to Trench M etc.
+        The loci are labelled consecutively in alphabetical order using the letters following the trench letter. For Trench H the first locus would be HAA, the second HAB, the third HAB and so on. In addition sets of letters can denote parts of trenches, buildings etc. E.g. HFs might denote loci from a specific building.
         Burial locus codes begin with the letter Z, followed by the trench letter. Hence burial ZHA is the first burial locus from trench H.
         Check with the trench supervisor who will assign the locus code from the central register.</desc>
       </Locus_ID>

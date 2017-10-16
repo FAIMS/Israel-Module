@@ -1995,10 +1995,10 @@ public class ModuleUtil extends ModuleHelper {
 
     /*
         Type: input
-        Ref:  Locus/Measure/Volume_Liters
+        Ref:  Locus/Measure/Volume_Litres
      */
-    public static EditText get_Locus_Measure_VolumeLiters(Solo solo) {
-        String ref = "Locus/Measure/Volume_Liters";
+    public static EditText get_Locus_Measure_VolumeLitres(Solo solo) {
+        String ref = "Locus/Measure/Volume_Litres";
         return (android.widget.EditText) solo.getView((Object) ref);
     }
 
