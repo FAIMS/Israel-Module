@@ -80,5 +80,5 @@ String getAttribNamesEndingWithAsString(String ending) {
   return attribNamesString;
 }
 
-ATTRIBS_TRENCH_ID = getAttribNamesEndingWithAsString("Trench ID");
+ATTRIBS_SQUARE_ID = getAttribNamesEndingWithAsString("Square ID");
 ATTRIBS_LOCUS_ID  = getAttribNamesEndingWithAsString("Locus ID");

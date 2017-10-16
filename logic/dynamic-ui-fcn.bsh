@@ -1,6 +1,6 @@
 /****************************** DYNAMIC UI - FCN ******************************/
 void updateFcnVolume() {
-  String ref       = "FCN/General/FCN_Class";
+  String ref       = "Pottery_Basket/General/Pottery_Basket_Class";
   String vocabName = getMenuValue(ref);
 
   if (vocabName.equals("{Sediment}")) { showFcnVolume(); return; }
@@ -10,12 +10,12 @@ void updateFcnVolume() {
 }
 
 void hideFcnVolume() {
-  hideView("FCN/General/Volume_Liters");
+  hideView("Pottery_Basket/General/Volume_Liters");
 }
 
 void showFcnVolume() {
-  String refView  = "FCN/General/Volume_Liters";
-  String refGroup = "FCN/General/Volume_Liters_Group";
+  String refView  = "Pottery_Basket/General/Volume_Liters";
+  String refGroup = "Pottery_Basket/General/Volume_Liters_Group";
 
   if (hasView(refView)) return;
 
@@ -35,6 +35,6 @@ void showFcnVolume() {
   createView(refView, viewDef, refGroup);
 }
 
-addOnEvent("FCN/General/FCN_Class", "click", "updateFcnVolume()");
-addOnEvent("FCN",                "prefetch", "showFcnVolume()");
-addOnEvent("FCN",                   "fetch", "updateFcnVolume()");
+addOnEvent("Pottery_Basket/General/Pottery_Basket_Class", "click", "updateFcnVolume()");
+addOnEvent("Pottery_Basket",                "prefetch", "showFcnVolume()");
+addOnEvent("Pottery_Basket",                   "fetch", "updateFcnVolume()");

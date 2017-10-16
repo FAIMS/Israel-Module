@@ -130,18 +130,18 @@ void searchRelationship() {
   String refUnrelated = "Relationship/Relationships/Unrelated_Loci";
   String refRelated   = "Relationship/Relationships/Existing_Relationships";
   String refRelType   = "Relationship/Relationships/Relationship_Type";
-  String refTrenchId  = "Relationship/Relationships/Trench_ID";
+  String refSquareId  = "Relationship/Relationships/Square_ID";
   String refLocusId   = "Relationship/Relationships/Locus_ID";
 
-  String trenchId   = getFieldValue(refTrenchId);
+  String squareId   = getFieldValue(refSquareId);
   String locusId    = getFieldValue(refLocusId);
   String parentRole = getSelectedRelationshipComponent(refRelType, "parent");
   String unrelatedQ = "";
   String relatedQ   = "";
 
-  if (isNull(trenchId)) {
-    msgHead  = "{trench_id_required_head}";
-    msgBody  = "{trench_id_required_body}";
+  if (isNull(squareId)) {
+    msgHead  = "{square_id_required_head}";
+    msgBody  = "{square_id_required_body}";
     showWarning(msgHead, msgBody);
     return;
   }
@@ -151,8 +151,8 @@ void searchRelationship() {
   unrelatedQ += "  WHERE uuid IN (";
   unrelatedQ += "         SELECT uuid";
   unrelatedQ += "           FROM latestnondeletedaentvalue JOIN attributekey USING (attributeid)";
-  unrelatedQ += "          WHERE attributename IN " + ATTRIBS_TRENCH_ID;
-  unrelatedQ += "            AND measure = '{Locus_Trench_ID}'";
+  unrelatedQ += "          WHERE attributename IN " + ATTRIBS_SQUARE_ID;
+  unrelatedQ += "            AND measure = '{Square_ID}'";
   unrelatedQ += "            AND uuid IN (";
   unrelatedQ += "                 SELECT uuid";
   unrelatedQ += "                   FROM latestnondeletedaentvalue JOIN attributekey USING (attributeid) ";
@@ -167,7 +167,7 @@ void searchRelationship() {
   unrelatedQ += "    AND aenttypename IN ('Locus', 'Legacy')";
   unrelatedQ += " ORDER BY response";
   unrelatedQ += " LIMIT ? OFFSET ?";
-  unrelatedQ  = replaceFirst(unrelatedQ, "{Locus_Trench_ID}",               trenchId);
+  unrelatedQ  = replaceFirst(unrelatedQ, "{Square_ID}",               squareId);
   unrelatedQ  = replaceFirst(unrelatedQ, "{Locus_Locus_ID}",                locusId);
   unrelatedQ  = replaceFirst(unrelatedQ, "{Locus_Locus_ID}",                locusId);
   unrelatedQ  = replaceFirst(unrelatedQ, "{parentUuid}",                    parentUuid);

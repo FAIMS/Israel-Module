@@ -1,33 +1,33 @@
 /************************* DYNAMIC UI - CONTEXT GROUP *************************/
 // Prefetch this vocab seeing as it will be dynamically loaded multiple times
 // throughout the module's runtime.
-void updateStratumFeatureFields() {
+void updatePhaseFields() {
   return;
 }
 
-void updateStratumFeatureToStratum() {
-  hideStratumFeaturePrefix();
-  hideStratumFeatureType();
-  showStratumFeatureParens();
+void updatePhaseToStratum() {
+  hidePhasePrefix();
+  hidePhaseType();
+  showPhaseParens();
 }
 
-void updateStratumFeatureToFeature() {
-  showStratumFeaturePrefix();
-  showStratumFeatureType();
-  hideStratumFeatureParens();
+void updatePhaseToFeature() {
+  showPhasePrefix();
+  showPhaseType();
+  hidePhaseParens();
 }
 
-void hideStratumFeatureType() {
+void hidePhaseType() {
   hideView(
-      "Stratum_Feature/General/Feature_Type",
-      "Stratum_Feature/Vars/Last_Feature_Type"
+      "Phase/General/Feature_Type",
+      "Phase/Vars/Last_Feature_Type"
   );
 }
 
-void hideStratumFeaturePrefix() {
+void hidePhasePrefix() {
   hideView(
-      "Stratum_Feature/General/Feature_Prefix",
-      "Stratum_Feature/Vars/Last_Feature_Prefix"
+      "Phase/General/Feature_Prefix",
+      "Phase/Vars/Last_Feature_Prefix"
   );
 }
 
@@ -36,15 +36,15 @@ void hideView(String refView, String refViewLast) {
   hideView(refView);
 }
 
-void hideStratumFeatureParens() {
-  setFieldValue("Stratum_Feature/Vars/L_Paren", "");
-  setFieldValue("Stratum_Feature/Vars/R_Paren", "");
+void hidePhaseParens() {
+  setFieldValue("Phase/Vars/L_Paren", "");
+  setFieldValue("Phase/Vars/R_Paren", "");
 }
 
-void showStratumFeatureType() {
-  String refViewLast = "Stratum_Feature/Vars/Last_Feature_Type";
-  String refView     = "Stratum_Feature/General/Feature_Type";
-  String refGroup    = "Stratum_Feature/General/Feature_Type_Group";
+void showPhaseType() {
+  String refViewLast = "Phase/Vars/Last_Feature_Type";
+  String refView     = "Phase/General/Feature_Type";
+  String refGroup    = "Phase/General/Feature_Type_Group";
 
   if (hasView(refView)) return;
 
@@ -68,10 +68,10 @@ void showStratumFeatureType() {
   copyFieldValue(refViewLast, refView);
 }
 
-void showStratumFeaturePrefix() {
-  String refViewLast = "Stratum_Feature/Vars/Last_Feature_Prefix";
-  String refView     = "Stratum_Feature/General/Feature_Prefix";
-  String refGroup    = "Stratum_Feature/General/Feature_Prefix_Group";
+void showPhasePrefix() {
+  String refViewLast = "Phase/Vars/Last_Feature_Prefix";
+  String refView     = "Phase/General/Feature_Prefix";
+  String refGroup    = "Phase/General/Feature_Prefix_Group";
 
   if (hasView(refView)) return;
 
@@ -93,11 +93,11 @@ void showStratumFeaturePrefix() {
   copyFieldValue(refViewLast, refView);
 }
 
-void showStratumFeatureParens() {
-  setFieldValue("Stratum_Feature/Vars/L_Paren", "(");
-  setFieldValue("Stratum_Feature/Vars/R_Paren", ")");
+void showPhaseParens() {
+  setFieldValue("Phase/Vars/L_Paren", "(");
+  setFieldValue("Phase/Vars/R_Paren", ")");
 }
 
-addOnEvent("Stratum_Feature", "create",   "updateStratumFeatureFields()");
-addOnEvent("Stratum_Feature", "prefetch", "updateStratumFeatureToFeature()");
-addOnEvent("Stratum_Feature",    "fetch", "updateStratumFeatureFields()");
+addOnEvent("Phase", "create",   "updatePhaseFields()");
+addOnEvent("Phase", "prefetch", "updatePhaseToFeature()");
+addOnEvent("Phase",    "fetch", "updatePhaseFields()");

@@ -3,19 +3,19 @@
 /*                                                                            */
 /* Uses functions and globals from logic/relationships-shared.bsh             */
 /*                                                                            */
-/* Modifies onClickStratumFeatureCreateRelationshipstoThisStratumFeature      */
+/* Modifies onClickPhaseCreateRelationshipstoThisPhase      */
 /* using  @POSTPROC.                                                          */
 /******************************************************************************/
 //////////////// FUNCTIONS AFFECTING "CONTEXT GROUP" TAB GROUP /////////////////
-addOnEvent("Stratum_Feature",                                    "show",  "CGinitParentRelationshipGlobals()");
-addOnEvent("Stratum_Feature",                                    "show",  "CGpopulateExistingRelationships()");
-addOnEvent("Stratum_Feature/Stratum_Feature_Loci/Load_Related_Locus", "click", "loadRelatedEntity()");
+addOnEvent("Phase",                                    "show",  "CGinitParentRelationshipGlobals()");
+addOnEvent("Phase",                                    "show",  "CGpopulateExistingRelationships()");
+addOnEvent("Phase/Phase_Loci/Load_Related_Locus", "click", "loadRelatedEntity()");
 
-addOnEvent("Stratum_Feature/Stratum_Feature_Loci/Existing_Relationships_to_This_Stratum_Feature", "click", "CGSelectRelationship()");
-addOnEvent("Stratum_Feature/Stratum_Feature_Loci/Delete_Relationship",                    "click", "deleteRelationship()");
+addOnEvent("Phase/Phase_Loci/Existing_Relationships_to_This_Phase", "click", "CGSelectRelationship()");
+addOnEvent("Phase/Phase_Loci/Delete_Relationship",                    "click", "deleteRelationship()");
 
 void CGinitParentRelationshipGlobals() {
-  String refSelectedRelParent = "Stratum_Feature/Stratum_Feature_Loci/Selected_Relationship";
+  String refSelectedRelParent = "Phase/Phase_Loci/Selected_Relationship";
 
   selectedChildUuid     = null;
   selectedRelId         = null;
@@ -25,9 +25,9 @@ void CGinitParentRelationshipGlobals() {
 }
 
 void CGpopulateExistingRelationships(){
-  String tabGroup    = "Stratum_Feature";
+  String tabGroup    = "Phase";
   String currentUuid = getUuid(tabGroup);
-  String refExistingRelationships = "Stratum_Feature/Stratum_Feature_Loci/Existing_Relationships_to_This_Stratum_Feature";
+  String refExistingRelationships = "Phase/Phase_Loci/Existing_Relationships_to_This_Phase";
 
   String q = getCGChildQuery(currentUuid);
 
@@ -36,7 +36,7 @@ void CGpopulateExistingRelationships(){
 }
 
 void CGSelectRelationship() {
-  String refSelectedRelParent = "Stratum_Feature/Stratum_Feature_Loci/Selected_Relationship";
+  String refSelectedRelParent = "Phase/Phase_Loci/Selected_Relationship";
 
   String val = getListItemValue();
   if (isNull(val)) return;
@@ -53,16 +53,16 @@ void CGSelectRelationship() {
 }
 
 ////////////////// FUNCTIONS AFFECTING RELATIONSHIP TAB GROUP //////////////////
-addOnEvent("Stratum_Feature_Relationship",                                      "show",  "CGinitRelationshipRelationshipGlobals()");
-addOnEvent("Stratum_Feature_Relationship/Relationships/Add_Relationship",       "click", "CGaddRelationship()");
-addOnEvent("Stratum_Feature_Relationship/Relationships/Delete_Relationship",    "click", "deleteRelationship()");
-addOnEvent("Stratum_Feature_Relationship/Relationships/Existing_Relationships", "click", "CGselectExistingRelationship()");
-addOnEvent("Stratum_Feature_Relationship/Relationships/Search",                 "click", "CGpopulateProposedRelationship()");
-addOnEvent("Stratum_Feature_Relationship/Relationships/Search",                 "click", "CGsearchRelationship()");
-addOnEvent("Stratum_Feature_Relationship/Relationships/Unrelated_Loci",     "click", "CGselectUnrelatedEntity()");
+addOnEvent("Phase_Relationship",                                      "show",  "CGinitRelationshipRelationshipGlobals()");
+addOnEvent("Phase_Relationship/Relationships/Add_Relationship",       "click", "CGaddRelationship()");
+addOnEvent("Phase_Relationship/Relationships/Delete_Relationship",    "click", "deleteRelationship()");
+addOnEvent("Phase_Relationship/Relationships/Existing_Relationships", "click", "CGselectExistingRelationship()");
+addOnEvent("Phase_Relationship/Relationships/Search",                 "click", "CGpopulateProposedRelationship()");
+addOnEvent("Phase_Relationship/Relationships/Search",                 "click", "CGsearchRelationship()");
+addOnEvent("Phase_Relationship/Relationships/Unrelated_Loci",     "click", "CGselectUnrelatedEntity()");
 
 void CGinitRelationshipRelationshipGlobals() {
-  String refSelectedRelRel = "Stratum_Feature_Relationship/Relationships/Selected_Relationship";
+  String refSelectedRelRel = "Phase_Relationship/Relationships/Selected_Relationship";
 
   proposedChildUuid       = null;
   selectedRelId           = null;
@@ -77,7 +77,7 @@ void CGinitRelationshipRelationshipGlobals() {
 }
 
 void CGpopulateProposedRelationship() {
-  String refProposedRel = "Stratum_Feature_Relationship/Relationships/Proposed_Relationship";
+  String refProposedRel = "Phase_Relationship/Relationships/Proposed_Relationship";
 
   String identifierFrom;
   String relationship;
@@ -98,29 +98,29 @@ void CGpopulateProposedRelationship() {
 
   populateWebViewHtml(refProposedRel, webviewHtml);
 
-  String refSelectedRelParent = "Stratum_Feature/Stratum_Feature_Loci/Selected_Relationship";
+  String refSelectedRelParent = "Phase/Phase_Loci/Selected_Relationship";
   populateWebViewHtml(refSelectedRelParent, WEB_REL_BLANK);
 }
 
 void CGsearchRelationship() {
-  String parentTabGroup = "Stratum_Feature";
+  String parentTabGroup = "Phase";
   String parentUuid     = getUuid(parentTabGroup);
 
-  String tabGroup     = "Stratum_Feature_Relationship";
-  String refUnrelated = "Stratum_Feature_Relationship/Relationships/Unrelated_Loci";
-  String refRelated   = "Stratum_Feature_Relationship/Relationships/Existing_Relationships";
-  String refTrenchId  = "Stratum_Feature_Relationship/Relationships/Trench_ID";
-  String refLocusId   = "Stratum_Feature_Relationship/Relationships/Locus_ID";
+  String tabGroup     = "Phase_Relationship";
+  String refUnrelated = "Phase_Relationship/Relationships/Unrelated_Loci";
+  String refRelated   = "Phase_Relationship/Relationships/Existing_Relationships";
+  String refSquareId  = "Phase_Relationship/Relationships/Square_ID";
+  String refLocusId   = "Phase_Relationship/Relationships/Locus_ID";
 
-  String trenchId   = getFieldValue(refTrenchId);
+  String squareId   = getFieldValue(refSquareId);
   String locusId    = getFieldValue(refLocusId);
   String parentRole = "{includes}";
   String unrelatedQ = "";
   String relatedQ   = "";
 
-  if (isNull(trenchId)) {
-    msgHead  = "{trench_id_required_head}";
-    msgBody  = "{trench_id_required_body}";
+  if (isNull(squareId)) {
+    msgHead  = "{square_id_required_head}";
+    msgBody  = "{square_id_required_body}";
     showWarning(msgHead, msgBody);
     return;
   }
@@ -130,8 +130,8 @@ void CGsearchRelationship() {
   unrelatedQ += "  WHERE uuid IN (";
   unrelatedQ += "         SELECT uuid";
   unrelatedQ += "           FROM latestnondeletedaentvalue JOIN attributekey USING (attributeid)";
-  unrelatedQ += "          WHERE attributename IN " + ATTRIBS_TRENCH_ID;
-  unrelatedQ += "            AND measure = '{Trench_ID}'";
+  unrelatedQ += "          WHERE attributename IN " + ATTRIBS_SQUARE_ID;
+  unrelatedQ += "            AND measure = '{Square_ID}'";
   unrelatedQ += "            AND uuid IN (";
   unrelatedQ += "                 SELECT uuid";
   unrelatedQ += "                   FROM latestnondeletedaentvalue JOIN attributekey USING (attributeid) ";
@@ -146,7 +146,7 @@ void CGsearchRelationship() {
   unrelatedQ += "    AND aenttypename IN ('Locus', 'Legacy')";
   unrelatedQ += " ORDER BY response";
   unrelatedQ += " LIMIT ? OFFSET ?";
-  unrelatedQ  = replaceFirst(unrelatedQ, "{Trench_ID}",        trenchId);
+  unrelatedQ  = replaceFirst(unrelatedQ, "{Square_ID}",        squareId);
   unrelatedQ  = replaceFirst(unrelatedQ, "{Locus_ID}",         locusId);
   unrelatedQ  = replaceFirst(unrelatedQ, "{Locus_ID}",         locusId);
   unrelatedQ  = replaceFirst(unrelatedQ, "{parentUuid}",       parentUuid);
@@ -163,8 +163,8 @@ void CGsearchRelationship() {
 }
 
 void CGclearSearch() {
-  String refUnrelated = "Stratum_Feature_Relationship/Relationships/Unrelated_Loci";
-  String refRelated   = "Stratum_Feature_Relationship/Relationships/Existing_Relationships";
+  String refUnrelated = "Phase_Relationship/Relationships/Unrelated_Loci";
+  String refRelated   = "Phase_Relationship/Relationships/Existing_Relationships";
 
   String q = "SELECT '' WHERE 0 LIMIT ? OFFSET ?";
   populateCursorList(refUnrelated, q, 25);
@@ -185,7 +185,7 @@ void CGselectUnrelatedEntity() {
 }
 
 void CGaddRelationship() {
-  String parentTabGroup = "Stratum_Feature";
+  String parentTabGroup = "Phase";
 
   String relName    = "Stratum Feature - Locus";
   String parentUuid = getUuid(parentTabGroup);
@@ -217,7 +217,7 @@ void CGaddRelationship() {
 }
 
 void CGaddRelationshipSucceeded() {
-  String refProposedRel = "Stratum_Feature_Relationship/Relationships/Proposed_Relationship";
+  String refProposedRel = "Phase_Relationship/Relationships/Proposed_Relationship";
 
   populateWebViewHtml(refProposedRel, WEB_REL_BLANK);
 
@@ -225,7 +225,7 @@ void CGaddRelationshipSucceeded() {
 }
 
 void CGselectExistingRelationship() {
-  String refSelectedRelRel = "Stratum_Feature_Relationship/Relationships/Selected_Relationship";
+  String refSelectedRelRel = "Phase_Relationship/Relationships/Selected_Relationship";
 
   String val = getListItemValue();
   if (isNull(val)) return;
@@ -241,8 +241,8 @@ void CGselectExistingRelationship() {
 }
 
 void CGpopulateParentIdentiferRelationships() {
-  String lotRef = "Stratum_Feature_Relationship/Relationships/Parent_Identifier";
-  setFieldToIdentifier("Stratum_Feature", lotRef);
+  String lotRef = "Phase_Relationship/Relationships/Parent_Identifier";
+  setFieldToIdentifier("Phase", lotRef);
 }
 
 String getCGChildQuery(String parentUuid) {
@@ -264,13 +264,13 @@ String getCGChildQuery(String parentUuid) {
 }
 
 //Overrides autogenerated definition
-void onClickStratumFeatureCreateRelationshipstoThisStratumFeature () {
+void onClickPhaseCreateRelationshipstoThisPhase () {
   triggerAutoSave();
-  String tabgroup = "Stratum_Feature";
+  String tabgroup = "Phase";
   if (isNull(getUuid(tabgroup))){
     showToast("{You_must_save_this_tabgroup_first}");
     return;
   }
 
-  newTab("Stratum_Feature_Relationship", true);
+  newTab("Phase_Relationship", true);
 }

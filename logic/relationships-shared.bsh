@@ -4,8 +4,8 @@
 /******************************************************************************/
 addOnEvent("Locus",                    "show", "onDisplayParent()");
 addOnEvent("Relationship",               "show", "onDisplayRelationship()");
-addOnEvent("Stratum_Feature",              "show", "CGonDisplayParent()");
-addOnEvent("Stratum_Feature_Relationship", "show", "CGonDisplayRelationship()");
+addOnEvent("Phase",              "show", "CGonDisplayParent()");
+addOnEvent("Phase_Relationship", "show", "CGonDisplayRelationship()");
 
 String WEB_REL_DESC_FMT      = "%s <u>&nbsp;%s&nbsp;</u> <u>&nbsp;%s&nbsp;</u>";
 String WEB_REL_DESC_FILL     = "?";
@@ -25,10 +25,10 @@ void onDisplayRelationship()      {displayedTabGroup = "Relationship";}
 boolean isDisplayedParent()       {return displayedTabGroup.equals("Locus");}
 boolean isDisplayedRelationship() {return displayedTabGroup.equals("Relationship");}
 
-void CGonDisplayParent()            {displayedTabGroup = "Stratum_Feature";}
-void CGonDisplayRelationship()      {displayedTabGroup = "Stratum_Feature_Relationship";}
-boolean CGisDisplayedParent()       {return displayedTabGroup.equals("Stratum_Feature");}
-boolean CGisDisplayedRelationship() {return displayedTabGroup.equals("Stratum_Feature_Relationship");}
+void CGonDisplayParent()            {displayedTabGroup = "Phase";}
+void CGonDisplayRelationship()      {displayedTabGroup = "Phase_Relationship";}
+boolean CGisDisplayedParent()       {return displayedTabGroup.equals("Phase");}
+boolean CGisDisplayedRelationship() {return displayedTabGroup.equals("Phase_Relationship");}
 
 // Depends on the following globals:
 //   - selectedRelId
@@ -70,8 +70,8 @@ void deleteRelationshipSuceeded() {
     searchRelationship();
   }
 
-  String CGrefSelectedRelRel    = "Stratum_Feature_Relationship/Relationships/Selected_Relationship";
-  String CGrefSelectedRelParent = "Stratum_Feature/Stratum_Feature_Loci/Selected_Relationship";
+  String CGrefSelectedRelRel    = "Phase_Relationship/Relationships/Selected_Relationship";
+  String CGrefSelectedRelParent = "Phase/Phase_Loci/Selected_Relationship";
   if (CGisDisplayedParent()) {
     populateWebViewHtml(CGrefSelectedRelParent, WEB_REL_NONE);
     CGpopulateExistingRelationships();

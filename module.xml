@@ -3,14 +3,14 @@
 <module>
 
 <rels>
-  <!--Stratum/Feature-to-Locus relationship(s)-->
+  <!--Phase-to-Locus relationship(s)-->
   <RelationshipElement name="Stratum Feature - Locus" type="hierarchical">
     <description>A 1-to-n relationship between the parent and its children, respectively.</description>
     <parent>{includes}</parent>
     <child>{is_included_in}</child>
   </RelationshipElement>
 
-  <!--Stratum/Feature-to-Stratum/Feature relationship(s)-->
+  <!--Phase-to-Phase relationship(s)-->
   <!--IMPORTANT: These must not contain dashes!-->
   <RelationshipElement name="Lying against" type="bidirectional">
     <description/>
@@ -62,10 +62,10 @@
 <Control f="nodata">
   <Site f="noscroll">
     Control
-    <New_Square t="button" l="Trench"/>
+    <New_Square t="button" l="Square"/>
     <New_Diary t="button" l="Diary"/>
     <GPS_Diagnostics t="gpsdiag"/>
-    <Choose_an_Existing_Site t="list" e="Trench">
+    <Choose_an_Existing_Site t="list" e="Square">
       Existing Squares
     </Choose_an_Existing_Site>
   </Site>
@@ -82,16 +82,12 @@
   </search>
 </Control>
 
-<Trench>
-  Square
-  <fmt>{{Area}} {{Trench_Trench_ID}} {{Subsquare}}</fmt>
-  <Trench>
-    Square
+<Square>
+  <fmt>{{Area}} {{Square_ID}} {{Subsquare}}</fmt>
+  <Square>
     <author/>
     <Area f="notnull"/>
-    <Trench_Trench_ID f="notnull">
-      Square ID
-    </Trench_Trench_ID>
+    <Square_ID f="notnull"/>
     <Subsquare>
       <opts>
         <opt>1</opt>
@@ -135,23 +131,19 @@
     <Date_Closed f="readonly"/>
     <Brief_Description/>
     <Your_Discussion/>
-    <Add_Trench_Files t="button" lc="Trench_Files">
-      Add Square Files
-    </Add_Trench_Files>
-    <Attached_Trench_Files t="dropdown" ec="Trench_Files">
-      Attached Square Files
-    </Attached_Trench_Files>
-  </Trench>
+    <Add_Square_Files t="button" lc="Square_Files"/>
+    <Attached_Square_Files t="dropdown" ec="Square_Files"/>
+  </Square>
   <Loci f="noscroll">
     <Create_New_Locus t="button" lc="Locus"/>
     <List_of_Existing_Loci t="list" ec="Locus"/>
   </Loci>
   <Strata_Features f="noscroll">
     Phases
-    <Create_New_Stratum_Feature t="button" lc="Stratum_Feature">
+    <Create_New_Phase t="button" lc="Phase">
       Create New Phase
-    </Create_New_Stratum_Feature>
-    <List_of_Existing_Strata_Features t="list" ec="Stratum_Feature">
+    </Create_New_Phase>
+    <List_of_Existing_Strata_Features t="list" ec="Phase">
       List of Existing Phases
     </List_of_Existing_Strata_Features>
   </Strata_Features>
@@ -168,7 +160,7 @@
       <!--@SOURCE: vocabs/device-code.xml-->
     </Device_Code>
   </Vars>
-</Trench>
+</Square>
 
 <Date_Closed f="nodata">
   <Date_Closed>
@@ -178,17 +170,14 @@
   </Date_Closed>
 </Date_Closed>
 
-<Trench_Files>
-  Square Files
-  <fmt>{{Area}} {{Trench_Files_Trench_ID}} {{Subsquare}} {{File_Type}}</fmt>
-  <Add_Trench_Files>
+<Square_Files>
+  <fmt>{{Area}} {{Square_ID}} {{Subsquare}} {{File_Type}}</fmt>
+  <Add_Square_Files>
     Square Files
-    <Area i="Trench/Trench/Area">
+    <Area i="Square/Square/Area">
     </Area>
-    <Trench_Files_Trench_ID f="readonly notnull" i="Trench/Trench/Trench_Trench_ID">
-      Square ID
-    </Trench_Files_Trench_ID>
-    <Subsquare f="readonly" i="Trench/Trench/Subsquare"/>
+    <Square_ID f="readonly notnull" i="Square/Square/Square_ID"/>
+    <Subsquare f="readonly" i="Square/Square/Subsquare"/>
     <author f="readonly"/>
     <File_Type f="notnull">
       <opts>
@@ -201,36 +190,34 @@
     <File_Name/>
     <File_Comment/>
     <Add_Photo t="camera"/>
-  </Add_Trench_Files>
+  </Add_Square_Files>
   <Vars f="hidden">
     <Device_Code i="User/User_List/Device_Code!">
       <!--@SOURCE: vocabs/device-code.xml-->
     </Device_Code>
   </Vars>
-</Trench_Files>
+</Square_Files>
 
 <Locus>
-  <fmt>{{Area}} {{Locus_Trench_ID}} {{Subsquare}} {{Locus_Locus_ID}} {{Locus_Type}}</fmt>
+  <fmt>{{Area}} {{Square_ID}} {{Subsquare}} {{Locus_ID}} {{Locus_Type}}</fmt>
   <desc>The physical result of any single action whether it leaves a positive or negative record within the stratigraphic sequence. (MoLAS 1994)</desc>
   <General>
     <cols>
       <author/>
-      <Area i="Trench/Trench/Area"/>
-      <Locus_Trench_ID f="readonly" i="Trench/Trench/Trench_Trench_ID">
-        Square ID
+      <Area i="Square/Square/Area"/>
+      <Square_ID f="readonly" i="Square/Square/Square_ID">
         <!--The semantics of the autonum flag have been changed using
              @POSTPROC-->
-      </Locus_Trench_ID>
+      </Square_ID>
     </cols>
     <cols>
-      <Subsquare f="readonly" i="Trench/Trench/Subsquare"/>
-      <Locus_Locus_ID f="notnull autonum">
-        Locus ID
+      <Subsquare f="readonly" i="Square/Square/Subsquare"/>
+      <Locus_ID f="notnull autonum">
         <desc>Every archaeological locus (negative element (cut), deposit, structure, skeleton, artefact cluster) is given a unique 3 or 4 letter locus code. Each trench is designated with a separate letter which starts the code, so it is immediately obvious to which trench a locus belongs. For example locus HAA belongs to Trench H, locus MQP to Trench M etc.
         The loci are labelled consecutively in alphabetical order using the letters following the trench letter. For Trench H the first locus would be HAA, the second HAB, the third HAB and so on. In addition sets of letters can denote parts of trenches, buildings etc. E.g. HFs might denote loci from a specific building.
         Burial locus codes begin with the letter Z, followed by the trench letter. Hence burial ZHA is the first burial locus from trench H.
         Check with the trench supervisor who will assign the locus code from the central register.</desc>
-      </Locus_Locus_ID>
+      </Locus_ID>
     </cols>
     <Brief_Description>
       <desc>Enter a brief, clear name for the Locus eg 'House A - west wall'</desc>
@@ -248,7 +235,7 @@
         <Date_Opened>
           <desc>Date on which the Locus was first excavated. This will automatically be set to the date on which the locus is recorded but can be edited using the keyboard.</desc>
         </Date_Opened>
-        <Team_Members i="Trench/Trench/Team_Members">
+        <Team_Members i="Square/Square/Team_Members">
           <desc>Initials of the excavators that have worked on the locus.</desc>
         </Team_Members>
       </col>
@@ -861,15 +848,10 @@
       </col>
     </cols>
   </Relationships>
-  <FCNs f="noscroll">
-    Pottery Basket
-    <Add_FCN t="button" lc="FCN">
-      Add Pottery Basket
-    </Add_FCN>
-    <List_of_Related_FCNs t="list" ec="FCN">
-      Existing Pottery Baskets
-    </List_of_Related_FCNs>
-  </FCNs>
+  <Pottery_Baskets f="noscroll">
+    <Add_Pottery_Basket t="button" lc="Pottery_Basket"/>
+    <List_of_Related_Pottery_Baskets t="list" ec="Pottery_Basket"/>
+  </Pottery_Baskets>
   <Add>
     <Photo t="camera">
       <desc>Use this button to take a photo of the locus using the camera on the tablet. Use a scale in the photo</desc>
@@ -972,20 +954,16 @@
   </Vars>
 </Locus>
 
-<Stratum_Feature>
+<Phase>
   Phase
-  <fmt>{{Stratum_Feature_Trench_ID}}-{{L_Paren}}{{Stratum_Feature_ID}}{{R_Paren}}</fmt>
+  <fmt>{{Square_ID}}-{{L_Paren}}{{Phase_ID}}{{R_Paren}}</fmt>
   <desc>A group of loci.</desc>
   <General>
     Phase
-    <Area f="readonly" i="Trench/Trench/Area"/>
+    <Area f="readonly" i="Square/Square/Area"/>
     <cols>
-      <Stratum_Feature_Trench_ID f="readonly" i="Trench/Trench/Trench_Trench_ID">
-        Square ID
-      </Stratum_Feature_Trench_ID>
-      <Stratum_Feature_ID f="notnull autonum">
-        Phase ID
-      </Stratum_Feature_ID>
+      <Square_ID f="readonly" i="Square/Square/Square_ID"/>
+      <Phase_ID f="notnull autonum"/>
     </cols>
     <Description f="notnull">
       <desc>Describe the feature, any details of dimensions, disturbance, orientation etc.</desc>
@@ -1033,22 +1011,22 @@
       </timestamp>
     </cols>
   </General>
-  <Stratum_Feature_Loci f="noscroll">
+  <Phase_Loci f="noscroll">
     Relationships
-    <Create_Relationships_to_This_Stratum_Feature t="button" l="Stratum_Feature_Relationship">
+    <Create_Relationships_to_This_Phase t="button" l="Phase_Relationship">
       Create Relationships to this Phase
-    </Create_Relationships_to_This_Stratum_Feature>
+    </Create_Relationships_to_This_Phase>
     <cols>
-      <Existing_Relationships_to_This_Stratum_Feature t="list" f="nodata">
+      <Existing_Relationships_to_This_Phase t="list" f="nodata">
         Existing Relationships to this Phase
-      </Existing_Relationships_to_This_Stratum_Feature>
+      </Existing_Relationships_to_This_Phase>
       <col>
         <Selected_Relationship t="webview"/>
         <Load_Related_Locus t="button"/>
         <Delete_Relationship t="button"/>
       </col>
     </cols>
-  </Stratum_Feature_Loci>
+  </Phase_Loci>
   <Add>
     Attachments
     <Photo t="camera">
@@ -1068,10 +1046,10 @@
     </Device_Code>
     <L_Paren/>
     <R_Paren/>
-    <!--<Last_Feature_Type t="dropdown" vp="Stratum_Feature/General/Feature_Type"/>-->
+    <!--<Last_Feature_Type t="dropdown" vp="Phase/General/Feature_Type"/>-->
     <Last_Feature_Prefix/>
   </Vars>
-</Stratum_Feature>
+</Phase>
 
 <Sediment_Aggregate>
   Sediment/Aggregate
@@ -1128,8 +1106,8 @@
     </Soil_Stone_Shape>
   </Sediment_Aggregate>
   <Vars f="hidden">
-    <Locus_ID i="Locus/General/Locus_Locus_ID"/>
-    <Trench_ID i="Locus/General/Locus_Trench_ID"/>
+    <Locus_ID i="Locus/General/Locus_ID"/>
+    <Square_ID i="Locus/General/Square_ID"/>
     <Device_Code i="User/User_List/Device_Code!">
       <!--@SOURCE: vocabs/device-code.xml-->
     </Device_Code>
@@ -1138,21 +1116,18 @@
 
 <Photograph_Log>
   <desc>A record of images created and stored on another device, eg by a professional site photographer.</desc>
-  <fmt>Photo-{{Photo_Locus_ID}}-{{Photograph_Trench_ID if $0 then "-$0"}}{{Photo_Stratum_Feature_ID if $0 then "-($0)"}}-{{Scene_Type}}</fmt>
+  <fmt>Photo-{{Locus_ID}}-{{Square_ID if $0 then "-$0"}}{{Phase_ID if $0 then "-($0)"}}-{{Scene_Type}}</fmt>
   <Photograph_Log>
     <cols>
-      <Photo_Locus_ID f="readonly" i="Locus/General/Locus_Locus_ID">
-        Locus ID
+      <Locus_ID f="readonly" i="Locus/General/Locus_ID">
         <desc>Unique number or code for each Locus</desc>
-      </Photo_Locus_ID>
-      <Photo_Stratum_Feature_ID f="readonly" i="Stratum_Feature/General/Stratum_Feature_ID">
-        Phase ID
+      </Locus_ID>
+      <Phase_ID f="readonly" i="Phase/General/Phase_ID">
         <desc>Unique number or code for each Phase</desc>
-      </Photo_Stratum_Feature_ID>
-      <Photograph_Reference_ID>
-        Photograph Register ID
+      </Phase_ID>
+      <Photograph_Register_ID>
         <desc>Unique number or code allocated by creator of the image. It could be a filename or a reference number</desc>
-      </Photograph_Reference_ID>
+      </Photograph_Register_ID>
     </cols>
     <Scene_Type>
       <desc>The type of scene captured, eg opening or closing view of the Locus. (Vocab: Open, Close, Other)</desc>
@@ -1166,8 +1141,7 @@
     <Brief_Description/>
   </Photograph_Log>
   <Vars f="hidden">
-    <Photograph_Trench_ID i="Locus/General/Locus_Trench_ID Stratum_Feature/General/Stratum_Feature_Trench_ID">
-    </Photograph_Trench_ID>
+    <Square_ID i="Locus/General/Square_ID Phase/General/Square_ID"/>
     <Device_Code i="User/User_List/Device_Code!">
       <!--@SOURCE: vocabs/device-code.xml-->
     </Device_Code>
@@ -1175,7 +1149,7 @@
 </Photograph_Log>
 
 <Diary>
-  <fmt>Diary-{{Timestamp}} {{author}}{{Diary_Trench_ID if "$0" then "-$0"}}</fmt>
+  <fmt>Diary-{{Timestamp}} {{author}}{{Square_ID if "$0" then "-$0"}}</fmt>
   <Diary>
     <Title>
       <desc>Give your entry a simple, short title. Note that diary entries allow you to add information in addition to the locus, feature and artefact records elsewhere in the module and should not be the primary description point for those entities</desc>
@@ -1197,7 +1171,7 @@
     </Photo>
   </Diary>
   <Vars f="hidden">
-    <Diary_Trench_ID i="Trench/Trench/Trench_Trench_ID"/>
+    <Square_ID i="Square/Square/Square_ID"/>
     <Device_Code i="User/User_List/Device_Code!">
       <!--@SOURCE: vocabs/device-code.xml-->
     </Device_Code>
@@ -1209,9 +1183,7 @@
   <Relationships f="noscroll">
     <Parent_Identifier t="webview"/>
     <cols>
-      <Trench_ID f="notnull">
-        Square ID
-      </Trench_ID>
+      <Square_ID f="notnull"/>
       <Locus_ID f="notnull"/>
     </cols>
     <Relationship_Type t="dropdown" f="persist!"/>
@@ -1238,14 +1210,12 @@
 </Relationship>
 
 <!--Locus Group to Locus-->
-<Stratum_Feature_Relationship f="nodata">
+<Phase_Relationship f="nodata">
   Phase Relationship
   <Relationships f="noscroll">
     <Parent_Identifier t="webview"/>
     <cols>
-      <Trench_ID f="notnull">
-        Square ID
-      </Trench_ID>
+      <Square_ID f="notnull"/>
       <Locus_ID f="notnull"/>
     </cols>
     <Search t="button"/>
@@ -1268,29 +1238,24 @@
     <Create_New_Legacy t="button" l="Legacy"/>
     <List_of_Existing_Legacies t="list" e="Legacy"/>
   </Legacies>
-</Stratum_Feature_Relationship>
+</Phase_Relationship>
 
-<FCN>
-  Pottery Basket
-  <fmt>{{Area}} {{FCN_Trench_ID}} {{Subsquare}} {{Locus_ID}} {{FCN_ID}}</fmt>
+<Pottery_Basket>
+  <fmt>{{Area}} {{Square_ID}} {{Subsquare}} {{Locus_ID}} {{Pottery_Basket_ID}}</fmt>
   <General>
     <cols>
       <Area i="Locus/General/Area"/>
-      <FCN_Trench_ID f="readonly" i="Locus/General/Locus_Trench_ID Trench/Trench/Trench_Trench_ID">
-        Square ID
-      </FCN_Trench_ID>
+      <Square_ID f="readonly" i="Locus/General/Square_ID Square/Square/Square_ID"/>
       <Subsquare f="readonly" i="Locus/General/Subsquare"/>
     </cols>
     <cols>
-      <Locus_ID f="readonly" i="Locus/General/Locus_Locus_ID">
+      <Locus_ID f="readonly" i="Locus/General/Locus_ID">
         <desc>Every archaeological locus (negative element (cut), deposit, structure, skeleton, artefact cluster) is given a unique 3 or 4 letter locus code. Each trench is designated with a separate letter which starts the code, so it is immediately obvious to which trench a locus belongs. For example locus HAA belongs to Trench H, locus MQP to Trench M etc.
         The loci are labelled consecutively in alphabetical order using the letters following the trench letter. For Trench H the first locus would be HAA, the second HAB, the third HAB and so on. In addition sets of letters can denote parts of trenches, buildings etc. E.g. HFs might denote loci from a specific building.
         Burial locus codes begin with the letter Z, followed by the trench letter. Hence burial ZHA is the first burial locus from trench H.
         Check with the trench supervisor who will assign the locus code from the central register.</desc>
       </Locus_ID>
-      <FCN_ID f="notnull autonum">
-        Pottery Basket ID
-      </FCN_ID>
+      <Pottery_Basket_ID f="notnull autonum"/>
       <Date_Collected/>
     </cols>
     <gps/>
@@ -1417,7 +1382,7 @@
       <!--@SOURCE: vocabs/device-code.xml-->
     </Device_Code>
   </Vars>
-</FCN>
+</Pottery_Basket>
 
 <Soil_Munsel_Color>
   <fmt>{{Soil_Munsel_Color_Locus_ID}} Color-{{Soil_Munsel_Color}}</fmt>
@@ -1427,7 +1392,7 @@
     </Soil_Munsel_Color>
   </Add_Soil_Munsel_Color>
   <Vars f="hidden">
-    <Soil_Munsel_Color_Locus_ID i="Locus/General/Locus_Locus_ID"/>
+    <Soil_Munsel_Color_Locus_ID i="Locus/General/Locus_ID"/>
     <Device_Code i="User/User_List/Device_Code!">
       <!--@SOURCE: vocabs/device-code.xml-->
     </Device_Code>
@@ -1435,15 +1400,11 @@
 </Soil_Munsel_Color>
 
 <Legacy>
-  <fmt>{{Legacy_Trench_ID}} L{{Legacy_Locus_ID}}</fmt>
+  <fmt>{{Square_ID}} L{{Locus_ID}}</fmt>
   <Legacy>
     <cols>
-      <Legacy_Trench_ID f="notnull">
-        Square ID
-      </Legacy_Trench_ID>
-      <Legacy_Locus_ID f="notnull">
-        Locus ID
-      </Legacy_Locus_ID>
+      <Square_ID f="notnull"/>
+      <Locus_ID f="notnull"/>
     </cols>
   </Legacy>
   <Var f="hidden">

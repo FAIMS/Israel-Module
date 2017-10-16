@@ -93,12 +93,12 @@ Cannot_Log_in=Cannot Log in
 You_must_select_a_user_to_log_in=You must select a user to log in.
 site_already_exists_head=Site Already Exists
 site_already_exists_body=A site having this name and campaign year already exists. Tap 'OK' to change the 'New Site Name' and 'Year of Campaign' fields, or 'Cancel' to dismiss this message and create a new Site anyway.
-trench_already_exists_head=Trench Already Exists
-trench_already_exists_body=A trench having this trench ID already exists. Tap 'OK' to change the 'Trench ID' field, or 'Cancel' to dismiss this  message and create a new Trench anyway.
+square_already_exists_head=Square Already Exists
+square_already_exists_body=A square having this square ID already exists. Tap 'OK' to change the 'Square ID' field, or 'Cancel' to dismiss this  message and create a new Square anyway.
 proceed_to_date_picker_head=Proceed To Date Picker?
 proceed_to_date_picker_body=Have you established the closing date? If not, press 'Cancel' and return. If yes, press 'OK' and select date from date picker. Once selected, 'Date Closed' can only be edited but not blanked.
-trench_id_required_head=Trench ID Required
-trench_id_required_body=Searching requires that the Trench ID field is filled in.
+square_id_required_head=Square ID Required
+square_id_required_body=Searching requires that the Square ID field is filled in.
 logic_error_head=Logic Error
 logic_error_body=Something happened which never should.
 no_locus_selected=No Locus selected
@@ -126,12 +126,12 @@ immediately_later_than=Immediately Later Than
 includes=includes
 is_included_in=is included in
 precisely_contemporary_with=Precisely Contemporary with
-invalid_trench_id_head=Invalid Trench ID
-invalid_trench_id_body=The given Trench ID is not valid. Valid Trench IDs consist of a capital 'T' followed by one or more digits.
+invalid_square_id_head=Invalid Square ID
+invalid_square_id_body=The given Square ID is not valid. Valid Square IDs consist of a capital 'T' followed by one or more digits.
 valid_control_head=Invalid Field(s) Found
 valid_control_body_1=The following fields are invalid:\n
 valid_control_body_2=You must enter data into these fields to proceed.
-invalid_trench_id_body=Tap 'Cancel' to change the 'Trench ID' field, or 'OK' to proceed.
+invalid_square_id_body=Tap 'Cancel' to change the 'Square ID' field, or 'OK' to proceed.
 EOF
 
 rm ui_schema.xml.original

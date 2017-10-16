@@ -1,12 +1,12 @@
 /************************* FCN ENTITY LIST POPULATION *************************/
-addOnEvent("Trench", "create", "populateTrenchFcns()");
-addOnEvent("Trench", "fetch",  "populateTrenchFcns()");
-addOnEvent("FCN",    "save",   "populateTrenchFcns()");
-addOnEvent("Trench/FCNs/List_of_Existing_FCNs", "click", "loadEntity()");
+addOnEvent("Square", "create", "populateSquareFcns()");
+addOnEvent("Square", "fetch",  "populateSquareFcns()");
+addOnEvent("Pottery_Basket",    "save",   "populateSquareFcns()");
+addOnEvent("Square/Pottery_Baskets/List_of_Existing_Pottery_Baskets", "click", "loadEntity()");
 
-void populateTrenchFcns() {
-  String parentUuid    = getUuid("Trench");
-  String refEntityList = "Trench/FCNs/List_of_Existing_FCNs";
+void populateSquareFcns() {
+  String parentUuid    = getUuid("Square");
+  String refEntityList = "Square/Pottery_Baskets/List_of_Existing_Pottery_Baskets";
 
   String q = "";
   q += "SELECT childuuid, response";
@@ -14,15 +14,15 @@ void populateTrenchFcns() {
   q += "  JOIN createdmodifiedatby USING (uuid)";
   q += " WHERE (relationshipid IN (SELECT relationshipid";
   q += "                            FROM latestnondeletedrelationship JOIN relntype USING (relntypeid)";
-  q += "                           WHERE relntypename IN ('Trench - FCN'))";
+  q += "                           WHERE relntypename IN ('Square - Pottery_Basket'))";
   q += "   AND parentuuid = '{parentUuid}')";
   q += "    OR (parentuuid IN (SELECT childuuid";
   q += "                       FROM parentchild";
   q += "                      WHERE relationshipid in (SELECT relationshipid";
   q += "                                                 FROM latestnondeletedrelationship JOIN relntype USING (relntypeid)";
-  q += "                                                WHERE relntypename IN ('Trench - Locus'))";
+  q += "                                                WHERE relntypename IN ('Square - Locus'))";
   q += "                        AND parentuuid = '{parentUuid}'))";
-  q += "   AND childaenttypename IN ('FCN')";
+  q += "   AND childaenttypename IN ('Pottery_Basket')";
   q += " ORDER BY parentchild.createdat DESC";
   q += " LIMIT ? OFFSET ?";
   q  = replaceFirst(q, "{parentUuid}", parentUuid);

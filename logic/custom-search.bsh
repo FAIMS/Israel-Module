@@ -3,9 +3,10 @@
 /* constrain their searches by user.                                          */
 /******************************************************************************/
 delOnEvent("Control/Search", "show", "search()");
+delOnEvent("Control/Search/Entity_Types"  , "click" , "search()");
+
 addOnEvent("Control/Search", "show", "populateSelectUser()");
 addOnEvent("Control/Search", "show", "populateSquare()");
-delOnEvent("Control/Search/Entity_Types"  , "click" , "search()");
 
 void populateSelectUser(){
   String refSearchUsers = "Control/Search/Select_User";
@@ -18,7 +19,6 @@ void populateSelectUser(){
   fetchAll(getNonDeletedUsersQuery, new FetchCallback() {
     onFetch(result) {
       populateDropDown(refSearchUsers, result, false);
-      search();
     }
   });
 }
@@ -30,21 +30,27 @@ void populateSquare() {
   q += " SELECT DISTINCT measure, measure";
   q += "            FROM latestNonDeletedAentvalue";
   q += "            JOIN attributekey USING (attributeid)";
-  q += "           WHERE attributename IN " + ATTRIBS_TRENCH_ID;
+  q += "           WHERE attributename IN " + ATTRIBS_SQUARE_ID;
   q += "             AND measure IS NOT NULL";
-  q += "           UNION";
-  q += "          SELECT '\\0', '{All}'";
 
   FetchCallback popSquare = new FetchCallback() {
     onFetch(result) {
-      if (!isNull(result))
-        populateDropDown(refSquare, result, false);
+      if (isNull(result)) return;
+
+      // Add the option 'All' at the top of the list
+      List all = new ArrayList();
+      all.add("\\0");
+      all.add("{All}");
+
+      result.add(0, all);
+
+      // Populate dropdown
+      populateDropDown(refSquare, result, false);
     }
   };
 
   fetchAll(q, popSquare);
 }
-
 
 // Overrides auto-generated definition
 void search(){
@@ -75,7 +81,7 @@ void search(){
                        "            SELECT uuid" +
                        "              FROM latestnondeletedaentvalue" +
                        "              JOIN attributekey USING (attributeid)" +
-                       "             WHERE attributename IN " + ATTRIBS_TRENCH_ID +
+                       "             WHERE attributename IN " + ATTRIBS_SQUARE_ID +
                        "               AND measure = '{name}'" +
                        "           )" +
                        "       )" +

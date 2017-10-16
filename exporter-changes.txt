@@ -1,0 +1,34 @@
+ARCHENTS
+    ORIGINAL    |    REPLACEMENT
+Trench          | Square
+Trench Files    | Square Files
+Stratum Feature | Phase
+FCN             | Pottery Basket
+
+
+TODO: Check correctness
+TODO: Check that all identifier components occur in their corresponding arch ent
+ATTRIBS
+Trench_Trench_ID          | Square ID
+Trench_Files_Trench_ID    | Square ID
+Locus_Trench_ID           | Square ID
+Stratum_Feature_Trench_ID | Square ID
+Trench_ID                 | Square ID
+FCN_Trench_ID             | Square ID
+Legacy_Trench_ID          | Square ID
+Locus_Locus_ID            | Locus ID
+Photo_Locus_ID            | Locus ID
+Legacy_Locus_ID           | Locus ID
+Stratum_Feature_ID        | Phase ID
+Photo_Stratum_Feature_ID  | Phase ID
+Legacy_Trench_ID          | Trench ID
+FCN_ID                    | Pottery Basket ID
+Photograph_Reference_ID   | Photograph Register ID
+
+
+
+Stratum Feature
+StratumFeature
+stratumFeature
+Stratum_Feature
+stratum_feature

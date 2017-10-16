@@ -1,10 +1,10 @@
 /*************************** CUSTOM DIARY TIMESTAMP ***************************/
 import java.text.SimpleDateFormat;
 
-addOnEvent("FCN", "create", "populatPotteryBasketTimestamp()");
+addOnEvent("Pottery_Basket", "create", "populatPotteryBasketTimestamp()");
 
 void populatPotteryBasketTimestamp() {
-  String           ref    = "FCN/General/Date_Collected";
+  String           ref    = "Pottery_Basket/General/Date_Collected";
   String           fmt    = "yyyy-MM-dd";
   SimpleDateFormat dFmt   = new SimpleDateFormat(fmt);
   Date             now    = new Date();
