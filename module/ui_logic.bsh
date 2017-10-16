@@ -6818,6 +6818,40 @@ void validateBottomHeights() {
 
 addOnEvent("Locus/Measure", "leave", "validateTopHeights()");
 addOnEvent("Locus/Measure", "leave", "validateBottomHeights()");
+/******************************** DUPLICATION *********************************/
+addOnEvent("Square", "copy", "clearSquareSquareId()");
+addOnEvent("Locus", "copy", "setLocusDateOpened()");
+addOnEvent("Locus", "copy", "clearLocusDateClosed()");
+addOnEvent("Locus", "copy", "clearLocusMeasures()");
+
+// Square / Square ID - leave empty
+void clearSquareSquareId() {
+  clearField("Square/Square/Square_ID");
+}
+
+// Locus / Date Opened - instead update to the current timestamp at the time of
+// duplication
+// == Uses `setLocusDateOpened()`
+
+// Locus / Date Closed - leave empty
+void clearLocusDateClosed() {
+  clearField("Locus/General/Date_Closed");
+}
+
+// Locus / Measures - all measures in this tab leave empty
+void clearLocusMeasures() {
+  String refMeasureTab = "Locus/Measure";
+
+  for (ref : getRefs()) {
+    if (!refMeasureTab.equals(getTabRef(ref)))
+      continue;
+
+    if (!"input".equals(getType(ref)))
+      continue;
+
+    clearField(ref);
+  }
+}
 
 
 /******************************************************************************/

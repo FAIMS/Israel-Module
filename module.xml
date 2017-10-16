@@ -1433,5 +1433,6 @@
   <!--@SOURCE: logic/custom-diary-timestamp.bsh-->
   <!--@SOURCE: logic/custom-pottery-basket-timestamp.bsh-->
   <!--@SOURCE: logic/height-validation.bsh-->
+  <!--@SOURCE: logic/duplication.bsh-->
 ]]></logic>
 </module>
