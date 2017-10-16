@@ -1,5 +1,5 @@
 /******************************* RELATIONSHIPS ********************************/
-/* Stratum Feature to Locus relationships.                                  */
+/* Phase to Locus relationships.                                  */
 /*                                                                            */
 /* Uses functions and globals from logic/relationships-shared.bsh             */
 /*                                                                            */
@@ -187,7 +187,7 @@ void CGselectUnrelatedEntity() {
 void CGaddRelationship() {
   String parentTabGroup = "Phase";
 
-  String relName    = "Stratum Feature - Locus";
+  String relName    = "Phase - Locus";
   String parentUuid = getUuid(parentTabGroup);
   String childUuid  = proposedChildUuid;
   String parentRole = "{includes}";
@@ -248,7 +248,7 @@ void CGpopulateParentIdentiferRelationships() {
 String getCGChildQuery(String parentUuid) {
   // `locusIdentifer` is defined in logic/shared.bsh
   String parentIdentifier = locusIdentifer;
-  String relntypename     = "Stratum Feature - Locus";
+  String relntypename     = "Phase - Locus";
 
   String relatedQ = "";
   relatedQ += "SELECT 'related' || char(0) || relationshipid || char(0) || '"+parentIdentifier+" ' || parentparticipatesverb ||' '|| response || char(0) || childuuid, '"+parentIdentifier+"'||' '||parentparticipatesverb||' '||response";

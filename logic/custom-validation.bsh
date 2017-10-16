@@ -12,15 +12,16 @@ String getName(String ref, String defaultName) {
 String getCond(String ref, String defaultCond) {
   String refTab  = getTabRef(ref);
 
-  if (refTab.equals("Locus/Cut"      ))
-    return "isSelected(\"Locus/General/Locus_Type\", \"{Cut}\")";
   if (refTab.equals("Locus/Deposit"  ))
-    return "isSelected(\"Locus/General/Locus_Type\", \"{Deposit}\")" +
-      " ||  isSelected(\"Locus/General/Locus_Type\", \"{Natural}\")";
+    return "isSelected(\"Locus/General/Locus_Type\", \"{Fill}\")";
+  if (refTab.equals("Locus/Cut"      ))
+    return "isSelected(\"Locus/General/Locus_Type\", \"{Pit}\")";
+  if (refTab.equals("Locus/Construction"  ))
+    return "isSelected(\"Locus/General/Locus_Type\", \"{Architecture}\")";
   if (refTab.equals("Locus/Skeleton" ))
     return "isSelected(\"Locus/General/Locus_Type\", \"{Skeleton}\")";
-  if (refTab.equals("Locus/Construction"))
-    return "isSelected(\"Locus/General/Locus_Type\", \"{Construction}\")";
+  if (refTab.equals("Locus/Surface"))
+    return "isSelected(\"Locus/General/Locus_Type\", \"{Surface}\")";
   // Not needed for Israel Module
   /*
   if (ref.equals("Phase/General/Feature_Prefix"))

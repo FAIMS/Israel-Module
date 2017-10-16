@@ -27,6 +27,7 @@ Photograph_Reference_ID   | Photograph Register ID
 
 
 
+Stratum/Feature
 Stratum Feature
 StratumFeature
 stratumFeature

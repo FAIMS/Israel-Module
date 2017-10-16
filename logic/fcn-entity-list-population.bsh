@@ -1,10 +1,10 @@
 /************************* FCN ENTITY LIST POPULATION *************************/
-addOnEvent("Square", "create", "populateSquareFcns()");
-addOnEvent("Square", "fetch",  "populateSquareFcns()");
-addOnEvent("Pottery_Basket",    "save",   "populateSquareFcns()");
+addOnEvent("Square", "create", "populateSquarePotteryBaskets()");
+addOnEvent("Square", "fetch",  "populateSquarePotteryBaskets()");
+addOnEvent("Pottery_Basket",    "save",   "populateSquarePotteryBaskets()");
 addOnEvent("Square/Pottery_Baskets/List_of_Existing_Pottery_Baskets", "click", "loadEntity()");
 
-void populateSquareFcns() {
+void populateSquarePotteryBaskets() {
   String parentUuid    = getUuid("Square");
   String refEntityList = "Square/Pottery_Baskets/List_of_Existing_Pottery_Baskets";
 

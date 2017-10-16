@@ -1,9 +1,9 @@
 /*************************** CUSTOM DIARY TIMESTAMP ***************************/
 import java.text.SimpleDateFormat;
 
-addOnEvent("Pottery_Basket", "create", "populatPotteryBasketTimestamp()");
+addOnEvent("Pottery_Basket", "create", "populatePotteryBasketTimestamp()");
 
-void populatPotteryBasketTimestamp() {
+void populatePotteryBasketTimestamp() {
   String           ref    = "Pottery_Basket/General/Date_Collected";
   String           fmt    = "yyyy-MM-dd";
   SimpleDateFormat dFmt   = new SimpleDateFormat(fmt);

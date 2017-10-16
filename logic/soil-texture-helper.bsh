@@ -2,23 +2,12 @@
 onEvent("Locus/Material_Helper/Update_Material", "click", "setTextureActual()");
 
 void setTextureActual(){
-    String soilQuery= "SELECT vocabid " +
-                      "  FROM vocabulary JOIN attributekey USING (attributeid) "+
-                      " WHERE attributeName = 'Material' "+
-                      "   AND vocabname = '" + getMenuValue("Locus/Material_Helper/Material_Helper") + "' ";
-    //This function makes the hierarchical soil texture selector write to the texture dropdown. We should discuss.
-    Log.d("foo1", soilQuery);
+  String refSrc = "Locus/Material_Helper/Material_Helper";
+  String refDst = "Locus/Deposit/Material";
 
-    fetchOne(soilQuery, new FetchCallback() {
-        onFetch(textureToSet) {
-            if(!isNull(textureToSet)){
-                Log.d("foo1", textureToSet.get(0));
-                setFieldValue("Locus/Deposit/Material", textureToSet.get(0));
-            } else {
-                showToast("{soil_texture_no_match}");
-            }
-            cancelTab("Locus/Material_Helper", false);
-            showTab("Locus/Deposit");
-        }
-    });
+  if (!copyFieldValue(refSrc, refDst))
+    showToast("{soil_texture_no_match}");
+
+  cancelTab(getTabRef(refSrc), false);
+  showTab  (getTabRef(refDst));
 }

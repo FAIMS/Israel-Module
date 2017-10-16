@@ -157,7 +157,7 @@ void searchRelationship() {
   unrelatedQ += "                 SELECT uuid";
   unrelatedQ += "                   FROM latestnondeletedaentvalue JOIN attributekey USING (attributeid) ";
   unrelatedQ += "                  WHERE attributename IN " + ATTRIBS_LOCUS_ID;
-  unrelatedQ += "                    AND (measure = '{Locus_Locus_ID}' OR '{Locus_Locus_ID}' = ''))";
+  unrelatedQ += "                    AND (measure = '{Locus_ID}' OR '{Locus_ID}' = ''))";
   unrelatedQ += "            AND uuid NOT IN (";
   unrelatedQ += "                 SELECT childuuid";
   unrelatedQ += "                   FROM parentchild";
@@ -168,11 +168,11 @@ void searchRelationship() {
   unrelatedQ += " ORDER BY response";
   unrelatedQ += " LIMIT ? OFFSET ?";
   unrelatedQ  = replaceFirst(unrelatedQ, "{Square_ID}",               squareId);
-  unrelatedQ  = replaceFirst(unrelatedQ, "{Locus_Locus_ID}",                locusId);
-  unrelatedQ  = replaceFirst(unrelatedQ, "{Locus_Locus_ID}",                locusId);
-  unrelatedQ  = replaceFirst(unrelatedQ, "{parentUuid}",                    parentUuid);
-  unrelatedQ  = replaceFirst(unrelatedQ, "{parentUuid}",                    parentUuid);
-  unrelatedQ  = replaceFirst(unrelatedQ, "{parentRole}",                    parentRole);
+  unrelatedQ  = replaceFirst(unrelatedQ, "{Locus_ID}",                locusId);
+  unrelatedQ  = replaceFirst(unrelatedQ, "{Locus_ID}",                locusId);
+  unrelatedQ  = replaceFirst(unrelatedQ, "{parentUuid}",              parentUuid);
+  unrelatedQ  = replaceFirst(unrelatedQ, "{parentUuid}",              parentUuid);
+  unrelatedQ  = replaceFirst(unrelatedQ, "{parentRole}",              parentRole);
 
   relatedQ += getRelatedChildQuery(parentUuid);
 

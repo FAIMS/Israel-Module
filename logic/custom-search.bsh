@@ -8,6 +8,16 @@ delOnEvent("Control/Search/Entity_Types"  , "click" , "search()");
 addOnEvent("Control/Search", "show", "populateSelectUser()");
 addOnEvent("Control/Search", "show", "populateSquare()");
 
+addOnEvent("module", "load", "clearSearchResults()");
+
+void clearSearchResults() {
+  populateCursorList(
+      "Control/Search/Entity_List",
+      "SELECT 0 WHERE 0 = 1 LIMIT ? OFFSET ?",
+      25
+  );
+}
+
 void populateSelectUser(){
   String refSearchUsers = "Control/Search/Select_User";
   String getNonDeletedUsersQuery = "SELECT userid, fname || ' ' || lname "+
@@ -35,7 +45,8 @@ void populateSquare() {
 
   FetchCallback popSquare = new FetchCallback() {
     onFetch(result) {
-      if (isNull(result)) return;
+      if (isNull(result))
+        result = new ArrayList();
 
       // Add the option 'All' at the top of the list
       List all = new ArrayList();
