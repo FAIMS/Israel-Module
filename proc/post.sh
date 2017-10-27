@@ -1,12 +1,19 @@
 #!/usr/bin/env bash
 
+# Archives the stuff in the data directory (which is in the same dir as
+# module.xml). The archive gets placed at module/data.tar.gz.
 cd data
 tar -cvzf ../module/data.tar.gz *
 cd ..
-#cp files/* module/
 
+# Start working on our module definition files...
 cd module
 
+# In the ui_schema.xml, replace the "Entity Types" dropdown menu with an
+# "Entity Types" dropdown, a "Select User" dropdown, and a "Select Square"
+# dropdown. These new three dropdowns will appear in columns because of our use
+# of the `<group>` element and `faims_style` attribute. (Check the FAIMS
+# cookbook for more info.)
 string="
         <select1 ref=\"Entity_Types\">
           <label>{Entity_Types}<\/label>
@@ -51,6 +58,7 @@ replacement="
         <\/group>"
 perl -0777 -i.original -pe "s/$string/$replacement/igs" ui_schema.xml
 
+# The UI schema requires that we also define the dropdowns in its <model> tags.
 string="
               <Entity_Types\/>"
 replacement="
@@ -68,6 +76,9 @@ replacement="
               <Select_User\/>"
 perl -0777 -i.original -pe "s/$string/$replacement/igs" ui_schema.xml
 
+# Change Orientation Degree's blank checker into a range checker. The validation
+# schema only affects server-side validation. Client-side validation still must
+# be done using UI_logic.bsh.
 string="
     <property name=\"Orientation Degree\">
       <validator type=\"blankchecker\">
@@ -83,6 +94,8 @@ replacement="
     <\/property>"
 perl -0777 -i.original -pe "s/$string/$replacement/igs" validation.xml
 
+# Add entries to the arch16n file. This includes new entries for the "Select
+# User" and "Select Square" dropdowns.
 cat << EOF >> english.0.properties
 Select_User=Select User
 Select_Site=Select Site
@@ -134,5 +147,7 @@ valid_control_body_2=You must enter data into these fields to proceed.
 invalid_square_id_body=Tap 'Cancel' to change the 'Square ID' field, or 'OK' to proceed.
 EOF
 
+# Perl created backup files when we modified the UI schema and validation
+# schema. They're not needed any more.
 rm ui_schema.xml.original
 rm validation.xml.original
