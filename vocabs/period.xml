@@ -1,0 +1,51 @@
+<opts>
+  <opt>EB
+    <desc>EB (Early Bronze Age) 3300-2000 BC</desc>
+  </opt>
+  <opt>MB
+    <desc>MB (Middle Bronze Age) 2000-1550 BC</desc>
+  </opt>
+  <opt>LB
+  <desc>LB (Late Bronze Age) 1550-1200/1130 BC</desc>
+  </opt>
+  <opt>Iron I
+  <desc>Iron I 1200/1130-980 BC</desc>
+  </opt>
+  <opt>Iron IIA
+  <desc>Iron IIA 980-830 BC</desc>
+  </opt>
+  <opt>Iron IIB
+  <desc>Iron IIB 830-722/701 BC</desc>
+  </opt>
+  <opt>Iron IIC
+  <desc>Iron IIC 722/701-539 BC</desc>
+  </opt>
+  <opt>Persian
+  <desc>Persian 539-332 BC</desc>
+  </opt>
+  <opt>Hellenistic
+  <desc>Hellenistic 332-63 BC</desc>
+  </opt>
+  <opt>Roman
+  <desc>Roman 63 BC-323 AD</desc>
+  </opt>
+  <opt>Byzantine
+  <desc>Byzantine 323-638 AD</desc>
+  </opt>
+  <opt>Early Islamic
+  <desc>Early Islamic 638-1099 AD</desc>
+  </opt>
+  <opt>Crusader
+  <desc>Crusader 1099-1250 AD</desc>
+  </opt>
+  <opt>Mamluk
+  <desc>Mamluk 1250-1540 AD</desc>
+  </opt>
+  <opt>Ottoman
+  <desc>Ottoman 1540-1917 AD</desc>
+  </opt>
+  <opt>Mandate
+  <desc>Mandate 1917-1947 AD</desc>
+  </opt>
+  <opt>Other</opt>
+</opts>

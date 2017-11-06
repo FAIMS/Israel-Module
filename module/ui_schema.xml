@@ -170,6 +170,7 @@
                 </Col_2>
               </Colgroup_2>
               <Brief_Description/>
+              <Primary_Period/>
               <Colgroup_3>
                 <Col_1>
                   <Grid_X/>
@@ -719,6 +720,14 @@
                   <Z_Coordinates/>
                 </Col_3>
               </Colgroup_5>
+              <Colgroup_6>
+                <Col_1>
+                  <Top_Elevation_m/>
+                </Col_1>
+                <Col_2>
+                  <Bottom_Elevation_m/>
+                </Col_2>
+              </Colgroup_6>
               <Weight_kg/>
               <Type/>
               <Washed/>
@@ -821,6 +830,8 @@
       <bind nodeset="/faims/Pottery_Basket/General/Colgroup_5/Col_1/X_Coordinates" type="decimal"/>
       <bind nodeset="/faims/Pottery_Basket/General/Colgroup_5/Col_2/Y_Coordinates" type="decimal"/>
       <bind nodeset="/faims/Pottery_Basket/General/Colgroup_5/Col_3/Z_Coordinates" type="decimal"/>
+      <bind nodeset="/faims/Pottery_Basket/General/Colgroup_6/Col_1/Top_Elevation_m" type="decimal"/>
+      <bind nodeset="/faims/Pottery_Basket/General/Colgroup_6/Col_2/Bottom_Elevation_m" type="decimal"/>
       <bind nodeset="/faims/Pottery_Basket/General/Weight_kg" type="decimal"/>
     </model>
   </h:head>
@@ -1255,6 +1266,13 @@
         <input faims_attribute_name="Locus Brief Description" faims_attribute_type="measure" ref="Brief_Description">
           <label>{Brief_Description}</label>
         </input>
+        <select1 faims_attribute_name="Primary Period" faims_attribute_type="vocab" ref="Primary_Period">
+          <label>{Primary_Period}</label>
+          <item>
+            <label>Options not loaded</label>
+            <value>Options not loaded</value>
+          </item>
+        </select1>
         <group ref="Colgroup_3" faims_style="orientation">
           <label/>
           <group ref="Col_1" faims_style="even">
@@ -1656,7 +1674,7 @@
         <input faims_attribute_name="Texture Description" faims_attribute_type="measure" ref="Texture_Description">
           <label>{Texture_Description}</label>
         </input>
-        <select1 type="image" faims_attribute_name="Soil Particle Sorting" faims_attribute_type="vocab" ref="Soil_Particle_Sorting">
+        <select1 faims_attribute_name="Soil Particle Sorting" faims_attribute_type="vocab" ref="Soil_Particle_Sorting">
           <label>{Soil_Particle_Sorting}</label>
           <item>
             <label>Options not loaded</label>
@@ -2610,6 +2628,21 @@
             <label/>
             <input faims_attribute_name="Z Coordinates" faims_attribute_type="measure" ref="Z_Coordinates">
               <label>{Z_Coordinates}</label>
+            </input>
+          </group>
+        </group>
+        <group ref="Colgroup_6" faims_style="orientation">
+          <label/>
+          <group ref="Col_1" faims_style="even">
+            <label/>
+            <input faims_attribute_name="Top Elevation m" faims_attribute_type="measure" ref="Top_Elevation_m">
+              <label>{Top_Elevation__m_}</label>
+            </input>
+          </group>
+          <group ref="Col_2" faims_style="even">
+            <label/>
+            <input faims_attribute_name="Bottom Elevation m" faims_attribute_type="measure" ref="Bottom_Elevation_m">
+              <label>{Bottom_Elevation__m_}</label>
             </input>
           </group>
         </group>

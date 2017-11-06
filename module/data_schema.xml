@@ -358,6 +358,47 @@
       <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
       <appendCharacterString> - </appendCharacterString>
     </property>
+    <property name="Primary Period" type="vocab">
+      <description></description>
+      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
+      <appendCharacterString> - </appendCharacterString>
+      <lookup>
+        <term>{EB}
+<description>EB (Early Bronze Age) 3300-2000 BC</description></term>
+        <term>{MB}
+<description>MB (Middle Bronze Age) 2000-1550 BC</description></term>
+        <term>{LB}
+<description>LB (Late Bronze Age) 1550-1200/1130 BC</description></term>
+        <term>{Iron_I}
+<description>Iron I 1200/1130-980 BC</description></term>
+        <term>{Iron_IIA}
+<description>Iron IIA 980-830 BC</description></term>
+        <term>{Iron_IIB}
+<description>Iron IIB 830-722/701 BC</description></term>
+        <term>{Iron_IIC}
+<description>Iron IIC 722/701-539 BC</description></term>
+        <term>{Persian}
+<description>Persian 539-332 BC</description></term>
+        <term>{Hellenistic}
+<description>Hellenistic 332-63 BC</description></term>
+        <term>{Roman}
+<description>Roman 63 BC-323 AD</description></term>
+        <term>{Byzantine}
+<description>Byzantine 323-638 AD</description></term>
+        <term>{Early_Islamic}
+<description>Early Islamic 638-1099 AD</description></term>
+        <term>{Crusader}
+<description>Crusader 1099-1250 AD</description></term>
+        <term>{Mamluk}
+<description>Mamluk 1250-1540 AD</description></term>
+        <term>{Ottoman}
+<description>Ottoman 1540-1917 AD</description></term>
+        <term>{Mandate}
+<description>Mandate 1917-1947 AD</description></term>
+        <term>{Other}
+<description></description></term>
+      </lookup>
+    </property>
     <property name="Grid X" type="measure">
       <description>The X coordinate on the SW corner of the locus.</description>
       <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
@@ -421,15 +462,17 @@
       <lookup>
         <term>{No_Observation}
 <description></description></term>
-        <term>{Contaminated}
+        <term>{Primary}
 <description></description></term>
-        <term>{Possibly_Contaminated}
+        <term>{Sealed}
 <description></description></term>
-        <term>{High_Likelihood_High_Amount_Derived}
+        <term>{Unsealed}
 <description></description></term>
-        <term>{Low_Likelihood_Low_Amount_Derived}
+        <term>{Disturbed}
 <description></description></term>
-        <term>{Primary_Deposit}
+        <term>{Disturbed_}
+<description></description></term>
+        <term>{Unstratified}
 <description></description></term>
       </lookup>
     </property>
@@ -911,16 +954,30 @@
       <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
       <appendCharacterString> - </appendCharacterString>
       <lookup>
-        <term pictureURL="files/data/gallery/Other/NA.png">{No_Observation}
-<description>data not collected</description></term>
-        <term pictureURL="files/data/gallery/Sorting/ModeratelySorted.png">{Moderately_sorted}
-<description>Particles are mostly the same size and evenly distributed but there are some larger particles.</description></term>
-        <term pictureURL="files/data/gallery/Sorting/PoorlySorted.png">{Poorly_sorted}
-<description>Particles are different sizes and unevenly distributed.</description></term>
-        <term pictureURL="files/data/gallery/Sorting/VeryPoorlySorted.png">{Very_poorly_sorted}
-<description>Particles are very different sizes and very unevenly distributed.</description></term>
-        <term pictureURL="files/data/gallery/Sorting/WellSorted.png">{Well_sorted}
-<description>Particles are roughly the same size and evenly distributed.</description></term>
+        <term>{Boulder}
+<description>&gt;256mm</description></term>
+        <term>{Cobble}
+<description>64-256m</description></term>
+        <term>{Very_Coarse_Gravel}
+<description>32-64mm</description></term>
+        <term>{Coarse_Gravel}
+<description>16-32mm</description></term>
+        <term>{Medium_Gravel}
+<description>8-16mm</description></term>
+        <term>{Fine_Gravel}
+<description>4-8mm</description></term>
+        <term>{Very_Fine_Gravel}
+<description>2-4mm</description></term>
+        <term>{Very_Coarse_Sand}
+<description>1-2mm</description></term>
+        <term>{Coarse_Sand}
+<description>0.5-1mm</description></term>
+        <term>{Medium_Sand}
+<description>0.25-0.5mm</description></term>
+        <term>{Fine_Sand}
+<description>125-250µm</description></term>
+        <term>{Very_Fine_Sand}
+<description>62.5-125µm</description></term>
       </lookup>
     </property>
     <property name="Material" type="vocab">
@@ -1610,6 +1667,16 @@
       <appendCharacterString> - </appendCharacterString>
     </property>
     <property name="Z Coordinates" type="measure">
+      <description></description>
+      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
+      <appendCharacterString> - </appendCharacterString>
+    </property>
+    <property name="Top Elevation m" type="measure">
+      <description></description>
+      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
+      <appendCharacterString> - </appendCharacterString>
+    </property>
+    <property name="Bottom Elevation m" type="measure">
       <description></description>
       <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
       <appendCharacterString> - </appendCharacterString>

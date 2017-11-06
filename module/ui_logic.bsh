@@ -282,6 +282,7 @@ REF_TO_TYPE.put("Locus/General/Square_ID", "input");
 REF_TO_TYPE.put("Locus/General/Subsquare", "input");
 REF_TO_TYPE.put("Locus/General/Locus_ID", "input");
 REF_TO_TYPE.put("Locus/General/Brief_Description", "input");
+REF_TO_TYPE.put("Locus/General/Primary_Period", "dropdown");
 REF_TO_TYPE.put("Locus/General/Grid_X", "input");
 REF_TO_TYPE.put("Locus/General/Grid_Y", "input");
 REF_TO_TYPE.put("Locus/General/Date_Opened", "input");
@@ -347,7 +348,7 @@ REF_TO_TYPE.put("Locus/Surface/Composition_Description", "dropdown");
 REF_TO_TYPE.put("Locus/Deposit/Deposit_Your_Interpretation", "dropdown");
 REF_TO_TYPE.put("Locus/Deposit/Texture", "dropdown");
 REF_TO_TYPE.put("Locus/Deposit/Texture_Description", "input");
-REF_TO_TYPE.put("Locus/Deposit/Soil_Particle_Sorting", "picture");
+REF_TO_TYPE.put("Locus/Deposit/Soil_Particle_Sorting", "dropdown");
 REF_TO_TYPE.put("Locus/Deposit/Material", "dropdown");
 REF_TO_TYPE.put("Locus/Deposit/Material_Helper", "button");
 REF_TO_TYPE.put("Locus/Deposit/Soil_Colour", "input");
@@ -497,6 +498,8 @@ REF_TO_TYPE.put("Pottery_Basket/General/Take_From_GPS_1", "button");
 REF_TO_TYPE.put("Pottery_Basket/General/X_Coordinates", "input");
 REF_TO_TYPE.put("Pottery_Basket/General/Y_Coordinates", "input");
 REF_TO_TYPE.put("Pottery_Basket/General/Z_Coordinates", "input");
+REF_TO_TYPE.put("Pottery_Basket/General/Top_Elevation_m", "input");
+REF_TO_TYPE.put("Pottery_Basket/General/Bottom_Elevation_m", "input");
 REF_TO_TYPE.put("Pottery_Basket/General/Weight_kg", "input");
 REF_TO_TYPE.put("Pottery_Basket/General/Type", "checkbox");
 REF_TO_TYPE.put("Pottery_Basket/General/Washed", "radio");
@@ -599,6 +602,7 @@ DATA_REFS.add("Locus/General/Square_ID");
 DATA_REFS.add("Locus/General/Subsquare");
 DATA_REFS.add("Locus/General/Locus_ID");
 DATA_REFS.add("Locus/General/Brief_Description");
+DATA_REFS.add("Locus/General/Primary_Period");
 DATA_REFS.add("Locus/General/Grid_X");
 DATA_REFS.add("Locus/General/Grid_Y");
 DATA_REFS.add("Locus/General/Date_Opened");
@@ -754,6 +758,8 @@ DATA_REFS.add("Pottery_Basket/General/Accuracy");
 DATA_REFS.add("Pottery_Basket/General/X_Coordinates");
 DATA_REFS.add("Pottery_Basket/General/Y_Coordinates");
 DATA_REFS.add("Pottery_Basket/General/Z_Coordinates");
+DATA_REFS.add("Pottery_Basket/General/Top_Elevation_m");
+DATA_REFS.add("Pottery_Basket/General/Bottom_Elevation_m");
 DATA_REFS.add("Pottery_Basket/General/Weight_kg");
 DATA_REFS.add("Pottery_Basket/General/Type");
 DATA_REFS.add("Pottery_Basket/General/Washed");
@@ -1922,8 +1928,8 @@ void setUpTypeHierarchy() {
   //      - Photograph Log
   //    - Diary
   //    - Legacy
-  //  - Legacy
   //  - Diary
+  //  - Legacy
 
   n0 = Tree("", 1);
   n1 = Tree("Square", 1);
@@ -1937,8 +1943,8 @@ void setUpTypeHierarchy() {
   n9 = Tree("Photograph Log", 1);
   n10 = Tree("Diary", 1);
   n11 = Tree("Legacy", 1);
-  n12 = Tree("Legacy", 1);
-  n13 = Tree("Diary", 1);
+  n12 = Tree("Diary", 1);
+  n13 = Tree("Legacy", 1);
 
   n0.addChild(n1);
   n0.addChild(n12);

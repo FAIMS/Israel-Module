@@ -1221,6 +1221,15 @@ public class ModuleUtil extends ModuleHelper {
 
     /*
         Type: dropdown
+        Ref:  Locus/Deposit/Soil_Particle_Sorting
+     */
+    public static View get_Locus_Deposit_SoilParticleSorting(Solo solo) {
+        String ref = "Locus/Deposit/Soil_Particle_Sorting";
+        return (android.view.View) solo.getView((Object) ref);
+    }
+
+    /*
+        Type: dropdown
         Ref:  Locus/Deposit/Texture
      */
     public static View get_Locus_Deposit_Texture(Solo solo) {
@@ -1243,6 +1252,15 @@ public class ModuleUtil extends ModuleHelper {
      */
     public static View get_Locus_General_Contamination(Solo solo) {
         String ref = "Locus/General/Contamination";
+        return (android.view.View) solo.getView((Object) ref);
+    }
+
+    /*
+        Type: dropdown
+        Ref:  Locus/General/Primary_Period
+     */
+    public static View get_Locus_General_PrimaryPeriod(Solo solo) {
+        String ref = "Locus/General/Primary_Period";
         return (android.view.View) solo.getView((Object) ref);
     }
 
@@ -2490,6 +2508,15 @@ public class ModuleUtil extends ModuleHelper {
 
     /*
         Type: input
+        Ref:  Pottery_Basket/General/Bottom_Elevation_m
+     */
+    public static EditText get_PotteryBasket_General_BottomElevationm(Solo solo) {
+        String ref = "Pottery_Basket/General/Bottom_Elevation_m";
+        return (android.widget.EditText) solo.getView((Object) ref);
+    }
+
+    /*
+        Type: input
         Ref:  Pottery_Basket/General/Chronology_Note
      */
     public static EditText get_PotteryBasket_General_ChronologyNote(Solo solo) {
@@ -2594,6 +2621,15 @@ public class ModuleUtil extends ModuleHelper {
     public static View get_PotteryBasket_General_Subsquare(Solo solo) {
         String ref = "Pottery_Basket/General/Subsquare";
         return (android.view.View) solo.getView((Object) ref);
+    }
+
+    /*
+        Type: input
+        Ref:  Pottery_Basket/General/Top_Elevation_m
+     */
+    public static EditText get_PotteryBasket_General_TopElevationm(Solo solo) {
+        String ref = "Pottery_Basket/General/Top_Elevation_m";
+        return (android.widget.EditText) solo.getView((Object) ref);
     }
 
     /*
@@ -2980,15 +3016,6 @@ public class ModuleUtil extends ModuleHelper {
      */
     public static View get_Square_Phases_ListofExistingPhases(Solo solo) {
         String ref = "Square/Phases/List_of_Existing_Phases";
-        return (android.view.View) solo.getView((Object) ref);
-    }
-
-    /*
-        Type: picture
-        Ref:  Locus/Deposit/Soil_Particle_Sorting
-     */
-    public static View get_Locus_Deposit_SoilParticleSorting(Solo solo) {
-        String ref = "Locus/Deposit/Soil_Particle_Sorting";
         return (android.view.View) solo.getView((Object) ref);
     }
 

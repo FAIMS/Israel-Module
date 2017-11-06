@@ -220,6 +220,9 @@
     <Brief_Description>
       <desc>Enter a brief, clear name for the Locus eg 'House A - west wall'</desc>
     </Brief_Description>
+    <Primary_Period>
+      <!--@SOURCE: vocabs/period.xml-->
+    </Primary_Period>
     <cols>
       <Grid_X b="decimal">
         <desc>The X coordinate on the SW corner of the locus.</desc>
@@ -275,11 +278,12 @@
         <desc>The extent to which the locus has been contaminated.</desc>
         <opts>
           <opt>No Observation</opt>
-          <opt>Contaminated</opt>
-          <opt>Possibly Contaminated</opt>
-          <opt>High Likelihood High Amount Derived</opt>
-          <opt>Low Likelihood Low Amount Derived</opt>
-          <opt>Primary Deposit</opt>
+          <opt>Primary</opt>
+          <opt>Sealed</opt>
+          <opt>Unsealed</opt>
+          <opt>Disturbed</opt>
+          <opt>Disturbed?</opt>
+          <opt>Unstratified</opt>
         </opts>
       </Contamination>
     </cols>
@@ -615,16 +619,42 @@
     <Soil_Particle_Sorting>
       <desc>Assessment of the frequency with which particles of the same size occur.</desc>
       <opts>
-        <opt p="gallery/Other/NA.png">No Observation
-        <desc>data not collected</desc></opt>
-        <opt p="gallery/Sorting/ModeratelySorted.png">Moderately sorted
-        <desc>Particles are mostly the same size and evenly distributed but there are some larger particles.</desc></opt>
-        <opt p="gallery/Sorting/PoorlySorted.png">Poorly sorted
-        <desc>Particles are different sizes and unevenly distributed.</desc></opt>
-        <opt p="gallery/Sorting/VeryPoorlySorted.png">Very poorly sorted
-        <desc>Particles are very different sizes and very unevenly distributed.</desc></opt>
-        <opt p="gallery/Sorting/WellSorted.png">Well sorted
-        <desc>Particles are roughly the same size and evenly distributed.</desc></opt>
+        <opt>Boulder
+          <desc>&gt;256mm</desc>
+        </opt>
+        <opt>Cobble
+          <desc>64-256m</desc>
+        </opt>
+        <opt>Very Coarse Gravel
+          <desc>32-64mm</desc>
+        </opt>
+        <opt>Coarse Gravel
+          <desc>16-32mm</desc>
+        </opt>
+        <opt>Medium Gravel
+          <desc>8-16mm</desc>
+        </opt>
+        <opt>Fine Gravel
+          <desc>4-8mm</desc>
+        </opt>
+        <opt>Very Fine Gravel
+          <desc>2-4mm</desc>
+        </opt>
+        <opt>Very Coarse Sand
+          <desc>1-2mm</desc>
+        </opt>
+        <opt>Coarse Sand
+          <desc>0.5-1mm</desc>
+        </opt>
+        <opt>Medium Sand
+          <desc>0.25-0.5mm</desc>
+        </opt>
+        <opt>Fine Sand
+          <desc>125-250µm</desc>
+        </opt>
+        <opt>Very Fine Sand
+          <desc>62.5-125µm</desc>
+        </opt>
       </opts>
     </Soil_Particle_Sorting>
     <cols>
@@ -1257,12 +1287,17 @@
     </cols>
     <gps/>
     <cols>
-      <X_Coordinates b="decimal">
-      </X_Coordinates>
-      <Y_Coordinates b="decimal">
-      </Y_Coordinates>
-      <Z_Coordinates b="decimal">
-      </Z_Coordinates>
+      <X_Coordinates b="decimal"/>
+      <Y_Coordinates b="decimal"/>
+      <Z_Coordinates b="decimal"/>
+    </cols>
+    <cols>
+      <Top_Elevation_m b="decimal">
+        Top Elevation (m)
+      </Top_Elevation_m>
+      <Bottom_Elevation_m b="decimal">
+        Bottom Elevation (m)
+      </Bottom_Elevation_m>
     </cols>
     <Weight_kg b="decimal">
         Weight (kg)
@@ -1310,57 +1345,7 @@
       </opts>
     </Restorable>
     <Principal_Period f="notnull">
-      <opts>
-        <opt>EB
-          <desc>EB (Early Bronze Age) 3300-2000 BC</desc>
-        </opt>
-        <opt>MB
-          <desc>MB (Middle Bronze Age) 2000-1550 BC</desc>
-        </opt>
-        <opt>LB
-        <desc>LB (Late Bronze Age) 1550-1200/1130 BC</desc>
-        </opt>
-        <opt>Iron I
-        <desc>Iron I 1200/1130-980 BC</desc>
-        </opt>
-        <opt>Iron IIA
-        <desc>Iron IIA 980-830 BC</desc>
-        </opt>
-        <opt>Iron IIB
-        <desc>Iron IIB 830-722/701 BC</desc>
-        </opt>
-        <opt>Iron IIC
-        <desc>Iron IIC 722/701-539 BC</desc>
-        </opt>
-        <opt>Persian
-        <desc>Persian 539-332 BC</desc>
-        </opt>
-        <opt>Hellenistic
-        <desc>Hellenistic 332-63 BC</desc>
-        </opt>
-        <opt>Roman
-        <desc>Roman 63 BC-323 AD</desc>
-        </opt>
-        <opt>Byzantine
-        <desc>Byzantine 323-638 AD</desc>
-        </opt>
-        <opt>Early Islamic
-        <desc>Early Islamic 638-1099 AD</desc>
-        </opt>
-        <opt>Crusader
-        <desc>Crusader 1099-1250 AD</desc>
-        </opt>
-        <opt>Mamluk
-        <desc>Mamluk 1250-1540 AD</desc>
-        </opt>
-        <opt>Ottoman
-        <desc>Ottoman 1540-1917 AD</desc>
-        </opt>
-        <opt>Mandate
-        <desc>Mandate 1917-1947 AD</desc>
-        </opt>
-        <opt>Other</opt>
-      </opts>
+      <!--@SOURCE: vocabs/period.xml-->
     </Principal_Period>
     <Chronology_Precision t="radio" f="notnull">
       <opts>
