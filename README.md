@@ -60,7 +60,7 @@ If you have any questions about the module, please contact the FAIMS team at **e
 <p align="left">
  <img src="https://github.com/FAIMS/Israel-Module/blob/master/screenshots/Screenshot_20171107-114513.png" width="250"/>
   <img src="https://github.com/FAIMS/Israel-Module/blob/master/screenshots/Screenshot_20171107-114641.png" width="250"/>
-  <img src="https://github.com/FAIMS/Israel-Module/blob/master/screenshots/Screenshot_20171107-124247.pngg" width="250"/>
+  <img src="https://github.com/FAIMS/Israel-Module/blob/master/screenshots/Screenshot_20171107-124247.png" width="250"/>
 </p>
 
 <p align="left">
