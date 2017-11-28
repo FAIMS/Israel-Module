@@ -1302,7 +1302,7 @@
     <Weight_kg b="decimal">
         Weight (kg)
     </Weight_kg>
-    <Type t="checkbox">
+    <Type>
       <opts>
         <opt>Pottery</opt>
         <opt>Bone</opt>

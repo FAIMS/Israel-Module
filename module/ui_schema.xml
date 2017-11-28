@@ -2649,13 +2649,13 @@
         <input faims_attribute_name="Weight kg" faims_attribute_type="measure" ref="Weight_kg">
           <label>{Weight__kg_}</label>
         </input>
-        <select faims_attribute_name="Type" faims_attribute_type="vocab" ref="Type">
+        <select1 faims_attribute_name="Type" faims_attribute_type="vocab" ref="Type">
           <label>{Type}</label>
           <item>
             <label>Options not loaded</label>
             <value>Options not loaded</value>
           </item>
-        </select>
+        </select1>
         <select1 appearance="full" faims_attribute_name="Washed" faims_attribute_type="vocab" ref="Washed">
           <label>{Washed}</label>
           <item>

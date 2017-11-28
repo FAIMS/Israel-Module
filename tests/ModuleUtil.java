@@ -1050,15 +1050,6 @@ public class ModuleUtil extends ModuleHelper {
 
     /*
         Type: checkbox
-        Ref:  Pottery_Basket/General/Type
-     */
-    public static View get_PotteryBasket_General_Type(Solo solo) {
-        String ref = "Pottery_Basket/General/Type";
-        return (android.view.View) solo.getView((Object) ref);
-    }
-
-    /*
-        Type: checkbox
         Ref:  Square/Square/Excavation_Method
      */
     public static View get_Square_Square_ExcavationMethod(Solo solo) {
@@ -1342,6 +1333,15 @@ public class ModuleUtil extends ModuleHelper {
      */
     public static View get_PotteryBasket_General_PrincipalPeriod(Solo solo) {
         String ref = "Pottery_Basket/General/Principal_Period";
+        return (android.view.View) solo.getView((Object) ref);
+    }
+
+    /*
+        Type: dropdown
+        Ref:  Pottery_Basket/General/Type
+     */
+    public static View get_PotteryBasket_General_Type(Solo solo) {
+        String ref = "Pottery_Basket/General/Type";
         return (android.view.View) solo.getView((Object) ref);
     }
 

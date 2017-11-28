@@ -501,7 +501,7 @@ REF_TO_TYPE.put("Pottery_Basket/General/Z_Coordinates", "input");
 REF_TO_TYPE.put("Pottery_Basket/General/Top_Elevation_m", "input");
 REF_TO_TYPE.put("Pottery_Basket/General/Bottom_Elevation_m", "input");
 REF_TO_TYPE.put("Pottery_Basket/General/Weight_kg", "input");
-REF_TO_TYPE.put("Pottery_Basket/General/Type", "checkbox");
+REF_TO_TYPE.put("Pottery_Basket/General/Type", "dropdown");
 REF_TO_TYPE.put("Pottery_Basket/General/Washed", "radio");
 REF_TO_TYPE.put("Pottery_Basket/General/Weighted", "radio");
 REF_TO_TYPE.put("Pottery_Basket/General/Analysed", "radio");
