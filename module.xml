@@ -984,7 +984,7 @@
 </Locus>
 
 <Phase>
-  <fmt>{{Square_ID}}-{{L_Paren}}{{Phase_ID}}{{R_Paren}}</fmt>
+  <fmt>{{Square_ID}}-{{Phase_ID}}</fmt>
   <desc>A group of loci.</desc>
   <General>
     Phase
@@ -1072,8 +1072,6 @@
     <Device_Code i="User/User_List/Device_Code!">
       <!--@SOURCE: vocabs/device-code.xml-->
     </Device_Code>
-    <L_Paren/>
-    <R_Paren/>
     <!--<Last_Feature_Type t="dropdown" vp="Phase/General/Feature_Type"/>-->
     <Last_Feature_Prefix/>
   </Vars>

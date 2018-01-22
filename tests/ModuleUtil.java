@@ -2400,28 +2400,10 @@ public class ModuleUtil extends ModuleHelper {
 
     /*
         Type: input
-        Ref:  Phase/Vars/L_Paren
-     */
-    public static EditText get_Phase_Vars_LParen(Solo solo) {
-        String ref = "Phase/Vars/L_Paren";
-        return (android.widget.EditText) solo.getView((Object) ref);
-    }
-
-    /*
-        Type: input
         Ref:  Phase/Vars/Last_Feature_Prefix
      */
     public static EditText get_Phase_Vars_LastFeaturePrefix(Solo solo) {
         String ref = "Phase/Vars/Last_Feature_Prefix";
-        return (android.widget.EditText) solo.getView((Object) ref);
-    }
-
-    /*
-        Type: input
-        Ref:  Phase/Vars/R_Paren
-     */
-    public static EditText get_Phase_Vars_RParen(Solo solo) {
-        String ref = "Phase/Vars/R_Paren";
         return (android.widget.EditText) solo.getView((Object) ref);
     }
 

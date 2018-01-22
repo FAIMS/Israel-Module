@@ -1289,19 +1289,9 @@
       <formatString>$2</formatString>
       <appendCharacterString> - </appendCharacterString>
     </property>
-    <property name="L Paren" type="measure" isIdentifier="true">
-      <description></description>
-      <formatString>-$2</formatString>
-      <appendCharacterString> - </appendCharacterString>
-    </property>
     <property name="Phase Phase ID" type="measure" isIdentifier="true">
       <description></description>
-      <formatString>$2</formatString>
-      <appendCharacterString> - </appendCharacterString>
-    </property>
-    <property name="R Paren" type="measure" isIdentifier="true">
-      <description></description>
-      <formatString>$2</formatString>
+      <formatString>-$2</formatString>
       <appendCharacterString> - </appendCharacterString>
     </property>
     <property name="Phase Area" type="measure">

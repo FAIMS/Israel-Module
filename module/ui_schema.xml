@@ -534,8 +534,6 @@
             </Add>
             <Vars>
               <Device_Code/>
-              <L_Paren/>
-              <R_Paren/>
               <Last_Feature_Prefix/>
             </Vars>
           </Phase>
@@ -2200,12 +2198,6 @@
             <value>Options not loaded</value>
           </item>
         </select1>
-        <input faims_attribute_name="L Paren" faims_attribute_type="measure" ref="L_Paren">
-          <label>{L_Paren}</label>
-        </input>
-        <input faims_attribute_name="R Paren" faims_attribute_type="measure" ref="R_Paren">
-          <label>{R_Paren}</label>
-        </input>
         <input faims_attribute_name="Last Feature Prefix" faims_attribute_type="measure" ref="Last_Feature_Prefix">
           <label>{Last_Feature_Prefix}</label>
         </input>

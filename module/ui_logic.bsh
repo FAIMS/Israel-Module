@@ -434,8 +434,6 @@ REF_TO_TYPE.put("Phase/Add/Guide_2", "webview");
 REF_TO_TYPE.put("Phase/Add/Add_Photograph_Log", "button");
 REF_TO_TYPE.put("Phase/Add/Select_a_Photograph_Log", "dropdown");
 REF_TO_TYPE.put("Phase/Vars/Device_Code", "dropdown");
-REF_TO_TYPE.put("Phase/Vars/L_Paren", "input");
-REF_TO_TYPE.put("Phase/Vars/R_Paren", "input");
 REF_TO_TYPE.put("Phase/Vars/Last_Feature_Prefix", "input");
 REF_TO_TYPE.put("Sediment_Aggregate/Sediment_Aggregate/Component_Type", "dropdown");
 REF_TO_TYPE.put("Sediment_Aggregate/Sediment_Aggregate/Percentage", "input");
@@ -721,8 +719,6 @@ DATA_REFS.add("Phase/General/Phase_timestamp");
 DATA_REFS.add("Phase/Add/Photo");
 DATA_REFS.add("Phase/Add/Attach_File");
 DATA_REFS.add("Phase/Vars/Device_Code");
-DATA_REFS.add("Phase/Vars/L_Paren");
-DATA_REFS.add("Phase/Vars/R_Paren");
 DATA_REFS.add("Phase/Vars/Last_Feature_Prefix");
 DATA_REFS.add("Sediment_Aggregate/Sediment_Aggregate/Component_Type");
 DATA_REFS.add("Sediment_Aggregate/Sediment_Aggregate/Percentage");
@@ -1917,8 +1913,8 @@ void timedPopulateCursorList(String ref, String q, int limit) {
 
 void setUpTypeHierarchy() {
   //- 
-  //  - Legacy
   //  - Diary
+  //  - Legacy
   //  - Square
   //    - Square Files
   //    - Locus
@@ -1932,8 +1928,8 @@ void setUpTypeHierarchy() {
   //    - Legacy
 
   n0 = Tree("", 1);
-  n1 = Tree("Legacy", 1);
-  n2 = Tree("Diary", 1);
+  n1 = Tree("Diary", 1);
+  n2 = Tree("Legacy", 1);
   n3 = Tree("Square", 1);
   n4 = Tree("Square Files", 1);
   n5 = Tree("Locus", 1);
