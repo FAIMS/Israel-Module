@@ -126,6 +126,7 @@
     <Date_Closed f="readonly"/>
     <Brief_Description/>
     <Your_Discussion/>
+    <Attach_File t="file"/>
     <Add_Square_Files t="button" lc="Square_Files"/>
     <Attached_Square_Files t="dropdown" ec="Square_Files"/>
   </Square>
@@ -252,31 +253,18 @@
         </opts>
       </Excavation_Method>
     </cols>
-    <cols>
-      <Basal_Edge_Definition>
-        <desc>Describe the boundary between this and the next locus.</desc>
-        <opts>
-          <opt>No Observation<desc>data not collected</desc></opt>
-          <opt>Doubtful<desc>You are uncertain of whether you accurately excavated a boundary between deposits</desc> </opt>
-          <opt>Ambiguous<desc>You are uncertain as to whether there was a boundary between loci.</desc> </opt>
-          <opt>Merging<desc>There is a distinction between the excavated locus and earlier locus/loci but the excavated loci and the earlier loci grade into each other</desc> </opt>
-          <opt>Clear<desc>The boundary with the earlier locus/loci was very clearly defined during excavation.</desc> </opt>
-          <opt>Arbitrary Spit<desc>There is no meaningful boundary with an earlier locus. The boundary has been artificially created by the excavation process.</desc> </opt>
-        </opts>
-      </Basal_Edge_Definition>
-      <Contamination>
-        <desc>The extent to which the locus has been contaminated.</desc>
-        <opts>
-          <opt>No Observation</opt>
-          <opt>Primary</opt>
-          <opt>Sealed</opt>
-          <opt>Unsealed</opt>
-          <opt>Disturbed</opt>
-          <opt>Disturbed?</opt>
-          <opt>Unstratified</opt>
-        </opts>
-      </Contamination>
-    </cols>
+    <Contamination>
+      <desc>The extent to which the locus has been contaminated.</desc>
+      <opts>
+        <opt>No Observation</opt>
+        <opt>Primary</opt>
+        <opt>Sealed</opt>
+        <opt>Unsealed</opt>
+        <opt>Disturbed</opt>
+        <opt>Disturbed?</opt>
+        <opt>Unstratified</opt>
+      </opts>
+    </Contamination>
     <Locus_Type>
       <desc>Describe the locus type by selecting an icon as defined below.
         When you have selected a locus type you can proceed to open the "Fill in locus type details" page. Note this page will not open unless you have selected a locus type.</desc>
@@ -354,10 +342,8 @@
         <SE_Bottom_Height b="decimal"/>
       </col>
     </cols>
-    <Volume_Litres f="notnull" b="decimal">
-      Volume (litres)
-      <desc>Estimate the volume of the locus in litres. All soil will be collected in buckets of a known volume. A tally should be kept of buckets produced from a locus and the total volume calculated using that tally.</desc>
-    </Volume_Litres>
+    <Add_Daily_Final_Height t="button" lc="Daily_Final_Height"/>
+    <Existing_Daily_Final_Heights t="dropdown" ec="Daily_Final_Height"/>
   </Measure>
   <Cut>
     Pit
@@ -1382,6 +1368,17 @@
     </Device_Code>
   </Var>
 </Legacy>
+
+<Daily_Final_Height>
+  <fmt>{{Date}} {{Daily_Final_Height}}</fmt>
+  <Daily_Final_Height>
+    <Date f="readonly"/>
+    <Daily_Final_Height b="decimal">
+            Daily Final Height (m)
+    </Daily_Final_Height>
+  </Daily_Final_Height>
+</Daily_Final_Height>
+
 
 <logic><![CDATA[
   <!--@SOURCE: logic/top-matter.bsh-->
