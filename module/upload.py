@@ -10,6 +10,9 @@ import urllib
 import urllib2
 from   datetime import datetime
 
+reload(sys)
+sys.setdefaultencoding('utf8')
+
 ################################################################################
 
 filenameArch16n    = 'english.0.properties'

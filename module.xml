@@ -83,19 +83,11 @@
 </Control>
 
 <Square>
-  <fmt>{{Area}} {{Square_ID}} {{Subsquare}}</fmt>
+  <fmt>{{Area}} {{Square_ID}}</fmt>
   <Square>
     <author/>
     <Area f="notnull"/>
     <Square_ID f="notnull"/>
-    <Subsquare>
-      <opts>
-        <opt>1</opt>
-        <opt>2</opt>
-        <opt>3</opt>
-        <opt>4</opt>
-      </opts>
-    </Subsquare>
     <Team_Members/>
     <Square_Dimensions>
       <!--@SOURCE: vocabs/trench-dimensions.xml-->
@@ -169,13 +161,12 @@
 </Date_Closed>
 
 <Square_Files>
-  <fmt>{{Area}} {{Square_ID}} {{Subsquare}} {{File_Type}}</fmt>
+  <fmt>{{Area}} {{Square_ID}} {{File_Type}}</fmt>
   <Add_Square_Files>
     Square Files
     <Area i="Square/Square/Area">
     </Area>
     <Square_ID f="readonly notnull" i="Square/Square/Square_ID"/>
-    <Subsquare f="readonly" i="Square/Square/Subsquare"/>
     <author f="readonly"/>
     <File_Type f="notnull">
       <opts>
@@ -197,7 +188,7 @@
 </Square_Files>
 
 <Locus>
-  <fmt>{{Area}} {{Square_ID}} {{Subsquare}} {{Locus_ID}} {{Locus_Type}}</fmt>
+  <fmt>{{Area}} {{Square_ID}} {{Locus_ID}} {{Locus_Type}}</fmt>
   <desc>The physical result of any single action whether it leaves a positive or negative record within the stratigraphic sequence. (MoLAS 1994)</desc>
   <General>
     <cols>
@@ -209,7 +200,6 @@
       </Square_ID>
     </cols>
     <cols>
-      <Subsquare f="readonly" i="Square/Square/Subsquare"/>
       <Locus_ID f="notnull autonum">
         <desc>Every archaeological locus (negative element (cut), deposit, structure, skeleton, artefact cluster) is given a unique 3 or 4 letter locus code. Each trench is designated with a separate letter which starts the code, so it is immediately obvious to which trench a locus belongs. For example locus HAA belongs to Trench H, locus MQP to Trench M etc.
         The loci are labelled consecutively in alphabetical order using the letters following the trench letter. For Trench H the first locus would be HAA, the second HAB, the third HAB and so on. In addition sets of letters can denote parts of trenches, buildings etc. E.g. HFs might denote loci from a specific building.
@@ -1266,12 +1256,11 @@
 </Phase_Relationship>
 
 <Pottery_Basket>
-  <fmt>{{Area}} {{Square_ID}} {{Subsquare}} {{Locus_ID}} {{Pottery_Basket_ID}}</fmt>
+  <fmt>{{Area}} {{Square_ID}} {{Locus_ID}} {{Pottery_Basket_ID}}</fmt>
   <General>
     <cols>
       <Area i="Locus/General/Area"/>
       <Square_ID f="readonly" i="Locus/General/Square_ID Square/Square/Square_ID"/>
-      <Subsquare f="readonly" i="Locus/General/Subsquare"/>
     </cols>
     <cols>
       <Locus_ID f="readonly" i="Locus/General/Locus_ID">

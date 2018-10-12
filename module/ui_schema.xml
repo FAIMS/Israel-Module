@@ -70,7 +70,6 @@
               <Square_author/>
               <Area/>
               <Square_ID/>
-              <Subsquare/>
               <Team_Members/>
               <Square_Dimensions/>
               <Grid_SW_Corner_Coordinates/>
@@ -136,7 +135,6 @@
             <Add_Square_Files>
               <Area/>
               <Square_ID/>
-              <Subsquare/>
               <Square_Files_author/>
               <File_Type/>
               <File_Name/>
@@ -163,11 +161,8 @@
               </Colgroup_1>
               <Colgroup_2>
                 <Col_1>
-                  <Subsquare/>
-                </Col_1>
-                <Col_2>
                   <Locus_ID/>
-                </Col_2>
+                </Col_1>
               </Colgroup_2>
               <Brief_Description/>
               <Primary_Period/>
@@ -672,9 +667,6 @@
                 <Col_2>
                   <Square_ID/>
                 </Col_2>
-                <Col_3>
-                  <Subsquare/>
-                </Col_3>
               </Colgroup_1>
               <Colgroup_2>
                 <Col_1>
@@ -994,13 +986,6 @@
         <input faims_attribute_name="Square Square ID" faims_attribute_type="measure" ref="Square_ID" faims_style_class="required">
           <label>{Square_ID}</label>
         </input>
-        <select1 faims_attribute_name="Square Subsquare" faims_attribute_type="vocab" ref="Subsquare">
-          <label>{Subsquare}</label>
-          <item>
-            <label>Options not loaded</label>
-            <value>Options not loaded</value>
-          </item>
-        </select1>
         <input faims_attribute_name="Square Team Members" faims_attribute_type="measure" ref="Team_Members">
           <label>{Team_Members}</label>
         </input>
@@ -1180,9 +1165,6 @@
         <input faims_attribute_name="Square Files Square ID" faims_attribute_type="measure" ref="Square_ID" faims_style_class="required" faims_read_only="true">
           <label>{Square_ID}</label>
         </input>
-        <input faims_attribute_name="Square Files Subsquare" faims_attribute_type="measure" ref="Subsquare" faims_read_only="true">
-          <label>{Subsquare}</label>
-        </input>
         <input faims_attribute_name="Square Files author" faims_attribute_type="measure" ref="Square_Files_author" faims_read_only="true">
           <label>{Author}</label>
         </input>
@@ -1249,12 +1231,6 @@
         <group ref="Colgroup_2" faims_style="orientation">
           <label/>
           <group ref="Col_1" faims_style="even">
-            <label/>
-            <input faims_attribute_name="Locus Subsquare" faims_attribute_type="measure" ref="Subsquare" faims_read_only="true">
-              <label>{Subsquare}</label>
-            </input>
-          </group>
-          <group ref="Col_2" faims_style="even">
             <label/>
             <input faims_attribute_name="Locus Locus ID" faims_attribute_type="measure" ref="Locus_ID" faims_style_class="required">
               <label>{Locus_ID}</label>
@@ -2533,12 +2509,6 @@
             <label/>
             <input faims_attribute_name="Pottery Basket Square ID" faims_attribute_type="measure" ref="Square_ID" faims_read_only="true">
               <label>{Square_ID}</label>
-            </input>
-          </group>
-          <group ref="Col_3" faims_style="even">
-            <label/>
-            <input faims_attribute_name="Pottery Basket Subsquare" faims_attribute_type="measure" ref="Subsquare" faims_read_only="true">
-              <label>{Subsquare}</label>
             </input>
           </group>
         </group>

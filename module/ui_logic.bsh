@@ -234,7 +234,6 @@ REF_TO_TYPE.put("Control/Search/Entity_List", "list");
 REF_TO_TYPE.put("Square/Square/Square_author", "input");
 REF_TO_TYPE.put("Square/Square/Area", "input");
 REF_TO_TYPE.put("Square/Square/Square_ID", "input");
-REF_TO_TYPE.put("Square/Square/Subsquare", "dropdown");
 REF_TO_TYPE.put("Square/Square/Team_Members", "input");
 REF_TO_TYPE.put("Square/Square/Square_Dimensions", "dropdown");
 REF_TO_TYPE.put("Square/Square/Grid_SW_Corner_Coordinates", "webview");
@@ -268,7 +267,6 @@ REF_TO_TYPE.put("Date_Closed/Date_Closed/Set_Date_Closed", "button");
 REF_TO_TYPE.put("Date_Closed/Date_Closed/Cancel", "button");
 REF_TO_TYPE.put("Square_Files/Add_Square_Files/Area", "input");
 REF_TO_TYPE.put("Square_Files/Add_Square_Files/Square_ID", "input");
-REF_TO_TYPE.put("Square_Files/Add_Square_Files/Subsquare", "input");
 REF_TO_TYPE.put("Square_Files/Add_Square_Files/Square_Files_author", "input");
 REF_TO_TYPE.put("Square_Files/Add_Square_Files/File_Type", "dropdown");
 REF_TO_TYPE.put("Square_Files/Add_Square_Files/File_Name", "input");
@@ -279,7 +277,6 @@ REF_TO_TYPE.put("Square_Files/Vars/Device_Code", "dropdown");
 REF_TO_TYPE.put("Locus/General/Locus_author", "input");
 REF_TO_TYPE.put("Locus/General/Area", "input");
 REF_TO_TYPE.put("Locus/General/Square_ID", "input");
-REF_TO_TYPE.put("Locus/General/Subsquare", "input");
 REF_TO_TYPE.put("Locus/General/Locus_ID", "input");
 REF_TO_TYPE.put("Locus/General/Brief_Description", "input");
 REF_TO_TYPE.put("Locus/General/Primary_Period", "dropdown");
@@ -483,7 +480,6 @@ REF_TO_TYPE.put("Phase_Relationship/Legacies/Create_New_Legacy", "button");
 REF_TO_TYPE.put("Phase_Relationship/Legacies/List_of_Existing_Legacies", "list");
 REF_TO_TYPE.put("Pottery_Basket/General/Area", "input");
 REF_TO_TYPE.put("Pottery_Basket/General/Square_ID", "input");
-REF_TO_TYPE.put("Pottery_Basket/General/Subsquare", "input");
 REF_TO_TYPE.put("Pottery_Basket/General/Locus_ID", "input");
 REF_TO_TYPE.put("Pottery_Basket/General/Pottery_Basket_ID", "input");
 REF_TO_TYPE.put("Pottery_Basket/General/Date_Collected", "input");
@@ -569,7 +565,6 @@ REF_TO_TYPE.put("Legacy/Var", "tab");
 DATA_REFS.add("Square/Square/Square_author");
 DATA_REFS.add("Square/Square/Area");
 DATA_REFS.add("Square/Square/Square_ID");
-DATA_REFS.add("Square/Square/Subsquare");
 DATA_REFS.add("Square/Square/Team_Members");
 DATA_REFS.add("Square/Square/Square_Dimensions");
 DATA_REFS.add("Square/Square/Latitude");
@@ -587,7 +582,6 @@ DATA_REFS.add("Square/Square/Your_Discussion");
 DATA_REFS.add("Square/Vars/Device_Code");
 DATA_REFS.add("Square_Files/Add_Square_Files/Area");
 DATA_REFS.add("Square_Files/Add_Square_Files/Square_ID");
-DATA_REFS.add("Square_Files/Add_Square_Files/Subsquare");
 DATA_REFS.add("Square_Files/Add_Square_Files/Square_Files_author");
 DATA_REFS.add("Square_Files/Add_Square_Files/File_Type");
 DATA_REFS.add("Square_Files/Add_Square_Files/File_Name");
@@ -597,7 +591,6 @@ DATA_REFS.add("Square_Files/Vars/Device_Code");
 DATA_REFS.add("Locus/General/Locus_author");
 DATA_REFS.add("Locus/General/Area");
 DATA_REFS.add("Locus/General/Square_ID");
-DATA_REFS.add("Locus/General/Subsquare");
 DATA_REFS.add("Locus/General/Locus_ID");
 DATA_REFS.add("Locus/General/Brief_Description");
 DATA_REFS.add("Locus/General/Primary_Period");
@@ -742,7 +735,6 @@ DATA_REFS.add("Diary/Vars/Square_ID");
 DATA_REFS.add("Diary/Vars/Device_Code");
 DATA_REFS.add("Pottery_Basket/General/Area");
 DATA_REFS.add("Pottery_Basket/General/Square_ID");
-DATA_REFS.add("Pottery_Basket/General/Subsquare");
 DATA_REFS.add("Pottery_Basket/General/Locus_ID");
 DATA_REFS.add("Pottery_Basket/General/Pottery_Basket_ID");
 DATA_REFS.add("Pottery_Basket/General/Date_Collected");
@@ -853,17 +845,14 @@ TABS_AS_LIST.add("Legacy/Var");
 
 ATTRIB_NAMES_NON_STANDARD.put("Square/Square/Area", "Square Area");
 ATTRIB_NAMES_NON_STANDARD.put("Square/Square/Square_ID", "Square Square ID");
-ATTRIB_NAMES_NON_STANDARD.put("Square/Square/Subsquare", "Square Subsquare");
 ATTRIB_NAMES_NON_STANDARD.put("Square/Square/Team_Members", "Square Team Members");
 ATTRIB_NAMES_NON_STANDARD.put("Square/Square/Date_Closed", "Square Date Closed");
 ATTRIB_NAMES_NON_STANDARD.put("Square/Square/Brief_Description", "Square Brief Description");
 ATTRIB_NAMES_NON_STANDARD.put("Square/Square/Your_Discussion", "Square Your Discussion");
 ATTRIB_NAMES_NON_STANDARD.put("Square_Files/Add_Square_Files/Area", "Square Files Area");
 ATTRIB_NAMES_NON_STANDARD.put("Square_Files/Add_Square_Files/Square_ID", "Square Files Square ID");
-ATTRIB_NAMES_NON_STANDARD.put("Square_Files/Add_Square_Files/Subsquare", "Square Files Subsquare");
 ATTRIB_NAMES_NON_STANDARD.put("Locus/General/Area", "Locus Area");
 ATTRIB_NAMES_NON_STANDARD.put("Locus/General/Square_ID", "Locus Square ID");
-ATTRIB_NAMES_NON_STANDARD.put("Locus/General/Subsquare", "Locus Subsquare");
 ATTRIB_NAMES_NON_STANDARD.put("Locus/General/Locus_ID", "Locus Locus ID");
 ATTRIB_NAMES_NON_STANDARD.put("Locus/General/Brief_Description", "Locus Brief Description");
 ATTRIB_NAMES_NON_STANDARD.put("Locus/General/Team_Members", "Locus Team Members");
@@ -890,7 +879,6 @@ ATTRIB_NAMES_NON_STANDARD.put("Diary/Diary/Photo", "Diary Photo");
 ATTRIB_NAMES_NON_STANDARD.put("Diary/Vars/Square_ID", "Diary Square ID");
 ATTRIB_NAMES_NON_STANDARD.put("Pottery_Basket/General/Area", "Pottery Basket Area");
 ATTRIB_NAMES_NON_STANDARD.put("Pottery_Basket/General/Square_ID", "Pottery Basket Square ID");
-ATTRIB_NAMES_NON_STANDARD.put("Pottery_Basket/General/Subsquare", "Pottery Basket Subsquare");
 ATTRIB_NAMES_NON_STANDARD.put("Pottery_Basket/General/Locus_ID", "Pottery Basket Locus ID");
 ATTRIB_NAMES_NON_STANDARD.put("Legacy/Legacy/Square_ID", "Legacy Square ID");
 ATTRIB_NAMES_NON_STANDARD.put("Legacy/Legacy/Locus_ID", "Legacy Locus ID");
@@ -1913,8 +1901,8 @@ void timedPopulateCursorList(String ref, String q, int limit) {
 
 void setUpTypeHierarchy() {
   //- 
-  //  - Diary
   //  - Legacy
+  //  - Diary
   //  - Square
   //    - Square Files
   //    - Locus
@@ -1928,8 +1916,8 @@ void setUpTypeHierarchy() {
   //    - Legacy
 
   n0 = Tree("", 1);
-  n1 = Tree("Diary", 1);
-  n2 = Tree("Legacy", 1);
+  n1 = Tree("Legacy", 1);
+  n2 = Tree("Diary", 1);
   n3 = Tree("Square", 1);
   n4 = Tree("Square Files", 1);
   n5 = Tree("Locus", 1);
@@ -2733,11 +2721,9 @@ void inheritFieldValue(String src, String dst) {
 inheritFieldValue("User/User_List/Device_Code", "Square/Vars/Device_Code", false);
 inheritFieldValue("Square/Square/Area", "Square_Files/Add_Square_Files/Area", true);
 inheritFieldValue("Square/Square/Square_ID", "Square_Files/Add_Square_Files/Square_ID", true);
-inheritFieldValue("Square/Square/Subsquare", "Square_Files/Add_Square_Files/Subsquare", true);
 inheritFieldValue("User/User_List/Device_Code", "Square_Files/Vars/Device_Code", false);
 inheritFieldValue("Square/Square/Area", "Locus/General/Area", true);
 inheritFieldValue("Square/Square/Square_ID", "Locus/General/Square_ID", true);
-inheritFieldValue("Square/Square/Subsquare", "Locus/General/Subsquare", true);
 inheritFieldValue("Square/Square/Team_Members", "Locus/General/Team_Members", true);
 inheritFieldValue("User/User_List/Device_Code", "Locus/Vars/Device_Code", false);
 inheritFieldValue("Square/Square/Area", "Phase/General/Area", true);
@@ -2756,7 +2742,6 @@ inheritFieldValue("User/User_List/Device_Code", "Diary/Vars/Device_Code", false)
 inheritFieldValue("Locus/General/Area", "Pottery_Basket/General/Area", true);
 inheritFieldValue("Locus/General/Square_ID", "Pottery_Basket/General/Square_ID", true);
 inheritFieldValue("Square/Square/Square_ID", "Pottery_Basket/General/Square_ID", true);
-inheritFieldValue("Locus/General/Subsquare", "Pottery_Basket/General/Subsquare", true);
 inheritFieldValue("Locus/General/Locus_ID", "Pottery_Basket/General/Locus_ID", true);
 inheritFieldValue("User/User_List/Device_Code", "Pottery_Basket/Vars/Device_Code", false);
 inheritFieldValue("Locus/General/Locus_ID", "Soil_Munsel_Color/Vars/Soil_Munsel_Color_Locus_ID", true);
