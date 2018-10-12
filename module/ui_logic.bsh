@@ -6850,13 +6850,17 @@ void setDateClosed() {
   goBack();
 }
 
-/*************************** CUSTOM DIARY TIMESTAMP ***************************/
+/*************************** CUSTOM TIMESTAMP ***************************/
 import java.text.SimpleDateFormat;
 
 addOnEvent("Diary", "create", "populateDiaryTimestamp()");
 
 void populateDiaryTimestamp() {
   String           ref    = "Diary/Diary/Timestamp";
+  populateRefWithCurrentDate(ref);
+}
+
+void populateRefWithCurrentDate(String ref) {  
   String           fmt    = "yyyy-MM-dd";
   SimpleDateFormat dFmt   = new SimpleDateFormat(fmt);
   Date             now    = new Date();
@@ -6864,6 +6868,11 @@ void populateDiaryTimestamp() {
 
   setFieldValue(ref, nowStr);
 }
+
+final String DAILY_FINAL_HEIGHT_DATE_REF = "Daily_Final_Height/Daily_Final_Height/Date";
+
+
+addOnEvent("Daily_Final_Height", "create", "populateRefWithCurrentDate(DAILY_FINAL_HEIGHT_DATE_REF)");
 /*************************** CUSTOM DIARY TIMESTAMP ***************************/
 import java.text.SimpleDateFormat;
 

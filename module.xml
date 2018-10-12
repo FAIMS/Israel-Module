@@ -1399,7 +1399,7 @@
   <!--@SOURCE: logic/custom-validation.bsh-->
   <!--@SOURCE: logic/date-closed.bsh-->
 
-  <!--@SOURCE: logic/custom-diary-timestamp.bsh-->
+  <!--@SOURCE: logic/custom-timestamp.bsh-->
   <!--@SOURCE: logic/custom-pottery-basket-timestamp.bsh-->
   <!--@SOURCE: logic/height-validation.bsh-->
   <!--@SOURCE: logic/duplication.bsh-->
