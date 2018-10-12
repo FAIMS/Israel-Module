@@ -251,8 +251,8 @@ REF_TO_TYPE.put("Square/Square/Set_Date_Closed", "button");
 REF_TO_TYPE.put("Square/Square/Date_Closed", "input");
 REF_TO_TYPE.put("Square/Square/Brief_Description", "input");
 REF_TO_TYPE.put("Square/Square/Your_Discussion", "input");
-REF_TO_TYPE.put("Square/Square/Attach_File", "file");
-REF_TO_TYPE.put("Square/Square/Attach_File_Button_1", "button");
+REF_TO_TYPE.put("Square/Square/Attach_Sketch", "file");
+REF_TO_TYPE.put("Square/Square/Attach_Sketch_Button_1", "button");
 REF_TO_TYPE.put("Square/Square/Add_Square_Files", "button");
 REF_TO_TYPE.put("Square/Square/Attached_Square_Files", "dropdown");
 REF_TO_TYPE.put("Square/Loci/Create_New_Locus", "button");
@@ -584,7 +584,7 @@ DATA_REFS.add("Square/Square/Square_timestamp");
 DATA_REFS.add("Square/Square/Date_Closed");
 DATA_REFS.add("Square/Square/Brief_Description");
 DATA_REFS.add("Square/Square/Your_Discussion");
-DATA_REFS.add("Square/Square/Attach_File");
+DATA_REFS.add("Square/Square/Attach_Sketch");
 DATA_REFS.add("Square/Vars/Device_Code");
 DATA_REFS.add("Square_Files/Add_Square_Files/Area");
 DATA_REFS.add("Square_Files/Add_Square_Files/Square_ID");
@@ -3884,7 +3884,7 @@ addOnEvent("Locus/Add/Photo_Button_1", "click", "attachPictureTo(\"Locus/Add/Pho
 addOnEvent("Phase/Add/Photo_Button_1", "click", "attachPictureTo(\"Phase/Add/Photo\")");
 addOnEvent("Diary/Diary/Photo_Button_1", "click", "attachPictureTo(\"Diary/Diary/Photo\")");
 addOnEvent("Pottery_Basket/General/Attach_Photograph_Button_1", "click", "attachPictureTo(\"Pottery_Basket/General/Attach_Photograph\")");
-addOnEvent("Square/Square/Attach_File_Button_1", "click", "attachFileTo(\"Square/Square/Attach_File\")");
+addOnEvent("Square/Square/Attach_Sketch_Button_1", "click", "attachFileTo(\"Square/Square/Attach_Sketch\")");
 addOnEvent("Locus/Add/Attach_File_Button_1", "click", "attachFileTo(\"Locus/Add/Attach_File\")");
 addOnEvent("Phase/Add/Attach_File_Button_1", "click", "attachFileTo(\"Phase/Add/Attach_File\")");
 
@@ -4446,7 +4446,7 @@ void duplicateSquare(){
   clearGpsInTabGroup(tabgroup);
   populateAuthorAndTimestamp(tabgroup);
   populateEntityListsInTabGroup(tabgroup);
-  populateFileList("Square/Square/Attach_File", new ArrayList());
+  populateFileList("Square/Square/Attach_Sketch", new ArrayList());
   executeOnEvent(tabgroup, "copy");
 
   saveCallback = new SaveCallback() {
@@ -4478,7 +4478,7 @@ void duplicateSquare(){
     onFetch(result) {
       excludeAttributes = new ArrayList();
 
-      excludeAttributes.add("Attach File");
+      excludeAttributes.add("Attach Sketch");
 
       duplicateTabGroup(tabgroup, null, getExtraAttributes(result), excludeAttributes, saveCallback);
     }

@@ -126,7 +126,7 @@
     <Date_Closed f="readonly"/>
     <Brief_Description/>
     <Your_Discussion/>
-    <Attach_File t="file"/>
+    <Attach_Sketch t="file"/>
     <Add_Square_Files t="button" lc="Square_Files"/>
     <Attached_Square_Files t="dropdown" ec="Square_Files"/>
   </Square>

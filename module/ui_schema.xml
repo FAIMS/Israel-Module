@@ -101,8 +101,8 @@
               <Date_Closed/>
               <Brief_Description/>
               <Your_Discussion/>
-              <Attach_File/>
-              <Attach_File_Button_1/>
+              <Attach_Sketch/>
+              <Attach_Sketch_Button_1/>
               <Add_Square_Files/>
               <Attached_Square_Files/>
             </Square>
@@ -1068,15 +1068,15 @@
         <input faims_attribute_name="Square Your Discussion" faims_attribute_type="measure" ref="Your_Discussion">
           <label>{Your_Discussion}</label>
         </input>
-        <select faims_sync="true" type="file" faims_attribute_name="Attach File" faims_attribute_type="measure" ref="Attach_File">
-          <label>{Attach_File}</label>
+        <select faims_sync="true" type="file" faims_attribute_name="Attach Sketch" faims_attribute_type="measure" ref="Attach_Sketch">
+          <label>{Attach_Sketch}</label>
           <item>
             <label>Options not loaded</label>
             <value>Options not loaded</value>
           </item>
         </select>
-        <trigger ref="Attach_File_Button_1">
-          <label>{Attach_File}</label>
+        <trigger ref="Attach_Sketch_Button_1">
+          <label>{Attach_Sketch}</label>
         </trigger>
         <trigger ref="Add_Square_Files">
           <label>{Add_Square_Files}</label>
