@@ -518,6 +518,9 @@ REF_TO_TYPE.put("Legacy/Legacy/Locus_ID", "input");
 REF_TO_TYPE.put("Legacy/Var/Device_Code", "dropdown");
 REF_TO_TYPE.put("Daily_Final_Height/Daily_Final_Height/Date", "input");
 REF_TO_TYPE.put("Daily_Final_Height/Daily_Final_Height/Daily_Final_Height", "input");
+REF_TO_TYPE.put("Daily_Final_Height/Vars/Locus_ID", "input");
+REF_TO_TYPE.put("Daily_Final_Height/Vars/Square_ID", "input");
+REF_TO_TYPE.put("Daily_Final_Height/Vars/Device_Code", "dropdown");
 REF_TO_TYPE.put("User/User_List", "tab");
 REF_TO_TYPE.put("User/Help", "tab");
 REF_TO_TYPE.put("Control/Site", "tab");
@@ -566,6 +569,7 @@ REF_TO_TYPE.put("Soil_Munsel_Color/Vars", "tab");
 REF_TO_TYPE.put("Legacy/Legacy", "tab");
 REF_TO_TYPE.put("Legacy/Var", "tab");
 REF_TO_TYPE.put("Daily_Final_Height/Daily_Final_Height", "tab");
+REF_TO_TYPE.put("Daily_Final_Height/Vars", "tab");
 
 DATA_REFS.add("Square/Square/Square_author");
 DATA_REFS.add("Square/Square/Area");
@@ -773,6 +777,9 @@ DATA_REFS.add("Legacy/Legacy/Locus_ID");
 DATA_REFS.add("Legacy/Var/Device_Code");
 DATA_REFS.add("Daily_Final_Height/Daily_Final_Height/Date");
 DATA_REFS.add("Daily_Final_Height/Daily_Final_Height/Daily_Final_Height");
+DATA_REFS.add("Daily_Final_Height/Vars/Locus_ID");
+DATA_REFS.add("Daily_Final_Height/Vars/Square_ID");
+DATA_REFS.add("Daily_Final_Height/Vars/Device_Code");
 
 
 
@@ -850,6 +857,7 @@ TABS_AS_LIST.add("Soil_Munsel_Color/Vars");
 TABS_AS_LIST.add("Legacy/Legacy");
 TABS_AS_LIST.add("Legacy/Var");
 TABS_AS_LIST.add("Daily_Final_Height/Daily_Final_Height");
+TABS_AS_LIST.add("Daily_Final_Height/Vars");
 
 ATTRIB_NAMES_NON_STANDARD.put("Square/Square/Area", "Square Area");
 ATTRIB_NAMES_NON_STANDARD.put("Square/Square/Square_ID", "Square Square ID");
@@ -890,6 +898,8 @@ ATTRIB_NAMES_NON_STANDARD.put("Pottery_Basket/General/Square_ID", "Pottery Baske
 ATTRIB_NAMES_NON_STANDARD.put("Pottery_Basket/General/Locus_ID", "Pottery Basket Locus ID");
 ATTRIB_NAMES_NON_STANDARD.put("Legacy/Legacy/Square_ID", "Legacy Square ID");
 ATTRIB_NAMES_NON_STANDARD.put("Legacy/Legacy/Locus_ID", "Legacy Locus ID");
+ATTRIB_NAMES_NON_STANDARD.put("Daily_Final_Height/Vars/Locus_ID", "Daily Final Height Locus ID");
+ATTRIB_NAMES_NON_STANDARD.put("Daily_Final_Height/Vars/Square_ID", "Daily Final Height Square ID");
 
 String getType(String ref) {
   String type = REF_TO_TYPE.get(ref);
@@ -1910,7 +1920,6 @@ void timedPopulateCursorList(String ref, String q, int limit) {
 void setUpTypeHierarchy() {
   //- 
   //  - Legacy
-  //  - Diary
   //  - Square
   //    - Square Files
   //    - Locus
@@ -1923,40 +1932,41 @@ void setUpTypeHierarchy() {
   //      - Photograph Log
   //    - Diary
   //    - Legacy
+  //  - Diary
 
   n0 = Tree("", 1);
   n1 = Tree("Legacy", 1);
-  n2 = Tree("Diary", 1);
-  n3 = Tree("Square", 1);
-  n4 = Tree("Square Files", 1);
-  n5 = Tree("Locus", 1);
-  n6 = Tree("Daily Final Height", 1);
-  n7 = Tree("Soil Munsel Color", 1);
-  n8 = Tree("Sediment Aggregate", 1);
-  n9 = Tree("Pottery Basket", 1);
-  n10 = Tree("Photograph Log", 1);
-  n11 = Tree("Phase", 1);
-  n12 = Tree("Photograph Log", 1);
-  n13 = Tree("Diary", 1);
-  n14 = Tree("Legacy", 1);
+  n2 = Tree("Square", 1);
+  n3 = Tree("Square Files", 1);
+  n4 = Tree("Locus", 1);
+  n5 = Tree("Daily Final Height", 1);
+  n6 = Tree("Soil Munsel Color", 1);
+  n7 = Tree("Sediment Aggregate", 1);
+  n8 = Tree("Pottery Basket", 1);
+  n9 = Tree("Photograph Log", 1);
+  n10 = Tree("Phase", 1);
+  n11 = Tree("Photograph Log", 1);
+  n12 = Tree("Diary", 1);
+  n13 = Tree("Legacy", 1);
+  n14 = Tree("Diary", 1);
 
   n0.addChild(n1);
   n0.addChild(n2);
-  n0.addChild(n3);
+  n0.addChild(n14);
 
-  n3.addChild(n4);
-  n3.addChild(n5);
-  n3.addChild(n11);
-  n3.addChild(n13);
-  n3.addChild(n14);
+  n2.addChild(n3);
+  n2.addChild(n4);
+  n2.addChild(n10);
+  n2.addChild(n12);
+  n2.addChild(n13);
 
-  n5.addChild(n6);
-  n5.addChild(n7);
-  n5.addChild(n8);
-  n5.addChild(n9);
-  n5.addChild(n10);
+  n4.addChild(n5);
+  n4.addChild(n6);
+  n4.addChild(n7);
+  n4.addChild(n8);
+  n4.addChild(n9);
 
-  n11.addChild(n12);
+  n10.addChild(n11);
 
 
   PERF_TYPE_TREE = n0;
@@ -2758,6 +2768,9 @@ inheritFieldValue("User/User_List/Device_Code", "Pottery_Basket/Vars/Device_Code
 inheritFieldValue("Locus/General/Locus_ID", "Soil_Munsel_Color/Vars/Soil_Munsel_Color_Locus_ID", true);
 inheritFieldValue("User/User_List/Device_Code", "Soil_Munsel_Color/Vars/Device_Code", false);
 inheritFieldValue("User/User_List/Device_Code", "Legacy/Var/Device_Code", false);
+inheritFieldValue("Locus/General/Locus_ID", "Daily_Final_Height/Vars/Locus_ID", true);
+inheritFieldValue("Locus/General/Square_ID", "Daily_Final_Height/Vars/Square_ID", true);
+inheritFieldValue("User/User_List/Device_Code", "Daily_Final_Height/Vars/Device_Code", false);
 
 /******************************************************************************/
 /*                            NEW TAB REDIRECTION                             */
