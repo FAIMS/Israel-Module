@@ -1377,6 +1377,13 @@
             Daily Final Height (m)
     </Daily_Final_Height>
   </Daily_Final_Height>
+  <Vars f="hidden">
+    <Locus_ID i="Locus/General/Locus_ID"/>
+    <Square_ID i="Locus/General/Square_ID"/>
+    <Device_Code i="User/User_List/Device_Code!">
+      <!--@SOURCE: vocabs/device-code.xml-->
+    </Device_Code>
+  </Vars>
 </Daily_Final_Height>
 
 
