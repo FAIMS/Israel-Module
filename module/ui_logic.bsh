@@ -234,7 +234,6 @@ REF_TO_TYPE.put("Control/Search/Entity_List", "list");
 REF_TO_TYPE.put("Square/Square/Square_author", "input");
 REF_TO_TYPE.put("Square/Square/Area", "input");
 REF_TO_TYPE.put("Square/Square/Square_ID", "input");
-REF_TO_TYPE.put("Square/Square/Subsquare", "dropdown");
 REF_TO_TYPE.put("Square/Square/Team_Members", "input");
 REF_TO_TYPE.put("Square/Square/Square_Dimensions", "dropdown");
 REF_TO_TYPE.put("Square/Square/Grid_SW_Corner_Coordinates", "webview");
@@ -252,6 +251,8 @@ REF_TO_TYPE.put("Square/Square/Set_Date_Closed", "button");
 REF_TO_TYPE.put("Square/Square/Date_Closed", "input");
 REF_TO_TYPE.put("Square/Square/Brief_Description", "input");
 REF_TO_TYPE.put("Square/Square/Your_Discussion", "input");
+REF_TO_TYPE.put("Square/Square/Attach_Sketch", "file");
+REF_TO_TYPE.put("Square/Square/Attach_Sketch_Button_1", "button");
 REF_TO_TYPE.put("Square/Square/Add_Square_Files", "button");
 REF_TO_TYPE.put("Square/Square/Attached_Square_Files", "dropdown");
 REF_TO_TYPE.put("Square/Loci/Create_New_Locus", "button");
@@ -268,7 +269,6 @@ REF_TO_TYPE.put("Date_Closed/Date_Closed/Set_Date_Closed", "button");
 REF_TO_TYPE.put("Date_Closed/Date_Closed/Cancel", "button");
 REF_TO_TYPE.put("Square_Files/Add_Square_Files/Area", "input");
 REF_TO_TYPE.put("Square_Files/Add_Square_Files/Square_ID", "input");
-REF_TO_TYPE.put("Square_Files/Add_Square_Files/Subsquare", "input");
 REF_TO_TYPE.put("Square_Files/Add_Square_Files/Square_Files_author", "input");
 REF_TO_TYPE.put("Square_Files/Add_Square_Files/File_Type", "dropdown");
 REF_TO_TYPE.put("Square_Files/Add_Square_Files/File_Name", "input");
@@ -279,7 +279,6 @@ REF_TO_TYPE.put("Square_Files/Vars/Device_Code", "dropdown");
 REF_TO_TYPE.put("Locus/General/Locus_author", "input");
 REF_TO_TYPE.put("Locus/General/Area", "input");
 REF_TO_TYPE.put("Locus/General/Square_ID", "input");
-REF_TO_TYPE.put("Locus/General/Subsquare", "input");
 REF_TO_TYPE.put("Locus/General/Locus_ID", "input");
 REF_TO_TYPE.put("Locus/General/Brief_Description", "input");
 REF_TO_TYPE.put("Locus/General/Primary_Period", "dropdown");
@@ -288,7 +287,6 @@ REF_TO_TYPE.put("Locus/General/Grid_Y", "input");
 REF_TO_TYPE.put("Locus/General/Date_Opened", "input");
 REF_TO_TYPE.put("Locus/General/Team_Members", "input");
 REF_TO_TYPE.put("Locus/General/Excavation_Method", "checkbox");
-REF_TO_TYPE.put("Locus/General/Basal_Edge_Definition", "dropdown");
 REF_TO_TYPE.put("Locus/General/Contamination", "dropdown");
 REF_TO_TYPE.put("Locus/General/Locus_Type", "picture");
 REF_TO_TYPE.put("Locus/General/Fill_in_Locus_Type_Details", "button");
@@ -313,7 +311,8 @@ REF_TO_TYPE.put("Locus/Measure/SW_Bottom_Height", "input");
 REF_TO_TYPE.put("Locus/Measure/Center_Bottom_Height", "input");
 REF_TO_TYPE.put("Locus/Measure/NE_Bottom_Height", "input");
 REF_TO_TYPE.put("Locus/Measure/SE_Bottom_Height", "input");
-REF_TO_TYPE.put("Locus/Measure/Volume_Litres", "input");
+REF_TO_TYPE.put("Locus/Measure/Add_Daily_Final_Height", "button");
+REF_TO_TYPE.put("Locus/Measure/Existing_Daily_Final_Heights", "dropdown");
 REF_TO_TYPE.put("Locus/Cut/Cut_Your_Interpretation", "dropdown");
 REF_TO_TYPE.put("Locus/Cut/Shape_in_Plan", "dropdown");
 REF_TO_TYPE.put("Locus/Cut/Shape_of_Cut_-_Note", "input");
@@ -483,7 +482,6 @@ REF_TO_TYPE.put("Phase_Relationship/Legacies/Create_New_Legacy", "button");
 REF_TO_TYPE.put("Phase_Relationship/Legacies/List_of_Existing_Legacies", "list");
 REF_TO_TYPE.put("Pottery_Basket/General/Area", "input");
 REF_TO_TYPE.put("Pottery_Basket/General/Square_ID", "input");
-REF_TO_TYPE.put("Pottery_Basket/General/Subsquare", "input");
 REF_TO_TYPE.put("Pottery_Basket/General/Locus_ID", "input");
 REF_TO_TYPE.put("Pottery_Basket/General/Pottery_Basket_ID", "input");
 REF_TO_TYPE.put("Pottery_Basket/General/Date_Collected", "input");
@@ -518,6 +516,11 @@ REF_TO_TYPE.put("Soil_Munsel_Color/Vars/Device_Code", "dropdown");
 REF_TO_TYPE.put("Legacy/Legacy/Square_ID", "input");
 REF_TO_TYPE.put("Legacy/Legacy/Locus_ID", "input");
 REF_TO_TYPE.put("Legacy/Var/Device_Code", "dropdown");
+REF_TO_TYPE.put("Daily_Final_Height/Daily_Final_Height/Date", "input");
+REF_TO_TYPE.put("Daily_Final_Height/Daily_Final_Height/Daily_Final_Height", "input");
+REF_TO_TYPE.put("Daily_Final_Height/Vars/Locus_ID", "input");
+REF_TO_TYPE.put("Daily_Final_Height/Vars/Square_ID", "input");
+REF_TO_TYPE.put("Daily_Final_Height/Vars/Device_Code", "dropdown");
 REF_TO_TYPE.put("User/User_List", "tab");
 REF_TO_TYPE.put("User/Help", "tab");
 REF_TO_TYPE.put("Control/Site", "tab");
@@ -565,11 +568,12 @@ REF_TO_TYPE.put("Soil_Munsel_Color/Add_Soil_Munsel_Color", "tab");
 REF_TO_TYPE.put("Soil_Munsel_Color/Vars", "tab");
 REF_TO_TYPE.put("Legacy/Legacy", "tab");
 REF_TO_TYPE.put("Legacy/Var", "tab");
+REF_TO_TYPE.put("Daily_Final_Height/Daily_Final_Height", "tab");
+REF_TO_TYPE.put("Daily_Final_Height/Vars", "tab");
 
 DATA_REFS.add("Square/Square/Square_author");
 DATA_REFS.add("Square/Square/Area");
 DATA_REFS.add("Square/Square/Square_ID");
-DATA_REFS.add("Square/Square/Subsquare");
 DATA_REFS.add("Square/Square/Team_Members");
 DATA_REFS.add("Square/Square/Square_Dimensions");
 DATA_REFS.add("Square/Square/Latitude");
@@ -584,10 +588,10 @@ DATA_REFS.add("Square/Square/Square_timestamp");
 DATA_REFS.add("Square/Square/Date_Closed");
 DATA_REFS.add("Square/Square/Brief_Description");
 DATA_REFS.add("Square/Square/Your_Discussion");
+DATA_REFS.add("Square/Square/Attach_Sketch");
 DATA_REFS.add("Square/Vars/Device_Code");
 DATA_REFS.add("Square_Files/Add_Square_Files/Area");
 DATA_REFS.add("Square_Files/Add_Square_Files/Square_ID");
-DATA_REFS.add("Square_Files/Add_Square_Files/Subsquare");
 DATA_REFS.add("Square_Files/Add_Square_Files/Square_Files_author");
 DATA_REFS.add("Square_Files/Add_Square_Files/File_Type");
 DATA_REFS.add("Square_Files/Add_Square_Files/File_Name");
@@ -597,7 +601,6 @@ DATA_REFS.add("Square_Files/Vars/Device_Code");
 DATA_REFS.add("Locus/General/Locus_author");
 DATA_REFS.add("Locus/General/Area");
 DATA_REFS.add("Locus/General/Square_ID");
-DATA_REFS.add("Locus/General/Subsquare");
 DATA_REFS.add("Locus/General/Locus_ID");
 DATA_REFS.add("Locus/General/Brief_Description");
 DATA_REFS.add("Locus/General/Primary_Period");
@@ -606,7 +609,6 @@ DATA_REFS.add("Locus/General/Grid_Y");
 DATA_REFS.add("Locus/General/Date_Opened");
 DATA_REFS.add("Locus/General/Team_Members");
 DATA_REFS.add("Locus/General/Excavation_Method");
-DATA_REFS.add("Locus/General/Basal_Edge_Definition");
 DATA_REFS.add("Locus/General/Contamination");
 DATA_REFS.add("Locus/General/Locus_Type");
 DATA_REFS.add("Locus/General/Photo_of_Plan");
@@ -627,7 +629,6 @@ DATA_REFS.add("Locus/Measure/SW_Bottom_Height");
 DATA_REFS.add("Locus/Measure/Center_Bottom_Height");
 DATA_REFS.add("Locus/Measure/NE_Bottom_Height");
 DATA_REFS.add("Locus/Measure/SE_Bottom_Height");
-DATA_REFS.add("Locus/Measure/Volume_Litres");
 DATA_REFS.add("Locus/Cut/Cut_Your_Interpretation");
 DATA_REFS.add("Locus/Cut/Shape_in_Plan");
 DATA_REFS.add("Locus/Cut/Shape_of_Cut_-_Note");
@@ -742,7 +743,6 @@ DATA_REFS.add("Diary/Vars/Square_ID");
 DATA_REFS.add("Diary/Vars/Device_Code");
 DATA_REFS.add("Pottery_Basket/General/Area");
 DATA_REFS.add("Pottery_Basket/General/Square_ID");
-DATA_REFS.add("Pottery_Basket/General/Subsquare");
 DATA_REFS.add("Pottery_Basket/General/Locus_ID");
 DATA_REFS.add("Pottery_Basket/General/Pottery_Basket_ID");
 DATA_REFS.add("Pottery_Basket/General/Date_Collected");
@@ -775,6 +775,11 @@ DATA_REFS.add("Soil_Munsel_Color/Vars/Device_Code");
 DATA_REFS.add("Legacy/Legacy/Square_ID");
 DATA_REFS.add("Legacy/Legacy/Locus_ID");
 DATA_REFS.add("Legacy/Var/Device_Code");
+DATA_REFS.add("Daily_Final_Height/Daily_Final_Height/Date");
+DATA_REFS.add("Daily_Final_Height/Daily_Final_Height/Daily_Final_Height");
+DATA_REFS.add("Daily_Final_Height/Vars/Locus_ID");
+DATA_REFS.add("Daily_Final_Height/Vars/Square_ID");
+DATA_REFS.add("Daily_Final_Height/Vars/Device_Code");
 
 
 
@@ -802,6 +807,7 @@ TAB_GROUPS_AS_LIST.add("Phase_Relationship");
 TAB_GROUPS_AS_LIST.add("Pottery_Basket");
 TAB_GROUPS_AS_LIST.add("Soil_Munsel_Color");
 TAB_GROUPS_AS_LIST.add("Legacy");
+TAB_GROUPS_AS_LIST.add("Daily_Final_Height");
 
 TABS_AS_LIST.add("User/User_List");
 TABS_AS_LIST.add("User/Help");
@@ -850,20 +856,19 @@ TABS_AS_LIST.add("Soil_Munsel_Color/Add_Soil_Munsel_Color");
 TABS_AS_LIST.add("Soil_Munsel_Color/Vars");
 TABS_AS_LIST.add("Legacy/Legacy");
 TABS_AS_LIST.add("Legacy/Var");
+TABS_AS_LIST.add("Daily_Final_Height/Daily_Final_Height");
+TABS_AS_LIST.add("Daily_Final_Height/Vars");
 
 ATTRIB_NAMES_NON_STANDARD.put("Square/Square/Area", "Square Area");
 ATTRIB_NAMES_NON_STANDARD.put("Square/Square/Square_ID", "Square Square ID");
-ATTRIB_NAMES_NON_STANDARD.put("Square/Square/Subsquare", "Square Subsquare");
 ATTRIB_NAMES_NON_STANDARD.put("Square/Square/Team_Members", "Square Team Members");
 ATTRIB_NAMES_NON_STANDARD.put("Square/Square/Date_Closed", "Square Date Closed");
 ATTRIB_NAMES_NON_STANDARD.put("Square/Square/Brief_Description", "Square Brief Description");
 ATTRIB_NAMES_NON_STANDARD.put("Square/Square/Your_Discussion", "Square Your Discussion");
 ATTRIB_NAMES_NON_STANDARD.put("Square_Files/Add_Square_Files/Area", "Square Files Area");
 ATTRIB_NAMES_NON_STANDARD.put("Square_Files/Add_Square_Files/Square_ID", "Square Files Square ID");
-ATTRIB_NAMES_NON_STANDARD.put("Square_Files/Add_Square_Files/Subsquare", "Square Files Subsquare");
 ATTRIB_NAMES_NON_STANDARD.put("Locus/General/Area", "Locus Area");
 ATTRIB_NAMES_NON_STANDARD.put("Locus/General/Square_ID", "Locus Square ID");
-ATTRIB_NAMES_NON_STANDARD.put("Locus/General/Subsquare", "Locus Subsquare");
 ATTRIB_NAMES_NON_STANDARD.put("Locus/General/Locus_ID", "Locus Locus ID");
 ATTRIB_NAMES_NON_STANDARD.put("Locus/General/Brief_Description", "Locus Brief Description");
 ATTRIB_NAMES_NON_STANDARD.put("Locus/General/Team_Members", "Locus Team Members");
@@ -890,10 +895,11 @@ ATTRIB_NAMES_NON_STANDARD.put("Diary/Diary/Photo", "Diary Photo");
 ATTRIB_NAMES_NON_STANDARD.put("Diary/Vars/Square_ID", "Diary Square ID");
 ATTRIB_NAMES_NON_STANDARD.put("Pottery_Basket/General/Area", "Pottery Basket Area");
 ATTRIB_NAMES_NON_STANDARD.put("Pottery_Basket/General/Square_ID", "Pottery Basket Square ID");
-ATTRIB_NAMES_NON_STANDARD.put("Pottery_Basket/General/Subsquare", "Pottery Basket Subsquare");
 ATTRIB_NAMES_NON_STANDARD.put("Pottery_Basket/General/Locus_ID", "Pottery Basket Locus ID");
 ATTRIB_NAMES_NON_STANDARD.put("Legacy/Legacy/Square_ID", "Legacy Square ID");
 ATTRIB_NAMES_NON_STANDARD.put("Legacy/Legacy/Locus_ID", "Legacy Locus ID");
+ATTRIB_NAMES_NON_STANDARD.put("Daily_Final_Height/Vars/Locus_ID", "Daily Final Height Locus ID");
+ATTRIB_NAMES_NON_STANDARD.put("Daily_Final_Height/Vars/Square_ID", "Daily Final Height Square ID");
 
 String getType(String ref) {
   String type = REF_TO_TYPE.get(ref);
@@ -1913,11 +1919,11 @@ void timedPopulateCursorList(String ref, String q, int limit) {
 
 void setUpTypeHierarchy() {
   //- 
-  //  - Diary
   //  - Legacy
   //  - Square
   //    - Square Files
   //    - Locus
+  //      - Daily Final Height
   //      - Soil Munsel Color
   //      - Sediment Aggregate
   //      - Pottery Basket
@@ -1926,13 +1932,14 @@ void setUpTypeHierarchy() {
   //      - Photograph Log
   //    - Diary
   //    - Legacy
+  //  - Diary
 
   n0 = Tree("", 1);
-  n1 = Tree("Diary", 1);
-  n2 = Tree("Legacy", 1);
-  n3 = Tree("Square", 1);
-  n4 = Tree("Square Files", 1);
-  n5 = Tree("Locus", 1);
+  n1 = Tree("Legacy", 1);
+  n2 = Tree("Square", 1);
+  n3 = Tree("Square Files", 1);
+  n4 = Tree("Locus", 1);
+  n5 = Tree("Daily Final Height", 1);
   n6 = Tree("Soil Munsel Color", 1);
   n7 = Tree("Sediment Aggregate", 1);
   n8 = Tree("Pottery Basket", 1);
@@ -1941,21 +1948,23 @@ void setUpTypeHierarchy() {
   n11 = Tree("Photograph Log", 1);
   n12 = Tree("Diary", 1);
   n13 = Tree("Legacy", 1);
+  n14 = Tree("Diary", 1);
 
   n0.addChild(n1);
   n0.addChild(n2);
-  n0.addChild(n3);
+  n0.addChild(n14);
 
-  n3.addChild(n4);
-  n3.addChild(n5);
-  n3.addChild(n10);
-  n3.addChild(n12);
-  n3.addChild(n13);
+  n2.addChild(n3);
+  n2.addChild(n4);
+  n2.addChild(n10);
+  n2.addChild(n12);
+  n2.addChild(n13);
 
-  n5.addChild(n6);
-  n5.addChild(n7);
-  n5.addChild(n8);
-  n5.addChild(n9);
+  n4.addChild(n5);
+  n4.addChild(n6);
+  n4.addChild(n7);
+  n4.addChild(n8);
+  n4.addChild(n9);
 
   n10.addChild(n11);
 
@@ -2733,11 +2742,9 @@ void inheritFieldValue(String src, String dst) {
 inheritFieldValue("User/User_List/Device_Code", "Square/Vars/Device_Code", false);
 inheritFieldValue("Square/Square/Area", "Square_Files/Add_Square_Files/Area", true);
 inheritFieldValue("Square/Square/Square_ID", "Square_Files/Add_Square_Files/Square_ID", true);
-inheritFieldValue("Square/Square/Subsquare", "Square_Files/Add_Square_Files/Subsquare", true);
 inheritFieldValue("User/User_List/Device_Code", "Square_Files/Vars/Device_Code", false);
 inheritFieldValue("Square/Square/Area", "Locus/General/Area", true);
 inheritFieldValue("Square/Square/Square_ID", "Locus/General/Square_ID", true);
-inheritFieldValue("Square/Square/Subsquare", "Locus/General/Subsquare", true);
 inheritFieldValue("Square/Square/Team_Members", "Locus/General/Team_Members", true);
 inheritFieldValue("User/User_List/Device_Code", "Locus/Vars/Device_Code", false);
 inheritFieldValue("Square/Square/Area", "Phase/General/Area", true);
@@ -2756,12 +2763,14 @@ inheritFieldValue("User/User_List/Device_Code", "Diary/Vars/Device_Code", false)
 inheritFieldValue("Locus/General/Area", "Pottery_Basket/General/Area", true);
 inheritFieldValue("Locus/General/Square_ID", "Pottery_Basket/General/Square_ID", true);
 inheritFieldValue("Square/Square/Square_ID", "Pottery_Basket/General/Square_ID", true);
-inheritFieldValue("Locus/General/Subsquare", "Pottery_Basket/General/Subsquare", true);
 inheritFieldValue("Locus/General/Locus_ID", "Pottery_Basket/General/Locus_ID", true);
 inheritFieldValue("User/User_List/Device_Code", "Pottery_Basket/Vars/Device_Code", false);
 inheritFieldValue("Locus/General/Locus_ID", "Soil_Munsel_Color/Vars/Soil_Munsel_Color_Locus_ID", true);
 inheritFieldValue("User/User_List/Device_Code", "Soil_Munsel_Color/Vars/Device_Code", false);
 inheritFieldValue("User/User_List/Device_Code", "Legacy/Var/Device_Code", false);
+inheritFieldValue("Locus/General/Locus_ID", "Daily_Final_Height/Vars/Locus_ID", true);
+inheritFieldValue("Locus/General/Square_ID", "Daily_Final_Height/Vars/Square_ID", true);
+inheritFieldValue("User/User_List/Device_Code", "Daily_Final_Height/Vars/Device_Code", false);
 
 /******************************************************************************/
 /*                            NEW TAB REDIRECTION                             */
@@ -3498,7 +3507,6 @@ void validateLocus() {
   f.add(fieldPair("Locus/Measure/Measure_Length", "{Length__m_}"));
   f.add(fieldPair("Locus/Measure/Measure_Width", "{Width__m_}"));
   f.add(fieldPair("Locus/Measure/Measure_Depth", "{Depth__m_}"));
-  f.add(fieldPair("Locus/Measure/Volume_Litres", "{Volume__litres_}"));
   f.add(fieldPair("Locus/Cut/Shape_in_Plan", "{Shape_in_Plan}"));
   f.add(fieldPair("Locus/Cut/Shape_of_Corners", "{Shape_of_Corners}"));
   f.add(fieldPair("Locus/Cut/Break_of_Slope_-_Top", "{Break_of_Slope___Top}"));
@@ -3748,6 +3756,10 @@ void onShowLegacy () {
   saveTabGroup("Legacy");
 }
 
+void onShowDailyFinalHeight () {
+  saveTabGroup("Daily_Final_Height");
+}
+
 addOnEvent("Square", "show", "onShowSquare()");
 addOnEvent("Square_Files", "show", "onShowSquareFiles()");
 addOnEvent("Locus", "show", "onShowLocus()");
@@ -3758,6 +3770,7 @@ addOnEvent("Diary", "show", "onShowDiary()");
 addOnEvent("Pottery_Basket", "show", "onShowPotteryBasket()");
 addOnEvent("Soil_Munsel_Color", "show", "onShowSoilMunselColor()");
 addOnEvent("Legacy", "show", "onShowLegacy()");
+addOnEvent("Daily_Final_Height", "show", "onShowDailyFinalHeight()");
 
 void onClickUserLogin () {
   newTab("Control", true);
@@ -3829,6 +3842,10 @@ void onClickSquareCreateNewLegacy () {
   newLegacy("Square");
 }
 
+void onClickLocusAddDailyFinalHeight () {
+  newDailyFinalHeight("Locus");
+}
+
 void onClickLocusAddMunselColor () {
   newSoilMunselColor("Locus");
 }
@@ -3863,6 +3880,7 @@ addOnEvent("Square/Loci/Create_New_Locus", "click", "onClickSquareCreateNewLocus
 addOnEvent("Square/Phases/Create_New_Phase", "click", "onClickSquareCreateNewPhase()");
 addOnEvent("Square/Diaries/Create_New_Diary", "click", "onClickSquareCreateNewDiary()");
 addOnEvent("Square/Legacies/Create_New_Legacy", "click", "onClickSquareCreateNewLegacy()");
+addOnEvent("Locus/Measure/Add_Daily_Final_Height", "click", "onClickLocusAddDailyFinalHeight()");
 addOnEvent("Locus/Deposit/Add_Munsel_Color", "click", "onClickLocusAddMunselColor()");
 addOnEvent("Locus/Deposit/Add_New_Sediment_Aggregate", "click", "onClickLocusAddNewSedimentAggregate()");
 addOnEvent("Locus/Pottery_Baskets/Add_Pottery_Basket", "click", "onClickLocusAddPotteryBasket()");
@@ -3879,6 +3897,7 @@ addOnEvent("Locus/Add/Photo_Button_1", "click", "attachPictureTo(\"Locus/Add/Pho
 addOnEvent("Phase/Add/Photo_Button_1", "click", "attachPictureTo(\"Phase/Add/Photo\")");
 addOnEvent("Diary/Diary/Photo_Button_1", "click", "attachPictureTo(\"Diary/Diary/Photo\")");
 addOnEvent("Pottery_Basket/General/Attach_Photograph_Button_1", "click", "attachPictureTo(\"Pottery_Basket/General/Attach_Photograph\")");
+addOnEvent("Square/Square/Attach_Sketch_Button_1", "click", "attachFileTo(\"Square/Square/Attach_Sketch\")");
 addOnEvent("Locus/Add/Attach_File_Button_1", "click", "attachFileTo(\"Locus/Add/Attach_File\")");
 addOnEvent("Phase/Add/Attach_File_Button_1", "click", "attachFileTo(\"Phase/Add/Attach_File\")");
 
@@ -4409,6 +4428,28 @@ void newLegacy(String parent){
 void newLegacy (){
   newLegacy(null);
 }
+
+void newDailyFinalHeight(String parent){
+  String tabgroup = "Daily_Final_Height";
+  if (!isNull(parent)) {
+    triggerAutoSave();
+    parentTabgroup   = parent;
+    parentTabgroup__ = parent;
+  }
+  
+
+  setUuid(tabgroup, null);
+  newTabGroup(tabgroup);
+  populateAuthorAndTimestamp(tabgroup);
+  populateEntityListsInTabGroup(tabgroup);
+  
+
+  executeOnEvent(tabgroup, "create");
+}
+
+void newDailyFinalHeight (){
+  newDailyFinalHeight(null);
+}
 void duplicateSquare(){
   String tabgroup = "Square";
   String uuidOld = getUuid(tabgroup);
@@ -4418,7 +4459,7 @@ void duplicateSquare(){
   clearGpsInTabGroup(tabgroup);
   populateAuthorAndTimestamp(tabgroup);
   populateEntityListsInTabGroup(tabgroup);
-  
+  populateFileList("Square/Square/Attach_Sketch", new ArrayList());
   executeOnEvent(tabgroup, "copy");
 
   saveCallback = new SaveCallback() {
@@ -4450,7 +4491,7 @@ void duplicateSquare(){
     onFetch(result) {
       excludeAttributes = new ArrayList();
 
-      
+      excludeAttributes.add("Attach Sketch");
 
       duplicateTabGroup(tabgroup, null, getExtraAttributes(result), excludeAttributes, saveCallback);
     }
@@ -4887,6 +4928,53 @@ void duplicateLegacy(){
     }
   });
 }
+void duplicateDailyFinalHeight(){
+  String tabgroup = "Daily_Final_Height";
+  String uuidOld = getUuid(tabgroup);
+  setUuid(tabgroup, "");
+  disableAutoSave(tabgroup);
+  
+  clearGpsInTabGroup(tabgroup);
+  populateAuthorAndTimestamp(tabgroup);
+  populateEntityListsInTabGroup(tabgroup);
+  
+  executeOnEvent(tabgroup, "copy");
+
+  saveCallback = new SaveCallback() {
+    onSave(uuid, newRecord) {
+      setUuid(tabgroup, uuid);
+
+      timedFetchAll(getDuplicateRelnQuery(uuidOld), new FetchCallback(){
+        onFetch(result) {
+          Log.e("Module", result.toString());
+
+          if (result != null && result.size() >= 1) {
+            parentTabgroup__ = result.get(0).get(4);
+            parentTabgroup__ = parentTabgroup__.replaceAll(" ", "_");
+          }
+
+          makeDuplicateRelationships(result, getUuid(tabgroup));
+
+          showToast("{Duplicated_record}");
+          dialog.dismiss();
+        }
+      });
+
+      saveTabGroup(tabgroup);
+    }
+  };
+
+  String extraDupeAttributes = "";
+  timedFetchAll(getDuplicateAttributeQuery(uuidOld, extraDupeAttributes), new FetchCallback(){
+    onFetch(result) {
+      excludeAttributes = new ArrayList();
+
+      
+
+      duplicateTabGroup(tabgroup, null, getExtraAttributes(result), excludeAttributes, saveCallback);
+    }
+  });
+}
 addOnEvent("Square", "save", "populateEntityListsOfArchEnt(\"Square\")");
 addOnEvent("Square_Files", "save", "populateEntityListsOfArchEnt(\"Square_Files\")");
 addOnEvent("Locus", "save", "populateEntityListsOfArchEnt(\"Locus\")");
@@ -4897,6 +4985,7 @@ addOnEvent("Diary", "save", "populateEntityListsOfArchEnt(\"Diary\")");
 addOnEvent("Pottery_Basket", "save", "populateEntityListsOfArchEnt(\"Pottery_Basket\")");
 addOnEvent("Soil_Munsel_Color", "save", "populateEntityListsOfArchEnt(\"Soil_Munsel_Color\")");
 addOnEvent("Legacy", "save", "populateEntityListsOfArchEnt(\"Legacy\")");
+addOnEvent("Daily_Final_Height", "save", "populateEntityListsOfArchEnt(\"Daily_Final_Height\")");
 
 void doNotDelete(){
   showToast("{Delete_Cancelled}");
@@ -4917,6 +5006,7 @@ addOnEvent("Phase_Relationship", "show", "removeNavigationButtons()");
 addOnEvent("Pottery_Basket", "show", "removeNavigationButtons()");
 addOnEvent("Soil_Munsel_Color", "show", "removeNavigationButtons()");
 addOnEvent("Legacy", "show", "removeNavigationButtons()");
+addOnEvent("Daily_Final_Height", "show", "removeNavigationButtons()");
 addOnEvent("Square", "show", "addNavigationButtons(\"Square\")");
 addOnEvent("Square_Files", "show", "addNavigationButtons(\"Square_Files\")");
 addOnEvent("Locus", "show", "addNavigationButtons(\"Locus\")");
@@ -4927,6 +5017,7 @@ addOnEvent("Diary", "show", "addNavigationButtons(\"Diary\")");
 addOnEvent("Pottery_Basket", "show", "addNavigationButtons(\"Pottery_Basket\")");
 addOnEvent("Soil_Munsel_Color", "show", "addNavigationButtons(\"Soil_Munsel_Color\")");
 addOnEvent("Legacy", "show", "addNavigationButtons(\"Legacy\")");
+addOnEvent("Daily_Final_Height", "show", "addNavigationButtons(\"Daily_Final_Height\")");
 
 /******************************************************************************/
 /*                                   SEARCH                                   */
@@ -4949,6 +5040,7 @@ entityTypes.add(new NameValuePair("{Diary}", "Diary"));
 entityTypes.add(new NameValuePair("{Pottery_Basket}", "Pottery Basket"));
 entityTypes.add(new NameValuePair("{Soil_Munsel_Color}", "Soil Munsel Color"));
 entityTypes.add(new NameValuePair("{Legacy}", "Legacy"));
+entityTypes.add(new NameValuePair("{Daily_Final_Height}", "Daily Final Height"));
 populateDropDown("Control/Search/Entity_Types", entityTypes);
 
 void clearSearch(){
@@ -5119,6 +5211,21 @@ void loadSoilMunselColorFrom(String uuid) {
 }
 void loadLegacyFrom(String uuid) {
   String tabgroup = "Legacy";
+  setUuid(tabgroup, uuid);
+  if (isNull(uuid)) return;
+
+  FetchCallback cb = new FetchCallback() {
+    onFetch(result) {
+      populateEntityListsInTabGroup(tabgroup);
+      executeOnEvent(tabgroup, "fetch");
+    }
+  };
+
+  executeOnEvent(tabgroup, "prefetch");
+  showTabGroup(tabgroup, uuid, cb);
+}
+void loadDailyFinalHeightFrom(String uuid) {
+  String tabgroup = "Daily_Final_Height";
   setUuid(tabgroup, uuid);
   if (isNull(uuid)) return;
 
@@ -5491,6 +5598,12 @@ ENTITY_MENUS.add(new String[] {
     "Square - Legacy"
 });
 ENTITY_MENUS.add(new String[] {
+    "Locus/Measure/Existing_Daily_Final_Heights",
+    "getUuid(\"Locus\")",
+    "Daily Final Height",
+    "Locus - Daily Final Height"
+});
+ENTITY_MENUS.add(new String[] {
     "Locus/Deposit/Munsel_Colors",
     "getUuid(\"Locus\")",
     "Soil Munsel Color",
@@ -5553,6 +5666,7 @@ addOnEvent("Square/Loci/List_of_Existing_Loci", "click", "loadEntity()");
 addOnEvent("Square/Phases/List_of_Existing_Phases", "click", "loadEntity()");
 addOnEvent("Square/Diaries/List_of_Existing_Diaries", "click", "loadEntity()");
 addOnEvent("Square/Legacies/List_of_Existing_Legacies", "click", "loadEntity()");
+addOnEvent("Locus/Measure/Existing_Daily_Final_Heights", "click", "loadEntity(true)");
 addOnEvent("Locus/Deposit/Munsel_Colors", "click", "loadEntity(true)");
 addOnEvent("Locus/Deposit/Associated_Sediment_Aggregates", "click", "loadEntity(true)");
 addOnEvent("Locus/Pottery_Baskets/List_of_Related_Pottery_Baskets", "click", "loadEntity()");
@@ -6749,13 +6863,17 @@ void setDateClosed() {
   goBack();
 }
 
-/*************************** CUSTOM DIARY TIMESTAMP ***************************/
+/*************************** CUSTOM TIMESTAMP ***************************/
 import java.text.SimpleDateFormat;
 
 addOnEvent("Diary", "create", "populateDiaryTimestamp()");
 
 void populateDiaryTimestamp() {
   String           ref    = "Diary/Diary/Timestamp";
+  populateRefWithCurrentDate(ref);
+}
+
+void populateRefWithCurrentDate(String ref) {  
   String           fmt    = "yyyy-MM-dd";
   SimpleDateFormat dFmt   = new SimpleDateFormat(fmt);
   Date             now    = new Date();
@@ -6763,6 +6881,11 @@ void populateDiaryTimestamp() {
 
   setFieldValue(ref, nowStr);
 }
+
+final String DAILY_FINAL_HEIGHT_DATE_REF = "Daily_Final_Height/Daily_Final_Height/Date";
+
+
+addOnEvent("Daily_Final_Height", "create", "populateRefWithCurrentDate(DAILY_FINAL_HEIGHT_DATE_REF)");
 /*************************** CUSTOM DIARY TIMESTAMP ***************************/
 import java.text.SimpleDateFormat;
 

@@ -83,19 +83,11 @@
 </Control>
 
 <Square>
-  <fmt>{{Area}} {{Square_ID}} {{Subsquare}}</fmt>
+  <fmt>{{Area}} {{Square_ID}}</fmt>
   <Square>
     <author/>
     <Area f="notnull"/>
     <Square_ID f="notnull"/>
-    <Subsquare>
-      <opts>
-        <opt>1</opt>
-        <opt>2</opt>
-        <opt>3</opt>
-        <opt>4</opt>
-      </opts>
-    </Subsquare>
     <Team_Members/>
     <Square_Dimensions>
       <!--@SOURCE: vocabs/trench-dimensions.xml-->
@@ -134,6 +126,7 @@
     <Date_Closed f="readonly"/>
     <Brief_Description/>
     <Your_Discussion/>
+    <Attach_Sketch t="file"/>
     <Add_Square_Files t="button" lc="Square_Files"/>
     <Attached_Square_Files t="dropdown" ec="Square_Files"/>
   </Square>
@@ -169,13 +162,12 @@
 </Date_Closed>
 
 <Square_Files>
-  <fmt>{{Area}} {{Square_ID}} {{Subsquare}} {{File_Type}}</fmt>
+  <fmt>{{Area}} {{Square_ID}} {{File_Type}}</fmt>
   <Add_Square_Files>
     Square Files
     <Area i="Square/Square/Area">
     </Area>
     <Square_ID f="readonly notnull" i="Square/Square/Square_ID"/>
-    <Subsquare f="readonly" i="Square/Square/Subsquare"/>
     <author f="readonly"/>
     <File_Type f="notnull">
       <opts>
@@ -197,7 +189,7 @@
 </Square_Files>
 
 <Locus>
-  <fmt>{{Area}} {{Square_ID}} {{Subsquare}} {{Locus_ID}} {{Locus_Type}}</fmt>
+  <fmt>{{Area}} {{Square_ID}} {{Locus_ID}} {{Locus_Type}}</fmt>
   <desc>The physical result of any single action whether it leaves a positive or negative record within the stratigraphic sequence. (MoLAS 1994)</desc>
   <General>
     <cols>
@@ -209,7 +201,6 @@
       </Square_ID>
     </cols>
     <cols>
-      <Subsquare f="readonly" i="Square/Square/Subsquare"/>
       <Locus_ID f="notnull autonum">
         <desc>Every archaeological locus (negative element (cut), deposit, structure, skeleton, artefact cluster) is given a unique 3 or 4 letter locus code. Each trench is designated with a separate letter which starts the code, so it is immediately obvious to which trench a locus belongs. For example locus HAA belongs to Trench H, locus MQP to Trench M etc.
         The loci are labelled consecutively in alphabetical order using the letters following the trench letter. For Trench H the first locus would be HAA, the second HAB, the third HAB and so on. In addition sets of letters can denote parts of trenches, buildings etc. E.g. HFs might denote loci from a specific building.
@@ -262,31 +253,18 @@
         </opts>
       </Excavation_Method>
     </cols>
-    <cols>
-      <Basal_Edge_Definition>
-        <desc>Describe the boundary between this and the next locus.</desc>
-        <opts>
-          <opt>No Observation<desc>data not collected</desc></opt>
-          <opt>Doubtful<desc>You are uncertain of whether you accurately excavated a boundary between deposits</desc> </opt>
-          <opt>Ambiguous<desc>You are uncertain as to whether there was a boundary between loci.</desc> </opt>
-          <opt>Merging<desc>There is a distinction between the excavated locus and earlier locus/loci but the excavated loci and the earlier loci grade into each other</desc> </opt>
-          <opt>Clear<desc>The boundary with the earlier locus/loci was very clearly defined during excavation.</desc> </opt>
-          <opt>Arbitrary Spit<desc>There is no meaningful boundary with an earlier locus. The boundary has been artificially created by the excavation process.</desc> </opt>
-        </opts>
-      </Basal_Edge_Definition>
-      <Contamination>
-        <desc>The extent to which the locus has been contaminated.</desc>
-        <opts>
-          <opt>No Observation</opt>
-          <opt>Primary</opt>
-          <opt>Sealed</opt>
-          <opt>Unsealed</opt>
-          <opt>Disturbed</opt>
-          <opt>Disturbed?</opt>
-          <opt>Unstratified</opt>
-        </opts>
-      </Contamination>
-    </cols>
+    <Contamination>
+      <desc>The extent to which the locus has been contaminated.</desc>
+      <opts>
+        <opt>No Observation</opt>
+        <opt>Primary</opt>
+        <opt>Sealed</opt>
+        <opt>Unsealed</opt>
+        <opt>Disturbed</opt>
+        <opt>Disturbed?</opt>
+        <opt>Unstratified</opt>
+      </opts>
+    </Contamination>
     <Locus_Type>
       <desc>Describe the locus type by selecting an icon as defined below.
         When you have selected a locus type you can proceed to open the "Fill in locus type details" page. Note this page will not open unless you have selected a locus type.</desc>
@@ -364,10 +342,8 @@
         <SE_Bottom_Height b="decimal"/>
       </col>
     </cols>
-    <Volume_Litres f="notnull" b="decimal">
-      Volume (litres)
-      <desc>Estimate the volume of the locus in litres. All soil will be collected in buckets of a known volume. A tally should be kept of buckets produced from a locus and the total volume calculated using that tally.</desc>
-    </Volume_Litres>
+    <Add_Daily_Final_Height t="button" lc="Daily_Final_Height"/>
+    <Existing_Daily_Final_Heights t="dropdown" ec="Daily_Final_Height"/>
   </Measure>
   <Cut>
     Pit
@@ -1266,12 +1242,11 @@
 </Phase_Relationship>
 
 <Pottery_Basket>
-  <fmt>{{Area}} {{Square_ID}} {{Subsquare}} {{Locus_ID}} {{Pottery_Basket_ID}}</fmt>
+  <fmt>{{Area}} {{Square_ID}} {{Locus_ID}} {{Pottery_Basket_ID}}</fmt>
   <General>
     <cols>
       <Area i="Locus/General/Area"/>
       <Square_ID f="readonly" i="Locus/General/Square_ID Square/Square/Square_ID"/>
-      <Subsquare f="readonly" i="Locus/General/Subsquare"/>
     </cols>
     <cols>
       <Locus_ID f="readonly" i="Locus/General/Locus_ID">
@@ -1394,6 +1369,24 @@
   </Var>
 </Legacy>
 
+<Daily_Final_Height>
+  <fmt>{{Date}} {{Daily_Final_Height}}</fmt>
+  <Daily_Final_Height>
+    <Date f="readonly"/>
+    <Daily_Final_Height b="decimal">
+            Daily Final Height (m)
+    </Daily_Final_Height>
+  </Daily_Final_Height>
+  <Vars f="hidden">
+    <Locus_ID i="Locus/General/Locus_ID"/>
+    <Square_ID i="Locus/General/Square_ID"/>
+    <Device_Code i="User/User_List/Device_Code!">
+      <!--@SOURCE: vocabs/device-code.xml-->
+    </Device_Code>
+  </Vars>
+</Daily_Final_Height>
+
+
 <logic><![CDATA[
   <!--@SOURCE: logic/top-matter.bsh-->
 
@@ -1413,7 +1406,7 @@
   <!--@SOURCE: logic/custom-validation.bsh-->
   <!--@SOURCE: logic/date-closed.bsh-->
 
-  <!--@SOURCE: logic/custom-diary-timestamp.bsh-->
+  <!--@SOURCE: logic/custom-timestamp.bsh-->
   <!--@SOURCE: logic/custom-pottery-basket-timestamp.bsh-->
   <!--@SOURCE: logic/height-validation.bsh-->
   <!--@SOURCE: logic/duplication.bsh-->

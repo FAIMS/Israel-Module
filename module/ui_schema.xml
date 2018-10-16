@@ -70,7 +70,6 @@
               <Square_author/>
               <Area/>
               <Square_ID/>
-              <Subsquare/>
               <Team_Members/>
               <Square_Dimensions/>
               <Grid_SW_Corner_Coordinates/>
@@ -102,6 +101,8 @@
               <Date_Closed/>
               <Brief_Description/>
               <Your_Discussion/>
+              <Attach_Sketch/>
+              <Attach_Sketch_Button_1/>
               <Add_Square_Files/>
               <Attached_Square_Files/>
             </Square>
@@ -136,7 +137,6 @@
             <Add_Square_Files>
               <Area/>
               <Square_ID/>
-              <Subsquare/>
               <Square_Files_author/>
               <File_Type/>
               <File_Name/>
@@ -163,11 +163,8 @@
               </Colgroup_1>
               <Colgroup_2>
                 <Col_1>
-                  <Subsquare/>
-                </Col_1>
-                <Col_2>
                   <Locus_ID/>
-                </Col_2>
+                </Col_1>
               </Colgroup_2>
               <Brief_Description/>
               <Primary_Period/>
@@ -188,17 +185,10 @@
                   <Excavation_Method/>
                 </Col_2>
               </Colgroup_4>
-              <Colgroup_5>
-                <Col_1>
-                  <Basal_Edge_Definition/>
-                </Col_1>
-                <Col_2>
-                  <Contamination/>
-                </Col_2>
-              </Colgroup_5>
+              <Contamination/>
               <Locus_Type/>
               <Fill_in_Locus_Type_Details/>
-              <Colgroup_6>
+              <Colgroup_5>
                 <Col_1>
                   <Photo_of_Plan/>
                   <Photo_of_Plan_Button_1/>
@@ -207,15 +197,15 @@
                   <Photo_of_Section/>
                   <Photo_of_Section_Button_1/>
                 </Col_2>
-              </Colgroup_6>
-              <Colgroup_7>
+              </Colgroup_5>
+              <Colgroup_6>
                 <Col_1>
                   <Date_Closed/>
                 </Col_1>
                 <Col_2>
                   <Add_Date_Closed/>
                 </Col_2>
-              </Colgroup_7>
+              </Colgroup_6>
             </General>
             <Measure>
               <Colgroup_1>
@@ -259,7 +249,8 @@
                   <SE_Bottom_Height/>
                 </Col_2>
               </Colgroup_4>
-              <Volume_Litres/>
+              <Add_Daily_Final_Height/>
+              <Existing_Daily_Final_Heights/>
             </Measure>
             <Cut>
               <Cut_Your_Interpretation/>
@@ -672,9 +663,6 @@
                 <Col_2>
                   <Square_ID/>
                 </Col_2>
-                <Col_3>
-                  <Subsquare/>
-                </Col_3>
               </Colgroup_1>
               <Colgroup_2>
                 <Col_1>
@@ -768,6 +756,17 @@
               <Device_Code/>
             </Var>
           </Legacy>
+          <Daily_Final_Height>
+            <Daily_Final_Height>
+              <Date/>
+              <Daily_Final_Height/>
+            </Daily_Final_Height>
+            <Vars>
+              <Locus_ID/>
+              <Square_ID/>
+              <Device_Code/>
+            </Vars>
+          </Daily_Final_Height>
         </faims>
       </instance>
       <bind nodeset="/faims/Control/Next_IDs/Next_Locus_ID" type="decimal"/>
@@ -793,7 +792,6 @@
       <bind nodeset="/faims/Locus/Measure/Colgroup_4/Col_1/Center_Bottom_Height" type="decimal"/>
       <bind nodeset="/faims/Locus/Measure/Colgroup_4/Col_2/NE_Bottom_Height" type="decimal"/>
       <bind nodeset="/faims/Locus/Measure/Colgroup_4/Col_2/SE_Bottom_Height" type="decimal"/>
-      <bind nodeset="/faims/Locus/Measure/Volume_Litres" type="decimal"/>
       <bind nodeset="/faims/Locus/Cut/Orientation_Degree" type="decimal"/>
       <bind nodeset="/faims/Locus/Construction/Length" type="decimal"/>
       <bind nodeset="/faims/Locus/Construction/Width" type="decimal"/>
@@ -831,6 +829,7 @@
       <bind nodeset="/faims/Pottery_Basket/General/Colgroup_6/Col_1/Top_Elevation_m" type="decimal"/>
       <bind nodeset="/faims/Pottery_Basket/General/Colgroup_6/Col_2/Bottom_Elevation_m" type="decimal"/>
       <bind nodeset="/faims/Pottery_Basket/General/Weight_kg" type="decimal"/>
+      <bind nodeset="/faims/Daily_Final_Height/Daily_Final_Height/Daily_Final_Height" type="decimal"/>
     </model>
   </h:head>
   <h:body>
@@ -994,13 +993,6 @@
         <input faims_attribute_name="Square Square ID" faims_attribute_type="measure" ref="Square_ID" faims_style_class="required">
           <label>{Square_ID}</label>
         </input>
-        <select1 faims_attribute_name="Square Subsquare" faims_attribute_type="vocab" ref="Subsquare">
-          <label>{Subsquare}</label>
-          <item>
-            <label>Options not loaded</label>
-            <value>Options not loaded</value>
-          </item>
-        </select1>
         <input faims_attribute_name="Square Team Members" faims_attribute_type="measure" ref="Team_Members">
           <label>{Team_Members}</label>
         </input>
@@ -1081,6 +1073,16 @@
         <input faims_attribute_name="Square Your Discussion" faims_attribute_type="measure" ref="Your_Discussion">
           <label>{Your_Discussion}</label>
         </input>
+        <select faims_sync="true" type="file" faims_attribute_name="Attach Sketch" faims_attribute_type="measure" ref="Attach_Sketch">
+          <label>{Attach_Sketch}</label>
+          <item>
+            <label>Options not loaded</label>
+            <value>Options not loaded</value>
+          </item>
+        </select>
+        <trigger ref="Attach_Sketch_Button_1">
+          <label>{Attach_Sketch}</label>
+        </trigger>
         <trigger ref="Add_Square_Files">
           <label>{Add_Square_Files}</label>
         </trigger>
@@ -1180,9 +1182,6 @@
         <input faims_attribute_name="Square Files Square ID" faims_attribute_type="measure" ref="Square_ID" faims_style_class="required" faims_read_only="true">
           <label>{Square_ID}</label>
         </input>
-        <input faims_attribute_name="Square Files Subsquare" faims_attribute_type="measure" ref="Subsquare" faims_read_only="true">
-          <label>{Subsquare}</label>
-        </input>
         <input faims_attribute_name="Square Files author" faims_attribute_type="measure" ref="Square_Files_author" faims_read_only="true">
           <label>{Author}</label>
         </input>
@@ -1250,12 +1249,6 @@
           <label/>
           <group ref="Col_1" faims_style="even">
             <label/>
-            <input faims_attribute_name="Locus Subsquare" faims_attribute_type="measure" ref="Subsquare" faims_read_only="true">
-              <label>{Subsquare}</label>
-            </input>
-          </group>
-          <group ref="Col_2" faims_style="even">
-            <label/>
             <input faims_attribute_name="Locus Locus ID" faims_attribute_type="measure" ref="Locus_ID" faims_style_class="required">
               <label>{Locus_ID}</label>
             </input>
@@ -1308,29 +1301,13 @@
             </select>
           </group>
         </group>
-        <group ref="Colgroup_5" faims_style="orientation">
-          <label/>
-          <group ref="Col_1" faims_style="even">
-            <label/>
-            <select1 faims_attribute_name="Basal Edge Definition" faims_attribute_type="vocab" ref="Basal_Edge_Definition">
-              <label>{Basal_Edge_Definition}</label>
-              <item>
-                <label>Options not loaded</label>
-                <value>Options not loaded</value>
-              </item>
-            </select1>
-          </group>
-          <group ref="Col_2" faims_style="even">
-            <label/>
-            <select1 faims_attribute_name="Contamination" faims_attribute_type="vocab" ref="Contamination">
-              <label>{Contamination}</label>
-              <item>
-                <label>Options not loaded</label>
-                <value>Options not loaded</value>
-              </item>
-            </select1>
-          </group>
-        </group>
+        <select1 faims_attribute_name="Contamination" faims_attribute_type="vocab" ref="Contamination">
+          <label>{Contamination}</label>
+          <item>
+            <label>Options not loaded</label>
+            <value>Options not loaded</value>
+          </item>
+        </select1>
         <select1 type="image" faims_attribute_name="Locus Type" faims_attribute_type="vocab" ref="Locus_Type">
           <label>{Locus_Type}</label>
           <item>
@@ -1341,7 +1318,7 @@
         <trigger ref="Fill_in_Locus_Type_Details">
           <label>{Fill_in_Locus_Type_Details}</label>
         </trigger>
-        <group ref="Colgroup_6" faims_style="orientation">
+        <group ref="Colgroup_5" faims_style="orientation">
           <label/>
           <group ref="Col_1" faims_style="even">
             <label/>
@@ -1370,7 +1347,7 @@
             </trigger>
           </group>
         </group>
-        <group ref="Colgroup_7" faims_style="orientation">
+        <group ref="Colgroup_6" faims_style="orientation">
           <label/>
           <group ref="Col_1" faims_style="even">
             <label/>
@@ -1472,9 +1449,16 @@
             </input>
           </group>
         </group>
-        <input faims_attribute_name="Volume Litres" faims_attribute_type="measure" ref="Volume_Litres" faims_style_class="required">
-          <label>{Volume__litres_}</label>
-        </input>
+        <trigger ref="Add_Daily_Final_Height">
+          <label>{Add_Daily_Final_Height}</label>
+        </trigger>
+        <select1 ref="Existing_Daily_Final_Heights">
+          <label>{Existing_Daily_Final_Heights}</label>
+          <item>
+            <label>Options not loaded</label>
+            <value>Options not loaded</value>
+          </item>
+        </select1>
       </group>
       <group ref="Cut">
         <label>{Pit}</label>
@@ -2535,12 +2519,6 @@
               <label>{Square_ID}</label>
             </input>
           </group>
-          <group ref="Col_3" faims_style="even">
-            <label/>
-            <input faims_attribute_name="Pottery Basket Subsquare" faims_attribute_type="measure" ref="Subsquare" faims_read_only="true">
-              <label>{Subsquare}</label>
-            </input>
-          </group>
         </group>
         <group ref="Colgroup_2" faims_style="orientation">
           <label/>
@@ -2769,6 +2747,34 @@
       </group>
       <group ref="Var" faims_hidden="true">
         <label>{Var}</label>
+        <select1 faims_attribute_name="Device Code" faims_attribute_type="vocab" ref="Device_Code">
+          <label>{Device_Code}</label>
+          <item>
+            <label>Options not loaded</label>
+            <value>Options not loaded</value>
+          </item>
+        </select1>
+      </group>
+    </group>
+    <group ref="Daily_Final_Height" faims_archent_type="Daily Final Height">
+      <label>{Daily_Final_Height}</label>
+      <group ref="Daily_Final_Height">
+        <label>{Daily_Final_Height}</label>
+        <input faims_attribute_name="Date" faims_attribute_type="measure" ref="Date" faims_read_only="true">
+          <label>{Date}</label>
+        </input>
+        <input faims_attribute_name="Daily Final Height" faims_attribute_type="measure" ref="Daily_Final_Height">
+          <label>{Daily_Final_Height__m_}</label>
+        </input>
+      </group>
+      <group ref="Vars" faims_hidden="true">
+        <label>{Vars}</label>
+        <input faims_attribute_name="Daily Final Height Locus ID" faims_attribute_type="measure" ref="Locus_ID">
+          <label>{Locus_ID}</label>
+        </input>
+        <input faims_attribute_name="Daily Final Height Square ID" faims_attribute_type="measure" ref="Square_ID">
+          <label>{Square_ID}</label>
+        </input>
         <select1 faims_attribute_name="Device Code" faims_attribute_type="vocab" ref="Device_Code">
           <label>{Device_Code}</label>
           <item>

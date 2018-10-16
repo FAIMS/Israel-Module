@@ -65,11 +65,6 @@
         <param type="field" value="measure"/>
       </validator>
     </property>
-    <property name="Volume Litres">
-      <validator type="blankchecker">
-        <param type="field" value="measure"/>
-      </validator>
-    </property>
     <property name="Shape in Plan">
       <validator type="blankchecker">
         <param type="field" value="vocab"/>
